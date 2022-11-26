@@ -132,6 +132,9 @@
     <ClCompile Include="Shapes\Triangle.cpp">
       <Filter>Shapes&amp;Graph</Filter>
     </ClCompile>
+    <ClCompile Include="operations\opAddRegPol.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -228,6 +231,9 @@
     </ClInclude>
     <ClInclude Include="GUI\GUI.h">
       <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opAddRegPol.h">
+      <Filter>Operations</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

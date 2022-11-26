@@ -167,6 +167,7 @@
     <ClCompile Include="controller.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="operations\opAddRect.cpp" />
+    <ClCompile Include="operations\opAddRegPol.cpp" />
     <ClCompile Include="operations\opAddTriangle.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
     <ClCompile Include="Shapes\RegularPol.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="operations\ColourPallete.h" />
     <ClInclude Include="operations\exit.h" />
     <ClInclude Include="operations\opAddRect.h" />
+    <ClInclude Include="operations\opAddRegPol.h" />
     <ClInclude Include="operations\opAddTriangle.h" />
     <ClInclude Include="operations\operation.h" />
     <ClInclude Include="Shapes\Graph.h" />

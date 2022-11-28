@@ -15,7 +15,7 @@ GUI::GUI()
 	ToolBarHeight = 50;
 	MenuIconWidth = 80;
 
-	DrawColor = BLUE;	//default Drawing color
+	DrawColor = RED;	//default Drawing color
 	FillColor = GREEN;	//default Filling color
 	MsgColor = BLACK;		//Messages color
 	BkGrndColor = WHITE;	//Background color
@@ -157,10 +157,10 @@ void GUI::CreateDrawToolBar()
 	//To control the order of these images in the menu, 
 	//reoder them in UI_Info.h ==> enum DrawMenuIcon
 	string MenuIconImages[DRAW_ICON_COUNT];
-	MenuIconImages[ICON_RECT] = "images\\MenuIcons\\rectangle.jpeg";
-	MenuIconImages[ICON_CIRC] = "images\\MenuIcons\\circle.jpeg";
+	MenuIconImages[ICON_RECT] = "images\MenuIcons\\rectangle,jpg";
+	MenuIconImages[ICON_CIRC] = "images\\MenuIcons\\circle.jpg";
 	MenuIconImages[ICON_EXIT] = "images\\MenuIcons\\Menu_Exit.jpg";
-	MenuIconImages[ICON_TRIANGLE] = "images\\MenuIcons\\triangle.jpeg";
+	MenuIconImages[ICON_TRIANGLE] = "images\\MenuIcons\\triangle.jpg";
 
 	//TODO: Prepare images for each menu icon and add it to the list
 
@@ -247,7 +247,7 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 
 }
 
-void GUI:: DrawTriangle(Point P1, Point P2, Point P3 ,  GfxInfo TriangleGfxInfo) const
+void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriangleGfxInfo) const
 {
 	color DrawingClr;
 	if (TriangleGfxInfo.isSelected)	//shape is selected
@@ -266,30 +266,32 @@ void GUI:: DrawTriangle(Point P1, Point P2, Point P3 ,  GfxInfo TriangleGfxInfo)
 	else
 		style = FRAME;
 
-	pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x , P3.y ,  style);
+	pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y, style);
 
 }
-void GUI::DrawRegularPol(Point C1, Point C2, Point C3, Point C4, Point C5, GfxInfo PolyGfxInfo) const
+void GUI::DrawRegularPol(Point Center, Point start, Point end, double distanceFromCenter, double  SideLength, int  NumberOfsides, GfxInfo shapeGfxInfo) const
 {
 	color DrawingClr;
-	if (PolyGfxInfo.isSelected)	//shape is selected
+	if (shapeGfxInfo.isSelected)	//shape is selected
 		DrawingClr = HighlightColor; //shape should be drawn highlighted
 	else
-		DrawingClr = PolyGfxInfo.DrawClr;
+		DrawingClr = shapeGfxInfo.DrawClr;
 
-	pWind->SetPen(DrawingClr, PolyGfxInfo.BorderWdth);	//Set Drawing color & width
+	pWind->SetPen(DrawingClr, shapeGfxInfo.BorderWdth);	//Set Drawing color & width
 
 	drawstyle style;
-	if (PolyGfxInfo.isFilled)
+	if (shapeGfxInfo.isFilled)
 	{
 		style = FILLED;
-		pWind->SetBrush(PolyGfxInfo.FillClr);
+		pWind->SetBrush(shapeGfxInfo.FillClr);
 	}
 	else
+
 		style = FRAME;
 
-	//pWind->DrawRegularPol(C1.x, C1.y, C2.x, C2.y, C3.x, C3.y, C4.x, C4. style);
+	//pWind->DrawRegularPol();
 }
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////////

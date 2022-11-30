@@ -12,11 +12,11 @@ private:
     double SideLength;
     int NumberOfsides;
     double angle;
-    int* PointerToarrayX= new int [NumberOfsides];
-    int* PointerToarrayY= new int [NumberOfsides];
+    int PointerToarrayX [1000];
+    int PointerToarrayY  [1000];
 
 public :
-    regularPolygon(Point, Point, Point , string , GfxInfo shapeGfxInfo);
+    regularPolygon(Point, Point, Point , int , GfxInfo shapeGfxInfo);
     virtual ~regularPolygon();
     virtual void Draw(GUI* pUI) const;
 

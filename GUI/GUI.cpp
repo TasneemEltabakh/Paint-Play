@@ -159,11 +159,11 @@ void GUI::CreateDrawToolBar()
 	//reoder them in UI_Info.h ==> enum DrawMenuIcon
 
 	string MenuIconImages[DRAW_ICON_COUNT];
-	MenuIconImages[ICON_RECT] = "images\\MenuIcons\\Menu_Exit.jpg";
-	MenuIconImages[ICON_CIRC] = "images\\MenuIcons\\Menu_Exit.jpg";
+	MenuIconImages[ICON_RECT] = "images\\MenuIcons\\rectangle.jpeg";
+	MenuIconImages[ICON_CIRC] = "images\\MenuIcons\\circle.jpg";
 	MenuIconImages[ICON_EXIT] = "images\\MenuIcons\\Menu_Exit.jpg";
-	MenuIconImages[ICON_TRIANGLE] = "images\\MenuIcons\\Menu_Exit.jpg";
-	MenuIconImages[ICON_POLYGON] = "images\\MenuIcons\\Menu_Exit.jpg";
+	MenuIconImages[ICON_TRIANGLE] = "images\\MenuIcons\\triangle.jpg";
+	MenuIconImages[ICON_POLYGON] = "images\\MenuIcons\\regularpolygon.jpg";
 
 	//TODO: Prepare images for each menu icon and add it to the list
 

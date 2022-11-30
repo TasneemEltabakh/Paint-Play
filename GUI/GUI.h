@@ -40,6 +40,7 @@ class GUI
 		ICON_RECT,		//Recangle icon in menu
 		ICON_CIRC,		//Circle icon in menu
 		ICON_TRIANGLE,
+		ICON_POLYGON,
 
 
 		//TODO: Add more icons names here
@@ -106,7 +107,7 @@ public:
 	// -- shapes Drawing functions
 	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const;  //Draw a rectangle
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo RectGfxInfo) const;  //Draw a Triangle
-	void DrawRegularPol(Point Center, Point start, Point end, double distanceFromCenter,double  SideLength,int  NumberOfsides, GfxInfo shapeGfxInfo) const; //Draw a Polygon
+	void DrawRegularPol(const int* PointertoarryOFX, const int* PointertoarryOFy, const int numberofsides, GfxInfo shapeGfxInfo) const; //Draw a Polygon
 
 
 	///Make similar functions for drawing all other shapes.

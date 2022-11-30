@@ -3,6 +3,7 @@
 #include "CMUgraphicsLib/CMUgraphics.h"
 #include "CMUgraphicsLib/windowinput.h"
 #include "operations/opAddTriangle.h"
+#include "operations/opAddRegPol.h"
 
 
 
@@ -38,6 +39,8 @@ operation* controller::createOperation(operationType OpType)
 		case DRAW_LINE:
 			///create AddLineoperation here
 			break;
+		case DRAW_POLY:
+			pOp = new opAddRegPol(this);
 
 		case EXIT: 
 

@@ -128,9 +128,9 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\Project Startup Code\CMUgraphicsLib\image.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
     <ClCompile Include="CMUgraphicsLib\CMUgraphics.cpp" />
-    <ClCompile Include="CMUgraphicsLib\image.cpp" />
     <ClCompile Include="CMUgraphicsLib\jpegload.c" />
     <ClCompile Include="CMUgraphicsLib\keyqueue.cpp" />
     <ClCompile Include="CMUgraphicsLib\mousequeue.cpp" />
@@ -170,7 +170,7 @@
     <ClCompile Include="operations\opAddRegPol.cpp" />
     <ClCompile Include="operations\opAddTriangle.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
-    <ClCompile Include="Shapes\RegularPol.cpp" />
+    <ClCompile Include="Shapes\regularPolygon.cpp" />
     <ClCompile Include="Shapes\Shape.cpp" />
     <ClCompile Include="Shapes\Rect.cpp" />
     <ClCompile Include="Shapes\Triangle.cpp" />
@@ -206,8 +206,8 @@
     <ClInclude Include="operations\opAddTriangle.h" />
     <ClInclude Include="operations\operation.h" />
     <ClInclude Include="Shapes\Graph.h" />
-    <ClInclude Include="Shapes\RegularPol.h" />
     <ClInclude Include="Shapes\Rect.h" />
+    <ClInclude Include="Shapes\regularPolygon.h" />
     <ClInclude Include="Shapes\Shape.h" />
     <ClInclude Include="Shapes\Triangle.h" />
   </ItemGroup>

@@ -95,13 +95,13 @@ void image::Open(const char *cpFileName, imagetype itThisType) {
 	bmiImage->bmiHeader.biClrUsed = 0;
 	bmiImage->bmiHeader.biClrImportant = 0;
 
-    if(itType == JPEG) {
+   /*if (itType == JPEG) {
         iErrorCode = jpegload(cpFileName, &usWidth, &usHeight, &ucpTmp);
         if(iErrorCode == -1) {
-            throw FILE_NOT_FOUND;
+           throw FILE_NOT_FOUND;
         } else if(iErrorCode == -2) {
             delete [] bmiImage;
-            throw OUT_OF_MEMORY;          
+			throw OUT_OF_MEMORY;          
         }
 
 		bmiImage->bmiHeader.biWidth = usWidth;
@@ -129,7 +129,7 @@ void image::Open(const char *cpFileName, imagetype itThisType) {
 	
 	    cout << "Fatal Error: Unsupported image type!" << endl;
 	
-	}
+	}*/
 
 }
 

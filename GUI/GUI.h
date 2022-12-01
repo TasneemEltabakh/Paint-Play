@@ -107,7 +107,8 @@ public:
 	// -- shapes Drawing functions
 	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const;  //Draw a rectangle
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo RectGfxInfo) const;  //Draw a Triangle
-	void DrawRegularPol(const int* PointertoarryOFX, const int* PointertoarryOFy, const int numberofsides, GfxInfo shapeGfxInfo) const; //Draw a Polygon
+	void DrawPol(int PointertoarryOFX[],int PointertoarryOFy[], const int numberofsides, GfxInfo shapeGfxInfo) const; //Draw a Polygon (regular/ irregular)
+	
 
 
 	///Make similar functions for drawing all other shapes.

@@ -12,8 +12,8 @@ private:
     double SideLength;
     int NumberOfsides;
     double angle;
-    int PointerToarrayX [1000];
-    int PointerToarrayY  [1000];
+    int* PointerToarrayX = new int[NumberOfsides];
+    int* PointerToarrayY = new int[NumberOfsides];
 
 public :
     regularPolygon(Point, Point, Point , int , GfxInfo shapeGfxInfo);

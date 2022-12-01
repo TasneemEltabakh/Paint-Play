@@ -1,5 +1,5 @@
 #include "../Shapes/Shape.h"
-#include "G:\Academic\CIE\C++\PAINTER\Paint-Play\operations\opAddRegPol.h"
+#include "opAddRegPol.h"
 #include "../controller.h"
 #include "../GUI/GUI.h"
 #include "../Shapes/regularPolygon.h"
@@ -27,7 +27,7 @@ void opAddRegPol::Execute()
 	pUI->PrintMessage(msg);
 
 	pUI->GetPointClicked(P2.x, P2.y);
-	pUI->ClearStatusBar();
+	
      msg = "Your first point is at (" + to_string(P2.x) + ", " + to_string(P2.y) + " )";
 
 
@@ -35,8 +35,6 @@ void opAddRegPol::Execute()
 	pUI->PrintMessage(msg);
 	pUI->GetPointClicked(P3.x, P3.y);
     msg = "Your second point is at (" + to_string(P3.x) + ", " + to_string(P3.y) + " )";
-	pUI->ClearStatusBar();
-
 
 	msg += " what is the number of sides of this polygon";
 	pUI->PrintMessage(msg);

@@ -4,7 +4,7 @@
 #include "CMUgraphicsLib/windowinput.h"
 #include "operations/opAddTriangle.h"
 #include "operations/opAddRegPol.h"
-
+#include "operations/opAddirrPol.h"
 
 
 //Constructor
@@ -39,11 +39,13 @@ operation* controller::createOperation(operationType OpType)
 		case DRAW_LINE:
 			///create AddLineoperation here
 			break;
-		case DRAW_POLY:
+		case DRAW_regularPOLY:
 			pOp = new opAddRegPol(this);
-
+			break;
+		case DRAW_IRREPoly:
+			pOp = new opAddirrPol(this);
+			break;
 		case EXIT: 
-
 			break;
 		
 		case STATUS:	//a click on the status bar ==> no operation

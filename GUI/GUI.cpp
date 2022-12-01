@@ -91,7 +91,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_CIRC: return DRAW_CIRC;
 			case ICON_EXIT: return EXIT;
 			case ICON_TRIANGLE: return DRAW_TRI;
-			case ICON_POLYGON: return DRAW_POLY;
+			case ICON_POLYGON: return DRAW_IRREPoly;
 
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
@@ -271,8 +271,8 @@ void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriangleGfxInfo) co
 
 	pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y, style);
 
-}
-void GUI:: DrawRegularPol(const int* PointertoarryOFX, const int* PointertoarryOFy, const int Numberodsides, GfxInfo shapeGfxInfo )const
+} 
+void GUI:: DrawPol(int PointertoarryOFX[], int PointertoarryOFy[], const int Numberodsides, GfxInfo shapeGfxInfo) const
 {
 	color DrawingClr;
 	if (shapeGfxInfo.isSelected)	//shape is selected
@@ -292,7 +292,7 @@ void GUI:: DrawRegularPol(const int* PointertoarryOFX, const int* PointertoarryO
 
 		style = FRAME;
 
-	pWind->DrawPolygon(PointertoarryOFX, PointertoarryOFy, Numberodsides);
+	pWind->DrawPolygon(PointertoarryOFX, PointertoarryOFy, Numberodsides, style);
 }
 
 

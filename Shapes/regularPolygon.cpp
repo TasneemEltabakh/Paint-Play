@@ -3,7 +3,6 @@
 
 regularPolygon ::regularPolygon(Point P1, Point P2, Point P3, int Sides,  GfxInfo shapeGfxInfo) : shape(shapeGfxInfo)
 {
-
 	Center.x = P1.x;
 	Center.y = P1.y;
 	start.x = P2.x;
@@ -31,5 +30,5 @@ regularPolygon:: ~regularPolygon()
 {}
 void  regularPolygon::Draw(GUI* pUI) const
 {
-	pUI->DrawRegularPol(PointerToarrayX, PointerToarrayY, NumberOfsides, ShpGfxInfo);
+	pUI->DrawPol(PointerToarrayX, PointerToarrayY, NumberOfsides, ShpGfxInfo);
 }

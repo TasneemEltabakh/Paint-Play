@@ -163,6 +163,7 @@
     <ClCompile Include="CMUgraphicsLib\jpeg\jquant1.c" />
     <ClCompile Include="CMUgraphicsLib\jpeg\jquant2.c" />
     <ClCompile Include="CMUgraphicsLib\jpeg\jutils.c" />
+    <ClCompile Include="Delete.cpp" />
     <ClCompile Include="GUI\GUI.cpp" />
     <ClCompile Include="controller.cpp" />
     <ClCompile Include="main.cpp" />
@@ -170,6 +171,8 @@
     <ClCompile Include="operations\opAddRect.cpp" />
     <ClCompile Include="operations\opAddRegPol.cpp" />
     <ClCompile Include="operations\opAddTriangle.cpp" />
+    <ClCompile Include="Save.cpp" />
+    <ClCompile Include="Select.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
     <ClCompile Include="Shapes\IrregularPolygon.cpp" />
     <ClCompile Include="Shapes\regularPolygon.cpp" />
@@ -200,6 +203,7 @@
     <ClInclude Include="CMUgraphicsLib\jpeg\jversion.h" />
     <ClInclude Include="controller.h" />
     <ClInclude Include="DEFS.h" />
+    <ClInclude Include="Delete.h" />
     <ClInclude Include="GUI\GUI.h" />
     <ClInclude Include="operations\opAddirrPol.h" />
     <ClInclude Include="operations\opChooseColour.h" />
@@ -208,6 +212,8 @@
     <ClInclude Include="operations\opAddRegPol.h" />
     <ClInclude Include="operations\opAddTriangle.h" />
     <ClInclude Include="operations\operation.h" />
+    <ClInclude Include="Save.h" />
+    <ClInclude Include="Select.h" />
     <ClInclude Include="Shapes\Graph.h" />
     <ClInclude Include="Shapes\IrregularPolygon.h" />
     <ClInclude Include="Shapes\Rect.h" />

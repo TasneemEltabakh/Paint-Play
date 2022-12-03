@@ -141,6 +141,9 @@
     <ClCompile Include="CMUgraphicsLib\image.cpp">
       <Filter>GraphicsLib</Filter>
     </ClCompile>
+    <ClCompile Include="Delete.cpp" />
+    <ClCompile Include="Save.cpp" />
+    <ClCompile Include="Select.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -247,6 +250,9 @@
     <ClInclude Include="operations\opAddirrPol.h">
       <Filter>Operations</Filter>
     </ClInclude>
+    <ClInclude Include="Delete.h" />
+    <ClInclude Include="Save.h" />
+    <ClInclude Include="Select.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">

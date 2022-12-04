@@ -41,6 +41,7 @@ class GUI
 		ICON_CIRC,		//Circle icon in menu
 		ICON_TRIANGLE,
 		ICON_POLYGON,
+		ICON_COLOURS,
 
 
 		//TODO: Add more icons names here
@@ -117,6 +118,7 @@ public:
 	color getCrntDrawColor() const;	//get current drwawing color
 	color getCrntFillColor() const;	//get current filling color
 	int getCrntPenWidth() const;		//get current pen width
+	color GetColourPallete(const int X, const int Y); //choose colour from colour pallete
 
 
 	~GUI();

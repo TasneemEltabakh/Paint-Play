@@ -92,6 +92,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_EXIT: return EXIT;
 			case ICON_TRIANGLE: return DRAW_TRI;
 			case ICON_POLYGON: return DRAW_IRREPoly;
+			case ICON_COLOURS: return Colour_Pallete;
 
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
@@ -159,11 +160,12 @@ void GUI::CreateDrawToolBar()
 	//reoder them in UI_Info.h ==> enum DrawMenuIcon
 
 	string MenuIconImages[DRAW_ICON_COUNT];
-	MenuIconImages[ICON_RECT] = "images\\MenuIcons\\rectangle.jpeg";
+	MenuIconImages[ICON_RECT] = "images\\MenuIcons\\rectangle.jpg";
 	MenuIconImages[ICON_CIRC] = "images\\MenuIcons\\circle.jpg";
 	MenuIconImages[ICON_EXIT] = "images\\MenuIcons\\Menu_Exit.jpg";
 	MenuIconImages[ICON_TRIANGLE] = "images\\MenuIcons\\triangle.jpg";
 	MenuIconImages[ICON_POLYGON] = "images\\MenuIcons\\regularpolygon.jpg";
+	MenuIconImages[ICON_COLOURS] = "images\\MenuIcons\\color.jpg";
 
 	//TODO: Prepare images for each menu icon and add it to the list
 
@@ -295,6 +297,12 @@ void GUI:: DrawPol(int PointertoarryOFX[], int PointertoarryOFy[], const int Num
 	pWind->DrawPolygon(PointertoarryOFX, PointertoarryOFy, Numberodsides, style);
 }
 
+color GUI::GetColourPallete(const int X, const int Y)
+{
+	pWind->GetColor(X, Y);
+	DrawColor = pWind->GetColor(X, Y);
+	return DrawColor;
+}
 
 
 //////////////////////////////////////////////////////////////////////////////////////////

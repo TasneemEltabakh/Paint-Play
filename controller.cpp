@@ -5,7 +5,7 @@
 #include "operations/opAddTriangle.h"
 #include "operations/opAddRegPol.h"
 #include "operations/opAddirrPol.h"
-
+#include"operations/opChooseColour.h"
 
 //Constructor
 controller::controller()
@@ -47,6 +47,10 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case EXIT: 
 			break;
+		case Colour_Pallete:
+			pOp = new opChooseColour(this);
+			break;
+
 		
 		case STATUS:	//a click on the status bar ==> no operation
 			break;

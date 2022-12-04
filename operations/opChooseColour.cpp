@@ -1,8 +1,8 @@
-#include "operations/opChooseColour.h"
-#include "controller.h"
-#include "operations/operation.h"
-#include "CMUgraphicsLib/colors.h"
-#include "Shapes/Shape.h"
+#include "opChooseColour.h"
+#include "..//controller.h"
+#include "operation.h"
+#include "..//CMUgraphicsLib/colors.h"
+#include"..//Shapes/Shape.h"
 
 opChooseColour::opChooseColour(controller* pCont) : operation(pCont)
 {}

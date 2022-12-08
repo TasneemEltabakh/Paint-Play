@@ -94,7 +94,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_POLYGON: return DRAW_regularPOLY;
 			case ICON_COLOURS:return colours;
 			case ICON_REG: return DRAW_IRREPoly ;
-			case ICON_POLYGON: return DRAW_IRREPoly;
+			
 			case ICON_SAVE: return SAVE;  //Rghda added
 
 			default: return EMPTY;	//A click on empty place in desgin toolbar

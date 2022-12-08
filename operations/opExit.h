@@ -7,7 +7,6 @@ public:
 
  	opExit(controller* pCont);
 	virtual ~opExit();
-	virtual window CreateWind(GUI* pUI) const;
 	virtual void Execute();
 
 };

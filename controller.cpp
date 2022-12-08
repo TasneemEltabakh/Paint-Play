@@ -5,6 +5,7 @@
 #include "operations/opAddTriangle.h"
 #include "operations/opAddRegPol.h"
 #include "operations/opAddirrPol.h"
+#include "operations/opExit.h"
 #include"operations/opChooseColour.h"
 
 //Constructor
@@ -46,6 +47,7 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opAddirrPol(this);
 			break;
 		case EXIT: 
+			pOp = new opExit(this);
 			break;
 		case colours:
 			pOp = new opChooseColour(this);

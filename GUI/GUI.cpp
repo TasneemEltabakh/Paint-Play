@@ -296,8 +296,7 @@ void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriangleGfxInfo) co
 } 
 void GUI:: DrawPol(const int PointertoarryOFX[], const int PointertoarryOFy[], const int Numberofsides, GfxInfo shapeGfxInfo) const
 {
-	int casttedint = 6;
-	int c = 0;
+	
 	color DrawingClr;
 	if (shapeGfxInfo.isSelected)	//shape is selected
 		DrawingClr = HighlightColor; //shape should be drawn highlighted
@@ -315,7 +314,7 @@ void GUI:: DrawPol(const int PointertoarryOFX[], const int PointertoarryOFy[], c
 	else
 
 		style = FRAME;
-	pWind->DrawPolygon(PointertoarryOFX,PointertoarryOFy, casttedint ,style);
+	pWind->DrawPolygon(PointertoarryOFX,PointertoarryOFy, Numberofsides ,style);
 
 }
 

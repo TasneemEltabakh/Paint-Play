@@ -173,7 +173,6 @@
     <ClCompile Include="operations\opChooseColour.cpp" />
     <ClCompile Include="operations\opExit.cpp" />
     <ClCompile Include="operations\Save.cpp" />
-    <ClCompile Include="operations\Select.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
     <ClCompile Include="Shapes\IrregularPolygon.cpp" />
     <ClCompile Include="Shapes\regularPolygon.cpp" />

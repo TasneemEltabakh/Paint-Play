@@ -193,7 +193,7 @@ void GUI::CreateColourToolBar()
 	int x, y;
 	pWind->WaitMouseClick(x, y);
 	string MenuIconImages[DRAW_ICON_COUNT];
-	MenuIconImages[ICON_COLOURPallet] = "images\\MenuIcons\\ColourPallete.jpg";
+	MenuIconImages[ICON_COLOURPallet] = "images\\MenuIcons\\drawtoolbar.jpg";
 	
 	for (int i = 0; i < DRAW_ICON_COUNT; i++)
 		pWind->DrawImage(MenuIconImages[i], i * MenuIconWidth, 0, MenuIconWidth, ToolBarHeight);

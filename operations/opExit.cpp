@@ -12,22 +12,20 @@ opExit::opExit(controller* pCont) :operation(pCont)
 opExit :: ~opExit()
 {}
 
-void opExit::Execute()
+void opExit::Execute() 
 {
-	char keyp;
-	GUI* pUI = pControl->GetUI();
-	window w;
-	w.ChangeTitle("EXIT WINDOW");
-	w.SetPen(RED);
-	w.SetBrush(RED);
-	w.DrawString(30, 50, "do you");
-	w.WaitKeyPress(keyp);
-	if (keyp == 's')
-	{
 
+	GUI* pUI = pControl->GetUI();
+	Save s(pControl);
+
+	pUI->PrintMessage(" if you want to save before exit click: (s) if you want to clear (c) and any other button to exit  ");
+
+	string Name =  pUI->GetSrting();
+	if (Name == "s" || Name == "S")
+	{
+		s.Execute();
 	}
 	else
 		return;
-
 
 }

@@ -20,3 +20,5 @@ void IrregularPolygon::Draw(GUI* pUI) const
 	int arrayY[6] = { point1.y ,point2.y ,  point3.y  , point4.y  ,point5.y  , point6.y };
 	pUI->DrawPol(arrayX, arrayY, 6, ShpGfxInfo);
 }
+
+void IrregularPolygon::Save(ofstream& GUIFile) {} //Rghda added

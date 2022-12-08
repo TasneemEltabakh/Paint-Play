@@ -21,5 +21,7 @@ public :
     virtual ~regularPolygon();
     virtual void Draw(GUI* pUI) const;
 
+    void Save(ofstream& GUIFile); //Rghda added
+
 };
 

@@ -44,6 +44,8 @@ class GUI
 		ICON_POLYGON,
 		ICON_REG,
 		ICON_COLOURS,
+		ICON_SAVE, //Rghda added
+
 
 		//TODO: Add more icons names here
 

@@ -94,6 +94,9 @@ operationType GUI::GetUseroperation() const
 			case ICON_POLYGON: return DRAW_regularPOLY;
 			case ICON_COLOURS:return colours;
 			case ICON_REG: return DRAW_IRREPoly ;
+			
+			case ICON_SAVE: return SAVE;  //Rghda added
+
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
 		}
@@ -168,6 +171,8 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_COLOURS] = "images\\MenuIcons\\color.jpg";
 	MenuIconImages[ICON_REG] = "images\\MenuIcons\\irre.jpg";
 
+	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\saveicon.jpg";  //Rghda added
+	
 	//TODO: Prepare images for each menu icon and add it to the list
 
 	//Draw menu icon one image at a time

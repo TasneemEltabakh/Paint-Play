@@ -1,10 +1,16 @@
-/*#include"Save.h"
-#include "controller.h"
-#include "GUI/GUI.h"
-#include "Shapes/Graph.h"
+//save.cpp
+#include"Save.h"
+#include "opAddirrPol.h"
+#include "..//Shapes/IrregularPolygon.h"
+#include "../controller.h"
+#include "../GUI/GUI.h"
+#include "operation.h"
 
 
-void Save::SaveUserData()
+Save::Save(controller* pCont) :operation(pCont)
+{}
+
+void Save::ReadOperationParameters()
 {
 
 	//main Idea to edit on any thing---> that you identifay the pointers GUI and the Graph
@@ -17,18 +23,29 @@ void Save::SaveUserData()
 
 	pGUI->PrintMessage("name your file please ");
 
-	Name = pGraph->GetSrting(pGUI) + ".text";
+	pGUI->PrintMessage("What do you want to name the file? ");
 
+	Name = pGUI->GetSrting() + ".txt";
 
-	//I want to add confermation massege that this file was saved, 
-	//but I want to check first if this file exit in the desired file or not
+	GUIFile.open(Name);
 
-	//is_open() this should be a function I found in ths file but it here didn't work
-	//I think it wants something else instead of Name
-
-	if (Name.is_open())
+	if (GUIFile.is_open())
 		pGUI->PrintMessage("File has been Saved");
 	else
 		pGUI->PrintMessage("Cannot save file");
+}
 
-}*/
+//Execute the action
+void  Save::Execute()
+{
+	ReadOperationParameters();
+
+	if (GUIFile.is_open())
+	{
+		int NO_FIGS = pControl->NO_SHAPES();
+		
+
+		pControl->SaveAll(GUIFile);
+		GUIFile.close();
+	}
+}

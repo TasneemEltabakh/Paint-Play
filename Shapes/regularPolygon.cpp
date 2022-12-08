@@ -35,3 +35,5 @@ void  regularPolygon::Draw(GUI* pUI) const
 {
 	pUI->DrawPol(arrayX, arrayY, NumberOfsides, ShpGfxInfo);
 }
+
+void regularPolygon::Save(ofstream& GUIFile) {} //Rghda added

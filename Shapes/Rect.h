@@ -11,5 +11,7 @@ public:
 	Rect(Point , Point, GfxInfo shapeGfxInfo );
 	virtual ~Rect();
 	virtual void Draw(GUI* pUI) const;
+
+	void Save(ofstream& GUIFile); //Rghda added
 };
 

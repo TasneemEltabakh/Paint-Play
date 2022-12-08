@@ -15,3 +15,5 @@ void Triangle::Draw(GUI* pUI) const
 	//Call Output::DrawTriangle to draw a Triangle on the screen	
 	pUI->DrawTriangle(Corner1, Corner2, Corner3 ,  ShpGfxInfo);
 }
+
+void Triangle::Save(ofstream& GUIFile) {} //Rghda added

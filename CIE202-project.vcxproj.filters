@@ -238,9 +238,6 @@
     <ClInclude Include="operations\opChooseColour.h">
       <Filter>Operations</Filter>
     </ClInclude>
-    <ClInclude Include="operations\exit.h">
-      <Filter>Operations</Filter>
-    </ClInclude>
     <ClInclude Include="Shapes\Triangle.h">
       <Filter>Shapes&amp;Graph</Filter>
     </ClInclude>

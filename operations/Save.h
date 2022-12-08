@@ -12,6 +12,7 @@
 #include "../GUI/GUI.h"
 #include "operation.h"
 
+//here i inherted the save class from 'operation' class as the TA mention in the report
 
 //Add Rectangle Action class
 class  Save : public operation

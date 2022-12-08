@@ -1,4 +1,4 @@
-#include"Delete.h"
+/*#include"Delete.h"
 #include "controller.h"
 #include "GUI/GUI.h"
 /*#include "Shapes/Graph.h"

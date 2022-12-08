@@ -30,7 +30,8 @@ class GUI
 	enum GUI_MODE	//Graphical user interface mode
 	{
 		MODE_DRAW,	//Drawing mode (startup mode)
-		MODE_PLAY	//Playing mode
+		MODE_PLAY, //Playing mode
+		MODE_COLOURS
 	};
 
 	enum DrawMenuIcon //The icons of the Draw menu (you should add more icons)
@@ -41,6 +42,8 @@ class GUI
 		ICON_CIRC,		//Circle icon in menu
 		ICON_TRIANGLE,
 		ICON_POLYGON,
+		ICON_REG,
+		ICON_COLOURS,
 		ICON_SAVE, //Rghda added
 
 
@@ -52,6 +55,7 @@ class GUI
 
 	};
 
+
 	enum PlayMenuIcon //The icons of the Play menu (you should add more icons)
 	{
 		//Note: Icons are ordered here as they appear in menu
@@ -62,7 +66,10 @@ class GUI
 		PLAY_ICON_COUNT		//no. of menu icons ==> This should be the last line in this enum
 
 	};
-
+	enum ColourPalette
+	{
+		ICON_COLOURPallet
+	};
 
 	GUI_MODE InterfaceMode;
 
@@ -100,6 +107,7 @@ public:
 	window* CreateWind(int, int, int, int) const; //creates the application window
 	void CreateDrawToolBar();	//creates Draw mode toolbar & menu
 	void CreatePlayToolBar();	//creates Play mode toolbar & menu
+	void CreateColourToolBar();
 	void CreateStatusBar() const;	//create the status bar
 
 	void ClearStatusBar() const;	//Clears the status bar
@@ -107,8 +115,8 @@ public:
 
 	// -- shapes Drawing functions
 	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const;  //Draw a rectangle
-	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo RectGfxInfo) const;  //Draw a Triangle
-	void DrawPol(int PointertoarryOFX[],int PointertoarryOFy[], const int numberofsides, GfxInfo shapeGfxInfo) const; //Draw a Polygon (regular/ irregular)
+	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo RectGfxInfo) const;
+	void DrawPol(const int PointertoarryOFX[], const int PointertoarryOFy[], const int Numberofsides, GfxInfo shapeGfxInfo) const;
 	
 
 
@@ -118,6 +126,7 @@ public:
 	color getCrntDrawColor() const;	//get current drwawing color
 	color getCrntFillColor() const;	//get current filling color
 	int getCrntPenWidth() const;		//get current pen width
+	color GetColourPallete(const int X, const int Y); //choose colour from colour pallete
 
 
 	~GUI();

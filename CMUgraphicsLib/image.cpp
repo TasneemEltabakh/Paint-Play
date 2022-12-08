@@ -60,33 +60,33 @@ void image::Open(string strFileName, imagetype itThisType) {
 
 }
 
-void image::Open(const char *cpFileName, imagetype itThisType) {
+void image::Open(const char* cpFileName, imagetype itThisType) {
 
 	unsigned long i, j;
-	unsigned char *ucpTmp;
+	unsigned char* ucpTmp;
 	int iErrorCode;
-	
-	if(cpFileName == NULL) {
-      throw FILE_NOT_FOUND;
-    }
-    
-    itType = itThisType;
 
-	if(bmiImage != NULL) {
-	    delete [] bmiImage;
+	if (cpFileName == NULL) {
+		throw FILE_NOT_FOUND;
 	}
 
-    if(ucpImageData != NULL) {
-        delete [] ucpImageData;
-    }
- 
+	itType = itThisType;
+
+	if (bmiImage != NULL) {
+		delete[] bmiImage;
+	}
+
+	if (ucpImageData != NULL) {
+		delete[] ucpImageData;
+	}
+
 	bmiImage = (LPBITMAPINFO) new BYTE[sizeof(BITMAPINFOHEADER)];
-	if(bmiImage == NULL) {
-        throw OUT_OF_MEMORY;
+	if (bmiImage == NULL) {
+		throw OUT_OF_MEMORY;
 	}
 
 	memset(bmiImage, 0, sizeof(BITMAPINFOHEADER));
-	
+
 	bmiImage->bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
 	bmiImage->bmiHeader.biPlanes = 1;
 	bmiImage->bmiHeader.biBitCount = 32;
@@ -95,26 +95,32 @@ void image::Open(const char *cpFileName, imagetype itThisType) {
 	bmiImage->bmiHeader.biClrUsed = 0;
 	bmiImage->bmiHeader.biClrImportant = 0;
 
-    if(itType == JPEG) {
-        iErrorCode = jpegload(cpFileName, &usWidth, &usHeight, &ucpTmp);
-        if(iErrorCode == -1) {
-            throw FILE_NOT_FOUND;
-        } else if(iErrorCode == -2) {
-            delete [] bmiImage;
-            throw OUT_OF_MEMORY;          
-        }
+	if (itType == JPEG)
+	{
+		iErrorCode = jpegload(cpFileName, &usWidth, &usHeight, &ucpTmp);
+		if (iErrorCode == -1)
+		{
+			throw FILE_NOT_FOUND;
+		}
+		else if (iErrorCode == -2)
+		{
+			delete[] bmiImage;
+			throw OUT_OF_MEMORY;
+		}
 
 		bmiImage->bmiHeader.biWidth = usWidth;
 		bmiImage->bmiHeader.biHeight = -usHeight;
-	
+
 		ucpImageData = new unsigned char[(usWidth * 4) * usHeight];
-		if(ucpImageData == NULL) {
-   		    throw OUT_OF_MEMORY;
+		if (ucpImageData == NULL)
+		{
+			throw OUT_OF_MEMORY;
 		}
 
-        for(i = 0, j = 0; i < ((usWidth * 3) * usHeight); i += 3, j += 4) {
-		    ucpImageData[j] = ucpTmp[i + 2];
-		    ucpImageData[j + 1] = ucpTmp[i + 1];
+		for (i = 0, j = 0; i < ((usWidth * 3) * usHeight); i += 3, j += 4)
+		{
+			ucpImageData[j] = ucpTmp[i + 2];
+			ucpImageData[j + 1] = ucpTmp[i + 1];
 			ucpImageData[j + 2] = ucpTmp[i];
 			ucpImageData[j + 3] = 0;
 		}
@@ -125,13 +131,16 @@ void image::Open(const char *cpFileName, imagetype itThisType) {
 		ucTransGreen = 0;
 		ucTransBlue = 0;
 
-	} else {
-	
-	    cout << "Fatal Error: Unsupported image type!" << endl;
-	
 	}
+	else
+	{
 
+		cout << "Fatal Error: Unsupported image type!" << endl;
+
+	}
 }
+
+
 
 void image::operator=(image &imgOther) {
 

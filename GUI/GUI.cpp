@@ -91,6 +91,9 @@ operationType GUI::GetUseroperation() const
 			case ICON_CIRC: return DRAW_CIRC;
 			case ICON_EXIT: return EXIT;
 			case ICON_TRIANGLE: return DRAW_TRI;
+			case ICON_POLYGON: return DRAW_regularPOLY;
+			case ICON_COLOURS:return colours;
+			case ICON_REG: return DRAW_IRREPoly ;
 			case ICON_POLYGON: return DRAW_IRREPoly;
 			case ICON_SAVE: return SAVE;  //Rghda added
 
@@ -160,11 +163,14 @@ void GUI::CreateDrawToolBar()
 	//reoder them in UI_Info.h ==> enum DrawMenuIcon
 
 	string MenuIconImages[DRAW_ICON_COUNT];
-	MenuIconImages[ICON_RECT] = "images\\MenuIcons\\rectangle.jpeg";
+	MenuIconImages[ICON_RECT] = "images\\MenuIcons\\rectangle.jpg";
 	MenuIconImages[ICON_CIRC] = "images\\MenuIcons\\circle.jpg";
 	MenuIconImages[ICON_EXIT] = "images\\MenuIcons\\Menu_Exit.jpg";
 	MenuIconImages[ICON_TRIANGLE] = "images\\MenuIcons\\triangle.jpg";
 	MenuIconImages[ICON_POLYGON] = "images\\MenuIcons\\regularpolygon.jpg";
+	MenuIconImages[ICON_COLOURS] = "images\\MenuIcons\\color.jpg";
+	MenuIconImages[ICON_REG] = "images\\MenuIcons\\irre.jpg";
+
 	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\saveicon.jpg";  //Rghda added
 	
 	//TODO: Prepare images for each menu icon and add it to the list
@@ -181,7 +187,21 @@ void GUI::CreateDrawToolBar()
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////
+void GUI::CreateColourToolBar()
+{
+	InterfaceMode = MODE_COLOURS;
+	int x, y;
+	pWind->WaitMouseClick(x, y);
+	string MenuIconImages[DRAW_ICON_COUNT];
+	MenuIconImages[ICON_COLOURPallet] = "images\\MenuIcons\\ColourPallete.jpg";
+	
+	for (int i = 0; i < DRAW_ICON_COUNT; i++)
+		pWind->DrawImage(MenuIconImages[i], i * MenuIconWidth, 0, MenuIconWidth, ToolBarHeight);
 
+	pWind->SetPen(RED, 3);
+	pWind->DrawLine(0, ToolBarHeight, width, ToolBarHeight);
+
+}
 void GUI::CreatePlayToolBar() 
 {
 	InterfaceMode = MODE_PLAY;
@@ -274,8 +294,10 @@ void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriangleGfxInfo) co
 	pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y, style);
 
 } 
-void GUI:: DrawPol(int PointertoarryOFX[], int PointertoarryOFy[], const int Numberodsides, GfxInfo shapeGfxInfo) const
+void GUI:: DrawPol(const int PointertoarryOFX[], const int PointertoarryOFy[], const int Numberofsides, GfxInfo shapeGfxInfo) const
 {
+	int casttedint = 6;
+	int c = 0;
 	color DrawingClr;
 	if (shapeGfxInfo.isSelected)	//shape is selected
 		DrawingClr = HighlightColor; //shape should be drawn highlighted
@@ -293,10 +315,16 @@ void GUI:: DrawPol(int PointertoarryOFX[], int PointertoarryOFy[], const int Num
 	else
 
 		style = FRAME;
+	pWind->DrawPolygon(PointertoarryOFX,PointertoarryOFy, casttedint ,style);
 
-	pWind->DrawPolygon(PointertoarryOFX, PointertoarryOFy, Numberodsides, style);
 }
 
+color GUI::GetColourPallete(const int X, const int Y)
+{
+	pWind->GetColor(X, Y);
+	DrawColor = pWind->GetColor(X, Y);
+	return DrawColor;
+}
 
 
 //////////////////////////////////////////////////////////////////////////////////////////

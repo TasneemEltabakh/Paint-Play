@@ -8,15 +8,16 @@ private:
     Point Center;
     Point start;
     Point end;
-    double distanceFromCenter;
+    double r;
     double SideLength;
     int NumberOfsides;
     double angle;
-    int* PointerToarrayX = new int[NumberOfsides];
-    int* PointerToarrayY = new int[NumberOfsides];
+    double iteratedangle;
+    int* arrayX= new int[100];
+    int* arrayY= new int [100];
 
 public :
-    regularPolygon(Point, Point, Point , int , GfxInfo shapeGfxInfo);
+    regularPolygon(Point, Point, int , GfxInfo shapeGfxInfo);
     virtual ~regularPolygon();
     virtual void Draw(GUI* pUI) const;
 

@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #include "operations/operation.h"
 
 //here i inherted the save class from 'operation' class as the TA mention in the report
@@ -12,5 +12,5 @@ public:
 
 	virtual void SaveUserData();
 
-};
+};*/
 

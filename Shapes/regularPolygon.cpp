@@ -1,34 +1,37 @@
 #include "regularPolygon.h"
-#include <math.h>
+#include <cmath>
 
-regularPolygon ::regularPolygon(Point P1, Point P2, Point P3, int Sides,  GfxInfo shapeGfxInfo) : shape(shapeGfxInfo)
+regularPolygon ::regularPolygon(Point P1, Point P2, int Sides,  GfxInfo shapeGfxInfo) : shape(shapeGfxInfo)
 {
+	//x[n] = distanceFromCenter * cos(2*pi* n/N + theta) + x_centre
+	//y[n] = r * sin(2 * pi * n / N + theta) + y_centre
+	//cos(n* 2* pi/s), sin(n*360/s)
+	const double pi = 3.14159;
 	Center.x = P1.x;
 	Center.y = P1.y;
 	start.x = P2.x;
 	start.y = P2.y;
-	end.x = P3.x;
-	end.y = P3.y;
-	distanceFromCenter = sqrt(pow(P1.x - P2.x, 2) + pow(P1.y - P2.y, 2));
-	SideLength = sqrt(pow(P3.x - P2.x, 2) + pow(P3.y - P2.y, 2));
-	const int  NumberOfsides = Sides;
-	angle = 360 / NumberOfsides;
-	PointerToarrayX[0] = P2.x;
-	PointerToarrayY[0] = P2.y;
-	PointerToarrayX[1] = P3.x;
-	PointerToarrayY[1] = P3.y;
+	/*end.x = P3.x;
+	end.y = P3.y;*/
+	r = sqrt(((P1.x - P2.x)*(P1.x - P2.x)) + ((P1.y - P2.y)*(P1.y - P2.y)));
+	SideLength = 30;
+    int  NumberOfsides = Sides;
+	angle = 0;
 
-	for (int i = 2; i < NumberOfsides; i++)
+
+	for (int i = 0; i < NumberOfsides; i++)
 	{
-		int xOfvertix = P1.x + distanceFromCenter * sin(i * angle);
-		int yOfvertix = P1.y + distanceFromCenter * cos(i * angle);
-		PointerToarrayX[i] = xOfvertix;
-		PointerToarrayY[i] = yOfvertix;
+		angle = i* (2 * pi) / NumberOfsides;
+		double xOfvertix =  r * cos(angle)  + Center.x;
+		arrayX[i] = xOfvertix;
+		double yOfvertix =  r * sin(angle) + Center.y ;
+		arrayY[i] = yOfvertix;
+		
 	}
 }
 regularPolygon:: ~regularPolygon()
 {}
 void  regularPolygon::Draw(GUI* pUI) const
 {
-	pUI->DrawPol(PointerToarrayX, PointerToarrayY, NumberOfsides, ShpGfxInfo);
+	pUI->DrawPol(arrayX, arrayY, NumberOfsides, ShpGfxInfo);
 }

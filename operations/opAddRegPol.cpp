@@ -4,6 +4,8 @@
 #include "../GUI/GUI.h"
 #include "../Shapes/regularPolygon.h"
 # include <iostream>
+#include <string>
+
 
 opAddRegPol::opAddRegPol(controller* pCont) : operation(pCont)
 {}
@@ -12,11 +14,11 @@ opAddRegPol :: ~opAddRegPol()
 void opAddRegPol::Execute()
 {
 	Point P1, P2, P3;
+
     int NUM;
 
 	//Get a Pointer to the Input / Output Interfaces
 	GUI* pUI = pControl->GetUI();
-
 
 	pUI->PrintMessage("New polygon: Click at the center ");
 	
@@ -27,18 +29,15 @@ void opAddRegPol::Execute()
 	pUI->PrintMessage(msg);
 
 	pUI->GetPointClicked(P2.x, P2.y);
-	
-     msg = "Your first point is at (" + to_string(P2.x) + ", " + to_string(P2.y) + " )";
 
-
-	msg += " please click at the end ";
+	/*msg = " ... please click at the end of the first side";
 	pUI->PrintMessage(msg);
-	pUI->GetPointClicked(P3.x, P3.y);
-    msg = "Your second point is at (" + to_string(P3.x) + ", " + to_string(P3.y) + " )";
+	pUI->GetPointClicked(P3.x, P3.y);*/
 
 	msg += " what is the number of sides of this polygon";
 	pUI->PrintMessage(msg);
-	NUM = std::stoi(pUI->GetSrting());
+	string theNmber= pUI->GetSrting();
+	NUM = stoi(theNmber);
 	pUI->ClearStatusBar();
 
 	GfxInfo polyGfxInfo;
@@ -54,7 +53,7 @@ void opAddRegPol::Execute()
 
 
 	
-	regularPolygon*  Poly = new regularPolygon (P1, P2, P3, NUM, polyGfxInfo);
+	regularPolygon*  Poly = new regularPolygon (P1, P2 ,NUM, polyGfxInfo);
 
 	//Get a pointer to the graph
 	Graph* Pol = pControl->getGraph();

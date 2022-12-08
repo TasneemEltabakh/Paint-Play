@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 
 #include "operations/operation.h"
 #include"Shapes/Shape.h"
@@ -12,4 +12,4 @@ public:
 
 	void select();
 	void Unselect();
-};
+};*/

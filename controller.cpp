@@ -47,7 +47,7 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case EXIT: 
 			break;
-		case Colour_Pallete:
+		case colours:
 			pOp = new opChooseColour(this);
 			break;
 

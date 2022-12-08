@@ -1,7 +1,7 @@
 #include"Delete.h"
 #include "controller.h"
 #include "GUI/GUI.h"
-#include "Shapes/Graph.h"
+/*#include "Shapes/Graph.h"
 
 
 
@@ -21,4 +21,4 @@ void Delete::DeleteAllShapes()
 	pControl->deleteallshapes(); //this function will loop on all the shapes saved in the array and delete them
 	pGUI->PrintMessage("Done deleted the shape. "); //I see these massages are very important to check if the could good run or not while traying
 
-}
+}*/

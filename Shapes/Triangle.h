@@ -11,5 +11,7 @@ class Triangle : public shape
 		Triangle(Point P1, Point P2, Point P3 , GfxInfo shapeGfxInfo);
 		virtual ~Triangle();
 		virtual void Draw(GUI* pUI) const;
+
+		void Save(ofstream& GUIFile); //Rghda added
 };
 

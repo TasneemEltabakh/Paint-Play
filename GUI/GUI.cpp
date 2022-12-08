@@ -92,6 +92,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_EXIT: return EXIT;
 			case ICON_TRIANGLE: return DRAW_TRI;
 			case ICON_POLYGON: return DRAW_IRREPoly;
+			case ICON_SAVE: return SAVE;  //Rghda added
 
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
@@ -164,7 +165,8 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_EXIT] = "images\\MenuIcons\\Menu_Exit.jpg";
 	MenuIconImages[ICON_TRIANGLE] = "images\\MenuIcons\\triangle.jpg";
 	MenuIconImages[ICON_POLYGON] = "images\\MenuIcons\\regularpolygon.jpg";
-
+	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\saveicon.jpg";  //Rghda added
+	
 	//TODO: Prepare images for each menu icon and add it to the list
 
 	//Draw menu icon one image at a time

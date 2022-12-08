@@ -41,6 +41,7 @@ class GUI
 		ICON_CIRC,		//Circle icon in menu
 		ICON_TRIANGLE,
 		ICON_POLYGON,
+		ICON_SAVE, //Rghda added
 
 
 		//TODO: Add more icons names here

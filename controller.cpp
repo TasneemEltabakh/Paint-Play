@@ -5,7 +5,7 @@
 #include "operations/opAddTriangle.h"
 #include "operations/opAddRegPol.h"
 #include "operations/opAddirrPol.h"
-
+#include "operations/Save.h"
 
 //Constructor
 controller::controller()
@@ -44,6 +44,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case DRAW_IRREPoly:
 			pOp = new opAddirrPol(this);
+			break;
+		case SAVE:  //Rghda added
+			pOp = new Save(this);
 			break;
 		case EXIT: 
 			break;
@@ -114,4 +117,22 @@ void controller::Run()
 
 	} while (OpType != EXIT);
 
+}
+
+
+//==================================================================================//
+//							Save function											//  //Rghda added
+//==================================================================================//
+int controller::NO_SHAPES() const
+{
+	return ShapeCount;
+}
+
+void controller::SaveAll(ofstream& GUIFile)
+{
+	//Loop on each figure ,then saving it 
+	for (int i = 0; i < ShapeCount; i++)
+	{
+		ShapeList[i]->Save(GUIFile);
+	}
 }

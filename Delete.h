@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 
 #include "operations/operation.h"
 
@@ -9,6 +9,6 @@ public:
 	virtual void DeleteAllShapes();
 
 
-};
+};*/
 
 

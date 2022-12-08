@@ -11,5 +11,7 @@ public:
     IrregularPolygon(Point , Point, Point, Point, Point, Point, GfxInfo);
     virtual ~IrregularPolygon();
     virtual void Draw(GUI* pUI) const;
+
+    void Save(ofstream& GUIFile); //Rghda added
 };
 

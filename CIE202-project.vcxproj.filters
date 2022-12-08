@@ -142,8 +142,10 @@
       <Filter>GraphicsLib</Filter>
     </ClCompile>
     <ClCompile Include="Delete.cpp" />
-    <ClCompile Include="Save.cpp" />
     <ClCompile Include="Select.cpp" />
+    <ClCompile Include="operations\Save.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -251,8 +253,10 @@
       <Filter>Operations</Filter>
     </ClInclude>
     <ClInclude Include="Delete.h" />
-    <ClInclude Include="Save.h" />
     <ClInclude Include="Select.h" />
+    <ClInclude Include="operations\Save.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">

@@ -1,4 +1,4 @@
-#include"Select.h"
+/*#include"Select.h"
 #include "controller.h"
 #include <iostream>
 using namespace std;
@@ -24,4 +24,4 @@ void Select::Unselect() {
 	SelectedShape->SetSelected(false); //set the shape as "unselected"
 	pControl->RemoveSelectedShape(SelectedShape);	//here I remove this shape from the array i mentioned above
 
-}
+}*/

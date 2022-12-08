@@ -72,8 +72,9 @@ string GUI::GetSrting() const
 operationType GUI::GetUseroperation() const
 {
 	int x, y;
-	pWind->WaitMouseClick(x, y);	//Get the coordinates of the user click
 
+	pWind->WaitMouseClick(x, y);	//Get the coordinates of the user click
+	
 	if (InterfaceMode == MODE_DRAW)	//GUI in the DRAW mode
 	{
 		//[1] If user clicks on the Toolbar
@@ -92,7 +93,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_EXIT: return EXIT;
 			case ICON_TRIANGLE: return DRAW_TRI;
 			case ICON_POLYGON: return DRAW_regularPOLY;
-			case ICON_COLOURS:return colours;
+			case ICON_COLOURS:return TO_Pallete;
 			case ICON_REG: return DRAW_IRREPoly ;
 			
 			case ICON_SAVE: return SAVE;  //Rghda added
@@ -101,6 +102,22 @@ operationType GUI::GetUseroperation() const
 			}
 		}
 
+	if (InterfaceMode == MODE_COLOURS)	//GUI in the colouroallete mode
+		{
+			//[1] If user clicks on the Toolbar
+			if (y >= 0 && y < ToolBarHeight)
+			{
+
+				int ClickedIconOrder = (x / MenuIconWidth);
+
+
+				switch (ClickedIconOrder)
+				{
+				case ICON_COLOURPallet: return colours;
+				default: return EMPTY;	
+				}
+			}
+		}
 		//[2] User clicks on the drawing area
 		if (y >= ToolBarHeight && y < height - StatusBarHeight)
 		{
@@ -194,13 +211,17 @@ void GUI::CreateColourToolBar()
 	pWind->WaitMouseClick(x, y);
 	string MenuIconImages[DRAW_ICON_COUNT];
 	MenuIconImages[ICON_COLOURPallet] = "images\\MenuIcons\\drawtoolbar.jpg";
-	
-	for (int i = 0; i < DRAW_ICON_COUNT; i++)
-		pWind->DrawImage(MenuIconImages[i], i * MenuIconWidth, 0, MenuIconWidth, ToolBarHeight);
+	int MenuIconWidthpallete = 639;
+	pWind->DrawImage(MenuIconImages[ICON_COLOURPallet], 0, 0, MenuIconWidthpallete, ToolBarHeight);
 
 	pWind->SetPen(RED, 3);
 	pWind->DrawLine(0, ToolBarHeight, width, ToolBarHeight);
 
+}
+void  GUI::back()
+{
+	InterfaceMode =MODE_DRAW;
+	CreateDrawToolBar();
 }
 void GUI::CreatePlayToolBar() 
 {

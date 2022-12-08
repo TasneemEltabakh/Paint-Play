@@ -16,8 +16,9 @@ void opChooseColour::Execute()
 
 	int X, Y;
 	GUI* pUI = pControl->GetUI();
-	pUI->PrintMessage("Click on the colour U want ");
+	pUI->CreateColourToolBar();
 	pUI->GetPointClicked(X, Y);
 	pUI->GetColourPallete(X,Y);
+	pUI->back();
 	pUI->ClearStatusBar();
 }

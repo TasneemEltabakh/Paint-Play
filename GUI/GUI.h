@@ -68,7 +68,8 @@ class GUI
 	};
 	enum ColourPalette
 	{
-		ICON_COLOURPallet
+		ICON_COLOURPallet,
+		ICON_BACK
 	};
 
 	GUI_MODE InterfaceMode;
@@ -117,7 +118,7 @@ public:
 	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const;  //Draw a rectangle
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo RectGfxInfo) const;
 	void DrawPol(const int PointertoarryOFX[], const int PointertoarryOFy[], const int Numberofsides, GfxInfo shapeGfxInfo) const;
-	
+	void back();
 
 
 	///Make similar functions for drawing all other shapes.

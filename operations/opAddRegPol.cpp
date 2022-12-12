@@ -30,9 +30,6 @@ void opAddRegPol::Execute()
 
 	pUI->GetPointClicked(P2.x, P2.y);
 
-	/*msg = " ... please click at the end of the first side";
-	pUI->PrintMessage(msg);
-	pUI->GetPointClicked(P3.x, P3.y);*/
 
 	msg += " what is the number of sides of this polygon";
 	pUI->PrintMessage(msg);

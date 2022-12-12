@@ -94,7 +94,8 @@ operationType GUI::GetUseroperation() const
 			case ICON_TRIANGLE: return DRAW_TRI;
 			case ICON_POLYGON: return DRAW_regularPOLY;
 			case ICON_COLOURS:return TO_Pallete;
-			case ICON_REG: return DRAW_IRREPoly ;
+			case ICON_REG: return DRAW_IRREPoly;
+		
 			
 			case ICON_SAVE: return SAVE;  //Rghda added
 
@@ -114,7 +115,9 @@ operationType GUI::GetUseroperation() const
 				switch (ClickedIconOrder)
 				{
 				case ICON_COLOURPallet: return colours;
-				default: return EMPTY;	
+				case ICON_SAVE: return SAVE;  //Rghda added
+
+				default: return EMPTY;	//A click on empty place in desgin toolbar
 				}
 			}
 		}
@@ -211,6 +214,7 @@ void GUI::CreateColourToolBar()
 	pWind->WaitMouseClick(x, y);
 	string MenuIconImages[DRAW_ICON_COUNT];
 	MenuIconImages[ICON_COLOURPallet] = "images\\MenuIcons\\drawtoolbar.jpg";
+	MenuIconImages[ICON_BACK]= "images\\MenuIcons\\BACK.jpg";
 	int MenuIconWidthpallete = 639;
 	pWind->DrawImage(MenuIconImages[ICON_COLOURPallet], 0, 0, MenuIconWidthpallete, ToolBarHeight);
 
@@ -336,6 +340,104 @@ void GUI:: DrawPol(const int PointertoarryOFX[], const int PointertoarryOFy[], c
 
 		style = FRAME;
 	pWind->DrawPolygon(PointertoarryOFX,PointertoarryOFy, Numberofsides ,style);
+
+}
+// Circle //
+
+void GUI::DrawCircle(Point P1, int radious, GfxInfo CircleGfxInfo) const
+{
+	color DrawingClr;
+	if (CircleGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = CircleGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, CircleGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (CircleGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(CircleGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+	pWind->DrawCircle(P1.x, P1.y, radious, style);
+
+
+}
+// square 
+void GUI:: DrawSquare(const int array1[], const int array2[], GfxInfo SquareGfxInfo) const //Draw a Square 
+{
+	
+	color DrawingClr;
+	if (SquareGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = SquareGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, SquareGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (SquareGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(SquareGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+	pWind->DrawPolygon(array1,array2,4,style);
+
+}
+
+// Oval
+void GUI::DrawEllipse(Point P1, Point	P2, GfxInfo OvalGfxInfo) const
+{
+	color DrawingClr;
+	if (OvalGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = OvalGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, OvalGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (OvalGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(OvalGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+	pWind->DrawEllipse(P1.x, P1.y, P2.x,P2.y, style);
+
+
+}
+// line 
+void GUI::DrawLine(Point P1, Point P2, GfxInfo OvalGfxInfo) const
+{
+	color DrawingClr;
+	if (OvalGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = OvalGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, OvalGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (OvalGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(OvalGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+	pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style);
+
 
 }
 

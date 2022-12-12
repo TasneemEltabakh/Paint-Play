@@ -8,6 +8,10 @@
 #include "operations/opExit.h"
 #include"operations/opChooseColour.h"
 #include "operations/Save.h"
+#include "operations/opAddSquare.h"
+#include "operations/opAddCircle.h"
+#include"operations/opAddLine.h"
+#include "operations/opAddOval.h"
 
 //Constructor
 controller::controller()
@@ -34,7 +38,7 @@ operation* controller::createOperation(operationType OpType)
 	switch (OpType)
 	{
 		case DRAW_RECT:
-			pOp = new opAddRect(this);
+			pOp = new opAddOval(this);
 			break;
 		case DRAW_TRI:
 			pOp = new opAddTriangle(this);
@@ -43,6 +47,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case DRAW_regularPOLY:
 			pOp = new opAddRegPol(this);
+			break;
+		case DRAW_CIRC:
+			pOp = new opAddCircle(this);
 			break;
 		case DRAW_IRREPoly:
 			pOp = new opAddirrPol(this);

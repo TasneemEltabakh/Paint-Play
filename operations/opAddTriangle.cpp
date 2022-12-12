@@ -33,7 +33,7 @@ void opAddTriangle::Execute()
 
 	pUI->ClearStatusBar();
 
-	//Preapre all Triangle parameters
+	//Preapre all Triangle parameter
 	GfxInfo TriangleGfxInfo;
 
 	//get drawing, filling colors and pen width from the interface

@@ -177,6 +177,7 @@
     <ClCompile Include="operations\opChooseColour.cpp" />
     <ClCompile Include="operations\opExit.cpp" />
     <ClCompile Include="operations\Save.cpp" />
+    <ClCompile Include="opFillColour.cpp" />
     <ClCompile Include="Shapes\circle.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
     <ClCompile Include="Shapes\IrregularPolygon.cpp" />
@@ -225,6 +226,7 @@
     <ClInclude Include="operations\opExit.h" />
     <ClInclude Include="operations\Save.h" />
     <ClInclude Include="operations\Select.h" />
+    <ClInclude Include="opFillColour.h" />
     <ClInclude Include="Shapes\ciecle.h" />
     <ClInclude Include="Shapes\Graph.h" />
     <ClInclude Include="Shapes\IrregularPolygon.h" />

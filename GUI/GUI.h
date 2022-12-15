@@ -45,6 +45,9 @@ class GUI
 		ICON_SQU,
 		ICON_OVAL,
 		ICON_REG,
+		ICON_COLOURS,
+		ICON_SAVE, //Rghda added
+	   // nada wed 
 		ICON_IRREG,
 		ICON_LINE,
 
@@ -62,7 +65,7 @@ class GUI
 		ICON_SWITCH,
 		ICON_EXIT,		//Exit icon
 
-		DRAW_ICON_COUNT		//no. of menu icons ==> This should be the last line in this enum
+		DRAW_ICON_COUNT	,	//no. of menu icons ==> This should be the last line in this enum
 
 	};
 
@@ -90,6 +93,10 @@ class GUI
 		StatusBarHeight,	//Status Bar Height
 		ToolBarHeight,		//Tool Bar Height (distance from top of window to bottom line of toolbar)
 		MenuIconWidth;		//Width of each icon in toolbar menu
+    	bool IsFilled;
+		
+		
+
 
 
 	color DrawColor;		//Drawing color
@@ -135,7 +142,7 @@ public:
 	void DrawLine(Point P1, Point P2, GfxInfo OvalGfxInfo) const;  //Draw a line 
 	void back();
 
-
+	bool GetIsFilled() const;
 	///Make similar functions for drawing all other shapes.
     void PrintMessage(string msg) const;	//Print a message on Status bar
 
@@ -143,6 +150,8 @@ public:
 	color getCrntFillColor() const;	//get current filling color
 	int getCrntPenWidth() const;		//get current pen width
 	color GetColourPallete(const int X, const int Y); //choose colour from colour pallete
+	// nada edit wed 
+	color FillColour(const int X, const int Y); // fill color 
 
 
 	~GUI();

@@ -40,9 +40,10 @@ void opAddTriangle::Execute()
 	TriangleGfxInfo.DrawClr = pUI->getCrntDrawColor();
 	TriangleGfxInfo.FillClr = pUI->getCrntFillColor();
 	TriangleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
+	TriangleGfxInfo.isFilled = pUI->GetIsFilled();	//default is not filled
 
 
-	TriangleGfxInfo.isFilled = false;	//default is not filled
+	
 	TriangleGfxInfo.isSelected = false;	//defualt is not selected
 
 

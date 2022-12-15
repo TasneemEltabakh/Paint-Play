@@ -20,3 +20,14 @@ void shape::ChngFillClr(color Fclr)
 	ShpGfxInfo.FillClr = Fclr; 
 }
 
+// my func to get aim of selection 
+
+void SelectedShapeAim()
+{// to ask the user if the what  he want to do with the selected shape (color border / color fill / width 
+	if (1)
+	{
+
+	}
+
+
+}

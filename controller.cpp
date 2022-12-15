@@ -12,6 +12,7 @@
 #include "operations/opAddCircle.h"
 #include"operations/opAddLine.h"
 #include "operations/opAddOval.h"
+#include "opFillColour.h"
 
 //Constructor
 controller::controller()
@@ -39,6 +40,7 @@ operation* controller::createOperation(operationType OpType)
 	{
 		case DRAW_RECT:
 			pOp = new opAddRect(this);
+			pOp = new opFillColour(this);
 			break;
 		case DRAW_TRI:
 			pOp = new opAddTriangle(this);
@@ -63,8 +65,10 @@ operation* controller::createOperation(operationType OpType)
 		case TO_Pallete:
 			pOp = new opChooseColour(this);
 			break;
-
-		
+		/*case FILL_COLOUR:
+			pOp = new opFillColour(this);
+			break;
+			*/
 		case STATUS:	//a click on the status bar ==> no operation
 			break;
 	}

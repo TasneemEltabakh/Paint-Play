@@ -180,6 +180,9 @@
     <ClCompile Include="operations\opAddSquare.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
+    <ClCompile Include="opFillColour.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -320,6 +323,9 @@
       <Filter>Operations</Filter>
     </ClInclude>
     <ClInclude Include="operations\opAddSquare.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="opFillColour.h">
       <Filter>Operations</Filter>
     </ClInclude>
   </ItemGroup>

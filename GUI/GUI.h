@@ -34,21 +34,32 @@ class GUI
 		MODE_COLOURS
 	};
 
+
 	enum DrawMenuIcon //The icons of the Draw menu (you should add more icons)
 	{
 		//Note: Icons are ordered here as they appear in menu
 		//If you want to change the menu icons order, change the order here
 		ICON_RECT,		//Recangle icon in menu
 		ICON_CIRC,		//Circle icon in menu
-		ICON_TRIANGLE,
-		ICON_POLYGON,
+		ICON_TRI,
+		ICON_SQU,
+		ICON_OVAL,
 		ICON_REG,
-		ICON_COLOURS,
-		ICON_SAVE, //Rghda added
+		ICON_IRREG,
+		ICON_LINE,
 
-
+		ICON_FILL,
+		ICON_COLORS,
 		//TODO: Add more icons names here
 
+		ICON_CUT,
+		ICON_COPY,
+		ICON_DRAG,
+		ICON_ADDIMG,
+		ICON_DEL,
+		ICON_SAVE,
+		ICON_LOAD,
+		ICON_SWITCH,
 		ICON_EXIT,		//Exit icon
 
 		DRAW_ICON_COUNT		//no. of menu icons ==> This should be the last line in this enum

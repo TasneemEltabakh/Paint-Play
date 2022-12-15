@@ -12,10 +12,10 @@ GUI::GUI()
 
 
 	StatusBarHeight = 50;
-	ToolBarHeight = 50;
-	MenuIconWidth = 80;
+	ToolBarHeight = 55;
+	MenuIconWidth = 60;
 
-	DrawColor = RED;	//default Drawing color
+	DrawColor = BLUE;	//default Drawing color
 	FillColor = GREEN;	//default Filling color
 	MsgColor = BLACK;		//Messages color
 	BkGrndColor = WHITE;	//Background color
@@ -32,7 +32,6 @@ GUI::GUI()
 	CreateDrawToolBar();
 	CreateStatusBar();
 }
-
 
 
 
@@ -91,10 +90,10 @@ operationType GUI::GetUseroperation() const
 			case ICON_RECT: return DRAW_RECT;
 			case ICON_CIRC: return DRAW_CIRC;
 			case ICON_EXIT: return EXIT;
-			case ICON_TRIANGLE: return DRAW_TRI;
-			case ICON_POLYGON: return DRAW_regularPOLY;
-			case ICON_COLOURS:return TO_Pallete;
-			case ICON_REG: return DRAW_IRREPoly;
+			case ICON_TRI: return DRAW_TRI;
+			case ICON_REG: return DRAW_regularPOLY;
+			case ICON_COLORS:return TO_Pallete;
+			case ICON_IRREG: return DRAW_IRREPoly;
 		
 			
 			case ICON_SAVE: return SAVE;  //Rghda added
@@ -171,7 +170,7 @@ void GUI::ClearStatusBar() const
 	pWind->DrawRectangle(0, height - StatusBarHeight, width, height);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
-void GUI::CreateDrawToolBar() 
+void GUI::CreateDrawToolBar()
 {
 	InterfaceMode = MODE_DRAW;
 
@@ -181,29 +180,37 @@ void GUI::CreateDrawToolBar()
 	//First prepare List of images for each menu icon
 	//To control the order of these images in the menu, 
 	//reoder them in UI_Info.h ==> enum DrawMenuIcon
-
 	string MenuIconImages[DRAW_ICON_COUNT];
 	MenuIconImages[ICON_RECT] = "images\\MenuIcons\\rectangle.jpg";
 	MenuIconImages[ICON_CIRC] = "images\\MenuIcons\\circle.jpg";
-	MenuIconImages[ICON_EXIT] = "images\\MenuIcons\\Menu_Exit.jpg";
-	MenuIconImages[ICON_TRIANGLE] = "images\\MenuIcons\\triangle.jpg";
-	MenuIconImages[ICON_POLYGON] = "images\\MenuIcons\\regularpolygon.jpg";
-	MenuIconImages[ICON_COLOURS] = "images\\MenuIcons\\color.jpg";
-	MenuIconImages[ICON_REG] = "images\\MenuIcons\\irre.jpg";
-
-	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\saveicon.jpg";  //Rghda added
-	
+	MenuIconImages[ICON_TRI] = "images\\MenuIcons\\triangle.jpg";
+	MenuIconImages[ICON_SQU] = "images\\MenuIcons\\square.jpg";
+	MenuIconImages[ICON_OVAL] = "images\\MenuIcons\\oval.jpg";
+	MenuIconImages[ICON_REG] = "images\\MenuIcons\\hexagon.jpg";
+	MenuIconImages[ICON_IRREG] = "images\\MenuIcons\\irregular.jpg";
+	MenuIconImages[ICON_LINE] = "images\\MenuIcons\\line.jpg";
+	MenuIconImages[ICON_EXIT] = "images\\MenuIcons\\exit.jpg";
+	MenuIconImages[ICON_CUT] = "images\\MenuIcons\\cut.jpg";
+	MenuIconImages[ICON_COPY] = "images\\MenuIcons\\copy.jpg";
+	MenuIconImages[ICON_DRAG] = "images\\MenuIcons\\drag.jpg";
+	MenuIconImages[ICON_ADDIMG] = "images\\MenuIcons\\image.jpg";
+	MenuIconImages[ICON_DEL] = "images\\MenuIcons\\delete.jpg";
+	MenuIconImages[ICON_FILL] = "images\\MenuIcons\\fill.jpg";
+	MenuIconImages[ICON_COLORS] = "images\\MenuIcons\\color.jpg";
+	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\save.jpg";
+	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\load.jpg";
+	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\switch.jpg";
 	//TODO: Prepare images for each menu icon and add it to the list
 
 	//Draw menu icon one image at a time
 	for (int i = 0; i < DRAW_ICON_COUNT; i++)
-		pWind->DrawImage(MenuIconImages[i], i * MenuIconWidth, 0, MenuIconWidth, ToolBarHeight);
+		pWind->DrawImage(MenuIconImages[i], i * (MenuIconWidth), 7, MenuIconWidth, ToolBarHeight);
 
 
 
 	//Draw a line under the toolbar
-	pWind->SetPen(RED, 3);
-	pWind->DrawLine(0, ToolBarHeight, width, ToolBarHeight);
+	pWind->SetPen(PLUM, 2);
+	pWind->DrawLine(0, ToolBarHeight + 14, width, ToolBarHeight + 14);
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -213,8 +220,8 @@ void GUI::CreateColourToolBar()
 	int x, y;
 	pWind->WaitMouseClick(x, y);
 	string MenuIconImages[DRAW_ICON_COUNT];
-	MenuIconImages[ICON_COLOURPallet] = "images\\MenuIcons\\drawtoolbar.jpg";
-	MenuIconImages[ICON_BACK]= "images\\MenuIcons\\BACK.jpg";
+	MenuIconImages[ICON_COLORS] = "images\\MenuIcons\\drawtoolbar.jpg";
+	
 	int MenuIconWidthpallete = 639;
 	pWind->DrawImage(MenuIconImages[ICON_COLOURPallet], 0, 0, MenuIconWidthpallete, ToolBarHeight);
 

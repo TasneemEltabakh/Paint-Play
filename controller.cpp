@@ -38,7 +38,7 @@ operation* controller::createOperation(operationType OpType)
 	switch (OpType)
 	{
 		case DRAW_RECT:
-			pOp = new opAddOval(this);
+			pOp = new opAddRect(this);
 			break;
 		case DRAW_TRI:
 			pOp = new opAddTriangle(this);

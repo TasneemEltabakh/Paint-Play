@@ -441,12 +441,40 @@ void GUI::DrawLine(Point P1, Point P2, GfxInfo OvalGfxInfo) const
 
 }
 
+
+
 color GUI::GetColourPallete(const int X, const int Y)
 {
 	pWind->GetColor(X, Y);
 	DrawColor = pWind->GetColor(X, Y);
 	return DrawColor;
+	//isFilled = true; 
+
+	
+	
 }
+
+bool GUI::GetIsFilled()const
+{
+	return IsFilled;
+}
+
+color GUI::FillColour(const int X, const int Y)
+{
+	IsFilled = true;
+	pWind->GetColor(X, Y);
+	FillColor = pWind->GetColor(X, Y);
+	pWind->SetBrush(FillColor);
+	
+
+	return FillColor;
+}
+
+
+// a trial to make  coleur 
+
+
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////////

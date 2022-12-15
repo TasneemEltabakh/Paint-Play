@@ -10,7 +10,7 @@ enum operationType //The operations supported (you can add more if needed)
 	DRAW_TRI,		//Draw Triangle
 	DRAW_CIRC,		//Draw Circle
 	DRAW_regularPOLY,      //Draw polygon
-	DRAW_IRREPoly ,       //draw a irr
+	DRAW_IRREPoly,       //draw a irr
 	CHNG_DRAW_CLR,	//Change the drawing color
 	CHNG_FILL_CLR,	//Change the filling color
 	CHNG_BK_CLR,	//Change background color
@@ -30,8 +30,9 @@ enum operationType //The operations supported (you can add more if needed)
 	EMPTY,			//A click on empty place in the toolbar
 
 	TO_DRAW,		//Switch interface to Draw mode
-	TO_PLAY	,
-	TO_Pallete //Switch interface to Play mode
+	TO_PLAY,
+	TO_Pallete, //Switch interface to Play mode
+	FILL_COLOUR,
 
 	///TODO: Add more operation types (if needed)
 };

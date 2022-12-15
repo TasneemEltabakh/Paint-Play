@@ -4,6 +4,10 @@
 Graph::Graph()
 {
 	selectedShape = nullptr;
+
+
+
+
 }
 
 Graph::~Graph()

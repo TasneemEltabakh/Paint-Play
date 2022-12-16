@@ -100,7 +100,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_SAVE: return SAVE;  //Rghda added
 			case ICON_SELECT: return SELECT;  //Rghda added
 			case ICON_DEL: return DEL;  //Rghda added
-
+			case ICON_LOAD:return LOAD;
 
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}

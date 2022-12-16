@@ -1,6 +1,6 @@
 #include "Graph.h"
 #include "../GUI/GUI.h"
-
+#include <iostream>
 Graph::Graph()
 {
 	selectedShape = nullptr;
@@ -96,4 +96,21 @@ void Graph::DeleteGraph() {
 
 	//pGUI->ClearDrawArea(); 
 	//UpdateInterface();
+}
+void Graph::Load(ifstream& inputfile) {
+	string num; string type;
+	cout << "kk";
+	getline(inputfile, num);
+	cout << num;
+	for (int i = 0; i < 5; i++) {
+		GfxInfo info = GfxInfo(); Point points = Point();
+		inputfile >> type;
+		cout << type;
+		if (type == "Triangle") {
+			std::cout << "ll" << endl;
+			Triangle* trig = new Triangle(points, points, points, info);
+			trig->Load(inputfile);
+			shapesList.push_back(trig);
+		}
+	}
 }

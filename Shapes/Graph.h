@@ -2,6 +2,11 @@
 #include "Shape.h"
 #include <fstream>
 #include <vector>
+#include "Shape.h"
+#include <fstream>
+#include <vector>
+#include "ciecle.h"
+#include"Triangle.h"
 using namespace std;
 
 //forward decl
@@ -24,8 +29,7 @@ public:
 
 	void DeleteGraph();  //Rghda added
 
-	void load(ifstream& inputfile);	//Load all shapes from a file
-	
+	void Load(ifstream& inputfile);
 	int getvectorsize();
 	shape* getselectedShape();  //Rghda added
 	void setselectedShapenull();  //Rghda added

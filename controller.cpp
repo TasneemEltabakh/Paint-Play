@@ -1,21 +1,4 @@
 #include "controller.h"
-#include "operations\opAddRect.h"
-#include "CMUgraphicsLib/CMUgraphics.h"
-#include "CMUgraphicsLib/windowinput.h"
-#include "operations/opAddTriangle.h"
-#include "operations/opAddRegPol.h"
-#include "operations/opAddirrPol.h"
-#include "operations/opExit.h"
-#include"operations/opChooseColour.h"
-#include "operations/Save.h"
-#include "operations/opAddSquare.h"
-#include "operations/opAddCircle.h"
-#include"operations/opAddLine.h"
-#include "operations/opAddOval.h"
-#include "operations/opFillColour.h"
-#include "operations/opsSwitch.h"
-#include "operations/Select.h"
-#include "operations/Delete.h"
 
 
 using namespace std;
@@ -88,6 +71,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case BACK :
 			pOp = new opsSwitch(this);
+			break;
+		case LOAD:
+			pOp = new opLoad(this);
 			break;
 		
 		case STATUS:	//a click on the status bar ==> no operation

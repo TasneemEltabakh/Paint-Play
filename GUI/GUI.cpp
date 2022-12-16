@@ -92,13 +92,12 @@ operationType GUI::GetUseroperation() const
 			case ICON_EXIT: return EXIT;
 			case ICON_TRI: return DRAW_TRI;
 			case ICON_REG: return DRAW_regularPOLY;
-			case ICON_COLORS:return TO_Pallete;
+			case ICON_COLORS :return TO_Pallete;
 			case ICON_IRREG: return DRAW_IRREPoly;
 			case ICON_LINE: return DRAW_LINE;
 			case ICON_OVAL: return DRAWOV;
 			case ICON_SQU: return DRAW_SQ;
 			case ICON_SAVE: return SAVE;  //Rghda added
-
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
 		}
@@ -115,14 +114,13 @@ operationType GUI::GetUseroperation() const
 				switch (ClickedIconOrder)
 				{
 				case ICON_COLOURPallet: return colours;
-				case ICON_SAVE: return SAVE;  //Rghda added
-
+				case ICON_BACK: return BACK;
 				default: return EMPTY;	//A click on empty place in desgin toolbar
 				}
 			}
 		}
 		//[2] User clicks on the drawing area
-		if (y >= ToolBarHeight && y < height - StatusBarHeight)
+		if (y >= 0 && y < ToolBarHeight)
 		{
 			return DRAWING_AREA;
 		}
@@ -158,6 +156,7 @@ window* GUI::CreateWind(int w, int h, int x, int y) const
 //////////////////////////////////////////////////////////////////////////////////////////
 void GUI::CreateStatusBar() const
 {
+
 	pWind->SetPen(StatusBarColor, 1);
 	pWind->SetBrush(StatusBarColor);
 	pWind->DrawRectangle(0, height - StatusBarHeight, width, height);
@@ -184,7 +183,7 @@ void GUI::CreateDrawToolBar()
 	string MenuIconImages[DRAW_ICON_COUNT];
 	MenuIconImages[ICON_RECT] = "images\\MenuIcons\\rectangle.jpg";
 	MenuIconImages[ICON_CIRC] = "images\\MenuIcons\\circle.jpg";
-	MenuIconImages[ICON_LINE] = "images\\MenuIcons\\oval.jpg";
+	MenuIconImages[ICON_LINE] = "images\\MenuIcons\\line.jpg";
 	MenuIconImages[ICON_TRI] = "images\\MenuIcons\\triangle.jpg";
 	MenuIconImages[ICON_SQU] = "images\\MenuIcons\\square.jpg";
 	MenuIconImages[ICON_OVAL] = "images\\MenuIcons\\oval.jpg";
@@ -197,43 +196,43 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_ADDIMG] = "images\\MenuIcons\\image.jpg";
 	MenuIconImages[ICON_DEL] = "images\\MenuIcons\\delete.jpg";
 	MenuIconImages[ICON_FILL] = "images\\MenuIcons\\fill.jpg";
-	MenuIconImages[ICON_COLORS] = "images\\MenuIcons\\color.jpg";
+	MenuIconImages[ICON_COLORS] = "images\\MenuIcons\\pencil.jpg";
 	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\save.jpg";
 	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\load.jpg";
 	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\switch.jpg";
+	
 	//TODO: Prepare images for each menu icon and add it to the list
 
 	//Draw menu icon one image at a time
-	for (int i = 0; i < DRAW_ICON_COUNT; i++)
+	for (int i = 0; i <( DRAW_ICON_COUNT); i++)
 		pWind->DrawImage(MenuIconImages[i], i * (MenuIconWidth), 7, MenuIconWidth, ToolBarHeight);
+	
 
 
 
 	//Draw a line under the toolbar
 	pWind->SetPen(PLUM, 2);
 	pWind->DrawLine(0, ToolBarHeight + 14, width, ToolBarHeight + 14);
-
+	
 }
 //////////////////////////////////////////////////////////////////////////////////////////
-void GUI::CreateColourToolBar()
+void  GUI::CreateColourToolBar()
 {
 	InterfaceMode = MODE_COLOURS;
-	int x, y;
-	pWind->WaitMouseClick(x, y);
+	ClearStatusBar();	//First clear the status bar
 	string MenuIconImages[DRAW_ICON_COUNT];
-	MenuIconImages[ICON_COLORS] = "images\\MenuIcons\\drawtoolbar.jpg";
-	
-	int MenuIconWidthpallete = 639;
-	pWind->DrawImage(MenuIconImages[ICON_COLOURPallet], 0, 0, MenuIconWidthpallete, ToolBarHeight);
-
-	pWind->SetPen(RED, 3);
-	pWind->DrawLine(0, ToolBarHeight, width, ToolBarHeight);
+	MenuIconImages[ICON_COLOURPallet] = "images\\MenuIcons\\drawtoolbar.jpg";
+	pWind->SetPen(MsgColor, 50);
+	pWind->SetFont(24, BOLD, BY_NAME, "Arial");
+	pWind->DrawImage(MenuIconImages[ICON_COLOURPallet], 1 , height - (int)(1.25* StatusBarHeight), 1285,100) ;
 
 }
+
 void  GUI::back()
 {
 	InterfaceMode =MODE_DRAW;
 	CreateDrawToolBar();
+
 }
 void GUI::CreatePlayToolBar() 
 {
@@ -451,15 +450,10 @@ void GUI::DrawLine(Point P1, Point P2, GfxInfo OvalGfxInfo) const
 
 
 
-color GUI::GetColourPallete(const int X, const int Y)
+color GUI::GetColour(const int X, const int Y)
 {
-	pWind->GetColor(X, Y);
-	DrawColor = pWind->GetColor(X, Y);
+	DrawColor= pWind->GetColor(X, Y);
 	return DrawColor;
-	//isFilled = true; 
-
-	
-	
 }
 
 bool GUI::GetIsFilled()const

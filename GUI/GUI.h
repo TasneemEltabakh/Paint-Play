@@ -46,14 +46,14 @@ class GUI
 		ICON_OVAL,
 		ICON_REG,
 		ICON_SAVE, //Rghda added
-	   // nada wed 
+		// nada wed 
 		ICON_IRREG,
 		ICON_LINE,
 
-		ICON_FILL,
-		ICON_COLORS,
-		//TODO: Add more icons names here
 
+		ICON_FILL,
+		//TODO: Add more icons names here
+		ICON_COLORS,
 		ICON_CUT,
 		ICON_COPY,
 		ICON_DRAG,
@@ -63,7 +63,7 @@ class GUI
 		ICON_LOAD,
 		ICON_SWITCH,
 		ICON_EXIT,		//Exit icon
-
+		
 		DRAW_ICON_COUNT	,	//no. of menu icons ==> This should be the last line in this enum
 
 	};
@@ -93,6 +93,7 @@ class GUI
 		ToolBarHeight,		//Tool Bar Height (distance from top of window to bottom line of toolbar)
 		MenuIconWidth;		//Width of each icon in toolbar menu
     	bool IsFilled;
+		color col;
 		
 		
 
@@ -148,7 +149,7 @@ public:
 	color getCrntDrawColor() const;	//get current drwawing color
 	color getCrntFillColor() const;	//get current filling color
 	int getCrntPenWidth() const;		//get current pen width
-	color GetColourPallete(const int X, const int Y); //choose colour from colour pallete
+	color GetColour(const int X, const int Y); //choose colour from colour pallete
 	// nada edit wed 
 	color FillColour(const int X, const int Y); // fill color 
 

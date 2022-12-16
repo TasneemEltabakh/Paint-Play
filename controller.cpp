@@ -12,7 +12,9 @@
 #include "operations/opAddCircle.h"
 #include"operations/opAddLine.h"
 #include "operations/opAddOval.h"
-#include "opFillColour.h"
+#include "operations/opFillColour.h"
+#include "operations/opsSwitch.h"
+
 
 //Constructor
 controller::controller()
@@ -74,6 +76,10 @@ operation* controller::createOperation(operationType OpType)
 		case DRAW_SQ:
 			pOp = new opAddSquare(this);
 			break;
+		case BACK :
+			pOp = new opsSwitch(this);
+			break;
+		
 		case STATUS:	//a click on the status bar ==> no operation
 			break;
 	}

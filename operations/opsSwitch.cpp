@@ -15,5 +15,6 @@ opsSwitch::~opsSwitch()
 void opsSwitch::Execute()
 {
 	GUI* pUI = pControl->GetUI();
+
 	pUI->back();
 }

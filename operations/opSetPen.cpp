@@ -14,6 +14,5 @@ void opSetPen::Execute()
 {
 	GUI* pUI = pControl->GetUI();
 	int X, Y;
-	pUI->GetPointClicked(X, Y);
-	pUI->GetColourPallete(X, Y);
+
 }

@@ -19,7 +19,7 @@ void opFillColour::Execute()
 	
 	GUI* pUI = pControl->GetUI();
 	pUI->GetPointClicked(X, Y);
-	pUI->GetColourPallete(X,Y);
+	
 
 	
 }

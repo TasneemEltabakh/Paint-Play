@@ -34,7 +34,7 @@ enum operationType //The operations supported (you can add more if needed)
 	TO_PLAY,
 	TO_Pallete, //Switch interface to Play mode
 	FILL_COLOUR,
-
+	BACK,
 	///TODO: Add more operation types (if needed)
 };
 

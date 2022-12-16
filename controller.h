@@ -43,4 +43,3 @@ public:
 	int controller::getSelectedCount();  //Rghda added
 	shape** controller::getSelected();  //Rghda added
 };
-

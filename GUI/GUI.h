@@ -58,8 +58,9 @@ class GUI
 		ICON_COPY,
 		ICON_DRAG,
 		ICON_ADDIMG,
-		ICON_DEL,
-	
+		ICON_DEL,  //Rghda
+		ICON_SELECT,  //Rghda
+
 		ICON_LOAD,
 		ICON_SWITCH,
 		ICON_EXIT,		//Exit icon

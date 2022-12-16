@@ -98,6 +98,10 @@ operationType GUI::GetUseroperation() const
 			case ICON_OVAL: return DRAWOV;
 			case ICON_SQU: return DRAW_SQ;
 			case ICON_SAVE: return SAVE;  //Rghda added
+			case ICON_SELECT: return SELECT;  //Rghda added
+			case ICON_DEL: return DEL;  //Rghda added
+
+
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
 		}
@@ -198,6 +202,7 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_FILL] = "images\\MenuIcons\\fill.jpg";
 	MenuIconImages[ICON_COLORS] = "images\\MenuIcons\\pencil.jpg";
 	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\save.jpg";
+	MenuIconImages[ICON_SELECT] = "images\\MenuIcons\\save.jpg";
 	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\load.jpg";
 	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\switch.jpg";
 	

@@ -1,4 +1,6 @@
 #include "Square.h"
+#include <fstream>
+#include <iostream>
 
 Square::Square(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
@@ -32,4 +34,42 @@ void Square::Draw(GUI* pUI) const
 	//Call Output::DrawSquare to draw a r on the screen	
 	pUI->DrawSquare(arrayX, arrayY, ShpGfxInfo);
 }
-void Square:: Save(ofstream& GUIFile) {} //Rghda added
+void Square:: Save(ofstream& outfile) {  //Rghda added
+	//I tried to put the coordinate in a single line
+		//and the colors in another one, but it will make it hard for load function
+		  ////////////////////////////////////////////////////
+		 //name,id,corners x , y,drawclr,borderwdth,fillclr//
+		////////////////////////////////////////////////////
+
+	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
+	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
+	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
+	int id = ID;
+
+	outfile << "sQUARE" << " " << id << " "    //the name and id
+		<< Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " "; //the corners
+
+	outfile << redcolorlevel << " " << greencolorlevel << " " << bluecolorlevel << " ";
+
+	outfile << ShpGfxInfo.BorderWdth << " ";
+
+	if (ShpGfxInfo.isFilled != true)
+		outfile << "0 0 0" << " ";
+	else
+		outfile << (int)ShpGfxInfo.FillClr.ucRed << " " << (int)ShpGfxInfo.FillClr.ucGreen << " "
+		<< (int)ShpGfxInfo.FillClr.ucBlue << " ";
+
+	outfile << endl;
+} 
+
+string Square::PrintOnTool()
+{
+	string values = "I should put here the data of square";
+	return values;
+}
+
+
+bool Square::IsShapeExisting(int x, int y)  //Rghda added
+{
+	return false;
+}

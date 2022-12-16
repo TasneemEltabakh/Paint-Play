@@ -1,7 +1,7 @@
 #pragma once
 #pragma once
 
-#include "Shape.h"
+#include "..//Shapes/Shape.h"
 #include "..//GUI/GUI.h"
 
 class Square : public shape
@@ -16,6 +16,9 @@ public:
 	Square(Point, Point, GfxInfo shapeGfxInfo);
 	virtual ~Square();
 	virtual void Draw(GUI* pUI) const;
-	void Save(ofstream& GUIFile); //Rghda added
+
+	void Save(ofstream& outfile); //Rghda added
+	string PrintOnTool();  //Rghda added
+	bool IsShapeExisting(int x, int y);  //Rghda added
 };
 

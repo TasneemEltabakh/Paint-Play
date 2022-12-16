@@ -39,11 +39,12 @@ void IrregularPolygon::Save(ofstream& outfile) {  //Rghda added
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
 	int id = ID;
 
-	outfile << "Irr Regular Polygon" << " " << id << " "
-	<< point1.x << " " << point1.y << " "
-	<< point2.x << " " << point2.y << " "
-	<<point3.x << " " << point3.y << " ";
-
+	outfile << "Irr Regular Polygon" << " " << id << " ";
+	for (int i = 0; i < arrayX.size(); i++)
+	{
+		outfile << arrayX[i] << " " << arrayY[i] << " ";
+	}
+	
 	outfile << redcolorlevel << " " << greencolorlevel << " " << bluecolorlevel << " ";
 
 	outfile << ShpGfxInfo.BorderWdth << " ";
@@ -61,13 +62,12 @@ void IrregularPolygon::Save(ofstream& outfile) {  //Rghda added
 
 string IrregularPolygon::PrintOnTool() {  //Rghda added
 
-	string values = "you selected a IrregularPolygon,ID: " + to_string(ID) + 
-	"\n . First Point: (" + to_string(point1.x) + ", " + to_string(point1.y) + 
-		"). Second Point: (" + to_string(point2.x) + ", " + to_string(point2.y) + ")."+
-		"\n . Third Point: (" + to_string(point3.x) + ", " + to_string(point3.y) + 
-		"). Fourth Point: (" + to_string(point4.x) + ", " + to_string(point4.y) + ")."+
-		"\n . Fifth Point: (" + to_string(point5.x) + ", " + to_string(point5.y) + 
-		"). six Point: (" + to_string(point6.x) + ", " + to_string(point6.y) + ").";
+	string values = "you selected a IrregularPolygon,ID: " + to_string(ID);
+		for (int i = 0; i < arrayX.size(); i++)
+		{
+			values = " Point" + to_string(i + 1) + ": (" + to_string(arrayX[i]) + ", " + to_string(arrayY[i]) + ") ";
+		}
+	
 	return values;
 }
 bool IrregularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  I should edit this and put its data 

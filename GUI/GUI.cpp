@@ -12,10 +12,10 @@ GUI::GUI()
 
 
 	StatusBarHeight = 50;
-	ToolBarHeight = 50;
-	MenuIconWidth = 80;
+	ToolBarHeight = 55;
+	MenuIconWidth = 60;
 
-	DrawColor = RED;	//default Drawing color
+	DrawColor = BLUE;	//default Drawing color
 	FillColor = GREEN;	//default Filling color
 	MsgColor = BLACK;		//Messages color
 	BkGrndColor = WHITE;	//Background color
@@ -32,7 +32,6 @@ GUI::GUI()
 	CreateDrawToolBar();
 	CreateStatusBar();
 }
-
 
 
 
@@ -72,8 +71,9 @@ string GUI::GetSrting() const
 operationType GUI::GetUseroperation() const
 {
 	int x, y;
-	pWind->WaitMouseClick(x, y);	//Get the coordinates of the user click
 
+	pWind->WaitMouseClick(x, y);	//Get the coordinates of the user click
+	
 	if (InterfaceMode == MODE_DRAW)	//GUI in the DRAW mode
 	{
 		//[1] If user clicks on the Toolbar
@@ -90,21 +90,37 @@ operationType GUI::GetUseroperation() const
 			case ICON_RECT: return DRAW_RECT;
 			case ICON_CIRC: return DRAW_CIRC;
 			case ICON_EXIT: return EXIT;
-			case ICON_TRIANGLE: return DRAW_TRI;
-			case ICON_POLYGON: return DRAW_regularPOLY;
-			case ICON_COLOURS:return colours;
-			case ICON_REG: return DRAW_IRREPoly ;
-			
+			case ICON_TRI: return DRAW_TRI;
+			case ICON_REG: return DRAW_regularPOLY;
+			case ICON_COLORS :return TO_Pallete;
+			case ICON_IRREG: return DRAW_IRREPoly;
+			case ICON_LINE: return DRAW_LINE;
+			case ICON_OVAL: return DRAWOV;
+			case ICON_SQU: return DRAW_SQ;
 			case ICON_SAVE: return SAVE;  //Rghda added
-			case ICON_SELECT: return SELECT; //Rghda added
-			case ICON_DELETE: return DEL;  //Rghda added
-
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
 		}
 
+	if (InterfaceMode == MODE_COLOURS)	//GUI in the colouroallete mode
+		{
+			//[1] If user clicks on the Toolbar
+			if (y >= 0 && y < ToolBarHeight)
+			{
+
+				int ClickedIconOrder = (x / MenuIconWidth);
+
+
+				switch (ClickedIconOrder)
+				{
+				case ICON_COLOURPallet: return colours;
+				case ICON_BACK: return BACK;
+				default: return EMPTY;	//A click on empty place in desgin toolbar
+				}
+			}
+		}
 		//[2] User clicks on the drawing area
-		if (y >= ToolBarHeight && y < height - StatusBarHeight)
+		if (y >= 0 && y < ToolBarHeight)
 		{
 			return DRAWING_AREA;
 		}
@@ -140,6 +156,7 @@ window* GUI::CreateWind(int w, int h, int x, int y) const
 //////////////////////////////////////////////////////////////////////////////////////////
 void GUI::CreateStatusBar() const
 {
+
 	pWind->SetPen(StatusBarColor, 1);
 	pWind->SetBrush(StatusBarColor);
 	pWind->DrawRectangle(0, height - StatusBarHeight, width, height);
@@ -153,7 +170,7 @@ void GUI::ClearStatusBar() const
 	pWind->DrawRectangle(0, height - StatusBarHeight, width, height);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
-void GUI::CreateDrawToolBar() 
+void GUI::CreateDrawToolBar()
 {
 	InterfaceMode = MODE_DRAW;
 
@@ -163,47 +180,58 @@ void GUI::CreateDrawToolBar()
 	//First prepare List of images for each menu icon
 	//To control the order of these images in the menu, 
 	//reoder them in UI_Info.h ==> enum DrawMenuIcon
-
 	string MenuIconImages[DRAW_ICON_COUNT];
 	MenuIconImages[ICON_RECT] = "images\\MenuIcons\\rectangle.jpg";
 	MenuIconImages[ICON_CIRC] = "images\\MenuIcons\\circle.jpg";
-	MenuIconImages[ICON_EXIT] = "images\\MenuIcons\\Menu_Exit.jpg";
-	MenuIconImages[ICON_TRIANGLE] = "images\\MenuIcons\\triangle.jpg";
-	MenuIconImages[ICON_POLYGON] = "images\\MenuIcons\\regularpolygon.jpg";
-	MenuIconImages[ICON_COLOURS] = "images\\MenuIcons\\color.jpg";
-	MenuIconImages[ICON_REG] = "images\\MenuIcons\\irre.jpg";
-
-	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\saveicon.jpg";  //Rghda added
-	MenuIconImages[ICON_SELECT] = "images\\MenuIcons\\select.jpg";  //Rghda added
-	MenuIconImages[ICON_DELETE] = "images\\MenuIcons\\delete.jpg";  //Rghda added
-
+	MenuIconImages[ICON_LINE] = "images\\MenuIcons\\line.jpg";
+	MenuIconImages[ICON_TRI] = "images\\MenuIcons\\triangle.jpg";
+	MenuIconImages[ICON_SQU] = "images\\MenuIcons\\square.jpg";
+	MenuIconImages[ICON_OVAL] = "images\\MenuIcons\\oval.jpg";
+	MenuIconImages[ICON_REG] = "images\\MenuIcons\\hexagon.jpg";
+	MenuIconImages[ICON_IRREG] = "images\\MenuIcons\\irregular.jpg";
+	MenuIconImages[ICON_EXIT] = "images\\MenuIcons\\exit.jpg";
+	MenuIconImages[ICON_CUT] = "images\\MenuIcons\\cut.jpg";
+	MenuIconImages[ICON_COPY] = "images\\MenuIcons\\copy.jpg";
+	MenuIconImages[ICON_DRAG] = "images\\MenuIcons\\drag.jpg";
+	MenuIconImages[ICON_ADDIMG] = "images\\MenuIcons\\image.jpg";
+	MenuIconImages[ICON_DEL] = "images\\MenuIcons\\delete.jpg";
+	MenuIconImages[ICON_FILL] = "images\\MenuIcons\\fill.jpg";
+	MenuIconImages[ICON_COLORS] = "images\\MenuIcons\\pencil.jpg";
+	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\save.jpg";
+	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\load.jpg";
+	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\switch.jpg";
+	
 	//TODO: Prepare images for each menu icon and add it to the list
 
 	//Draw menu icon one image at a time
-	for (int i = 0; i < DRAW_ICON_COUNT; i++)
-		pWind->DrawImage(MenuIconImages[i], i * MenuIconWidth, 0, MenuIconWidth, ToolBarHeight);
+	for (int i = 0; i <( DRAW_ICON_COUNT); i++)
+		pWind->DrawImage(MenuIconImages[i], i * (MenuIconWidth), 7, MenuIconWidth, ToolBarHeight);
+	
 
 
 
 	//Draw a line under the toolbar
-	pWind->SetPen(RED, 3);
-	pWind->DrawLine(0, ToolBarHeight, width, ToolBarHeight);
-
+	pWind->SetPen(PLUM, 2);
+	pWind->DrawLine(0, ToolBarHeight + 14, width, ToolBarHeight + 14);
+	
 }
 //////////////////////////////////////////////////////////////////////////////////////////
-void GUI::CreateColourToolBar()
+void  GUI::CreateColourToolBar()
 {
 	InterfaceMode = MODE_COLOURS;
-	int x, y;
-	pWind->WaitMouseClick(x, y);
+	ClearStatusBar();	//First clear the status bar
 	string MenuIconImages[DRAW_ICON_COUNT];
-	MenuIconImages[ICON_COLOURPallet] = "images\\MenuIcons\\ColourPallete.jpg";
-	
-	for (int i = 0; i < DRAW_ICON_COUNT; i++)
-		pWind->DrawImage(MenuIconImages[i], i * MenuIconWidth, 0, MenuIconWidth, ToolBarHeight);
+	MenuIconImages[ICON_COLOURPallet] = "images\\MenuIcons\\drawtoolbar.jpg";
+	pWind->SetPen(MsgColor, 50);
+	pWind->SetFont(24, BOLD, BY_NAME, "Arial");
+	pWind->DrawImage(MenuIconImages[ICON_COLOURPallet], 1 , height - (int)(1.25* StatusBarHeight), 1285,100) ;
 
-	pWind->SetPen(RED, 3);
-	pWind->DrawLine(0, ToolBarHeight, width, ToolBarHeight);
+}
+
+void  GUI::back()
+{
+	InterfaceMode =MODE_DRAW;
+	CreateDrawToolBar();
 
 }
 void GUI::CreatePlayToolBar() 
@@ -300,8 +328,7 @@ void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriangleGfxInfo) co
 } 
 void GUI:: DrawPol(const int PointertoarryOFX[], const int PointertoarryOFy[], const int Numberofsides, GfxInfo shapeGfxInfo) const
 {
-	int casttedint = 6;
-	int c = 0;
+	
 	color DrawingClr;
 	if (shapeGfxInfo.isSelected)	//shape is selected
 		DrawingClr = HighlightColor; //shape should be drawn highlighted
@@ -319,16 +346,137 @@ void GUI:: DrawPol(const int PointertoarryOFX[], const int PointertoarryOFy[], c
 	else
 
 		style = FRAME;
-	pWind->DrawPolygon(PointertoarryOFX,PointertoarryOFy, casttedint ,style);
+	pWind->DrawPolygon(PointertoarryOFX,PointertoarryOFy, Numberofsides ,style);
+
+}
+// Circle //
+
+void GUI::DrawCircle(Point P1, int radious, GfxInfo CircleGfxInfo) const
+{
+	color DrawingClr;
+	if (CircleGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = CircleGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, CircleGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (CircleGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(CircleGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+	pWind->DrawCircle(P1.x, P1.y, radious, style);
+
+
+}
+// square 
+void GUI:: DrawSquare(const int array1[], const int array2[], GfxInfo SquareGfxInfo) const //Draw a Square 
+{
+	
+	color DrawingClr;
+	if (SquareGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = SquareGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, SquareGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (SquareGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(SquareGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+	pWind->DrawPolygon(array1,array2,4,style);
 
 }
 
-color GUI::GetColourPallete(const int X, const int Y)
+// Oval
+void GUI::DrawEllipse(Point P1, Point	P2, GfxInfo OvalGfxInfo) const
 {
-	pWind->GetColor(X, Y);
-	DrawColor = pWind->GetColor(X, Y);
+	color DrawingClr;
+	if (OvalGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = OvalGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, OvalGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (OvalGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(OvalGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+	pWind->DrawEllipse(P1.x, P1.y, P2.x,P2.y, style);
+
+
+}
+// line 
+void GUI::DrawLine(Point P1, Point P2, GfxInfo OvalGfxInfo) const
+{
+	color DrawingClr;
+	if (OvalGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = OvalGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, OvalGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (OvalGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(OvalGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+	pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style);
+
+
+}
+
+
+
+color GUI::GetColour(const int X, const int Y)
+{
+	DrawColor= pWind->GetColor(X, Y);
 	return DrawColor;
 }
+
+bool GUI::GetIsFilled()const
+{
+	return IsFilled;
+}
+
+color GUI::FillColour(const int X, const int Y)
+{
+	IsFilled = true;
+	pWind->GetColor(X, Y);
+	FillColor = pWind->GetColor(X, Y);
+	pWind->SetBrush(FillColor);
+	
+
+	return FillColor;
+}
+
+
+// a trial to make  coleur 
+
+
+
 
 
 //////////////////////////////////////////////////////////////////////////////////////////

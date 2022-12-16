@@ -1,5 +1,6 @@
 #pragma once
 #include "Shape.h"
+#include <vector>
 
 class regularPolygon :
     public shape
@@ -13,8 +14,11 @@ private:
     int NumberOfsides;
     double angle;
     double iteratedangle;
-    int* arrayX= new int[100];
-    int* arrayY= new int [100];
+    vector<int> arrayX;
+    vector<int> arrayY;
+    int* a = nullptr;
+    int* b = nullptr;
+
 
 public :
     regularPolygon(Point, Point, int , GfxInfo shapeGfxInfo);

@@ -1,13 +1,10 @@
 #pragma once
 #include "operation.h"
-class opExit :
+class opSetPen :
     public operation
 {
 public:
-
- 	opExit(controller* pCont);
-	virtual ~opExit();
+	opSetPen(controller* pCont);
+	virtual ~opSetPen();
 	virtual void Execute();
-
 };
-

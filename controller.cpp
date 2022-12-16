@@ -5,10 +5,18 @@
 #include "operations/opAddTriangle.h"
 #include "operations/opAddRegPol.h"
 #include "operations/opAddirrPol.h"
+#include "operations/opExit.h"
 #include"operations/opChooseColour.h"
 #include "operations/Save.h"
+#include "operations/opAddSquare.h"
+#include "operations/opAddCircle.h"
+#include"operations/opAddLine.h"
+#include "operations/opAddOval.h"
+#include "operations/opFillColour.h"
+#include "operations/opsSwitch.h"
 #include "operations/Select.h"
 #include "operations/Delete.h"
+
 
 using namespace std;
 //Constructor
@@ -41,11 +49,15 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case DRAW_TRI:
 			pOp = new opAddTriangle(this);
+			break;
 		case DRAW_LINE:
-			///create AddLineoperation here
+			pOp = new opAddLine(this);
 			break;
 		case DRAW_regularPOLY:
 			pOp = new opAddRegPol(this);
+			break;
+		case DRAW_CIRC:
+			pOp = new opAddCircle(this);
 			break;
 		case DRAW_IRREPoly:
 			pOp = new opAddirrPol(this);
@@ -60,11 +72,23 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new Delete(this);
 			break;
 		case EXIT: 
+			pOp = new opExit(this);
 			break;
-		case colours:
+		case TO_Pallete:
 			pOp = new opChooseColour(this);
 			break;
-
+		case FILL_COLOUR:
+			pOp = new opFillColour(this);
+			break;
+		case DRAWOV:
+			pOp = new opAddOval(this);
+			break;
+		case DRAW_SQ:
+			pOp = new opAddSquare(this);
+			break;
+		case BACK :
+			pOp = new opsSwitch(this);
+			break;
 		
 		case STATUS:	//a click on the status bar ==> no operation
 			break;
@@ -138,16 +162,8 @@ void controller::Run()
 //==================================================================================//
 //							Save function											//  //Rghda added
 //==================================================================================//
-
-
-
-//==================================================================================//
-//							Delete function											//  //Rghda added
-//==================================================================================//
-
-
-
-//==================================================================================//
-//							Select function											//  //Rghda added
-//==================================================================================//
+int controller::NO_SHAPES() const
+{
+	return ShapeCount;
+}
 

@@ -34,26 +34,37 @@ class GUI
 		MODE_COLOURS
 	};
 
+
 	enum DrawMenuIcon //The icons of the Draw menu (you should add more icons)
 	{
 		//Note: Icons are ordered here as they appear in menu
 		//If you want to change the menu icons order, change the order here
 		ICON_RECT,		//Recangle icon in menu
 		ICON_CIRC,		//Circle icon in menu
-		ICON_TRIANGLE,
-		ICON_POLYGON,
+		ICON_TRI,
+		ICON_SQU,
+		ICON_OVAL,
 		ICON_REG,
-		ICON_COLOURS,
 		ICON_SAVE, //Rghda added
-		ICON_SELECT, //Rghda added
-		ICON_DELETE,  //Rghda added
+		// nada wed 
+		ICON_IRREG,
+		ICON_LINE,
 
 
+		ICON_FILL,
 		//TODO: Add more icons names here
-
+		ICON_COLORS,
+		ICON_CUT,
+		ICON_COPY,
+		ICON_DRAG,
+		ICON_ADDIMG,
+		ICON_DEL,
+	
+		ICON_LOAD,
+		ICON_SWITCH,
 		ICON_EXIT,		//Exit icon
-
-		DRAW_ICON_COUNT		//no. of menu icons ==> This should be the last line in this enum
+		
+		DRAW_ICON_COUNT	,	//no. of menu icons ==> This should be the last line in this enum
 
 	};
 
@@ -70,7 +81,8 @@ class GUI
 	};
 	enum ColourPalette
 	{
-		ICON_COLOURPallet
+		ICON_COLOURPallet,
+		ICON_BACK
 	};
 
 	GUI_MODE InterfaceMode;
@@ -80,6 +92,11 @@ class GUI
 		StatusBarHeight,	//Status Bar Height
 		ToolBarHeight,		//Tool Bar Height (distance from top of window to bottom line of toolbar)
 		MenuIconWidth;		//Width of each icon in toolbar menu
+    	bool IsFilled;
+		color col;
+		
+		
+
 
 
 	color DrawColor;		//Drawing color
@@ -119,16 +136,22 @@ public:
 	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const;  //Draw a rectangle
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo RectGfxInfo) const;
 	void DrawPol(const int PointertoarryOFX[], const int PointertoarryOFy[], const int Numberofsides, GfxInfo shapeGfxInfo) const;
-	
+	void DrawCircle(Point P1, int radious, GfxInfo CircleGfxInfo) const;  //Draw a Circle
+	void DrawSquare(const int array1[], const int array2[],GfxInfo SquareGfxInfo) const;  //Draw a Square 
+	void DrawEllipse(Point P1, Point P2, GfxInfo OvalGfxInfo) const;  //Draw an Oval
+	void DrawLine(Point P1, Point P2, GfxInfo OvalGfxInfo) const;  //Draw a line 
+	void back();
 
-
+	bool GetIsFilled() const;
 	///Make similar functions for drawing all other shapes.
     void PrintMessage(string msg) const;	//Print a message on Status bar
 
 	color getCrntDrawColor() const;	//get current drwawing color
 	color getCrntFillColor() const;	//get current filling color
 	int getCrntPenWidth() const;		//get current pen width
-	color GetColourPallete(const int X, const int Y); //choose colour from colour pallete
+	color GetColour(const int X, const int Y); //choose colour from colour pallete
+	// nada edit wed 
+	color FillColour(const int X, const int Y); // fill color 
 
 
 	~GUI();

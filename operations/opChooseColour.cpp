@@ -8,16 +8,19 @@ opChooseColour::opChooseColour(controller* pCont) : operation(pCont)
 {}
 
 opChooseColour ::~opChooseColour()
+
 {}
 
 
 void opChooseColour::Execute()
 {
 
-	int X, Y;
+	int X, Y, x,y;
+
 	GUI* pUI = pControl->GetUI();
-	pUI->PrintMessage("Click on the colour U want ");
+	pUI->CreateColourToolBar();
 	pUI->GetPointClicked(X, Y);
-	pUI->GetColourPallete(X,Y);
-	pUI->ClearStatusBar();
+	pUI->GetColour(X, Y);
+	pUI->back();
+	
 }

@@ -29,7 +29,8 @@ public:
 	
 	int getvectorsize();
 	shape* getselectedShape();  //Rghda added
-	void setselectedShapenull();  //Rghda added
+
+	void setselectedShape(shape* selectedshape);  //Rghda added
 
 	void Graph::changeFillSelection(color);
 	void Graph::opChangeSelectedWidth(int );

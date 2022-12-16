@@ -43,8 +43,12 @@ void opAddOval ::Execute()
 	CircleGfxInfo.FillClr = pUI->getCrntFillColor();
 	CircleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
 
+	if (pUI->checkfill() == true)
 
-	CircleGfxInfo.isFilled = false;	//default is not filled
+		CircleGfxInfo.isFilled = true;
+
+	else
+		CircleGfxInfo.isFilled = false; //default is not filled
 	CircleGfxInfo.isSelected = false;	//defualt is not selected
 
 

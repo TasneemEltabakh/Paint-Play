@@ -40,11 +40,17 @@ void opAddTriangle::Execute()
 	TriangleGfxInfo.DrawClr = pUI->getCrntDrawColor();
 	TriangleGfxInfo.FillClr = pUI->getCrntFillColor();
 	TriangleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
-	TriangleGfxInfo.isFilled = pUI->GetIsFilled();	//default is not filled
+	//TriangleGfxInfo.isFilled = pUI->GetIsFilled();	//default is not filled
 
 
 	
 	TriangleGfxInfo.isSelected = false;	//defualt is not selected
+	if (pUI->checkfill() == true)
+
+		TriangleGfxInfo.isFilled = true;
+
+	else
+		TriangleGfxInfo.isFilled = false;
 
 
 	//Create a Triangle with the above parameters

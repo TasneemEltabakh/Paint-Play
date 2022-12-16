@@ -12,6 +12,7 @@ opAddCircle::~opAddCircle()
 void opAddCircle::Execute()
 {
 	Point P1, P2;
+	int X, Y;
 
 	//Get a Pointer to the Input / Output Interfaces
 	GUI* pUI = pControl->GetUI();
@@ -40,9 +41,15 @@ void opAddCircle::Execute()
 	CircleGfxInfo.DrawClr = pUI->getCrntDrawColor();
 	CircleGfxInfo.FillClr = pUI->getCrntFillColor();
 	CircleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
+	
 
+	if (pUI->checkfill() == true)
+	
+		CircleGfxInfo.isFilled = true;
+	
+	else 
+		CircleGfxInfo.isFilled = false;
 
-	CircleGfxInfo.isFilled = false;	//default is not filled
 	CircleGfxInfo.isSelected = false;	//defualt is not selected
 
 

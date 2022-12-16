@@ -33,9 +33,15 @@ void opAddRect::Execute()
 	//get drawing, filling colors and pen width from the interface
 	RectGfxInfo.DrawClr = pUI->getCrntDrawColor();
 	RectGfxInfo.FillClr = pUI->getCrntFillColor();
-	RectGfxInfo.isFilled = pUI->GetIsFilled();	//default is not filled
+	//RectGfxInfo.isFilled = pUI->GetIsFilled();	//default is not filled
 	RectGfxInfo.BorderWdth = pUI->getCrntPenWidth();
 
+	if (pUI->checkfill() == true)
+
+		RectGfxInfo.isFilled = true;
+
+	else
+		RectGfxInfo.isFilled = false;
 
 	
 	RectGfxInfo.isSelected = false;	//defualt is not selected

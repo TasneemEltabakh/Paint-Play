@@ -42,8 +42,6 @@ void opAddirrPol::Execute()
 	polyGfxInfo.FillClr = pUI->getCrntFillColor();
 	polyGfxInfo.BorderWdth = pUI->getCrntPenWidth();
 
-
-	polyGfxInfo.isFilled = false;	//default is not filled
 	polyGfxInfo.isSelected = false;	//defualt is not selected
 
 

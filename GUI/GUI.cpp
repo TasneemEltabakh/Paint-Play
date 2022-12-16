@@ -202,7 +202,7 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_FILL] = "images\\MenuIcons\\fill.jpg";
 	MenuIconImages[ICON_COLORS] = "images\\MenuIcons\\pencil.jpg";
 	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\save.jpg";
-	MenuIconImages[ICON_SELECT] = "images\\MenuIcons\\save.jpg";
+	MenuIconImages[ICON_SELECT] = "images\\MenuIcons\\select.jpg";
 	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\load.jpg";
 	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\switch.jpg";
 	

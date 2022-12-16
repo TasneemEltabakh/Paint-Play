@@ -18,7 +18,7 @@ struct GfxInfo	//Graphical info common for all shapes (you may add more members)
 	color DrawClr;	//Draw color of the shape
 	color FillClr;	//Fill color of the shape
 	bool isFilled;	//shape Filled or not
-	int BorderWdth;	//Width of shape borders
+	int BorderWdth;	 //Width of shape borders
 	bool isSelected;	//true if the shape is selected.
 };
 
@@ -142,8 +142,8 @@ public:
 	void DrawEllipse(Point P1, Point P2, GfxInfo OvalGfxInfo) const;  //Draw an Oval
 	void DrawLine(Point P1, Point P2, GfxInfo OvalGfxInfo) const;  //Draw a line 
 	void back();
-
-	bool GetIsFilled() const;
+	bool checkfill();
+	bool GetIsFilled() ;
 	///Make similar functions for drawing all other shapes.
     void PrintMessage(string msg) const;	//Print a message on Status bar
 

@@ -22,7 +22,7 @@ GUI::GUI()
 	HighlightColor = MAGENTA;	//This color should NOT be used to draw shapes. use if for highlight only
 	StatusBarColor = LIGHTSEAGREEN;
 	PenWidth = 3;	//default width of the shapes frames
-
+	IsFilled=false;
 
 	//Create the output window
 	pWind = CreateWind(width, height, wx, wy);
@@ -93,6 +93,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_TRI: return DRAW_TRI;
 			case ICON_REG: return DRAW_regularPOLY;
 			case ICON_COLORS :return TO_Pallete;
+			case ICON_FILL: return FILL_COLOUR;
 			case ICON_IRREG: return DRAW_IRREPoly;
 			case ICON_LINE: return DRAW_LINE;
 			case ICON_OVAL: return DRAWOV;
@@ -460,20 +461,21 @@ color GUI::GetColour(const int X, const int Y)
 	DrawColor= pWind->GetColor(X, Y);
 	return DrawColor;
 }
-
-bool GUI::GetIsFilled()const
+bool GUI::checkfill()
 {
+	return IsFilled;
+}
+
+bool GUI::GetIsFilled() 
+{
+
+	IsFilled = true;
 	return IsFilled;
 }
 
 color GUI::FillColour(const int X, const int Y)
 {
-	IsFilled = true;
-	pWind->GetColor(X, Y);
 	FillColor = pWind->GetColor(X, Y);
-	pWind->SetBrush(FillColor);
-	
-
 	return FillColor;
 }
 

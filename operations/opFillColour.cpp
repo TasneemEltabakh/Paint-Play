@@ -14,11 +14,15 @@ opFillColour ::~opFillColour()
 
 void opFillColour::Execute()
 {
+
 	int X, Y;
-	GfxInfo g;
-	
+
 	GUI* pUI = pControl->GetUI();
+	pUI->CreateColourToolBar();
 	pUI->GetPointClicked(X, Y);
+	pUI->GetIsFilled();
+	pUI->FillColour(X, Y);
+	pUI->back();
 	
 
 	

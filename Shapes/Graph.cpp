@@ -4,9 +4,9 @@
 Graph::Graph()
 {
 	selectedShape = nullptr;
-
-
-
+	
+	// set the nullptr to a pointer of that shape 
+	
 
 }
 
@@ -91,6 +91,32 @@ void Graph::DeleteGraph() {
 			//shapesList.erase(shapesList[i]);  //it didn't work as erase didn't accept
 			shapesList.erase(shapesList.begin() + k);
 			k--;
+		}
+	}
+
+	//pGUI->ClearDrawArea(); 
+	//UpdateInterface();
+}
+
+void Graph::changeFillSelection(color r) {
+	
+	//int size=shapesList.size(); //it will not work as //I sould put here the size by this form< as its sive changed 
+	for (int k = 0; k < shapesList.size(); k++) {   
+		if (selectedShape == shapesList[k]) {
+			shapesList[k]->ChngFillClr(r); //new addition
+		}
+	}
+
+	//pGUI->ClearDrawArea(); 
+	//UpdateInterface();
+}
+// change width of selection shape 
+void Graph::opChangeSelectedWidth(int x) {
+
+ 
+	for (int k = 0; k < shapesList.size(); k++) {
+		if (selectedShape == shapesList[k]) {
+			shapesList[k]->setCrntPenWidth(x);
 		}
 	}
 

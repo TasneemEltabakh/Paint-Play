@@ -34,8 +34,12 @@ void opAddRect::Execute()
 	RectGfxInfo.DrawClr = pUI->getCrntDrawColor();
 	RectGfxInfo.FillClr = pUI->getCrntFillColor();
 	//RectGfxInfo.isFilled = pUI->GetIsFilled();	//default is not filled
-	RectGfxInfo.BorderWdth = pUI->getCrntPenWidth();
+	if (pUI->checkborder() == true)
 
+		RectGfxInfo.BorderWdth = pUI->getCrntPenWidth();
+
+	else
+		RectGfxInfo.BorderWdth = 3;
 	if (pUI->checkfill() == true)
 
 		RectGfxInfo.isFilled = true;

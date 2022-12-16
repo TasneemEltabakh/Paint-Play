@@ -94,6 +94,7 @@ class GUI
 		ToolBarHeight,		//Tool Bar Height (distance from top of window to bottom line of toolbar)
 		MenuIconWidth;		//Width of each icon in toolbar menu
     	bool IsFilled;
+		bool isChanged;
 		color col;
 		
 		
@@ -143,7 +144,9 @@ public:
 	void DrawLine(Point P1, Point P2, GfxInfo OvalGfxInfo) const;  //Draw a line 
 	void back();
 	bool checkfill();
+	bool checkborder();
 	bool GetIsFilled() ;
+	bool GetIsChanged();
 	///Make similar functions for drawing all other shapes.
     void PrintMessage(string msg) const;	//Print a message on Status bar
 
@@ -153,6 +156,7 @@ public:
 	color GetColour(const int X, const int Y); //choose colour from colour pallete
 	// nada edit wed 
 	color FillColour(const int X, const int Y); // fill color 
+	int GUI::setPenWidth(int);
 
 
 	~GUI();

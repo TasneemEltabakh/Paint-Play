@@ -7,12 +7,16 @@
 #include "operations/opAddirrPol.h"
 #include"operations/opChooseColour.h"
 #include "operations/Save.h"
+#include "operations/Select.h"
+#include "operations/Delete.h"
 
+using namespace std;
 //Constructor
 controller::controller()
 {
 	pGraph = new Graph;
 	pGUI = new GUI;	//Create GUI object
+
 }
 
 //==================================================================================//
@@ -48,6 +52,12 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case SAVE:  //Rghda added
 			pOp = new Save(this);
+			break;
+		case SELECT:  //Rghda added
+			pOp = new Select(this);
+			break;
+		case DEL:  //Rghda added
+			pOp = new Delete(this);
 			break;
 		case EXIT: 
 			break;
@@ -128,16 +138,16 @@ void controller::Run()
 //==================================================================================//
 //							Save function											//  //Rghda added
 //==================================================================================//
-int controller::NO_SHAPES() const
-{
-	return ShapeCount;
-}
 
-void controller::SaveAll(ofstream& GUIFile)
-{
-	//Loop on each figure ,then saving it 
-	for (int i = 0; i < ShapeCount; i++)
-	{
-		ShapeList[i]->Save(GUIFile);
-	}
-}
+
+
+//==================================================================================//
+//							Delete function											//  //Rghda added
+//==================================================================================//
+
+
+
+//==================================================================================//
+//							Select function											//  //Rghda added
+//==================================================================================//
+

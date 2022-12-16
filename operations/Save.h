@@ -14,7 +14,6 @@
 
 //here i inherted the save class from 'operation' class as the TA mention in the report
 
-//Add Rectangle Action class
 class  Save : public operation
 {
 private:
@@ -25,10 +24,6 @@ private:
 public:
 	Save(controller* pCont);
 
-	//Reads rectangle parameters
-	virtual void ReadOperationParameters();
-
-	//Add rectangle to the Controller
 	virtual void Execute();
 
 };

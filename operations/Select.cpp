@@ -1,27 +1,47 @@
-/*#include"Select.h"
-#include "controller.h"
-#include <iostream>
-using namespace std;
-#include "GUI/GUI.h"
-#include "Shapes/Graph.h"
+
+#include"Select.h"
+#include "opAddirrPol.h"
+#include "..//Shapes/IrregularPolygon.h"
+#include "..//Shapes/Shape.h"
+#include "../controller.h"
+#include "../GUI/GUI.h"
+#include "operation.h"
+#include "..//Shapes/Graph.h"
 
 
-
-//this function should select the shape
-void Select::select() {
-	SelectedShape->SetSelected(true); //this is bool one which detremine if it selected or not
-	pControl->AddSelectedShape(SelectedFig); //this should add this shape to the array or to the vector which collect selected shapes
-
-	//here I should say where the GUI and Graph pointers on the Interface (I will see how i will put them)
+Select::Select(controller* pCont) :operation(pCont)
+{}
 
 
-	SelectedShape->PrintInfo(pGUI); //show the selected shape info on the status bar (these functions I didn't implement them yet)
+void Select::Execute() {
+
+	GUI* pGUI = pControl->GetUI();
+	Graph* pGraph = pControl->getGraph();
+	
+	pGUI->PrintMessage("Click at the shape to select.");
+	pGUI->GetPointClicked(P1.x, P1.y);
+
+	//I couldn't use the selectedshape from graph file as it is a praivet data
+	shape*selectedshape = pGraph->Getshape(P1.x, P1.y);
+	
+
+	pGUI->PrintMessage(selectedshape->PrintOnTool());  //print data on toolbar
+
+	//selectedshape->SetSelected(true);  //set selected shape by true
+	pControl->UpdateInterface();
+	
+
+	//if (TerminateSelection(P)) {
+	//	if (SelectedSoFar.size() > 1)
+	//		pOut->ClearStatusBar();
+	//	return true;
+	//}
+
+	//if (selectedshape == NULL) {
+	//	//Unselect();
+	//	pGUI->ClearStatusBar();
+	//}
+	
+	
 
 }
-
-//this function should unselect shape which was selescted
-void Select::Unselect() {
-	SelectedShape->SetSelected(false); //set the shape as "unselected"
-	pControl->RemoveSelectedShape(SelectedShape);	//here I remove this shape from the array i mentioned above
-
-}*/

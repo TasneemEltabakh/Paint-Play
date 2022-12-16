@@ -19,6 +19,8 @@ class controller
 	GUI* pGUI;		//Pointer to UI class
 	
 
+	
+
 public:	
 	controller(); 
 	~controller();
@@ -36,8 +38,9 @@ public:
 	void UpdateInterface() const;	//Redraws all the drawing window	
 
 
-	//Save Functions   //Rghda added
-	int NO_SHAPES() const;   //Rghda added
-	void SaveAll(ofstream& GUIFile);  //Rghda added
+
+	int controller::getshape(shape*& r, int x, int y);  //Rghda added
+	int controller::getSelectedCount();  //Rghda added
+	shape** controller::getSelected();  //Rghda added
 };
 

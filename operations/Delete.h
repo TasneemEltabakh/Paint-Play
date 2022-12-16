@@ -1,14 +1,21 @@
-/*#pragma once
 
-#include "operations/operation.h"
+#pragma once
+#ifndef ADD_DELETE_ACTION_H
+#define ADD_DELETE_ACTION_H
 
-class  Delete : public operation
+#include "operation.h"
+
+class Delete : public operation
 {
 public:
+	Delete(controller* pCont);
 
-	virtual void DeleteAllShapes();
+	//Do The copy command
+	virtual void ReadActionParameters();
+	virtual void Execute();
 
+};
 
-};*/
+#endif
 
 

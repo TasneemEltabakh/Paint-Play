@@ -21,7 +21,9 @@ public :
     virtual ~regularPolygon();
     virtual void Draw(GUI* pUI) const;
 
-    void Save(ofstream& GUIFile); //Rghda added
 
+    string PrintOnTool();  //Rghda added
+    bool IsShapeExisting(int x, int y);  //Rghda added
+    void Save(ofstream& outfile); //Rghda added
 };
 

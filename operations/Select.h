@@ -1,15 +1,21 @@
-/*#pragma once
+#pragma once
+#include "opAddirrPol.h"
+#include "..//Shapes/IrregularPolygon.h"
+#include "../controller.h"
+#include "../GUI/GUI.h"
+#include "operation.h"
 
-#include "operations/operation.h"
-#include"Shapes/Shape.h"
 class Select : public operation
 {
-
 private:
-	Point P;  //this point should take the coordinates where the user click to find the shape in the same place
-	shape* SelectedShape; //where i will save the selected shape
+	Point P1; //the selected point inside the shape
+	GfxInfo SelectedGfxInfo;
 public:
 
-	void select();
-	void Unselect();
-};*/
+	Select(controller* pCont);
+
+	virtual void Execute();
+
+};
+
+

@@ -1,5 +1,10 @@
 #include "regularPolygon.h"
 #include <cmath>
+#include <fstream>
+#include <iostream>
+#include<string>
+using namespace std;
+
 
 regularPolygon ::regularPolygon(Point P1, Point P2, int Sides,  GfxInfo shapeGfxInfo) : shape(shapeGfxInfo)
 {
@@ -36,4 +41,38 @@ void  regularPolygon::Draw(GUI* pUI) const
 	pUI->DrawPol(arrayX, arrayY, NumberOfsides, ShpGfxInfo);
 }
 
-void regularPolygon::Save(ofstream& GUIFile) {} //Rghda added
+void regularPolygon::Save(ofstream& outfile) {  //Rghda added
+	
+	////////////////////////////////////////////////////
+	//name,id,corners x , y,drawclr,borderwdth,fillclr//
+   ////////////////////////////////////////////////////
+
+	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
+	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
+	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
+	int id = ID;
+
+	outfile << "Regular Polygon" << " " << id << " "
+	<< Center.x << " " << Center.y << " "
+	<< start.x << " " << start.y << " ";
+
+	outfile << redcolorlevel << " " << greencolorlevel << " " << bluecolorlevel << " ";
+
+	outfile << ShpGfxInfo.BorderWdth << " ";
+
+	if (ShpGfxInfo.isFilled != true)
+		outfile << "0 0 0" << " " ;
+	else
+		outfile << (int)ShpGfxInfo.FillClr.ucRed << " " << (int)ShpGfxInfo.FillClr.ucGreen << " "
+		<< (int)ShpGfxInfo.FillClr.ucBlue << " " ;
+
+	outfile << endl;
+} 
+
+string regularPolygon::PrintOnTool() {  //Rghda added
+
+	return"here the ifo of regular should appear";
+}
+bool regularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  //I should put the function here
+	return false;
+} 

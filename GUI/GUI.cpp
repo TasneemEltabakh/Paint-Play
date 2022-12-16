@@ -96,6 +96,8 @@ operationType GUI::GetUseroperation() const
 			case ICON_REG: return DRAW_IRREPoly ;
 			
 			case ICON_SAVE: return SAVE;  //Rghda added
+			case ICON_SELECT: return SELECT; //Rghda added
+			case ICON_DELETE: return DEL;  //Rghda added
 
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
@@ -172,7 +174,9 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_REG] = "images\\MenuIcons\\irre.jpg";
 
 	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\saveicon.jpg";  //Rghda added
-	
+	MenuIconImages[ICON_SELECT] = "images\\MenuIcons\\select.jpg";  //Rghda added
+	MenuIconImages[ICON_DELETE] = "images\\MenuIcons\\delete.jpg";  //Rghda added
+
 	//TODO: Prepare images for each menu icon and add it to the list
 
 	//Draw menu icon one image at a time

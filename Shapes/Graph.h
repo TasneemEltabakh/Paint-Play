@@ -18,9 +18,17 @@ public:
 	~Graph();
 	void Addshape(shape* pFig); //Adds a new shape to the shapesList
 	void Draw(GUI* pUI) const;			//Draw the graph (draw all shapes)
-	shape* Getshape(int x, int y) const; //Search for a shape given a point inside the shape
+	shape* Getshape(int x, int y) ; //Search for a shape given a point inside the shape
 
-	void Save(ofstream& outfile);	//Save all shapes to a file  
+	void SaveGraph(ofstream& outfile);	//Save all shapes to a file  //Rghda edideted its name
+
+	void DeleteGraph();  //Rghda added
 
 	void load(ifstream& inputfile);	//Load all shapes from a file
+	
+	int getvectorsize();
+	shape* getselectedShape();  //Rghda added
+	void setselectedShapenull();  //Rghda added
+
+
 };

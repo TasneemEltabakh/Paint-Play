@@ -12,6 +12,8 @@ public:
 	virtual ~Rect();
 	virtual void Draw(GUI* pUI) const;
 
-	void Save(ofstream& GUIFile); //Rghda added
+	void Save(ofstream& outfile); //Rghda added
+	string PrintOnTool();  //Rghda added
+	bool IsShapeExisting(int x, int y);  //Rghda added
 };
 

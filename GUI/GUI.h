@@ -45,6 +45,8 @@ class GUI
 		ICON_REG,
 		ICON_COLOURS,
 		ICON_SAVE, //Rghda added
+		ICON_SELECT, //Rghda added
+		ICON_DELETE,  //Rghda added
 
 
 		//TODO: Add more icons names here

@@ -17,31 +17,50 @@ void Select::Execute() {
 
 	GUI* pGUI = pControl->GetUI();
 	Graph* pGraph = pControl->getGraph();
-	
+
 	pGUI->PrintMessage("Click at the shape to select.");
 	pGUI->GetPointClicked(P1.x, P1.y);
 
 	//I couldn't use the selectedshape from graph file as it is a praivet data
-	shape*selectedshape = pGraph->Getshape(P1.x, P1.y);
-	
 
-	pGUI->PrintMessage(selectedshape->PrintOnTool());  //print data on toolbar
 
-	//selectedshape->SetSelected(true);  //set selected shape by true
-	pControl->UpdateInterface();
-	
+	if (P1.x > 963 && P1.x < 1009 && P1.y>9 && P1.y < 52) {
+		pGUI->ClearStatusBar();
+		pControl->UpdateInterface();
+	}
+	else {
+		shape* selectedshape = pGraph->Getshape(P1.x, P1.y);
+		shape* previouslyselected = pGraph->getselectedShape();
+		if (selectedshape) {
+			if (previouslyselected) {
+				previouslyselected->SetSelected(false);
+				selectedshape->SetSelected(true);
+				pGraph->setselectedShape(selectedshape);
+				pGUI->PrintMessage(selectedshape->PrintOnTool());
+			}
+			else {
+				selectedshape->SetSelected(true);
+				pGraph->setselectedShape(selectedshape);
+				pGUI->PrintMessage(selectedshape->PrintOnTool());
+			}
+		}
+		else {
+			if (previouslyselected) {
+				previouslyselected->SetSelected(false);
+				pGraph->setselectedShape(nullptr);
+			}
+		}
+		//print data on toolbar
 
-	//if (TerminateSelection(P)) {
-	//	if (SelectedSoFar.size() > 1)
-	//		pOut->ClearStatusBar();
-	//	return true;
-	//}
+	   //selectedshape->SetSelected(true);  //set selected shape by true
+		pControl->UpdateInterface();
+	}
 
-	//if (selectedshape == NULL) {
-	//	//Unselect();
-	//	pGUI->ClearStatusBar();
-	//}
-	
-	
+
+
+
+
+
+
 
 }

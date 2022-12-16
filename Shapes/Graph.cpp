@@ -40,25 +40,16 @@ shape* Graph::Getshape(int x, int y) //Rghda remove const from here
 	//if this point (x,y) does not belong to any shape return NULL
 	///Add your code here to search for a shape given a point x,y	
 
-	if (selectedShape!=nullptr) {   //so proud of me :D
-		//delete selectedShape;
-		selectedShape->SetSelected(0);
-		
-	}
-
 	for (auto pointeronshapes : shapesList) {
-		if (pointeronshapes->IsShapeExisting(x, y) ) {
-			selectedShape = pointeronshapes;  //hint**
-			pointeronshapes->SetSelected(1);
+		if (pointeronshapes->IsShapeExisting(x, y)) {
 			return pointeronshapes;
-		}
-		else {
-			pointeronshapes->SetSelected(0);
 		}
 	}
 
 	return nullptr;  //here I want to put unselect option important
 }
+
+
 
 int Graph::getvectorsize() {  //Rghda added
 	return shapesList.size();
@@ -67,8 +58,8 @@ int Graph::getvectorsize() {  //Rghda added
 shape* Graph::getselectedShape() {  //Rghda added for the vector
 	return selectedShape;
 }
-void Graph::setselectedShapenull() {  //Rghda added to the vector
-	selectedShape->SetSelected(false);
+void Graph::setselectedShape(shape* selectedshape2) {  //Rghda added to the vector
+	selectedShape=selectedshape2;
 }
 
 void Graph::SaveGraph(ofstream& outfile) {  //Rghda added*******

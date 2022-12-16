@@ -28,7 +28,8 @@ public:
 	
 	int getvectorsize();
 	shape* getselectedShape();  //Rghda added
-	void setselectedShapenull();  //Rghda added
+
+	void setselectedShape(shape* selectedshape);  //Rghda added
 
 
 };

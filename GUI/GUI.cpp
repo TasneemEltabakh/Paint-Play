@@ -94,8 +94,9 @@ operationType GUI::GetUseroperation() const
 			case ICON_REG: return DRAW_regularPOLY;
 			case ICON_COLORS:return TO_Pallete;
 			case ICON_IRREG: return DRAW_IRREPoly;
-		
-			
+			case ICON_LINE: return DRAW_LINE;
+			case ICON_OVAL: return DRAWOV;
+			case ICON_SQU: return DRAW_SQ;
 			case ICON_SAVE: return SAVE;  //Rghda added
 
 			default: return EMPTY;	//A click on empty place in desgin toolbar
@@ -183,12 +184,12 @@ void GUI::CreateDrawToolBar()
 	string MenuIconImages[DRAW_ICON_COUNT];
 	MenuIconImages[ICON_RECT] = "images\\MenuIcons\\rectangle.jpg";
 	MenuIconImages[ICON_CIRC] = "images\\MenuIcons\\circle.jpg";
+	MenuIconImages[ICON_LINE] = "images\\MenuIcons\\oval.jpg";
 	MenuIconImages[ICON_TRI] = "images\\MenuIcons\\triangle.jpg";
 	MenuIconImages[ICON_SQU] = "images\\MenuIcons\\square.jpg";
 	MenuIconImages[ICON_OVAL] = "images\\MenuIcons\\oval.jpg";
 	MenuIconImages[ICON_REG] = "images\\MenuIcons\\hexagon.jpg";
 	MenuIconImages[ICON_IRREG] = "images\\MenuIcons\\irregular.jpg";
-	MenuIconImages[ICON_LINE] = "images\\MenuIcons\\line.jpg";
 	MenuIconImages[ICON_EXIT] = "images\\MenuIcons\\exit.jpg";
 	MenuIconImages[ICON_CUT] = "images\\MenuIcons\\cut.jpg";
 	MenuIconImages[ICON_COPY] = "images\\MenuIcons\\copy.jpg";

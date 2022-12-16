@@ -45,7 +45,6 @@ class GUI
 		ICON_SQU,
 		ICON_OVAL,
 		ICON_REG,
-		ICON_COLOURS,
 		ICON_SAVE, //Rghda added
 	   // nada wed 
 		ICON_IRREG,
@@ -60,7 +59,7 @@ class GUI
 		ICON_DRAG,
 		ICON_ADDIMG,
 		ICON_DEL,
-		ICON_SAVE,
+	
 		ICON_LOAD,
 		ICON_SWITCH,
 		ICON_EXIT,		//Exit icon

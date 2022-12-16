@@ -40,12 +40,12 @@ operation* controller::createOperation(operationType OpType)
 	{
 		case DRAW_RECT:
 			pOp = new opAddRect(this);
-			pOp = new opFillColour(this);
 			break;
 		case DRAW_TRI:
 			pOp = new opAddTriangle(this);
+			break;
 		case DRAW_LINE:
-			///create AddLineoperation here
+			pOp = new opAddLine(this);
 			break;
 		case DRAW_regularPOLY:
 			pOp = new opAddRegPol(this);
@@ -65,10 +65,15 @@ operation* controller::createOperation(operationType OpType)
 		case TO_Pallete:
 			pOp = new opChooseColour(this);
 			break;
-		/*case FILL_COLOUR:
+		case FILL_COLOUR:
 			pOp = new opFillColour(this);
 			break;
-			*/
+		case DRAWOV:
+			pOp = new opAddOval(this);
+			break;
+		case DRAW_SQ:
+			pOp = new opAddSquare(this);
+			break;
 		case STATUS:	//a click on the status bar ==> no operation
 			break;
 	}

@@ -38,16 +38,36 @@ void opAddirrPol::Execute()
 	GfxInfo polyGfxInfo;
 
 	//get drawing, filling colors and pen width from the interface
-	polyGfxInfo.DrawClr = pUI->getCrntDrawColor();
-	polyGfxInfo.FillClr = pUI->getCrntFillColor();
-	if (pUI->checkborder() == true)
-
-		polyGfxInfo.BorderWdth = pUI->getCrntPenWidth();
-
-	else
-		polyGfxInfo.BorderWdth = 3;
-
+		//get drawing, filling colors and pen width from the interface
+	polyGfxInfo.BorderWdth = pUI->getCrntPenWidth();
 	polyGfxInfo.isSelected = false;	//defualt is not selected
+
+	if (pUI->checkfill() == true)
+	{
+		if (polyGfxInfo.isSelected == true)
+
+			polyGfxInfo.FillClr = pUI->getCrntFillColor();
+		else
+			polyGfxInfo.FillClr = pUI->getoldFillColor();
+	}
+	else
+		polyGfxInfo.isFilled = false;
+
+	if (pUI->checkborder() == true)
+	{
+		if (polyGfxInfo.isSelected == true)
+			polyGfxInfo.BorderWdth = pUI->getCrntPenWidth();
+	}
+	else
+		polyGfxInfo.BorderWdth = pUI->getoldPenWidth();
+
+	if (pUI->checkcol() == true)
+	{
+		if (polyGfxInfo.isSelected == true)
+			polyGfxInfo.DrawClr = pUI->getCrntDrawColor();
+	}
+	else
+		polyGfxInfo.DrawClr = pUI->getoldDrawColor();
 
 
 	//Create a Triangle with the above parameters

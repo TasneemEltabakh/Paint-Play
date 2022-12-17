@@ -128,7 +128,6 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\github\operations\Load.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
     <ClCompile Include="CMUgraphicsLib\CMUgraphics.cpp" />
     <ClCompile Include="CMUgraphicsLib\image.cpp" />
@@ -168,6 +167,7 @@
     <ClCompile Include="controller.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="operations\Delete.cpp" />
+    <ClCompile Include="operations\Load.cpp" />
     <ClCompile Include="operations\opAddCircle.cpp" />
     <ClCompile Include="operations\opAddImg.cpp" />
     <ClCompile Include="operations\opAddirrPol.cpp" />
@@ -178,6 +178,7 @@
     <ClCompile Include="operations\opAddSquare.cpp" />
     <ClCompile Include="operations\opAddTriangle.cpp" />
     <ClCompile Include="operations\opCahangeSelectedWidth.cpp" />
+    <ClCompile Include="operations\opcahngeselectedborder.cpp" />
     <ClCompile Include="operations\opChangeFillSelected.cpp" />
     <ClCompile Include="operations\opChangeWidth.cpp" />
     <ClCompile Include="operations\opChooseColour.cpp" />
@@ -185,6 +186,7 @@
     <ClCompile Include="operations\opFillColour.cpp" />
     <ClCompile Include="operations\opSetPen.cpp" />
     <ClCompile Include="operations\opsSwitch.cpp" />
+    <ClCompile Include="operations\opSwitchToPlay.cpp" />
     <ClCompile Include="operations\Save.cpp" />
     <ClCompile Include="operations\Select.cpp" />
     <ClCompile Include="Shapes\circle.cpp" />
@@ -235,6 +237,7 @@
     <ClInclude Include="operations\opAddSquare.h" />
     <ClInclude Include="operations\opAddTriangle.h" />
     <ClInclude Include="operations\opCahangeSelectedWidth.h" />
+    <ClInclude Include="operations\opCahngeSelectedBorder.h" />
     <ClInclude Include="operations\opChangeFillSelected.h" />
     <ClInclude Include="operations\opChangeWidth.h" />
     <ClInclude Include="operations\opChooseColour.h" />
@@ -243,6 +246,7 @@
     <ClInclude Include="operations\opFillColour.h" />
     <ClInclude Include="operations\opSetPen.h" />
     <ClInclude Include="operations\opsSwitch.h" />
+    <ClInclude Include="operations\opSwitchToPlay.h" />
     <ClInclude Include="operations\Save.h" />
     <ClInclude Include="operations\Select.h" />
     <ClInclude Include="Shapes\ciecle.h" />

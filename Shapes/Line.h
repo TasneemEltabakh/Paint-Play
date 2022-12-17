@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 using namespace std;
 #pragma once
 #include "Shape.h"

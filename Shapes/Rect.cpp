@@ -102,29 +102,29 @@ bool Rect::IsShapeExisting(int x, int y)  //Rghda added
 }
 
 void Rect::Load(ifstream& inputfile) {
-	//GUI* pUI = ;
-	int  Fill[3];
 	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
 	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
-	Fill[0] = (int)ShpGfxInfo.FillClr.ucRed;
-	Fill[1] = (int)ShpGfxInfo.FillClr.ucGreen;
-	Fill[2] = (int)ShpGfxInfo.FillClr.ucBlue;
+	int rf, gf, bf;
+
 	inputfile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y  >>
-		redcolorlevel >> greencolorlevel >> bluecolorlevel >> ShpGfxInfo.BorderWdth >> Fill[0] >> Fill[1] >> Fill[2];
+		redcolorlevel >> greencolorlevel >> bluecolorlevel >> ShpGfxInfo.BorderWdth >> rf >> gf >> bf;
 
+	ShpGfxInfo.DrawClr.ucRed = redcolorlevel;
+	ShpGfxInfo.DrawClr.ucGreen = greencolorlevel;
+	ShpGfxInfo.DrawClr.ucBlue = bluecolorlevel;
 
-
-	if (Fill[0] == Fill[1] == Fill[2] == 0)
+	if (rf == 0 && gf == 0 && bf == 0)
 	{
 		ShpGfxInfo.FillClr = WHITE;
 		ShpGfxInfo.isFilled = false;
 	}
 	else {
-		/*/Fill[0] = (int)ShpGfxInfo.FillClr.ucRed;
-		Fill[1] = (int)ShpGfxInfo.FillClr.ucGreen;
-		Fill[2] = (int)ShpGfxInfo.FillClr.ucBlue;/**/
+		ShpGfxInfo.FillClr.ucBlue = bf;
+		ShpGfxInfo.FillClr.ucRed = rf;
+		ShpGfxInfo.FillClr.ucGreen = gf;
 		ShpGfxInfo.isFilled = true;
+		cout << bf << rf << gf << "green??" << endl;
 	}
 
 	cout << "r" << Corner1.x << Corner1.y << Corner2.x << Corner2.y << "rectangle load"<<endl;

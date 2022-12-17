@@ -207,10 +207,16 @@
     <ClCompile Include="operations\opCahangeSelectedWidth.cpp">
       <Filter>operation</Filter>
     </ClCompile>
-    <ClCompile Include="..\github\operations\Load.cpp">
+    <ClCompile Include="operations\opcahngeselectedborder.cpp">
       <Filter>operation</Filter>
     </ClCompile>
     <ClCompile Include="operations\opAddImg.cpp">
+      <Filter>operation</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\Load.cpp">
+      <Filter>operation</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\opSwitchToPlay.cpp">
       <Filter>operation</Filter>
     </ClCompile>
   </ItemGroup>
@@ -380,6 +386,14 @@
       <Filter>operation</Filter>
     </ClInclude>
     <ClInclude Include="operations\opCahangeSelectedWidth.h">
+      <Filter>operation</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opCahngeSelectedBorder.h">
+      <Filter>operation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\github\operations\Load.h" />
+    <ClInclude Include="operations\opAddImg.h" />
+    <ClInclude Include="operations\opSwitchToPlay.h">
       <Filter>operation</Filter>
     </ClInclude>
   </ItemGroup>

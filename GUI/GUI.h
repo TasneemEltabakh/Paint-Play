@@ -57,9 +57,13 @@ class GUI
 		ICON_CUT,
 		ICON_COPY,
 		ICON_DRAG,
+		ICON_BORD,
 		ICON_ADDIMG,
 		ICON_DEL,  //Rghda
 		ICON_SELECT,  //Rghda
+		ICON_SELECTEDCOL,
+		ICON_SELECTEDBOL,
+		ICON_SELECTEDFILL,
 
 		ICON_LOAD,
 		ICON_SWITCH,
@@ -72,12 +76,16 @@ class GUI
 
 	enum PlayMenuIcon //The icons of the Play menu (you should add more icons)
 	{
+
 		//Note: Icons are ordered here as they appear in menu
 		//If you want to change the menu icons order, change the order here
 
 		//TODO: Add more icons names here
-
-		PLAY_ICON_COUNT		//no. of menu icons ==> This should be the last line in this enum
+		ICON_HIDE,
+		ICON_UNHIDE,
+		ICON_START,
+		ICON_REST,
+		PLAY_ICON_COUNT,	//no. of menu icons ==> This should be the last line in this enum
 
 	};
 	enum ColourPalette
@@ -95,6 +103,7 @@ class GUI
 		MenuIconWidth;		//Width of each icon in toolbar menu
     	bool IsFilled;
 		bool isChanged;
+		bool isBorderChanged;
 		color col;
 		
 		
@@ -104,11 +113,17 @@ class GUI
 	color DrawColor;		//Drawing color
 	color FillColor;		//Filling color
 	color HighlightColor;	//Highlighting color
+	color OldDrawColor;		//Drawing color
+	color OLDFillColor;		//Filling color
+	color OLdHighlightColor;
+	int OLdwidth;
 	color MsgColor;			//Messages color
 	color BkGrndColor;		//Background color
 	color StatusBarColor;	//Status bar color
-	int PenWidth;			//width of the pen that draws shapes
-
+	int PenWidth;	
+	int* count;//width of the pen that draws shapes
+	int* count2;
+	int* count3;
 	/// Add more members if needed
 
 
@@ -143,6 +158,7 @@ public:
 	void DrawEllipse(Point P1, Point P2, GfxInfo OvalGfxInfo) const;  //Draw an Oval
 	void DrawLine(Point P1, Point P2, GfxInfo OvalGfxInfo) const;  //Draw a line 
 	void back();
+	void switchtoplay ();
 	bool checkfill();
 	bool checkborder();
 	bool GetIsFilled() ;
@@ -157,8 +173,16 @@ public:
 	int getCrntPenWidth() const;		//get current pen width
 	color GetColour(const int X, const int Y); //choose colour from colour pallete
 	// nada edit wed 
+	color getoldDrawColor() const;
+	color GetSelectedColour(const int X, const int Y);	//get current drwawing color
+	color getoldFillColor() const;	//get current filling color
+	int getoldPenWidth() const;
 	color FillColour(const int X, const int Y); // fill color 
-	int GUI::setPenWidth(int);
+	color FillselectedColour(const int X, const int Y);
+	int setPenWidth(int);
+	int setselectedWidth(int wchoice);
+	bool checkcol();
+	bool GetIscol();
 
 
 	~GUI();

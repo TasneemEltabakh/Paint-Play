@@ -792,7 +792,8 @@ void window::DrawLine(const int iX1, const int iY1, const int iX2, const int iY2
 
     ProcessMessage(); // Kludge
 
-	switch(dsStyle) {
+	switch(dsStyle)
+	{
 	  case FRAME:
         ChangeDrawStyle(FRAME);
 	    if(MoveToEx(dcActive, iX1, iY1, NULL) != TRUE) {

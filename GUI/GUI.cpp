@@ -13,7 +13,7 @@ GUI::GUI()
 
 	StatusBarHeight = 50;
 	ToolBarHeight = 55;
-	MenuIconWidth = 60;
+	MenuIconWidth = 45;
 
 	DrawColor = BLUE;	//default Drawing color
 	FillColor = GREEN;	//default Filling color
@@ -24,7 +24,16 @@ GUI::GUI()
 	PenWidth = 3;	//default width of the shapes frames
 	IsFilled=false;
 	isChanged = false;
-
+	isBorderChanged = false;
+	count= new int;
+	*count = 0;
+	count2 = new int;
+	*count2 = 0;
+	count3= new int;
+	*count3 = 0;
+	OldDrawColor = RED;
+	OLDFillColor = GREEN;
+	OLdwidth = 3;
 	//Create the output window
 	pWind = CreateWind(width, height, wx, wy);
 	//Change the title
@@ -102,8 +111,13 @@ operationType GUI::GetUseroperation() const
 			case ICON_SAVE: return SAVE;  //Rghda added
 			case ICON_SELECT: return SELECT;  //Rghda added
 			case ICON_DEL: return DEL;  //Rghda added
+			case ICON_SELECTEDBOL: return selectwid;  //Rghda added
+			case ICON_SELECTEDCOL: return selsectcol;  //Rghda added
+			case ICON_SELECTEDFILL: return selectfill;
 			case ICON_LOAD:return LOAD;
 			case ICON_ADDIMG: return ADD_IMG;
+			case ICON_BORD: return bord;
+			case ICON_SWITCH: return SWITCH;
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
 		}
@@ -136,6 +150,19 @@ operationType GUI::GetUseroperation() const
 	}
 	else	//GUI is in PLAY mode
 	{
+		if (y >= 0 && y < ToolBarHeight)
+		{
+			
+			int ClickedIconOrder = (x / MenuIconWidth);
+
+
+			switch (ClickedIconOrder)
+			{
+			case ICON_BACK: return BACK;
+			default: return EMPTY;
+			}
+		}
+
 		///TODO:
 		//perform checks similar to Draw mode checks above
 		//and return the correspoding operation
@@ -199,20 +226,29 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_CUT] = "images\\MenuIcons\\cut.jpg";
 	MenuIconImages[ICON_COPY] = "images\\MenuIcons\\copy.jpg";
 	MenuIconImages[ICON_DRAG] = "images\\MenuIcons\\drag.jpg";
+	MenuIconImages[ICON_BORD] = "images\\MenuIcons\\line-thickness.jpg";
 	MenuIconImages[ICON_ADDIMG] = "images\\MenuIcons\\image.jpg";
 	MenuIconImages[ICON_DEL] = "images\\MenuIcons\\delete.jpg";
 	MenuIconImages[ICON_FILL] = "images\\MenuIcons\\fill.jpg";
 	MenuIconImages[ICON_COLORS] = "images\\MenuIcons\\pencil.jpg";
 	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\save.jpg";
 	MenuIconImages[ICON_SELECT] = "images\\MenuIcons\\select.jpg";
+	MenuIconImages[ICON_SELECTEDBOL] = "images\\MenuIcons\\line-thickness.jpg";
+	MenuIconImages[ICON_SELECTEDCOL] = "images\\MenuIcons\\pencil.jpg";
+	MenuIconImages[ICON_SELECTEDFILL] = "images\\MenuIcons\\fill.jpg";
 	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\load.jpg";
 	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\switch.jpg";
 	
 	//TODO: Prepare images for each menu icon and add it to the list
 
 	//Draw menu icon one image at a time
-	for (int i = 0; i <( DRAW_ICON_COUNT); i++)
+	for (int i = 0; i < (DRAW_ICON_COUNT); i++)
+	{
+		
 		pWind->DrawImage(MenuIconImages[i], i * (MenuIconWidth), 7, MenuIconWidth, ToolBarHeight);
+		
+	
+	}
 	
 
 
@@ -234,6 +270,10 @@ void  GUI::CreateColourToolBar()
 	pWind->DrawImage(MenuIconImages[ICON_COLOURPallet], 1 , height - (int)(1.25* StatusBarHeight), 1285,100) ;
 
 }
+void  GUI::switchtoplay() {
+	InterfaceMode = MODE_PLAY;
+	CreatePlayToolBar();
+}
 
 void  GUI::back()
 {
@@ -241,10 +281,17 @@ void  GUI::back()
 	CreateDrawToolBar();
 
 }
+
 void GUI::CreatePlayToolBar() 
 {
 	InterfaceMode = MODE_PLAY;
 	///TODO: write code to create Play mode menu
+
+	string MenuIconImages[PLAY_ICON_COUNT];
+	MenuIconImages[ICON_HIDE] = "images\\MenuIcons\\hide.jpg";
+	MenuIconImages[ICON_UNHIDE] = "images\\MenuIcons\\unhide.jpg";
+	MenuIconImages[ICON_START] = "images\\MenuIcons\\start.jpg";
+	MenuIconImages[ICON_REST] = "images\\MenuIcons\\rest.jpg";
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -294,7 +341,7 @@ void GUI::AddImg(string s) {
 	int drawheight = 100;
 	int MenuIconW = 80;
 
-	pWind->DrawImage("images\\MenuIcons\\" + s + ".jpg", 10, 30, 100, 900);
+	pWind->DrawImage("images\\MenuIcons\\" + s + ".jpg", 10, 0, 100, 900);
 	pWind->SetPen(RED, 3);
 }
 
@@ -469,9 +516,24 @@ void GUI::DrawLine(Point P1, Point P2, GfxInfo OvalGfxInfo) const
 
 color GUI::GetColour(const int X, const int Y)
 {
+	if ((*count3) == 0)
+	{
+		OldDrawColor = pWind->GetColor(X, Y);
+		(*count3)++;
+	}
+	else
+		OldDrawColor = getCrntDrawColor();
+	
 	DrawColor= pWind->GetColor(X, Y);
 	return DrawColor;
 }
+
+color GUI::GetSelectedColour(const int X, const int Y)
+{
+	DrawColor = pWind->GetColor(X, Y);
+	return DrawColor;
+}
+
 bool GUI::checkfill()
 {
 	return IsFilled;
@@ -481,7 +543,16 @@ bool GUI::checkborder()
 	
 	return isChanged;
 }
+bool GUI::checkcol()
+{
+	return isBorderChanged;
+}
+bool GUI::GetIscol()
+{
 
+	isBorderChanged = true;
+	return isBorderChanged;
+}
 bool GUI::GetIsFilled() 
 {
 
@@ -496,14 +567,42 @@ bool GUI::GetIsChanged()
 
 color GUI::FillColour(const int X, const int Y)
 {
+	if ((*count) == 0)
+	{
+		OLDFillColor = pWind->GetColor(X, Y);
+		(*count)++;
+	}
+	else
+		OLDFillColor = getCrntFillColor();
+
 	FillColor = pWind->GetColor(X, Y);
 	return FillColor;
+}
+color GUI::FillselectedColour(const int X, const int Y)
+{
+	FillColor = pWind->GetColor(X, Y);
+	return FillColor;
+}
+
+color  GUI::getoldDrawColor() const
+{
+	return OldDrawColor;
+}
+
+color GUI::getoldFillColor() const
+{
+	return OLDFillColor;
+}
+
+int   GUI::getoldPenWidth() const
+{
+	return OLdwidth;
 }
 
 
 // a trial to make  coleur 
 
-int GUI:: setPenWidth(int wchoice) 		//set current pen width
+int GUI:: setselectedWidth(int wchoice) 		//set current pen width
 {
 	
 	if (wchoice == 1)
@@ -542,6 +641,46 @@ int GUI:: setPenWidth(int wchoice) 		//set current pen width
 	return PenWidth;
 }
 
+int GUI::setPenWidth(int wchoice) 		//set current pen width
+{
+	
+	OLdwidth = getCrntPenWidth();
+
+	if (wchoice == 1)
+	{
+		PenWidth = 1;
+	}
+	else if (wchoice == 2)
+	{
+		PenWidth = 4;
+	}
+	else if (wchoice == 3)
+	{
+		PenWidth = 7;
+	}
+	else if (wchoice == 4)
+	{
+		PenWidth = 10;
+	}
+
+	else if (wchoice == 5)
+	{
+		PenWidth = 13;
+	}
+	else if (wchoice == 6)
+	{
+		PenWidth = 18;
+	}
+	else if (wchoice == 7)
+	{
+		PenWidth = 25;
+	}
+	else
+	{
+		PrintMessage("Unsupported Operation");
+	}
+	return PenWidth;
+}
 
 
 

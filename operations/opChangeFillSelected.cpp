@@ -28,8 +28,7 @@ void opChangeFillSelected::Execute()
 	GUI* pUI = pControl->GetUI();
 	pUI->CreateColourToolBar();
 	pUI->GetPointClicked(X, Y);
-	pUI->FillColour(X, Y);
 	pUI->back();
-	pGr->changeFillSelection(pUI->FillColour(X, Y));
+	pGr->changeFillSelection(pUI->FillselectedColour(X, Y));
 }
 

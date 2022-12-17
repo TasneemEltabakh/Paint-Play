@@ -3,13 +3,12 @@
 #include <fstream>
 #include <iostream>
 #include<string>
-using namespace std;
 
 
 regularPolygon ::regularPolygon(Point P1, Point P2, int Sides,  GfxInfo shapeGfxInfo) : shape(shapeGfxInfo)
 {
 	
-	const double pi = 3.14159;
+	
 	Center.x = P1.x;
 	Center.y = P1.y;
 	start.x = P2.x;
@@ -54,7 +53,7 @@ void regularPolygon::Save(ofstream& outfile) {  //Rghda added
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
 	int id= 6;
 
-	outfile << "Reg" << " " << id << " " << NumberOfsides << " ";
+	outfile << "Reg" << " " << NumberOfsides << " " << id << " ";
 	//<< Center.x << " " << Center.y << " "
 	//<< start.x << " " << start.y << " ";
 	for (int i = 0; i < arrayX.size(); i++)
@@ -127,24 +126,38 @@ bool regularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  //I should 
 } 
 
 void regularPolygon::Load(ifstream& inputfile) {
-	//GUI* pUI = ;
-	int Draw[3], Fill[3];
 
-	inputfile >> ID >> Center.x >> Center.y >> start.x >> start.y >>
-		Draw[0] >> Draw[1] >> Draw[2] >> ShpGfxInfo.BorderWdth >> Fill[0] >> Fill[1] >> Fill[2];
+	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
+	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
+	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
+	int rf, gf, bf;
 
-	ShpGfxInfo.DrawClr = color(Draw[0], Draw[1], Draw[2]);
+	inputfile >> ID;
 
-	if (Fill[0] == Fill[1] == Fill[2] == 0)
+	for (int i = 0; i < NumberOfsides; i++)
+	{
+		inputfile >> arrayX[i] >> arrayY[i] ;
+	}
+
+	inputfile >> redcolorlevel >> greencolorlevel >> bluecolorlevel >> ShpGfxInfo.BorderWdth >> rf >> gf >> bf;
+	
+	a = &arrayX[0];
+	b = &arrayY[0];
+
+	ShpGfxInfo.DrawClr.ucRed = redcolorlevel;
+	ShpGfxInfo.DrawClr.ucGreen = greencolorlevel;
+	ShpGfxInfo.DrawClr.ucBlue = bluecolorlevel;
+
+	if (rf == 0 && gf == 0 && bf == 0)
 	{
 		ShpGfxInfo.FillClr = WHITE;
 		ShpGfxInfo.isFilled = false;
 	}
 	else {
-		ShpGfxInfo.FillClr = color(Fill[0], Fill[1], Fill[2]);
+		ShpGfxInfo.FillClr.ucBlue = bf;
+		ShpGfxInfo.FillClr.ucRed = rf;
+		ShpGfxInfo.FillClr.ucGreen = gf;
 		ShpGfxInfo.isFilled = true;
 	}
 
-	cout << "s" << Center.x << Center.y << start.x << start.y << endl;
-	cout << "square loaded";
 }

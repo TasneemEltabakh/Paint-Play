@@ -40,7 +40,7 @@ void Square:: Save(ofstream& outfile) {  //Rghda added
 	int id = 4;
 
 	outfile << "sQUARE" << " " << id << " "    //the name and id
-		<< Corner1.x << " " << Corner1.y << " " << side<< " " ; //the corners
+		<< Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " "; //the corners
 
 	outfile << redcolorlevel << " " << greencolorlevel << " " << bluecolorlevel << " ";
 
@@ -117,22 +117,32 @@ bool Square::IsShapeExisting(int x, int y)  //Rghda added
 }
 
 void Square::Load(ifstream& inputfile) {
-	//GUI* pUI = ;
-	int Draw[3], Fill[3];
+	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
+	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
+	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
+	int rf, gf, bf;
 
-	inputfile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >>
-		Draw[0] >> Draw[1] >> Draw[2] >> ShpGfxInfo.BorderWdth >> Fill[0] >> Fill[1] >> Fill[2];
+	inputfile >> ID >> Corner1.x >> Corner1.y >> side >>
+		redcolorlevel >> greencolorlevel >> bluecolorlevel >> ShpGfxInfo.BorderWdth >> rf >> gf >> bf;
 
-	ShpGfxInfo.DrawClr = color(Draw[0], Draw[1], Draw[2]);
+	Corner2.x = (Corner1.x + side * 50);
+	Corner2.y = (Corner1.y + side * 50);
 
-	if (Fill[0] == Fill[1] == Fill[2] == 0)
+	ShpGfxInfo.DrawClr.ucRed = redcolorlevel;
+	ShpGfxInfo.DrawClr.ucGreen = greencolorlevel;
+	ShpGfxInfo.DrawClr.ucBlue = bluecolorlevel;
+
+	if (rf == 0 && gf == 0 && bf == 0)
 	{
 		ShpGfxInfo.FillClr = WHITE;
 		ShpGfxInfo.isFilled = false;
 	}
 	else {
-		ShpGfxInfo.FillClr = color(Fill[0], Fill[1], Fill[2]);
+		ShpGfxInfo.FillClr.ucBlue = bf;
+		ShpGfxInfo.FillClr.ucRed = rf;
+		ShpGfxInfo.FillClr.ucGreen = gf;
 		ShpGfxInfo.isFilled = true;
+		cout << bf << rf << gf << "green??" << endl;
 	}
 
 	cout << "s" << Corner1.x << Corner1.y << Corner2.x << Corner2.y << endl;

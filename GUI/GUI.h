@@ -76,12 +76,16 @@ class GUI
 
 	enum PlayMenuIcon //The icons of the Play menu (you should add more icons)
 	{
+
 		//Note: Icons are ordered here as they appear in menu
 		//If you want to change the menu icons order, change the order here
 
 		//TODO: Add more icons names here
-
-		PLAY_ICON_COUNT		//no. of menu icons ==> This should be the last line in this enum
+		ICON_HIDE,
+		ICON_UNHIDE,
+		ICON_START,
+		ICON_REST,
+		PLAY_ICON_COUNT,	//no. of menu icons ==> This should be the last line in this enum
 
 	};
 	enum ColourPalette
@@ -154,6 +158,7 @@ public:
 	void DrawEllipse(Point P1, Point P2, GfxInfo OvalGfxInfo) const;  //Draw an Oval
 	void DrawLine(Point P1, Point P2, GfxInfo OvalGfxInfo) const;  //Draw a line 
 	void back();
+	void switchtoplay ();
 	bool checkfill();
 	bool checkborder();
 	bool GetIsFilled() ;

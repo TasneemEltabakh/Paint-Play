@@ -185,7 +185,7 @@ void Graph::Load(ifstream& inputfile) {
 
 		else if (type == "sQUARE") {
 			std::cout << "mysquaree" << endl;
-			Square* sq = new Square(points, points, info);
+			Square* sq = new Square(points, 5, info);
 			sq->Load(inputfile);
 			cout << "square added" << endl;
 			shapesList.push_back(sq);

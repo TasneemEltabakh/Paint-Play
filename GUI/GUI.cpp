@@ -136,6 +136,19 @@ operationType GUI::GetUseroperation() const
 	}
 	else	//GUI is in PLAY mode
 	{
+		if (y >= 0 && y < ToolBarHeight)
+		{
+			
+			int ClickedIconOrder = (x / MenuIconWidth);
+
+
+			switch (ClickedIconOrder)
+			{
+			case ICON_BACK: return BACK;
+			default: return EMPTY;
+			}
+		}
+
 		///TODO:
 		//perform checks similar to Draw mode checks above
 		//and return the correspoding operation
@@ -234,6 +247,10 @@ void  GUI::CreateColourToolBar()
 	pWind->DrawImage(MenuIconImages[ICON_COLOURPallet], 1 , height - (int)(1.25* StatusBarHeight), 1285,100) ;
 
 }
+void  GUI::switchtoplay() {
+	InterfaceMode = MODE_PLAY;
+	CreatePlayToolBar();
+}
 
 void  GUI::back()
 {
@@ -241,10 +258,17 @@ void  GUI::back()
 	CreateDrawToolBar();
 
 }
+
 void GUI::CreatePlayToolBar() 
 {
 	InterfaceMode = MODE_PLAY;
 	///TODO: write code to create Play mode menu
+
+	string MenuIconImages[PLAY_ICON_COUNT];
+	MenuIconImages[ICON_HIDE] = "images\\MenuIcons\\hide.jpg";
+	MenuIconImages[ICON_UNHIDE] = "images\\MenuIcons\\unhide.jpg";
+	MenuIconImages[ICON_START] = "images\\MenuIcons\\start.jpg";
+	MenuIconImages[ICON_REST] = "images\\MenuIcons\\rest.jpg";
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -294,7 +318,7 @@ void GUI::AddImg(string s) {
 	int drawheight = 100;
 	int MenuIconW = 80;
 
-	pWind->DrawImage("images\\MenuIcons\\" + s + ".jpg", 10, 30, 100, 900);
+	pWind->DrawImage("images\\MenuIcons\\" + s + ".jpg", 10, 0, 100, 900);
 	pWind->SetPen(RED, 3);
 }
 

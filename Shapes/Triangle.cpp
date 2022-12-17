@@ -101,8 +101,6 @@ void Triangle::Load(ifstream& inputfile) {
 	inputfile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >> Corner3.x >> Corner3.y >>
 		redcolorlevel >> greencolorlevel >> bluecolorlevel >> ShpGfxInfo.BorderWdth >> rf >> gf >> bf;
 
-	//ShpGfxInfo.DrawClr = color(Draw[0], Draw[1], Draw[2]);
-
 	ShpGfxInfo.DrawClr.ucRed = redcolorlevel;
 	ShpGfxInfo.DrawClr.ucGreen = greencolorlevel;
 	ShpGfxInfo.DrawClr.ucBlue = bluecolorlevel;

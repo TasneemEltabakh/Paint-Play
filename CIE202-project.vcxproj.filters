@@ -382,6 +382,8 @@
     <ClInclude Include="operations\opCahangeSelectedWidth.h">
       <Filter>operation</Filter>
     </ClInclude>
+    <ClInclude Include="..\github\operations\Load.h" />
+    <ClInclude Include="operations\opAddImg.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GraphicsLib">

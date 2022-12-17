@@ -198,6 +198,15 @@
     <ClCompile Include="operations\Delete.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
+    <ClCompile Include="operations\opChangeWidth.cpp">
+      <Filter>operation</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\opChangeFillSelected.cpp">
+      <Filter>operation</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\opCahangeSelectedWidth.cpp">
+      <Filter>operation</Filter>
+    </ClCompile>
     <ClCompile Include="..\github\operations\Load.cpp">
       <Filter>operation</Filter>
     </ClCompile>
@@ -364,10 +373,13 @@
     <ClInclude Include="operations\Delete.h">
       <Filter>Operations</Filter>
     </ClInclude>
-    <ClInclude Include="..\github\operations\Load.h">
+    <ClInclude Include="operations\opChangeWidth.h">
       <Filter>operation</Filter>
     </ClInclude>
-    <ClInclude Include="operations\opAddImg.h">
+    <ClInclude Include="operations\opChangeFillSelected.h">
+      <Filter>operation</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opCahangeSelectedWidth.h">
       <Filter>operation</Filter>
     </ClInclude>
   </ItemGroup>

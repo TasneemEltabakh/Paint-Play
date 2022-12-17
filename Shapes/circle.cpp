@@ -49,14 +49,20 @@ void Circle::Save(ofstream& outfile) {   //Rghda added
 
 string Circle::PrintOnTool()
 {
-	string values = "should put circle data";
+	string values = "Circle, the center: ("+ to_string(Corner1.x)+ "," + to_string(Corner1.y )+ ") the radius:" + to_string(radious )+ " .";
 	return values;
 }
 
 
 bool Circle::IsShapeExisting(int x, int y)  //Rghda added
 {
-	return false;
+	float discenterclickedpoint= sqrt(pow((Corner1.x - x), 2) + pow((Corner1.y - y), 2));
+	if (discenterclickedpoint <= radious) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 void Circle::Load(ifstream& inputfile) {

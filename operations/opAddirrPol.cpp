@@ -40,10 +40,13 @@ void opAddirrPol::Execute()
 	//get drawing, filling colors and pen width from the interface
 	polyGfxInfo.DrawClr = pUI->getCrntDrawColor();
 	polyGfxInfo.FillClr = pUI->getCrntFillColor();
-	polyGfxInfo.BorderWdth = pUI->getCrntPenWidth();
+	if (pUI->checkborder() == true)
 
+		polyGfxInfo.BorderWdth = pUI->getCrntPenWidth();
 
-	polyGfxInfo.isFilled = false;	//default is not filled
+	else
+		polyGfxInfo.BorderWdth = 3;
+
 	polyGfxInfo.isSelected = false;	//defualt is not selected
 
 

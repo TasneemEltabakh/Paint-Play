@@ -1,4 +1,23 @@
 #include "controller.h"
+#include "operations\opAddRect.h"
+#include "CMUgraphicsLib/CMUgraphics.h"
+#include "CMUgraphicsLib/windowinput.h"
+#include "operations/opAddTriangle.h"
+#include "operations/opAddRegPol.h"
+#include "operations/opAddirrPol.h"
+#include "operations/opExit.h"
+#include"operations/opChooseColour.h"
+#include "operations/Save.h"
+#include "operations/opAddSquare.h"
+#include "operations/opAddCircle.h"
+#include"operations/opAddLine.h"
+#include "operations/opAddOval.h"
+#include "operations/opFillColour.h"
+#include "operations/opsSwitch.h"
+#include "operations/Select.h"
+#include "operations/Delete.h"
+#include "operations/opChangeFillSelected.h"
+#include "operations/opCahangeSelectedWidth.h"
 
 
 using namespace std;
@@ -28,7 +47,7 @@ operation* controller::createOperation(operationType OpType)
 	switch (OpType)
 	{
 		case DRAW_RECT:
-			pOp = new opAddRect(this);
+			pOp = new opChangeSelectedWidth(this);
 			break;
 		case DRAW_TRI:
 			pOp = new opAddTriangle(this);

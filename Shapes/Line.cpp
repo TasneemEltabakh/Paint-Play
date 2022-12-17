@@ -49,13 +49,25 @@ void Line::Save(ofstream& outfile) {   //Rghda added
 
 string Line::PrintOnTool()
 {
-	string values = "I should put here the data of line";
+	string values = "you selected a Line,ID: " + to_string(ID) + "\n . First Point: (" + to_string(Corner1.x) + ", " + to_string(Corner1.y) + "). Second Point: (" + to_string(Corner2.x) + ", " + to_string(Corner2.y) + ").";
 	return values;
 }
 
 
 bool Line::IsShapeExisting(int x, int y)  //Rghda added
 {
+	
+	int slope = (Corner1.y- Corner2.y) / (Corner1.x- Corner2.x);
+	int conctant = Corner1.y -(slope* Corner1.x);
+
+	if (y == slope * x + conctant) {
+		return true;
+	}
+	else {
+		return false;
+	}
+	
+}
 	return false;
 }
 

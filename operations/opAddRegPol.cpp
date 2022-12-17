@@ -42,12 +42,20 @@ void opAddRegPol::Execute()
 	//get drawing, filling colors and pen width from the interface
 	polyGfxInfo.DrawClr = pUI->getCrntDrawColor();
 	polyGfxInfo.FillClr = pUI->getCrntFillColor();
-	polyGfxInfo.BorderWdth = pUI->getCrntPenWidth();
+	if (pUI->checkborder() == true)
 
+		polyGfxInfo.BorderWdth = pUI->getCrntPenWidth();
 
-	polyGfxInfo.isFilled = false;	//default is not filled
+	else
+		polyGfxInfo.BorderWdth = 3; //default is not filled
 	polyGfxInfo.isSelected = false;	//defualt is not selected
 
+	if (pUI->checkfill() == true)
+
+		polyGfxInfo.isFilled = true;
+
+	else
+		polyGfxInfo.isFilled = false;
 
 	
 	regularPolygon*  Poly = new regularPolygon (P1, P2 ,NUM, polyGfxInfo);

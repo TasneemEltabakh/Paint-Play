@@ -36,13 +36,15 @@ void opAddLine ::Execute()
 	//get drawing, filling colors and pen width from the interface
 	CircleGfxInfo.DrawClr = pUI->getCrntDrawColor();
 	CircleGfxInfo.FillClr = pUI->getCrntFillColor();
-	CircleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
-
-
-	CircleGfxInfo.isFilled = false;	//default is not filled
+		//default is not filled
 	CircleGfxInfo.isSelected = false;	//defualt is not selected
 
+	if (pUI->checkborder() == true)
 
+		CircleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
+
+	else
+		CircleGfxInfo.BorderWdth = 3;
 	//Create a circle with the above parameters
 	Line * O = new Line (P1, P2,  CircleGfxInfo);
 

@@ -22,7 +22,8 @@ GUI::GUI()
 	HighlightColor = MAGENTA;	//This color should NOT be used to draw shapes. use if for highlight only
 	StatusBarColor = LIGHTSEAGREEN;
 	PenWidth = 3;	//default width of the shapes frames
-
+	IsFilled=false;
+	isChanged = false;
 
 	//Create the output window
 	pWind = CreateWind(width, height, wx, wy);
@@ -93,6 +94,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_TRI: return DRAW_TRI;
 			case ICON_REG: return DRAW_regularPOLY;
 			case ICON_COLORS :return TO_Pallete;
+			case ICON_FILL: return FILL_COLOUR;
 			case ICON_IRREG: return DRAW_IRREPoly;
 			case ICON_LINE: return DRAW_LINE;
 			case ICON_OVAL: return DRAWOV;
@@ -202,7 +204,7 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_FILL] = "images\\MenuIcons\\fill.jpg";
 	MenuIconImages[ICON_COLORS] = "images\\MenuIcons\\pencil.jpg";
 	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\save.jpg";
-	MenuIconImages[ICON_SELECT] = "images\\MenuIcons\\save.jpg";
+	MenuIconImages[ICON_SELECT] = "images\\MenuIcons\\select.jpg";
 	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\load.jpg";
 	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\switch.jpg";
 	
@@ -470,26 +472,75 @@ color GUI::GetColour(const int X, const int Y)
 	DrawColor= pWind->GetColor(X, Y);
 	return DrawColor;
 }
-
-bool GUI::GetIsFilled()const
+bool GUI::checkfill()
 {
 	return IsFilled;
+}
+bool GUI::checkborder()
+{
+	
+	return isChanged;
+}
+
+bool GUI::GetIsFilled() 
+{
+
+	IsFilled = true;
+	return IsFilled;
+}
+bool GUI::GetIsChanged()
+{
+	isChanged = true;
+	return isChanged;
 }
 
 color GUI::FillColour(const int X, const int Y)
 {
-	IsFilled = true;
-	pWind->GetColor(X, Y);
 	FillColor = pWind->GetColor(X, Y);
-	pWind->SetBrush(FillColor);
-	
-
 	return FillColor;
 }
 
 
 // a trial to make  coleur 
 
+int GUI:: setPenWidth(int wchoice) 		//set current pen width
+{
+	
+	if (wchoice == 1)
+	{
+		PenWidth=1;
+	}
+	else if (wchoice == 2)
+	{
+		PenWidth = 4;
+	}
+	else if (wchoice == 3)
+	{
+		PenWidth = 7;
+	}
+	else if (wchoice == 4)
+	{
+		PenWidth = 10;
+	}
+
+	else if (wchoice == 5)
+	{
+		PenWidth = 13;
+	}
+	else if (wchoice == 6)
+	{
+		PenWidth = 18;
+	}
+	else if (wchoice == 7)
+	{
+		PenWidth = 25;
+	}
+	else
+	{
+		PrintMessage("Unsupported Operation");
+	}
+	return PenWidth;
+}
 
 
 

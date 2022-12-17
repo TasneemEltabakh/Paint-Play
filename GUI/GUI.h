@@ -18,7 +18,7 @@ struct GfxInfo	//Graphical info common for all shapes (you may add more members)
 	color DrawClr;	//Draw color of the shape
 	color FillClr;	//Fill color of the shape
 	bool isFilled;	//shape Filled or not
-	int BorderWdth;	//Width of shape borders
+	int BorderWdth;	 //Width of shape borders
 	bool isSelected;	//true if the shape is selected.
 };
 
@@ -94,6 +94,7 @@ class GUI
 		ToolBarHeight,		//Tool Bar Height (distance from top of window to bottom line of toolbar)
 		MenuIconWidth;		//Width of each icon in toolbar menu
     	bool IsFilled;
+		bool isChanged;
 		color col;
 		
 		
@@ -142,6 +143,10 @@ public:
 	void DrawEllipse(Point P1, Point P2, GfxInfo OvalGfxInfo) const;  //Draw an Oval
 	void DrawLine(Point P1, Point P2, GfxInfo OvalGfxInfo) const;  //Draw a line 
 	void back();
+	bool checkfill();
+	bool checkborder();
+	bool GetIsFilled() ;
+	bool GetIsChanged();
 	void AddImg(string name);
 	bool GetIsFilled() const;
 	///Make similar functions for drawing all other shapes.
@@ -153,6 +158,7 @@ public:
 	color GetColour(const int X, const int Y); //choose colour from colour pallete
 	// nada edit wed 
 	color FillColour(const int X, const int Y); // fill color 
+	int GUI::setPenWidth(int);
 
 
 	~GUI();

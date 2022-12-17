@@ -38,13 +38,23 @@ void opAddOval ::Execute()
 	//Preapre all Oval parameters
 	GfxInfo CircleGfxInfo;
 
+
 	//get drawing, filling colors and pen width from the interface
 	CircleGfxInfo.DrawClr = pUI->getCrntDrawColor();
 	CircleGfxInfo.FillClr = pUI->getCrntFillColor();
-	CircleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
+	if (pUI->checkborder() == true)
 
+		CircleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
 
-	CircleGfxInfo.isFilled = false;	//default is not filled
+	else
+		CircleGfxInfo.BorderWdth = 3;
+
+	if (pUI->checkfill() == true)
+
+		CircleGfxInfo.isFilled = true;
+
+	else
+		CircleGfxInfo.isFilled = false; //default is not filled
 	CircleGfxInfo.isSelected = false;	//defualt is not selected
 
 

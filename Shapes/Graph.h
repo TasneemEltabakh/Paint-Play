@@ -2,6 +2,7 @@
 #include "Shape.h"
 #include <fstream>
 #include <vector>
+#include "..//CMUgraphicsLib/colors.h"
 #include "Shape.h"
 #include <fstream>
 #include <vector>
@@ -39,7 +40,11 @@ public:
 	void Load(ifstream& inputfile);
 	int getvectorsize();
 	shape* getselectedShape();  //Rghda added
-	void setselectedShapenull();  //Rghda added
+
+	void setselectedShape(shape* selectedshape);  //Rghda added
+
+	void Graph::changeFillSelection(color);
+	void Graph::opChangeSelectedWidth(int );
 
 
 };

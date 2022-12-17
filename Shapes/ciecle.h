@@ -1,5 +1,4 @@
 #pragma once
-//circle 
 using namespace std;
 #pragma once
 #include "shape.h"

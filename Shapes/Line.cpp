@@ -67,7 +67,7 @@ bool Line::IsShapeExisting(int x, int y)  //Rghda added
 		return false;
 	}
 	
-}
+
 	return false;
 }
 

@@ -115,7 +115,7 @@ bool regularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  //I should 
 	else {
 		return false;
 	}
-} 
+
 	return false;
 } 
 

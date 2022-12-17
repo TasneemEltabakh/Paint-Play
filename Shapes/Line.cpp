@@ -3,15 +3,20 @@
 #include <fstream>
 #include "Shape.h"
 
-Line::Line(Point P1, Point P2, GfxInfo shapeGfxInfo) : shape(shapeGfxInfo)
+
+#include "Line.h"
+//#include <iostream>
+#include <fstream>
+
+
+Line::Line(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
 	Corner1 = P1;
 	Corner2 = P2;
 }
-	
-Line :: ~Line ()
-{}
 
+Line :: ~Line()
+{}
 void Line::Draw(GUI* pUI) const
 {
 	//Call Output::DrawLine  to draw a Line on the screen	

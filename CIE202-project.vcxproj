@@ -128,7 +128,6 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\github\operations\Load.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
     <ClCompile Include="CMUgraphicsLib\CMUgraphics.cpp" />
     <ClCompile Include="CMUgraphicsLib\image.cpp" />
@@ -168,6 +167,7 @@
     <ClCompile Include="controller.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="operations\Delete.cpp" />
+    <ClCompile Include="operations\Load.cpp" />
     <ClCompile Include="operations\opAddCircle.cpp" />
     <ClCompile Include="operations\opAddImg.cpp" />
     <ClCompile Include="operations\opAddirrPol.cpp" />
@@ -225,6 +225,7 @@
     <ClInclude Include="GUI\GUI.h" />
     <ClInclude Include="operations\Delete.h" />
     <ClInclude Include="operations\exit.h" />
+    <ClInclude Include="operations\Load.h" />
     <ClInclude Include="operations\opAddCircle.h" />
     <ClInclude Include="operations\opAddImg.h" />
     <ClInclude Include="operations\opAddirrPol.h" />

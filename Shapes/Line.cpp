@@ -18,6 +18,7 @@ void Line::Draw(GUI* pUI) const
 	pUI->DrawLine(Corner1, Corner2, ShpGfxInfo);
 }
 
+//RAGHDA'S PARTT 
 void Line::Save(ofstream& outfile) {   //Rghda added
 	//I tried to put the coordinate in a single line
 	//and the colors in another one, but it will make it hard for load function

@@ -40,7 +40,7 @@ void Square:: Save(ofstream& outfile) {  //Rghda added
 	int id = 4;
 
 	outfile << "sQUARE" << " " << id << " "    //the name and id
-		<< Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " "; //the corners
+		<< Corner1.x << " " << Corner1.y << " " << side<< " " ; //the corners
 
 	outfile << redcolorlevel << " " << greencolorlevel << " " << bluecolorlevel << " ";
 
@@ -58,14 +58,62 @@ void Square:: Save(ofstream& outfile) {  //Rghda added
 string Square::PrintOnTool()
 {
 	int id = 4;
-	string values = "you selected a square,ID: " + to_string(id) + "\n . First Point: (" + to_string(Corner1.x) + ", " + to_string(Corner1.y) + "). Second Point: (" + to_string(Corner2.x) + ", " + to_string(Corner2.y) + ").";
+	string values = "you selected a square,ID: " + to_string(id) + "\n . First Point: (" + to_string(Corner1.x) + ", " + to_string(Corner1.y) + "). Second Point: (" + to_string(Corner2.x) + ", " + to_string(Corner2.y) + ")" + "). side long: " + to_string(side) + ".";
 	return values;
 }
 
 
 bool Square::IsShapeExisting(int x, int y)  //Rghda added
 {
-	return false;
+	if ((x > Corner1.x && x < Corner2.x && y > Corner1.y && y < Corner2.y))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+	/*
+	if (Corner2.x > Corner1.x && Corner2.y > Corner1.y) {
+		if ((x > Corner1.x && x < Corner2.x && y > Corner1.y && y < Corner2.y))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else if (Corner2.x > Corner1.x && Corner1.y > Corner2.y) {
+		if ((x > Corner1.x && x < Corner2.x && y > Corner2.y && y < Corner1.y))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else if (Corner1.x > Corner2.x && Corner2.y > Corner1.y) {
+		if ((x > Corner2.x && x < Corner1.x && y > Corner1.y && y < Corner2.y))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else if (Corner1.x > Corner2.x && Corner1.y > Corner2.y) {
+		if ((x > Corner2.x && x < Corner1.x && y > Corner2.y && y < Corner1.y))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}*/
 }
 
 void Square::Load(ifstream& inputfile) {

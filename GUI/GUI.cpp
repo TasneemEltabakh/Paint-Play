@@ -23,6 +23,7 @@ GUI::GUI()
 	StatusBarColor = LIGHTSEAGREEN;
 	PenWidth = 3;	//default width of the shapes frames
 	IsFilled=false;
+	isChanged = false;
 
 	//Create the output window
 	pWind = CreateWind(width, height, wx, wy);
@@ -465,12 +466,22 @@ bool GUI::checkfill()
 {
 	return IsFilled;
 }
+bool GUI::checkborder()
+{
+	
+	return isChanged;
+}
 
 bool GUI::GetIsFilled() 
 {
 
 	IsFilled = true;
 	return IsFilled;
+}
+bool GUI::GetIsChanged()
+{
+	isChanged = true;
+	return isChanged;
 }
 
 color GUI::FillColour(const int X, const int Y)
@@ -482,6 +493,44 @@ color GUI::FillColour(const int X, const int Y)
 
 // a trial to make  coleur 
 
+int GUI:: setPenWidth(int wchoice) 		//set current pen width
+{
+	
+	if (wchoice == 1)
+	{
+		PenWidth=1;
+	}
+	else if (wchoice == 2)
+	{
+		PenWidth = 4;
+	}
+	else if (wchoice == 3)
+	{
+		PenWidth = 7;
+	}
+	else if (wchoice == 4)
+	{
+		PenWidth = 10;
+	}
+
+	else if (wchoice == 5)
+	{
+		PenWidth = 13;
+	}
+	else if (wchoice == 6)
+	{
+		PenWidth = 18;
+	}
+	else if (wchoice == 7)
+	{
+		PenWidth = 25;
+	}
+	else
+	{
+		PrintMessage("Unsupported Operation");
+	}
+	return PenWidth;
+}
 
 
 

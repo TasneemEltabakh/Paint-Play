@@ -1,4 +1,7 @@
 #include "shape.h"
+#include "..//controller.h"
+#include <string>
+using namespace std;
 
 shape::shape(GfxInfo shapeGfxInfo)
 { 
@@ -18,6 +21,10 @@ void shape::ChngFillClr(color Fclr)
 {	
 	ShpGfxInfo.isFilled = true;
 	ShpGfxInfo.FillClr = Fclr; 
+}
+void shape::setCrntPenWidth(int a)
+{
+	ShpGfxInfo.BorderWdth = a;
 }
 
 // my func to get aim of selection 

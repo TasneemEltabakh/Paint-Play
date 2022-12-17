@@ -1,8 +1,8 @@
-#include "..//operations/opFillColour.h"
-#include "..//controller.h"
-#include "..//operations/operation.h"
-#include "..//CMUgraphicsLib/colors.h"
-#include"..//Shapes/Shape.h"
+#include "../Paint-Play/opFillColour.h"
+#include "../Paint-Play/controller.h"
+#include "../Paint-Play/operations/operation.h"
+#include "../Paint-Play/CMUgraphicsLib/colors.h"
+#include"Shapes/Shape.h"
 
 
 opFillColour::opFillColour(controller* pCont) : operation(pCont)
@@ -16,12 +16,10 @@ void opFillColour::Execute()
 {
 
 	int X, Y;
-
 	GUI* pUI = pControl->GetUI();
 	pUI->CreateColourToolBar();
 	pUI->GetPointClicked(X, Y);
-	pUI->GetIsFilled();
-	pUI->FillColour(X, Y);
+	pUI->FillColour(X,Y);
 	pUI->back();
-
+	pUI->ClearStatusBar();
 }

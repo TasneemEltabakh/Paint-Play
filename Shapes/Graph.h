@@ -2,6 +2,7 @@
 #include "Shape.h"
 #include <fstream>
 #include <vector>
+#include "..//CMUgraphicsLib/colors.h"
 using namespace std;
 
 //forward decl
@@ -30,6 +31,9 @@ public:
 	shape* getselectedShape();  //Rghda added
 
 	void setselectedShape(shape* selectedshape);  //Rghda added
+
+	void Graph::changeFillSelection(color);
+	void Graph::opChangeSelectedWidth(int );
 
 
 };

@@ -122,11 +122,11 @@ void Square::Load(ifstream& inputfile) {
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
 	int rf, gf, bf;
 
-	inputfile >> ID >> Corner1.x >> Corner1.y >> side >>
+	inputfile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y>>
 		redcolorlevel >> greencolorlevel >> bluecolorlevel >> ShpGfxInfo.BorderWdth >> rf >> gf >> bf;
-
-	Corner2.x = (Corner1.x + side * 50);
-	Corner2.y = (Corner1.y + side * 50);
+	cout << "id "<< ID<< "size is  " << side << " s1 " << Corner1.x << " " << Corner1.x << " ";
+	//Corner2.x = (Corner1.x + side * 50);
+	//Corner2.y = (Corner1.y + side * 50);
 
 	ShpGfxInfo.DrawClr.ucRed = redcolorlevel;
 	ShpGfxInfo.DrawClr.ucGreen = greencolorlevel;
@@ -142,6 +142,7 @@ void Square::Load(ifstream& inputfile) {
 		ShpGfxInfo.FillClr.ucRed = rf;
 		ShpGfxInfo.FillClr.ucGreen = gf;
 		ShpGfxInfo.isFilled = true;
+		cout << rf << gf << bf << endl;
 	}
 
 }

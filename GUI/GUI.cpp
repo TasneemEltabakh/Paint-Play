@@ -245,18 +245,7 @@ void GUI::CreateDrawToolBar()
 	{
 		
 		pWind->DrawImage(MenuIconImages[i], i * (MenuIconWidth), 7, MenuIconWidth, ToolBarHeight);
-		if (i == 17)
-		{
-
-			pWind->SetPen(PLUM, 5);
-			pWind->DrawLine(765, 10, 765, 58);
-		}
-		if (i == 21)
-		{
-			pWind->SetPen(PLUM, 3);
-			pWind->DrawLine(944, 10, 944, 58);
-		
-		}
+	
 
 			
 	

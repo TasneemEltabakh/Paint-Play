@@ -289,10 +289,10 @@ void GUI::CreatePlayToolBar()
 	///TODO: write code to create Play mode menu
 	pWind->DrawRectangle(0, 0, 1290, 70);
 	string PlayMenuIcon[PLAY_ICON_COUNT];
-	PlayMenuIcon[ICON_HIDE] = "images\\MenuIcons\\fill.jpg";
-	PlayMenuIcon[ICON_UNHIDE] = "images\\MenuIcons\\fill.jpg";
-	PlayMenuIcon[ICON_START] = "images\\MenuIcons\\fill.jpg";
-	PlayMenuIcon[ICON_REST] = "images\\MenuIcons\\fill.jpg";
+	PlayMenuIcon[ICON_HIDE] = "images\\MenuIcons\\hide.jpg";
+	PlayMenuIcon[ICON_UNHIDE] = "images\\MenuIcons\\unhideariam.jpg";
+	PlayMenuIcon[ICON_START] = "images\\MenuIcons\\start.jpg";
+	PlayMenuIcon[ICON_REST] = "images\\MenuIcons\\restartariam.jpg";
 	PlayMenuIcon[ICON_Switch]= "images\\MenuIcons\\switch.jpg";
 
 	for (int i = 0; i < (PLAY_ICON_COUNT ); i++)

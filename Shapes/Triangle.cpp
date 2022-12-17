@@ -91,13 +91,12 @@ void Triangle::Save(ofstream& outfile) {   //Rghda added
 }
 
 void Triangle::Load(ifstream& inputfile) {
-	//GUI* pUI = ;
-	//int Draw[3], 
-	//int Fill[3];
+	
 	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
 	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
 	int rf, gf, bf;
+
 	inputfile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >> Corner3.x >> Corner3.y >>
 		redcolorlevel >> greencolorlevel >> bluecolorlevel >> ShpGfxInfo.BorderWdth >> rf >> gf >> bf;
 

@@ -126,7 +126,7 @@ void Graph::Load(ifstream& inputfile) {
 
 
 	for (int i = 0; i <  number; i++) {
-		GfxInfo info = GfxInfo(); Point points = Point();
+		GfxInfo info = GfxInfo(); Point points = Point(); int size =0
 		type = "";
 		inputfile >> type;
 
@@ -162,7 +162,7 @@ void Graph::Load(ifstream& inputfile) {
 		}/**/
 
 		else if (type == "Line") {
-			std::cout << "ll" << endl;
+			std::cout << "myline" << endl;
 			Line* line = new Line(points, points, info);
 			line->Load(inputfile);
 			shapesList.push_back(line);
@@ -175,12 +175,12 @@ void Graph::Load(ifstream& inputfile) {
 			shapesList.push_back(ov);
 		}
 
-		/*/else if (type == "Reg") {
+		else if (type == "Reg") {
 			std::cout << "ll" << endl;
-			regularPolygon* reg = new regularPolygon(points, points, points, info);
+			regularPolygon* reg = new regularPolygon(points, points,size, points, info);
 			reg->Load(inputfile);
 			shapesList.push_back(reg);
-		}/**/
+		}
 
 		else if (type == "sQUARE") {
 			std::cout << "mysquaree" << endl;

@@ -3,13 +3,13 @@
 #include "..//Shapes/Line.h"
 #include "..//controller.h"
 #include "..//GUI/GUI.h"
-opAddLine ::opAddLine (controller* pCont) :operation(pCont)
+opAddLine::opAddLine(controller* pCont) :operation(pCont)
 {}
-opAddLine  ::~opAddLine ()
+opAddLine  ::~opAddLine()
 {}
 
 //Execute the operation
-void opAddLine ::Execute()
+void opAddLine::Execute()
 {
 	Point P1, P2;
 
@@ -26,34 +26,37 @@ void opAddLine ::Execute()
 	//Read 2nd corner and store in point P2
 	pUI->GetPointClicked(P2.x, P2.y);
 	pUI->ClearStatusBar();
-	
+
 
 	//Preapre all Line  parameters
-	GfxInfo CircleGfxInfo;
+	GfxInfo lineGfxInfo;
 
+
+	lineGfxInfo.isFilled = false;	//default is not filled
+	lineGfxInfo.isSelected = false;
 	//get drawing, filling colors and pen width from the interface
-		//get drawing, filling colors and pen width from the interface
-	CircleGfxInfo.BorderWdth = 50;
-	CircleGfxInfo.isSelected = false;	//defualt is not selected
-
 	if (pUI->checkborder() == true)
 	{
-		if (CircleGfxInfo.isSelected == true)
-			CircleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
+		if (lineGfxInfo.isSelected == true)
+			lineGfxInfo.BorderWdth = pUI->getCrntPenWidth();
 	}
 	else
-		CircleGfxInfo.BorderWdth = pUI->getoldPenWidth();
+		lineGfxInfo.BorderWdth = pUI->getoldPenWidth();
 
 	if (pUI->checkcol() == true)
 	{
-		if (CircleGfxInfo.isSelected == true)
-			CircleGfxInfo.DrawClr = pUI->getCrntDrawColor();
+		if (lineGfxInfo.isSelected == true)
+			lineGfxInfo.DrawClr = pUI->getCrntDrawColor();
 	}
 	else
-		CircleGfxInfo.DrawClr = pUI->getoldDrawColor();
+		lineGfxInfo.DrawClr = pUI->getoldDrawColor();
+
+
+	//defualt is not selected
+
 
 	//Create a circle with the above parameters
-	Line * O = new Line (P1, P2,  CircleGfxInfo);
+	Line* O = new Line(P1, P2, lineGfxInfo);
 
 	//Get a pointer to the graph
 	Graph* pGr = pControl->getGraph();

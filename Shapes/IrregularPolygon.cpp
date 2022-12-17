@@ -73,7 +73,26 @@ string IrregularPolygon::PrintOnTool() {  //Rghda added
 	return values;
 }
 bool IrregularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  I should edit this and put its data 
-	return false;
+	int c1 = 0;
+	int c2 = 0;
+	int slope;
+	int constant;
+	for (int i = 0; i < arrayX.size(); i++) {
+
+		slope = (arrayY[i] - arrayY[i + 1]) / (arrayX[i] - arrayX[i + 1]);
+		constant = arrayY[i] - (slope * arrayX[i]);
+		if (y == slope * x + constant) {
+			c1 = c1 + 1;
+		}
+
+		if (c1 % 2 != 0) {   //if it is odd  it is outside the shape
+			return false;
+		}
+		else {  //if the number of intersection is even  so it is inside the shape
+			return true;
+		}
+	}
+	//return false;
 
 }
 

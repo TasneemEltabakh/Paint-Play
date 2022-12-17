@@ -2,28 +2,21 @@
 #include <fstream>
 #include <iostream>
 
-Square::Square(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
+Square::Square(Point P1, int s , GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
-	numberofSide = 4;
+	
 	Corner1 = P1;
-	Corner2 = P2;
+	side = s; 
+	Corner2.x = (P1.x + s*50);
+	Corner2.y = (P1.y + s*50);
 
-	int distance = sqrt(pow((P1.x - P2.x), 2) + pow((P1.y - P2.y), 2));
-	//for angle 
-	double x = (2 * 3.14) / 8;
-	for (int i = 0; i < numberofSide; i++)
-	{
-		double angle = i * (2 * 3.14) / numberofSide;
-		double xOfvertix = +Corner1.x+ distance * cos(angle+x) ;
-		arrayX[i] = xOfvertix;
-		double yOfvertix = distance * sin(angle+x) + Corner1.y;
-		arrayY[i] = yOfvertix;
+	
+
+
 
 
 	}
-	
 
-}
 
 Square::~Square()
 {}
@@ -31,7 +24,8 @@ Square::~Square()
 void Square::Draw(GUI* pUI) const
 {
 	//Call Output::DrawSquare to draw a r on the screen	
-	pUI->DrawSquare(arrayX, arrayY, ShpGfxInfo);
+	pUI->DrawSquare(Corner1, Corner2, ShpGfxInfo);   
+
 }
 void Square:: Save(ofstream& outfile) {  //Rghda added
 	//I tried to put the coordinate in a single line

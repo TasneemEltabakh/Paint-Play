@@ -28,7 +28,6 @@ void 	opChangeBorderSelected::Execute()
 	GUI* pUI = pControl->GetUI();
 	pUI->CreateColourToolBar();
 	pUI->GetPointClicked(X, Y);
-	pUI->GetColour(X, Y);
 	pUI->back();
 	pGr->opChangeSelectedBorder(pUI->GetSelectedColour(X,Y));
 	

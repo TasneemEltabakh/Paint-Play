@@ -210,10 +210,10 @@
     <ClCompile Include="operations\opcahngeselectedborder.cpp">
       <Filter>operation</Filter>
     </ClCompile>
-    <ClCompile Include="..\github\operations\Load.cpp">
+    <ClCompile Include="operations\opAddImg.cpp">
       <Filter>operation</Filter>
     </ClCompile>
-    <ClCompile Include="operations\opAddImg.cpp">
+    <ClCompile Include="operations\Load.cpp">
       <Filter>operation</Filter>
     </ClCompile>
   </ItemGroup>
@@ -388,6 +388,8 @@
     <ClInclude Include="operations\opCahngeSelectedBorder.h">
       <Filter>operation</Filter>
     </ClInclude>
+    <ClInclude Include="..\github\operations\Load.h" />
+    <ClInclude Include="operations\opAddImg.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GraphicsLib">

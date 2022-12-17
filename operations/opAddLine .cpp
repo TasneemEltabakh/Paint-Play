@@ -28,14 +28,12 @@ void opAddLine ::Execute()
 	pUI->ClearStatusBar();
 	
 
-
-
 	//Preapre all Line  parameters
 	GfxInfo CircleGfxInfo;
 
 	//get drawing, filling colors and pen width from the interface
 		//get drawing, filling colors and pen width from the interface
-	CircleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
+	CircleGfxInfo.BorderWdth = 50;
 	CircleGfxInfo.isSelected = false;	//defualt is not selected
 
 	if (pUI->checkborder() == true)

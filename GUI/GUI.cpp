@@ -227,14 +227,14 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_CUT] = "images\\MenuIcons\\cut.jpg";
 	MenuIconImages[ICON_COPY] = "images\\MenuIcons\\copy.jpg";
 	MenuIconImages[ICON_DRAG] = "images\\MenuIcons\\drag.jpg";
-	MenuIconImages[ICON_BORD] = "images\\MenuIcons\\line-thickness.jpg";
+	MenuIconImages[ICON_BORD] = "images\\MenuIcons\\width.jpg";
 	MenuIconImages[ICON_ADDIMG] = "images\\MenuIcons\\image.jpg";
 	MenuIconImages[ICON_DEL] = "images\\MenuIcons\\delete.jpg";
 	MenuIconImages[ICON_FILL] = "images\\MenuIcons\\fill.jpg";
 	MenuIconImages[ICON_COLORS] = "images\\MenuIcons\\pencil.jpg";
 	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\save.jpg";
 	MenuIconImages[ICON_SELECT] = "images\\MenuIcons\\select.jpg";
-	MenuIconImages[ICON_SELECTEDBOL] = "images\\MenuIcons\\line-thickness.jpg";
+	MenuIconImages[ICON_SELECTEDBOL] = "images\\MenuIcons\\widths.jpg";
 	MenuIconImages[ICON_SELECTEDCOL] = "images\\MenuIcons\\pencils.jpg";
 	MenuIconImages[ICON_SELECTEDFILL] = "images\\MenuIcons\\fills.jpg";
 	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\upload.jpg";

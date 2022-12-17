@@ -102,6 +102,7 @@ bool Rect::IsShapeExisting(int x, int y)  //Rghda added
 }
 
 void Rect::Load(ifstream& inputfile) {
+
 	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
 	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
@@ -124,8 +125,5 @@ void Rect::Load(ifstream& inputfile) {
 		ShpGfxInfo.FillClr.ucRed = rf;
 		ShpGfxInfo.FillClr.ucGreen = gf;
 		ShpGfxInfo.isFilled = true;
-		cout << bf << rf << gf << "green??" << endl;
 	}
-
-	cout << "r" << Corner1.x << Corner1.y << Corner2.x << Corner2.y << "rectangle load"<<endl;
 }

@@ -49,9 +49,10 @@ bool Triangle::IsShapeExisting(int x, int y)
 
 string Triangle::PrintOnTool()
 {
+	int id = 3;
 	string values;;
 	float getarea = trianglearea(Corner1.x, Corner1.y, Corner2.x, Corner2.y, Corner3.x, Corner3.y);
-	values = "you selected a TRIANGLE. ID: " + to_string(ID) + 
+	values = "you selected a TRIANGLE. ID: " + to_string(id) + 
 		". First Point: (" + to_string(Corner1.x) + ", " + 
 		to_string(Corner1.y) + "). Second Point: (" + to_string(Corner2.x) +
 		", " + to_string(Corner2.y) + "). Third Point: (" + to_string(Corner3.x) + 
@@ -70,7 +71,7 @@ void Triangle::Save(ofstream& outfile) {   //Rghda added
 	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
 	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
-	int id = ID;
+	int id = 3;
 
 	outfile << "Triangle" << " " << id << " "
 	<< Corner1.x << " " << Corner1.y << " "

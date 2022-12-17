@@ -130,56 +130,59 @@ void Graph::Load(ifstream& inputfile) {
 	string num; string type;
 	getline(inputfile, num);
 
-	cout << num;
-
 	int number = stoi(num);
 
 
 	for (int i = 0; i <  number; i++) {
-		GfxInfo info = GfxInfo(); Point points = Point(); int size = 4;
+		GfxInfo info = GfxInfo(); Point points = Point();
+		vector<Point> parr;
+		int size=0;
 		type = "";
 		inputfile >> type;
 
-		cout <<" type is "<< type << endl;
-
 		if (type == "Triangle") {
-			std::cout << "mytrii" << endl;
 			Triangle* trig = new Triangle(points, points, points, info);
 			trig->Load(inputfile);
 			shapesList.push_back(trig);
 		}
 
 		else if (type == "RECT") {
-			std::cout << "myrcki" << endl;
 			Rect* rect = new Rect(points, points, info);
 			rect->Load(inputfile);
 			shapesList.push_back(rect);
 		}
 
 		else if (type == "Circle") {
-			std::cout << "my circle" << endl;
 			Circle* circ = new Circle( points, points, info);
 			circ->Load(inputfile);
-			cout << "circle loaded" << endl;
 			shapesList.push_back(circ);
 		}
 
-		/*/else if (type == "Irreg") {
-			std::cout << "ll" << endl;
-			IrregularPolygon* irreg = new IrregularPolygon( points, points, info);
+		else if (type == "Irreg") {
+
+			inputfile >> size;
+
+			for (int i = 0; i < size; i++)
+			{
+				inputfile >> points.x >> points.y;
+				cout << points.x << " and " << points.y<<endl;
+				parr.push_back(points);
+
+				cout << parr[i].x << " " << parr[i].y << endl;
+			}
+
+			IrregularPolygon* irreg = new IrregularPolygon(parr, info);
 			irreg->Load(inputfile);
 			shapesList.push_back(irreg);
-		}/**/
+		}
 
 		else if (type == "Line") {
-			std::cout << "myline" << endl;
 			Line* line = new Line(points, points, info);
 			line->Load(inputfile);
 			shapesList.push_back(line);
 		}
 
 		else if (type == "Oval") {
-			std::cout << "oval if" << endl;
 			Oval* ov = new Oval(points, points, info);
 			ov->Load(inputfile);
 			shapesList.push_back(ov);
@@ -187,19 +190,15 @@ void Graph::Load(ifstream& inputfile) {
 
 		else if (type == "Reg") {
 			inputfile >> size;
-			cout << size;
 			regularPolygon* reg = new regularPolygon(points, points,size, info);
 			reg->Load(inputfile);
 			shapesList.push_back(reg);
 		}
 
 		else if (type == "sQUARE") {
-			std::cout << "mysquaree" << endl;
 			Square* sq = new Square(points, size, info);
 			sq->Load(inputfile);
-			cout << "square added" << endl;
 			shapesList.push_back(sq);
-			cout << "executed";
 		}
 
 	}

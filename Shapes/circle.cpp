@@ -67,7 +67,7 @@ bool Circle::IsShapeExisting(int x, int y)  //Rghda added
 }
 
 void Circle::Load(ifstream& inputfile) {
-	//GUI* pUI = ;
+
 	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
 	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
@@ -92,9 +92,6 @@ void Circle::Load(ifstream& inputfile) {
 		ShpGfxInfo.FillClr.ucGreen = gf;
 		ShpGfxInfo.isFilled = true;
 	}
-	cout<< ID <<" 1 " <<Corner1.x <<" "<< Corner1.y <<" "<< Corner2.x <<" "<< Corner2.y <<" rd "<<
-		redcolorlevel << " gd " <<greencolorlevel <<" bd " <<bluecolorlevel << " w "<< ShpGfxInfo.BorderWdth <<" r g b "<<rf << gf << bf;
-	cout << "circlooo" << endl;
 
 	radious = sqrt(pow(Corner1.x - Corner2.x, 2) + pow(Corner1.y - Corner2.y, 2));
 

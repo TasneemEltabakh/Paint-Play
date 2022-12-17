@@ -27,8 +27,8 @@ void opChangeSelectedWidth ::Execute()
 	GUI* pUI = pControl->GetUI();
 	pUI->PrintMessage("Enter The New Width [from 1 to 6] : ");
 	int wchoice = stoi( pUI->GetSrting());
-
-	pGr->opChangeSelectedWidth(pUI->setPenWidth(wchoice));
+	
+	pGr->opChangeSelectedWidth(pUI->setselectedWidth(wchoice));
 	
 }
 

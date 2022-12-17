@@ -30,7 +30,7 @@ void 	opChangeBorderSelected::Execute()
 	pUI->GetPointClicked(X, Y);
 	pUI->GetColour(X, Y);
 	pUI->back();
-	pGr->opChangeSelectedBorder(pUI->GetColour(X,Y));
+	pGr->opChangeSelectedBorder(pUI->GetSelectedColour(X,Y));
 	
 
 

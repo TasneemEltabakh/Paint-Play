@@ -2,6 +2,7 @@
 #include "../GUI/GUI.h"
 #include <iostream>
 #include <string>
+
 Graph::Graph()
 {
 	selectedShape = nullptr;
@@ -115,6 +116,14 @@ void Graph::opChangeSelectedWidth(int x) {
 	//pGUI->ClearDrawArea(); 
 	//UpdateInterface();
 }
+void Graph::opChangeSelectedBorder(color a)
+{
+	for (int k = 0; k < shapesList.size(); k++) {
+		if (selectedShape == shapesList[k]) {
+			shapesList[k]->ChngDrawClr(a);
+		}
+	}
+}
 void Graph::Load(ifstream& inputfile) {
 
 	string num; string type;
@@ -126,7 +135,7 @@ void Graph::Load(ifstream& inputfile) {
 
 
 	for (int i = 0; i <  number; i++) {
-		GfxInfo info = GfxInfo(); Point points = Point(); int size = 0;
+		GfxInfo info = GfxInfo(); Point points = Point(); int size = 4;
 		type = "";
 		inputfile >> type;
 
@@ -185,7 +194,7 @@ void Graph::Load(ifstream& inputfile) {
 
 		else if (type == "sQUARE") {
 			std::cout << "mysquaree" << endl;
-			Square* sq = new Square(points, 5, info);
+			Square* sq = new Square(points, size, info);
 			sq->Load(inputfile);
 			cout << "square added" << endl;
 			shapesList.push_back(sq);

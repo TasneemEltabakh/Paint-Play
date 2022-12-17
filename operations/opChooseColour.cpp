@@ -20,6 +20,7 @@ void opChooseColour::Execute()
 	GUI* pUI = pControl->GetUI();
 	pUI->CreateColourToolBar();
 	pUI->GetPointClicked(X, Y);
+	pUI->checkcol();
 	pUI->GetColour(X, Y);
 	pUI->back();
 	

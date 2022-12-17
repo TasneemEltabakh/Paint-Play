@@ -207,6 +207,9 @@
     <ClCompile Include="operations\opCahangeSelectedWidth.cpp">
       <Filter>operation</Filter>
     </ClCompile>
+    <ClCompile Include="operations\opcahngeselectedborder.cpp">
+      <Filter>operation</Filter>
+    </ClCompile>
     <ClCompile Include="..\github\operations\Load.cpp">
       <Filter>operation</Filter>
     </ClCompile>
@@ -380,6 +383,9 @@
       <Filter>operation</Filter>
     </ClInclude>
     <ClInclude Include="operations\opCahangeSelectedWidth.h">
+      <Filter>operation</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opCahngeSelectedBorder.h">
       <Filter>operation</Filter>
     </ClInclude>
     <ClInclude Include="..\github\operations\Load.h" />

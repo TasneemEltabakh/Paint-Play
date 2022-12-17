@@ -178,6 +178,7 @@
     <ClCompile Include="operations\opAddSquare.cpp" />
     <ClCompile Include="operations\opAddTriangle.cpp" />
     <ClCompile Include="operations\opCahangeSelectedWidth.cpp" />
+    <ClCompile Include="operations\opcahngeselectedborder.cpp" />
     <ClCompile Include="operations\opChangeFillSelected.cpp" />
     <ClCompile Include="operations\opChangeWidth.cpp" />
     <ClCompile Include="operations\opChooseColour.cpp" />
@@ -235,6 +236,7 @@
     <ClInclude Include="operations\opAddSquare.h" />
     <ClInclude Include="operations\opAddTriangle.h" />
     <ClInclude Include="operations\opCahangeSelectedWidth.h" />
+    <ClInclude Include="operations\opCahngeSelectedBorder.h" />
     <ClInclude Include="operations\opChangeFillSelected.h" />
     <ClInclude Include="operations\opChangeWidth.h" />
     <ClInclude Include="operations\opChooseColour.h" />

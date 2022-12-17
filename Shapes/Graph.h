@@ -45,6 +45,8 @@ public:
 
 	void Graph::changeFillSelection(color);
 	void Graph::opChangeSelectedWidth(int );
+	void Graph::opChangeSelectedBorder(color);
+	
 
 
 };

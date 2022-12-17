@@ -62,7 +62,7 @@ void IrregularPolygon::Save(ofstream& outfile) {  //Rghda added
 
 string IrregularPolygon::PrintOnTool() {  //Rghda added
 
-	string values = "you selected a IrregularPolygon,ID: " + to_string(ID);
+	string values = "you selected a IrregularPolygon,ID: " + to_string(ID) + to_string(numberofsides) + "sides";
 		for (int i = 0; i < arrayX.size(); i++)
 		{
 			values = " Point" + to_string(i + 1) + ": (" + to_string(arrayX[i]) + ", " + to_string(arrayY[i]) + ") ";

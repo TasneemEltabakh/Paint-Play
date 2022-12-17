@@ -55,12 +55,4 @@ void Select::Execute() {
 	   //selectedshape->SetSelected(true);  //set selected shape by true
 		pControl->UpdateInterface();
 	}
-
-
-
-
-
-
-
-
 }

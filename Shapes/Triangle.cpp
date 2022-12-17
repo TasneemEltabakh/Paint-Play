@@ -26,12 +26,16 @@ float Triangle::trianglearea(int x1, int y1, int x2, int y2, int x3, int y3)
 {
 	return abs((x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) / 2.0);
 }
+
+
 bool Triangle::IsShapeExisting(int x, int y)
 {
 	float temp = trianglearea(Corner1.x, Corner1.y, Corner2.x, Corner2.y, Corner3.x, Corner3.y);
 	float try1 = trianglearea(x, y, Corner2.x, Corner2.y, Corner3.x, Corner3.y);
-	float try2 = trianglearea(Corner1.x, Corner1.y, x, y, Corner3.x, Corner3.y);
-	float try3 = trianglearea(Corner1.x, Corner1.y, Corner2.x, Corner2.y, x, y);
+	//float try2 = trianglearea(Corner1.x, Corner1.y, x, y, Corner3.x, Corner3.y);
+	//float try3 = trianglearea(Corner1.x, Corner1.y, Corner2.x, Corner2.y, x, y);
+	float try2 = trianglearea(x, y, Corner1.x, Corner1.y, Corner3.x, Corner3.y);
+	float try3 = trianglearea(x,y , Corner2.x, Corner2.y, Corner1.x, Corner1.y);
 	if (temp == try1 + try2 + try3)
 	{
 		return true;

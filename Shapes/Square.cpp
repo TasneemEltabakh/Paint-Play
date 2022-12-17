@@ -9,7 +9,7 @@ Square::Square(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	Corner2 = P2;
 
 	int distance = sqrt(pow((P1.x - P2.x), 2) + pow((P1.y - P2.y), 2));
-
+	//for angle 
 	double x = (2 * 3.14) / 8;
 	for (int i = 0; i < numberofSide; i++)
 	{
@@ -21,8 +21,7 @@ Square::Square(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 
 
 	}
-	//arrayY.push_back(arrayY.front());
-	//arrayX.push_back(arrayX.front());
+	
 
 }
 
@@ -64,7 +63,7 @@ void Square:: Save(ofstream& outfile) {  //Rghda added
 
 string Square::PrintOnTool()
 {
-	string values = "I should put here the data of square";
+	string values = "you selected a square,ID: " + to_string(ID) + "\n . First Point: (" + to_string(Corner1.x) + ", " + to_string(Corner1.y) + "). Second Point: (" + to_string(Corner2.x) + ", " + to_string(Corner2.y) + ").";
 	return values;
 }
 

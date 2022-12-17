@@ -28,7 +28,7 @@ void Circle::Save(ofstream& outfile) {   //Rghda added
 	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
 	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
-	int id = ID;
+	int id = 2;
 
 	outfile << "Circle" << " " << id << " "    //the name and id
 		<< Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " "; //the corners
@@ -49,7 +49,8 @@ void Circle::Save(ofstream& outfile) {   //Rghda added
 
 string Circle::PrintOnTool()
 {
-	string values = "Circle, the center: ("+ to_string(Corner1.x)+ "," + to_string(Corner1.y )+ ") the radius:" + to_string(radious )+ " .";
+	int id = 2;
+	string values = "Circle, ID:"+to_string( id)+ ", the center : (" + to_string(Corner1.x)+ ", " + to_string(Corner1.y )+ ") the radius : " + to_string(radious )+ " .";
 	return values;
 }
 

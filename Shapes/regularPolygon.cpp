@@ -16,7 +16,7 @@ regularPolygon ::regularPolygon(Point P1, Point P2, int Sides,  GfxInfo shapeGfx
 	start.y = P2.y;
 	
 	r = sqrt(pow((P1.x - P2.x),2) + pow((P1.y - P2.y),2));
-    int NumberOfsides = Sides;
+    NumberOfsides = Sides;
 	
 
 
@@ -52,11 +52,15 @@ void regularPolygon::Save(ofstream& outfile) {  //Rghda added
 	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
 	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
-	int id = ID;
+	int id= 6;
 
-	outfile << "Regular Polygon" << " " << id << " "
-	<< Center.x << " " << Center.y << " "
-	<< start.x << " " << start.y << " ";
+	outfile << "Reg" << " " << id << " " << NumberOfsides << " ";
+	//<< Center.x << " " << Center.y << " "
+	//<< start.x << " " << start.y << " ";
+	for (int i = 0; i < arrayX.size(); i++)
+	{
+		outfile << arrayX[i] <<" " << arrayY[i]<<" ";
+	}
 
 	outfile << redcolorlevel << " " << greencolorlevel << " " << bluecolorlevel << " ";
 
@@ -72,11 +76,14 @@ void regularPolygon::Save(ofstream& outfile) {  //Rghda added
 } 
 
 string regularPolygon::PrintOnTool() {  //Rghda added
+	int id = 6;
+	string values = "you selected a RegularPolygon,ID: " + to_string(id)+", " + to_string(NumberOfsides) + "sides";
+	string onepoint;
 
-	string values = "you selected a IrregularPolygon,ID: " + to_string(ID)+", " + to_string(NumberOfsides) + "sides";
 	for (int i = 0; i < arrayX.size(); i++)
 	{
-		values = " Point" + to_string(i + 1) + ": (" + to_string(arrayX[i]) + ", " + to_string(arrayY[i]) + ") ";
+		onepoint = " Point" + to_string(i + 1) + ": (" + to_string(arrayX[i]) + ", " + to_string(arrayY[i]) + ") ";
+		values = values + onepoint;
 	}
 	return values;
 }

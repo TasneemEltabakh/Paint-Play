@@ -28,7 +28,7 @@ void Oval::Save(ofstream& outfile) {   //Rghda added
 	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
 	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
-	int id = ID;
+	int id = 5;
 
 	outfile << "Oval" << " " << id << " "    //the name and id
 		<< Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " "; //the corners
@@ -49,7 +49,8 @@ void Oval::Save(ofstream& outfile) {   //Rghda added
 
 string Oval::PrintOnTool()  //Rghda added
 {
-	string values = "you selected a Oval ,ID: " + to_string(ID) + "\n . Center: (" + to_string(Corner1.x) + ", " + to_string(Corner1.y) + ").";
+	int id = 5;
+	string values = "you selected a Oval ,ID: " + to_string(id) + "\n . Center: (" + to_string(Corner1.x) + ", " + to_string(Corner1.y) + ").";
 	return values;
 }
 

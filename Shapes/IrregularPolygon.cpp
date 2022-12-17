@@ -37,9 +37,9 @@ void IrregularPolygon::Save(ofstream& outfile) {  //Rghda added
 	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
 	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
-	int id = ID;
+	int id = 7;
 
-	outfile << "Irr Regular Polygon" << " " << id << " ";
+	outfile << "Irreg" << " " << id << " "<< numberofsides<<" ";
 	for (int i = 0; i < arrayX.size(); i++)
 	{
 		outfile << arrayX[i] << " " << arrayY[i] << " ";
@@ -61,16 +61,39 @@ void IrregularPolygon::Save(ofstream& outfile) {  //Rghda added
 } 
 
 string IrregularPolygon::PrintOnTool() {  //Rghda added
-
-	string values = "you selected a IrregularPolygon,ID: " + to_string(ID) + to_string(numberofsides) + "sides";
+	int id = 7;
+	string values = "you selected a IrregularPolygon,ID: " + to_string(id) + to_string(arrayX.size()) + "sides";
+	string onepoint;
 		for (int i = 0; i < arrayX.size(); i++)
 		{
-			values = " Point" + to_string(i + 1) + ": (" + to_string(arrayX[i]) + ", " + to_string(arrayY[i]) + ") ";
+			 onepoint= " Point" + to_string(i + 1) + ": (" + to_string(arrayX[i]) + ", " + to_string(arrayY[i]) + ") ";
+			 values = values + onepoint;
 		}
 	
 	return values;
 }
 bool IrregularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  I should edit this and put its data 
-	return false;
+	/*int slope;
+	int conctant;
+	for (int i = 0; i < arrayX.size(); i++)
+	{
+		
+		if (i = arrayX.size() - 1) {
+			slope = (arrayY[i] - arrayY[0]) / (arrayX[i] - arrayX[0]);
+			conctant = arrayY[i] - (slope * arrayX[i]);
+		}
+		else {
+			slope = (arrayY[i] - arrayY[i + 1]) / (arrayX[i] - arrayX[i + 1]);
+			conctant = arrayY[i] - (slope * arrayX[i]);
+		}
+		
 
+		if (y == slope * x + conctant) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}*/
+	return false;
 }

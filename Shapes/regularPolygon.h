@@ -28,6 +28,9 @@ public :
 
     string PrintOnTool();  //Rghda added
     bool IsShapeExisting(int x, int y);  //Rghda added
+    float trianglearea(int x1, int y1, int x2, int y2, int x3, int y3);  //Rghda added
+
     void Save(ofstream& outfile); //Rghda added
+    void Load(ifstream& inputfile);
 };
 

@@ -150,7 +150,7 @@ public:
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo RectGfxInfo) const;
 	void DrawPol(const int PointertoarryOFX[], const int PointertoarryOFy[], const int Numberofsides, GfxInfo shapeGfxInfo) const;
 	void DrawCircle(Point P1, int radious, GfxInfo CircleGfxInfo) const;  //Draw a Circle
-	void DrawSquare(const int array1[], const int array2[],GfxInfo SquareGfxInfo) const;  //Draw a Square 
+	void DrawSquare(Point P1, Point P2,GfxInfo SquareGfxInfo) const;  //Draw a Square 
 	void DrawEllipse(Point P1, Point P2, GfxInfo OvalGfxInfo) const;  //Draw an Oval
 	void DrawLine(Point P1, Point P2, GfxInfo OvalGfxInfo) const;  //Draw a line 
 	void back();
@@ -158,6 +158,8 @@ public:
 	bool checkborder();
 	bool GetIsFilled() ;
 	bool GetIsChanged();
+	void AddImg(string name);
+	bool GetIsFilled() const;
 	///Make similar functions for drawing all other shapes.
     void PrintMessage(string msg) const;	//Print a message on Status bar
 

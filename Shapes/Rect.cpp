@@ -29,7 +29,7 @@ void Rect::Save(ofstream& outfile){   //Rghda added
 	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
 	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
-	int id = ID;
+	int id = 1;
 
 	outfile << "RECT" << " " << id << " "    //the name and id
 	<< Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " " ; //the corners
@@ -50,7 +50,9 @@ void Rect::Save(ofstream& outfile){   //Rghda added
 
 string Rect::PrintOnTool()
 {
-	string values = "you selected a rectangle,ID: " + to_string(ID) + "\n . First Point: (" + to_string(Corner1.x) + ", " + to_string(Corner1.y) + "). Second Point: (" + to_string(Corner2.x) + ", " + to_string(Corner2.y) + ").";
+	int id = 1;
+
+	string values = "you selected a rectangle,ID: " + to_string(id) + "\n . First Point: (" + to_string(Corner1.x) + ", " + to_string(Corner1.y) + "). Second Point: (" + to_string(Corner2.x) + ", " + to_string(Corner2.y) + ").";
 	return values;
 }
 
@@ -97,4 +99,33 @@ bool Rect::IsShapeExisting(int x, int y)  //Rghda added
 			return false;
 		}
 	}
+}
+
+void Rect::Load(ifstream& inputfile) {
+	//GUI* pUI = ;
+	int  Fill[3];
+	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
+	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
+	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
+	Fill[0] = (int)ShpGfxInfo.FillClr.ucRed;
+	Fill[1] = (int)ShpGfxInfo.FillClr.ucGreen;
+	Fill[2] = (int)ShpGfxInfo.FillClr.ucBlue;
+	inputfile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y  >>
+		redcolorlevel >> greencolorlevel >> bluecolorlevel >> ShpGfxInfo.BorderWdth >> Fill[0] >> Fill[1] >> Fill[2];
+
+
+
+	if (Fill[0] == Fill[1] == Fill[2] == 0)
+	{
+		ShpGfxInfo.FillClr = WHITE;
+		ShpGfxInfo.isFilled = false;
+	}
+	else {
+		/*/Fill[0] = (int)ShpGfxInfo.FillClr.ucRed;
+		Fill[1] = (int)ShpGfxInfo.FillClr.ucGreen;
+		Fill[2] = (int)ShpGfxInfo.FillClr.ucBlue;/**/
+		ShpGfxInfo.isFilled = true;
+	}
+
+	cout << "r" << Corner1.x << Corner1.y << Corner2.x << Corner2.y << "rectangle load"<<endl;
 }

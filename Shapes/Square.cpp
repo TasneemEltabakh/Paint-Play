@@ -2,29 +2,21 @@
 #include <fstream>
 #include <iostream>
 
-Square::Square(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
+Square::Square(Point P1, int s , GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
-	numberofSide = 4;
+	
 	Corner1 = P1;
-	Corner2 = P2;
+	side = s; 
+	Corner2.x = (P1.x + s*50);
+	Corner2.y = (P1.y + s*50);
 
-	int distance = sqrt(pow((P1.x - P2.x), 2) + pow((P1.y - P2.y), 2));
+	
 
-	double x = (2 * 3.14) / 8;
-	for (int i = 0; i < numberofSide; i++)
-	{
-		double angle = i * (2 * 3.14) / numberofSide;
-		double xOfvertix = +Corner1.x+ distance * cos(angle+x) ;
-		arrayX[i] = xOfvertix;
-		double yOfvertix = distance * sin(angle+x) + Corner1.y;
-		arrayY[i] = yOfvertix;
+
 
 
 	}
-	//arrayY.push_back(arrayY.front());
-	//arrayX.push_back(arrayX.front());
 
-}
 
 Square::~Square()
 {}
@@ -32,7 +24,8 @@ Square::~Square()
 void Square::Draw(GUI* pUI) const
 {
 	//Call Output::DrawSquare to draw a r on the screen	
-	pUI->DrawSquare(arrayX, arrayY, ShpGfxInfo);
+	pUI->DrawSquare(Corner1, Corner2, ShpGfxInfo);   
+
 }
 void Square:: Save(ofstream& outfile) {  //Rghda added
 	//I tried to put the coordinate in a single line
@@ -44,10 +37,10 @@ void Square:: Save(ofstream& outfile) {  //Rghda added
 	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
 	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
-	int id = ID;
+	int id = 4;
 
 	outfile << "sQUARE" << " " << id << " "    //the name and id
-		<< Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " "; //the corners
+		<< Corner1.x << " " << Corner1.y << " " << side<< " " ; //the corners
 
 	outfile << redcolorlevel << " " << greencolorlevel << " " << bluecolorlevel << " ";
 
@@ -64,12 +57,84 @@ void Square:: Save(ofstream& outfile) {  //Rghda added
 
 string Square::PrintOnTool()
 {
-	string values = "I should put here the data of square";
+	int id = 4;
+	string values = "you selected a square,ID: " + to_string(id) + "\n . First Point: (" + to_string(Corner1.x) + ", " + to_string(Corner1.y) + "). Second Point: (" + to_string(Corner2.x) + ", " + to_string(Corner2.y) + ")" + "). side long: " + to_string(side) + ".";
 	return values;
 }
 
 
 bool Square::IsShapeExisting(int x, int y)  //Rghda added
 {
-	return false;
+	if ((x > Corner1.x && x < Corner2.x && y > Corner1.y && y < Corner2.y))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+	/*
+	if (Corner2.x > Corner1.x && Corner2.y > Corner1.y) {
+		if ((x > Corner1.x && x < Corner2.x && y > Corner1.y && y < Corner2.y))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else if (Corner2.x > Corner1.x && Corner1.y > Corner2.y) {
+		if ((x > Corner1.x && x < Corner2.x && y > Corner2.y && y < Corner1.y))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else if (Corner1.x > Corner2.x && Corner2.y > Corner1.y) {
+		if ((x > Corner2.x && x < Corner1.x && y > Corner1.y && y < Corner2.y))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else if (Corner1.x > Corner2.x && Corner1.y > Corner2.y) {
+		if ((x > Corner2.x && x < Corner1.x && y > Corner2.y && y < Corner1.y))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}*/
+}
+
+void Square::Load(ifstream& inputfile) {
+	//GUI* pUI = ;
+	int Draw[3], Fill[3];
+
+	inputfile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >>
+		Draw[0] >> Draw[1] >> Draw[2] >> ShpGfxInfo.BorderWdth >> Fill[0] >> Fill[1] >> Fill[2];
+
+	ShpGfxInfo.DrawClr = color(Draw[0], Draw[1], Draw[2]);
+
+	if (Fill[0] == Fill[1] == Fill[2] == 0)
+	{
+		ShpGfxInfo.FillClr = WHITE;
+		ShpGfxInfo.isFilled = false;
+	}
+	else {
+		ShpGfxInfo.FillClr = color(Fill[0], Fill[1], Fill[2]);
+		ShpGfxInfo.isFilled = true;
+	}
+
+	cout << "s" << Corner1.x << Corner1.y << Corner2.x << Corner2.y << endl;
+	cout << "square loaded";
 }

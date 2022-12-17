@@ -103,6 +103,12 @@ operation* controller::createOperation(operationType OpType)
 		case selsectcol:
 			pOp= new opChangeBorderSelected(this);
 			break;
+		case LOAD:
+			pOp = new opLoad(this);
+			break;
+		case ADD_IMG:
+			pOp = new opAddImg(this);
+			break;
 		case STATUS:	//a click on the status bar ==> no operation
 			break;
 	}

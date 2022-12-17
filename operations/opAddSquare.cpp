@@ -13,7 +13,7 @@ opAddSquare::~opAddSquare()
 void opAddSquare::Execute()
 {
 	Point P1, P2;
-
+	int i;
 	//Get a Pointer to the Input / Output Interfaces
 	GUI* pUI = pControl->GetUI();
 
@@ -22,11 +22,15 @@ void opAddSquare::Execute()
 	pUI->GetPointClicked(P1.x, P1.y);
 
 	string msg = "First corner is at (" + to_string(P1.x) + ", " + to_string(P1.y) + " )";
-	msg += " ... Click at second corner";
+	msg += " ... Enter the side ";
 	pUI->PrintMessage(msg);
-	//Read 2nd corner and store in point P2
-	pUI->GetPointClicked(P2.x, P2.y);
-	pUI->ClearStatusBar();
+	////Read 2nd corner and store in point P2
+	//pUI->GetPointClicked(P2.x, P2.y);
+	//pUI->ClearStatusBar();
+	////// me to get the side  
+	string theside = pUI->GetSrting();
+	int NUM = stoi(theside);
+	i = NUM;
 
 	//Preapre all Square parameters
 	GfxInfo SquareGfxInfo;
@@ -66,7 +70,8 @@ void opAddSquare::Execute()
 
 
 	//Create a Square with the above parameters
-	Square* S = new Square(P1, P2, SquareGfxInfo);
+	Square* S = new Square(P1, i, SquareGfxInfo);
+	
 
 	//Get a pointer to the graph
 	Graph* pGr = pControl->getGraph();

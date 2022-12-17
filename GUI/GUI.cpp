@@ -117,6 +117,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_LOAD:return LOAD;
 			case ICON_ADDIMG: return ADD_IMG;
 			case ICON_BORD: return bord;
+			case ICON_SWITCH: return SWITCH;
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
 		}

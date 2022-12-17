@@ -216,6 +216,9 @@
     <ClCompile Include="operations\Load.cpp">
       <Filter>operation</Filter>
     </ClCompile>
+    <ClCompile Include="operations\opSwitchToPlay.cpp">
+      <Filter>operation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -390,6 +393,9 @@
     </ClInclude>
     <ClInclude Include="..\github\operations\Load.h" />
     <ClInclude Include="operations\opAddImg.h" />
+    <ClInclude Include="operations\opSwitchToPlay.h">
+      <Filter>operation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="GraphicsLib">

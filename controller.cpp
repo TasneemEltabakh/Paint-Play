@@ -20,7 +20,7 @@
 #include "operations/opCahangeSelectedWidth.h"
 #include "operations/opCahngeSelectedBorder.h"
 #include "operations/opChangeWidth.h"
-
+#include "operations/opSwitchToPlay.h"
 
 
 using namespace std;
@@ -111,6 +111,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case bord:
 			pOp = new opChangeWidth(this);
+			break;
+		case SWITCH:
+			pOp = new opSwitchToPlay(this);
 			break;
 		case STATUS:	//a click on the status bar ==> no operation
 			break;

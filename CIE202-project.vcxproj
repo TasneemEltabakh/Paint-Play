@@ -186,6 +186,7 @@
     <ClCompile Include="operations\opFillColour.cpp" />
     <ClCompile Include="operations\opSetPen.cpp" />
     <ClCompile Include="operations\opsSwitch.cpp" />
+    <ClCompile Include="operations\opSwitchToPlay.cpp" />
     <ClCompile Include="operations\Save.cpp" />
     <ClCompile Include="operations\Select.cpp" />
     <ClCompile Include="Shapes\circle.cpp" />
@@ -245,6 +246,7 @@
     <ClInclude Include="operations\opFillColour.h" />
     <ClInclude Include="operations\opSetPen.h" />
     <ClInclude Include="operations\opsSwitch.h" />
+    <ClInclude Include="operations\opSwitchToPlay.h" />
     <ClInclude Include="operations\Save.h" />
     <ClInclude Include="operations\Select.h" />
     <ClInclude Include="Shapes\ciecle.h" />

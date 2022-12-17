@@ -57,9 +57,13 @@ class GUI
 		ICON_CUT,
 		ICON_COPY,
 		ICON_DRAG,
+		ICON_BORD,
 		ICON_ADDIMG,
 		ICON_DEL,  //Rghda
 		ICON_SELECT,  //Rghda
+		ICON_SELECTEDCOL,
+		ICON_SELECTEDBOL,
+		ICON_SELECTEDFILL,
 
 		ICON_LOAD,
 		ICON_SWITCH,
@@ -95,6 +99,7 @@ class GUI
 		MenuIconWidth;		//Width of each icon in toolbar menu
     	bool IsFilled;
 		bool isChanged;
+		bool isBorderChanged;
 		color col;
 		
 		
@@ -104,11 +109,17 @@ class GUI
 	color DrawColor;		//Drawing color
 	color FillColor;		//Filling color
 	color HighlightColor;	//Highlighting color
+	color OldDrawColor;		//Drawing color
+	color OLDFillColor;		//Filling color
+	color OLdHighlightColor;
+	int OLdwidth;
 	color MsgColor;			//Messages color
 	color BkGrndColor;		//Background color
 	color StatusBarColor;	//Status bar color
-	int PenWidth;			//width of the pen that draws shapes
-
+	int PenWidth;	
+	int* count;//width of the pen that draws shapes
+	int* count2;
+	int* count3;
 	/// Add more members if needed
 
 
@@ -155,8 +166,16 @@ public:
 	int getCrntPenWidth() const;		//get current pen width
 	color GetColour(const int X, const int Y); //choose colour from colour pallete
 	// nada edit wed 
+	color getoldDrawColor() const;
+	color GetSelectedColour(const int X, const int Y);	//get current drwawing color
+	color getoldFillColor() const;	//get current filling color
+	int getoldPenWidth() const;
 	color FillColour(const int X, const int Y); // fill color 
-	int GUI::setPenWidth(int);
+	color FillselectedColour(const int X, const int Y);
+	int setPenWidth(int);
+	int setselectedWidth(int wchoice);
+	bool checkcol();
+	bool GetIscol();
 
 
 	~GUI();

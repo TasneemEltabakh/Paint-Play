@@ -40,23 +40,36 @@ void opAddOval ::Execute()
 
 
 	//get drawing, filling colors and pen width from the interface
-	CircleGfxInfo.DrawClr = pUI->getCrntDrawColor();
-	CircleGfxInfo.FillClr = pUI->getCrntFillColor();
-	if (pUI->checkborder() == true)
-
-		CircleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
-
-	else
-		CircleGfxInfo.BorderWdth = 3;
-
-	if (pUI->checkfill() == true)
-
-		CircleGfxInfo.isFilled = true;
-
-	else
-		CircleGfxInfo.isFilled = false; //default is not filled
+	//get drawing, filling colors and pen width from the interface
+	CircleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
 	CircleGfxInfo.isSelected = false;	//defualt is not selected
 
+	if (pUI->checkfill() == true)
+	{
+		if (CircleGfxInfo.isSelected == true)
+
+			CircleGfxInfo.FillClr = pUI->getCrntFillColor();
+		else
+			CircleGfxInfo.FillClr = pUI->getoldFillColor();
+	}
+	else
+		CircleGfxInfo.isFilled = false;
+
+	if (pUI->checkborder() == true)
+	{
+		if (CircleGfxInfo.isSelected == true)
+			CircleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
+	}
+	else
+		CircleGfxInfo.BorderWdth = pUI->getoldPenWidth();
+
+	if (pUI->checkcol() == true)
+	{
+		if (CircleGfxInfo.isSelected == true)
+			CircleGfxInfo.DrawClr = pUI->getCrntDrawColor();
+	}
+	else
+		CircleGfxInfo.DrawClr = pUI->getoldDrawColor();
 
 	//Create a circle with the above parameters
     

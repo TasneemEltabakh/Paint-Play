@@ -114,3 +114,11 @@ void Graph::opChangeSelectedWidth(int x) {
 	//pGUI->ClearDrawArea(); 
 	//UpdateInterface();
 }
+void Graph::opChangeSelectedBorder(color a)
+{
+	for (int k = 0; k < shapesList.size(); k++) {
+		if (selectedShape == shapesList[k]) {
+			shapesList[k]->ChngDrawClr(a);
+		}
+	}
+}

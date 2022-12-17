@@ -1,5 +1,5 @@
 
-#include"opChangeFillSelected.h"
+#include "opCahngeSelectedBorder.h"
 #include "opAddirrPol.h"
 #include "..//Shapes/IrregularPolygon.h"
 #include "..//Shapes/Shape.h"
@@ -9,18 +9,18 @@
 #include "operation.h"
 
 #include "..\Shapes\Graph.h"
-opChangeFillSelected::opChangeFillSelected(controller* pCont) :operation(pCont)
+	opChangeBorderSelected::	opChangeBorderSelected(controller* pCont) :operation(pCont)
 {}
 
 
-void opChangeFillSelected::ReadActionParameters() {
+void 	opChangeBorderSelected::ReadActionParameters() {
 	GUI* pGUI = pControl->GetUI();
 	Graph* pGraph = pControl->getGraph();
-	pGUI->PrintMessage("Selected shape is being filled");
+	pGUI->PrintMessage("Selected shape to change the border color  ");
 }
 
 //Execute the action
-void opChangeFillSelected::Execute()
+void 	opChangeBorderSelected::Execute()
 {
 	ReadActionParameters();
 	Graph* pGr = pControl->getGraph();
@@ -29,6 +29,9 @@ void opChangeFillSelected::Execute()
 	pUI->CreateColourToolBar();
 	pUI->GetPointClicked(X, Y);
 	pUI->back();
-	pGr->changeFillSelection(pUI->FillselectedColour(X, Y));
+	pGr->opChangeSelectedBorder(pUI->GetSelectedColour(X,Y));
+	
+
+
 }
 

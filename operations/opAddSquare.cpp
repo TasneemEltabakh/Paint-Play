@@ -32,21 +32,36 @@ void opAddSquare::Execute()
 	GfxInfo SquareGfxInfo;
 
 	//get drawing, filling colors and pen width from the interface
-	SquareGfxInfo.DrawClr = pUI->getCrntDrawColor();
-	SquareGfxInfo.FillClr = pUI->getCrntFillColor();
-	if (pUI->checkborder() == true)
-
-		SquareGfxInfo.BorderWdth = pUI->getCrntPenWidth();
-
-	else
-		SquareGfxInfo.BorderWdth = 3; //default is not filled
+		//get drawing, filling colors and pen width from the interface
+	SquareGfxInfo.BorderWdth = pUI->getCrntPenWidth();
 	SquareGfxInfo.isSelected = false;	//defualt is not selected
+
 	if (pUI->checkfill() == true)
+	{
+		if (SquareGfxInfo.isSelected == true)
 
-		SquareGfxInfo.isFilled = true;
-
+			SquareGfxInfo.FillClr = pUI->getCrntFillColor();
+		else
+			SquareGfxInfo.FillClr = pUI->getoldFillColor();
+	}
 	else
 		SquareGfxInfo.isFilled = false;
+
+	if (pUI->checkborder() == true)
+	{
+		if (SquareGfxInfo.isSelected == true)
+			SquareGfxInfo.BorderWdth = pUI->getCrntPenWidth();
+	}
+	else
+		SquareGfxInfo.BorderWdth = pUI->getoldPenWidth();
+
+	if (pUI->checkcol() == true)
+	{
+		if (SquareGfxInfo.isSelected == true)
+			SquareGfxInfo.DrawClr = pUI->getCrntDrawColor();
+	}
+	else
+		SquareGfxInfo.DrawClr = pUI->getoldDrawColor();
 
 
 

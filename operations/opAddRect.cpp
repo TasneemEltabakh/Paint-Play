@@ -31,25 +31,35 @@ void opAddRect::Execute()
 	GfxInfo RectGfxInfo;
 	
 	//get drawing, filling colors and pen width from the interface
-	RectGfxInfo.DrawClr = pUI->getCrntDrawColor();
-	RectGfxInfo.FillClr = pUI->getCrntFillColor();
-	//RectGfxInfo.isFilled = pUI->GetIsFilled();	//default is not filled
-	if (pUI->checkborder() == true)
+	RectGfxInfo.BorderWdth = pUI->getCrntPenWidth();
+	RectGfxInfo.isSelected = false;	//defualt is not selected
 
-		RectGfxInfo.BorderWdth = pUI->getCrntPenWidth();
-
-	else
-		RectGfxInfo.BorderWdth = 3;
 	if (pUI->checkfill() == true)
+	{
+		if (RectGfxInfo.isSelected == true)
 
-		RectGfxInfo.isFilled = true;
-
+			RectGfxInfo.FillClr = pUI->getCrntFillColor();
+		else
+			RectGfxInfo.FillClr = pUI->getoldFillColor();
+	}
 	else
 		RectGfxInfo.isFilled = false;
 
-	
-	RectGfxInfo.isSelected = false;	//defualt is not selected
+	if (pUI->checkborder() == true)
+	{
+		if (RectGfxInfo.isSelected == true)
+			RectGfxInfo.BorderWdth = pUI->getCrntPenWidth();
+	}
+	else
+		RectGfxInfo.BorderWdth = pUI->getoldPenWidth();
 
+	if (pUI->checkcol() == true)
+	{
+		if (RectGfxInfo.isSelected == true)
+			RectGfxInfo.DrawClr = pUI->getCrntDrawColor();
+	}
+	else
+		RectGfxInfo.DrawClr = pUI->getoldDrawColor();
 
 	//Create a rectangle with the above parameters
 	Rect *R=new Rect(P1, P2, RectGfxInfo);

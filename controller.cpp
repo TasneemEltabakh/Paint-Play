@@ -18,6 +18,9 @@
 #include "operations/Delete.h"
 #include "operations/opChangeFillSelected.h"
 #include "operations/opCahangeSelectedWidth.h"
+#include "operations/opCahngeSelectedBorder.h"
+#include "operations/opChangeWidth.h"
+
 
 
 using namespace std;
@@ -47,7 +50,7 @@ operation* controller::createOperation(operationType OpType)
 	switch (OpType)
 	{
 		case DRAW_RECT:
-			pOp = new opChangeSelectedWidth(this);
+			pOp = new opAddRect(this);
 			break;
 		case DRAW_TRI:
 			pOp = new opAddTriangle(this);
@@ -91,7 +94,15 @@ operation* controller::createOperation(operationType OpType)
 		case BACK :
 			pOp = new opsSwitch(this);
 			break;
-		
+		case selectfill:
+			pOp = new opChangeFillSelected(this);
+			break;
+		case selectwid:
+			pOp= new opChangeWidth(this);
+			break;
+		case selsectcol:
+			pOp= new opChangeBorderSelected(this);
+			break;
 		case STATUS:	//a click on the status bar ==> no operation
 			break;
 	}

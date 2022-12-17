@@ -28,23 +28,30 @@ void opAddLine ::Execute()
 	pUI->ClearStatusBar();
 	
 
-
-
 	//Preapre all Line  parameters
 	GfxInfo CircleGfxInfo;
 
 	//get drawing, filling colors and pen width from the interface
-	CircleGfxInfo.DrawClr = pUI->getCrntDrawColor();
-	CircleGfxInfo.FillClr = pUI->getCrntFillColor();
-		//default is not filled
+		//get drawing, filling colors and pen width from the interface
+	CircleGfxInfo.BorderWdth = 50;
 	CircleGfxInfo.isSelected = false;	//defualt is not selected
 
 	if (pUI->checkborder() == true)
-
-		CircleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
-
+	{
+		if (CircleGfxInfo.isSelected == true)
+			CircleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
+	}
 	else
-		CircleGfxInfo.BorderWdth = 3;
+		CircleGfxInfo.BorderWdth = pUI->getoldPenWidth();
+
+	if (pUI->checkcol() == true)
+	{
+		if (CircleGfxInfo.isSelected == true)
+			CircleGfxInfo.DrawClr = pUI->getCrntDrawColor();
+	}
+	else
+		CircleGfxInfo.DrawClr = pUI->getoldDrawColor();
+
 	//Create a circle with the above parameters
 	Line * O = new Line (P1, P2,  CircleGfxInfo);
 

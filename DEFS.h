@@ -21,7 +21,10 @@ enum operationType //The operations supported (you can add more if needed)
 	SEND_BACK,		//Send a shape to the back of all shapes
 	BRNG_FRNT,		//Bring a shape to the front of all shapes
 	SAVE,			//Save the whole graph to a file
-	SELECT,         //Select spacific shape  //Rghda added 
+	SELECT,
+	selsectcol,
+	selectwid,
+	selectfill,//Select spacific shape  //Rghda added 
 	LOAD,			//Load a graph from a file
 	EXIT,			//Exit the application
 	Colour_Palleteop,
@@ -36,6 +39,7 @@ enum operationType //The operations supported (you can add more if needed)
 	TO_Pallete, //Switch interface to Play mode
 	FILL_COLOUR,
 	BACK,
+	SWITCH,
 	ADD_IMG,
 	///TODO: Add more operation types (if needed)
 };

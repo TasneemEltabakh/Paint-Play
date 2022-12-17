@@ -58,33 +58,91 @@ void Square:: Save(ofstream& outfile) {  //Rghda added
 string Square::PrintOnTool()
 {
 	int id = 4;
-	string values = "you selected a square,ID: " + to_string(id) + "\n . First Point: (" + to_string(Corner1.x) + ", " + to_string(Corner1.y) + "). Second Point: (" + to_string(Corner2.x) + ", " + to_string(Corner2.y) + ").";
+	string values = "you selected a square,ID: " + to_string(id) + "\n . First Point: (" + to_string(Corner1.x) + ", " + to_string(Corner1.y) + "). Second Point: (" + to_string(Corner2.x) + ", " + to_string(Corner2.y) + ")" + "). side long: " + to_string(side) + ".";
 	return values;
 }
 
 
 bool Square::IsShapeExisting(int x, int y)  //Rghda added
 {
-	return false;
+	if ((x > Corner1.x && x < Corner2.x && y > Corner1.y && y < Corner2.y))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+	/*
+	if (Corner2.x > Corner1.x && Corner2.y > Corner1.y) {
+		if ((x > Corner1.x && x < Corner2.x && y > Corner1.y && y < Corner2.y))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else if (Corner2.x > Corner1.x && Corner1.y > Corner2.y) {
+		if ((x > Corner1.x && x < Corner2.x && y > Corner2.y && y < Corner1.y))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else if (Corner1.x > Corner2.x && Corner2.y > Corner1.y) {
+		if ((x > Corner2.x && x < Corner1.x && y > Corner1.y && y < Corner2.y))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else if (Corner1.x > Corner2.x && Corner1.y > Corner2.y) {
+		if ((x > Corner2.x && x < Corner1.x && y > Corner2.y && y < Corner1.y))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}*/
 }
 
 void Square::Load(ifstream& inputfile) {
-	//GUI* pUI = ;
-	int Draw[3], Fill[3];
+	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
+	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
+	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
+	int rf, gf, bf;
 
-	inputfile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >>
-		Draw[0] >> Draw[1] >> Draw[2] >> ShpGfxInfo.BorderWdth >> Fill[0] >> Fill[1] >> Fill[2];
+	inputfile >> ID >> Corner1.x >> Corner1.y >> side >>
+		redcolorlevel >> greencolorlevel >> bluecolorlevel >> ShpGfxInfo.BorderWdth >> rf >> gf >> bf;
 
-	ShpGfxInfo.DrawClr = color(Draw[0], Draw[1], Draw[2]);
+	Corner2.x = (Corner1.x + side * 50);
+	Corner2.y = (Corner1.y + side * 50);
 
-	if (Fill[0] == Fill[1] == Fill[2] == 0)
+	ShpGfxInfo.DrawClr.ucRed = redcolorlevel;
+	ShpGfxInfo.DrawClr.ucGreen = greencolorlevel;
+	ShpGfxInfo.DrawClr.ucBlue = bluecolorlevel;
+
+	if (rf == 0 && gf == 0 && bf == 0)
 	{
 		ShpGfxInfo.FillClr = WHITE;
 		ShpGfxInfo.isFilled = false;
 	}
 	else {
-		ShpGfxInfo.FillClr = color(Fill[0], Fill[1], Fill[2]);
+		ShpGfxInfo.FillClr.ucBlue = bf;
+		ShpGfxInfo.FillClr.ucRed = rf;
+		ShpGfxInfo.FillClr.ucGreen = gf;
 		ShpGfxInfo.isFilled = true;
+		cout << bf << rf << gf << "green??" << endl;
 	}
 
 	cout << "s" << Corner1.x << Corner1.y << Corner2.x << Corner2.y << endl;

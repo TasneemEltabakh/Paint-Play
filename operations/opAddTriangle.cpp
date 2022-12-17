@@ -37,27 +37,36 @@ void opAddTriangle::Execute()
 	GfxInfo TriangleGfxInfo;
 
 	//get drawing, filling colors and pen width from the interface
-	TriangleGfxInfo.DrawClr = pUI->getCrntDrawColor();
-	TriangleGfxInfo.FillClr = pUI->getCrntFillColor();
-	
-	//TriangleGfxInfo.isFilled = pUI->GetIsFilled();	//default is not filled
-
-
-	
+	TriangleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
 	TriangleGfxInfo.isSelected = false;	//defualt is not selected
+
 	if (pUI->checkfill() == true)
+	{
+		if (TriangleGfxInfo.isSelected == true)
 
-		TriangleGfxInfo.isFilled = true;
-
+			TriangleGfxInfo.FillClr = pUI->getCrntFillColor();
+		else
+			TriangleGfxInfo.FillClr = pUI->getoldFillColor();
+	}
 	else
 		TriangleGfxInfo.isFilled = false;
+
 	if (pUI->checkborder() == true)
-
-		TriangleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
-
+	{
+		if (TriangleGfxInfo.isSelected == true)
+			TriangleGfxInfo.BorderWdth = pUI->getCrntPenWidth();
+	}
 	else
-		TriangleGfxInfo.BorderWdth = 3;
-
+		TriangleGfxInfo.BorderWdth = pUI->getoldPenWidth();
+	
+	if (pUI->checkcol() == true)
+	{
+		if (TriangleGfxInfo.isSelected == true)
+			TriangleGfxInfo.DrawClr = pUI->getCrntDrawColor();
+	}
+		else
+			TriangleGfxInfo.DrawClr = pUI->getoldDrawColor();
+	
 
 	//Create a Triangle with the above parameters
 	Triangle* T = new Triangle(P1, P2, P3,  TriangleGfxInfo);

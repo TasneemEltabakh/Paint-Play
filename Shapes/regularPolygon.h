@@ -18,7 +18,7 @@ private:
     vector<int> arrayY;
     int* a = nullptr;
     int* b = nullptr;
-
+    const double pi = 3.14159;
 
 public :
     regularPolygon(Point, Point, int , GfxInfo shapeGfxInfo);

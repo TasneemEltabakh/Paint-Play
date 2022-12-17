@@ -76,7 +76,7 @@ void Oval::Load(ifstream& inputfile) {
 	int rf, gf, bf;
 
 	inputfile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >>
-	redcolorlevel >> greencolorlevel >> bluecolorlevel >> ShpGfxInfo.BorderWdth >> rf >> gf >> bf;
+		redcolorlevel >> greencolorlevel >> bluecolorlevel >> ShpGfxInfo.BorderWdth >> rf >> gf >> bf;
 
 	ShpGfxInfo.DrawClr.ucRed = redcolorlevel;
 	ShpGfxInfo.DrawClr.ucGreen = greencolorlevel;

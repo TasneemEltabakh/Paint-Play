@@ -73,27 +73,54 @@ string IrregularPolygon::PrintOnTool() {  //Rghda added
 	return values;
 }
 bool IrregularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  I should edit this and put its data 
-	return false;
+	int c1 = 0;
+	int c2 = 0;
+	int slope;
+	int constant;
+	for (int i = 0; i < arrayX.size(); i++) {
+
+		slope = (arrayY[i] - arrayY[i + 1]) / (arrayX[i] - arrayX[i + 1]);
+		constant = arrayY[i] - (slope * arrayX[i]);
+		if (y == slope * x + constant) {
+			c1 = c1 + 1;
+		}
+
+		if (c1 % 2 != 0) {   //if it is odd  it is outside the shape
+			return false;
+		}
+		else {  //if the number of intersection is even  so it is inside the shape
+			return true;
+		}
+	}
+	//return false;
 
 }
 
 /*/void IrregularPolygon::Load(ifstream& inputfile) {
 	//GUI* pUI = ;
-	int Draw[3], Fill[3];
+	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
+	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
+	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
+	int rf, gf, bf;
 
 	inputfile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >>
-		Draw[0] >> Draw[1] >> Draw[2] >> ShpGfxInfo.BorderWdth >> Fill[0] >> Fill[1] >> Fill[2];
+		redcolorlevel >> greencolorlevel >> bluecolorlevel >> ShpGfxInfo.BorderWdth >> rf >> gf >> bf;
 
-	ShpGfxInfo.DrawClr = color(Draw[0], Draw[1], Draw[2]);
+	ShpGfxInfo.DrawClr.ucRed = redcolorlevel;
+	ShpGfxInfo.DrawClr.ucGreen = greencolorlevel;
+	ShpGfxInfo.DrawClr.ucBlue = bluecolorlevel;
 
-	if (Fill[0] == Fill[1] == Fill[2] == 0)
+	if (rf == 0 && gf == 0 && bf == 0)
 	{
 		ShpGfxInfo.FillClr = WHITE;
 		ShpGfxInfo.isFilled = false;
 	}
 	else {
-		ShpGfxInfo.FillClr = color(Fill[0], Fill[1], Fill[2]);
+		ShpGfxInfo.FillClr.ucBlue = bf;
+		ShpGfxInfo.FillClr.ucRed = rf;
+		ShpGfxInfo.FillClr.ucGreen = gf;
 		ShpGfxInfo.isFilled = true;
+		cout << bf << rf << gf << "green??" << endl;
 	}
 
 	cout << "x" << Corner1.x << Corner1.y << Corner2.x << Corner2.y << endl;

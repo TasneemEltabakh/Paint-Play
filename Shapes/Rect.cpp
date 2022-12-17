@@ -100,3 +100,32 @@ bool Rect::IsShapeExisting(int x, int y)  //Rghda added
 		}
 	}
 }
+
+void Rect::Load(ifstream& inputfile) {
+	//GUI* pUI = ;
+	int  Fill[3];
+	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
+	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
+	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
+	Fill[0] = (int)ShpGfxInfo.FillClr.ucRed;
+	Fill[1] = (int)ShpGfxInfo.FillClr.ucGreen;
+	Fill[2] = (int)ShpGfxInfo.FillClr.ucBlue;
+	inputfile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y  >>
+		redcolorlevel >> greencolorlevel >> bluecolorlevel >> ShpGfxInfo.BorderWdth >> Fill[0] >> Fill[1] >> Fill[2];
+
+
+
+	if (Fill[0] == Fill[1] == Fill[2] == 0)
+	{
+		ShpGfxInfo.FillClr = WHITE;
+		ShpGfxInfo.isFilled = false;
+	}
+	else {
+		/*/Fill[0] = (int)ShpGfxInfo.FillClr.ucRed;
+		Fill[1] = (int)ShpGfxInfo.FillClr.ucGreen;
+		Fill[2] = (int)ShpGfxInfo.FillClr.ucBlue;/**/
+		ShpGfxInfo.isFilled = true;
+	}
+
+	cout << "r" << Corner1.x << Corner1.y << Corner2.x << Corner2.y << "rectangle load"<<endl;
+}

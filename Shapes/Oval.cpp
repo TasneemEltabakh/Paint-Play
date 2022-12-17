@@ -67,3 +67,33 @@ bool Oval::IsShapeExisting(int x, int y)  //Rghda added
 	}
 	return false;
 }
+
+void Oval::Load(ifstream& inputfile) {
+	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
+	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
+	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
+
+	int rf, gf, bf;
+
+	inputfile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >>
+	redcolorlevel >> greencolorlevel >> bluecolorlevel >> ShpGfxInfo.BorderWdth >> rf >> gf >> bf;
+
+	ShpGfxInfo.DrawClr.ucRed = redcolorlevel;
+	ShpGfxInfo.DrawClr.ucGreen = greencolorlevel;
+	ShpGfxInfo.DrawClr.ucBlue = bluecolorlevel;
+
+	if (rf == 0 && gf == 0 && bf == 0)
+	{
+		ShpGfxInfo.FillClr = WHITE;
+		ShpGfxInfo.isFilled = false;
+	}
+	else {
+		ShpGfxInfo.FillClr.ucBlue = bf;
+		ShpGfxInfo.FillClr.ucRed = rf;
+		ShpGfxInfo.FillClr.ucGreen = gf;
+		ShpGfxInfo.isFilled = true;
+		//cout << bf << rf << gf << "green??" << endl;
+	}
+
+	//cout << "o" << Corner1.x << Corner1.y << Corner2.x << Corner2.y << "oval loaded" <<endl;
+}

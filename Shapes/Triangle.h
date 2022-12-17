@@ -1,6 +1,5 @@
 #pragma once
 #include "Shape.h"
-
 class Triangle : public shape
 {
 	private:
@@ -16,5 +15,6 @@ class Triangle : public shape
 		float trianglearea(int x1, int y1, int x2, int y2, int x3, int y3);  //Rghda added
 		bool IsShapeExisting(int x, int y);  //Rghda added
 		string PrintOnTool();  //Rghda added
+		void Load(ifstream& inputfile);
 };
 

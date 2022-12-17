@@ -90,3 +90,38 @@ void Triangle::Save(ofstream& outfile) {   //Rghda added
 
 	outfile << endl;
 }
+
+void Triangle::Load(ifstream& inputfile) {
+	//GUI* pUI = ;
+	//int Draw[3], 
+	//int Fill[3];
+	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
+	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
+	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
+	int rf, gf, bf;
+	inputfile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >> Corner3.x >> Corner3.y >>
+		redcolorlevel >> greencolorlevel >> bluecolorlevel >> ShpGfxInfo.BorderWdth >> rf >> gf >> bf;
+
+	//ShpGfxInfo.DrawClr = color(Draw[0], Draw[1], Draw[2]);
+
+	ShpGfxInfo.DrawClr.ucRed = redcolorlevel;
+	ShpGfxInfo.DrawClr.ucGreen = greencolorlevel;
+	ShpGfxInfo.DrawClr.ucBlue = bluecolorlevel;
+
+	if (rf == 0 && gf ==0 && bf==0)
+	{
+		ShpGfxInfo.FillClr = WHITE;
+		ShpGfxInfo.isFilled = false;
+	}
+	else {
+		ShpGfxInfo.FillClr.ucBlue = bf;
+		ShpGfxInfo.FillClr.ucRed = rf;
+		ShpGfxInfo.FillClr.ucGreen= gf;
+		ShpGfxInfo.isFilled = true;
+		cout << bf << rf << gf << "green??" << endl;
+	}
+
+	cout << "t" << "x is" << Corner1.x << " " << Corner1.y << " 2 is " << Corner2.x << " " << Corner2.y << " 3 is" << Corner3.x << Corner3.y << endl;
+	cout << "red is " << rf << " blue is " << bf << " g is" << gf << endl;
+	cout << "triangle loaded"<<endl;
+}

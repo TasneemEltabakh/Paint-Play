@@ -73,27 +73,29 @@ string IrregularPolygon::PrintOnTool() {  //Rghda added
 	return values;
 }
 bool IrregularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  I should edit this and put its data 
-	int slope;
-	int conctant;
-	for (int i = 0; i < arrayX.size(); i++)
-	{
-		
-		if (i = arrayX.size() - 1) {
-			slope = (arrayY[i] - arrayY[0]) / (arrayX[i] - arrayX[0]);
-			conctant = arrayY[i] - (slope * arrayX[i]);
-		}
-		else {
-			slope = (arrayY[i] - arrayY[i + 1]) / (arrayX[i] - arrayX[i + 1]);
-			conctant = arrayY[i] - (slope * arrayX[i]);
-		}
-		
+	return false;
 
-		if (y == slope * x + conctant) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-	//return false;
 }
+
+/*/void IrregularPolygon::Load(ifstream& inputfile) {
+	//GUI* pUI = ;
+	int Draw[3], Fill[3];
+
+	inputfile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >>
+		Draw[0] >> Draw[1] >> Draw[2] >> ShpGfxInfo.BorderWdth >> Fill[0] >> Fill[1] >> Fill[2];
+
+	ShpGfxInfo.DrawClr = color(Draw[0], Draw[1], Draw[2]);
+
+	if (Fill[0] == Fill[1] == Fill[2] == 0)
+	{
+		ShpGfxInfo.FillClr = WHITE;
+		ShpGfxInfo.isFilled = false;
+	}
+	else {
+		ShpGfxInfo.FillClr = color(Fill[0], Fill[1], Fill[2]);
+		ShpGfxInfo.isFilled = true;
+	}
+
+	cout << "x" << Corner1.x << Corner1.y << Corner2.x << Corner2.y << endl;
+	cout << "tyoe is";
+}/**/

@@ -147,6 +147,8 @@ public:
 	bool checkborder();
 	bool GetIsFilled() ;
 	bool GetIsChanged();
+	void AddImg(string name);
+	bool GetIsFilled() const;
 	///Make similar functions for drawing all other shapes.
     void PrintMessage(string msg) const;	//Print a message on Status bar
 

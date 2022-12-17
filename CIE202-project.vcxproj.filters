@@ -201,6 +201,9 @@
     <ClCompile Include="..\github\operations\Load.cpp">
       <Filter>operation</Filter>
     </ClCompile>
+    <ClCompile Include="operations\opAddImg.cpp">
+      <Filter>operation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -362,6 +365,9 @@
       <Filter>Operations</Filter>
     </ClInclude>
     <ClInclude Include="..\github\operations\Load.h">
+      <Filter>operation</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opAddImg.h">
       <Filter>operation</Filter>
     </ClInclude>
   </ItemGroup>

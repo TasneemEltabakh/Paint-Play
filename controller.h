@@ -21,6 +21,8 @@
 #include "Shapes\Graph.h"
 #include "GUI\GUI.h"
 #include "operations/Save.h"
+#include "operations/opAddImg.h"
+
 class operation; //forward declaration
 
 //Main class that manages everything in the application.

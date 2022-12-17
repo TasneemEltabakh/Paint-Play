@@ -7,6 +7,13 @@
 #include <vector>
 #include "ciecle.h"
 #include"Triangle.h"
+#include "Rect.h"
+#include "Square.h"
+#include "IrregularPolygon.h"
+#include "Oval.h"
+#include "regularPolygon.h"
+#include "Line.h"
+
 using namespace std;
 
 //forward decl

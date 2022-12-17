@@ -20,5 +20,6 @@ public:
 	void Save(ofstream& outfile); //Rghda added
 	string PrintOnTool();  //Rghda added
 	bool IsShapeExisting(int x, int y);  //Rghda added
+	void Load(ifstream& inputfile);
 };
 

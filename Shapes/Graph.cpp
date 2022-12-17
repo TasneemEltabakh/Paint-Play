@@ -98,19 +98,68 @@ void Graph::DeleteGraph() {
 	//UpdateInterface();
 }
 void Graph::Load(ifstream& inputfile) {
+
 	string num; string type;
 	cout << "kk";
 	getline(inputfile, num);
+
 	cout << num;
-	for (int i = 0; i < 5; i++) {
+	//getline(inputfile, num);
+
+	//cout << "nd line is"<<endl;
+	//cout << num;
+	for (int i = 0; i < 3; i++) {
 		GfxInfo info = GfxInfo(); Point points = Point();
+		type = "";
 		inputfile >> type;
-		cout << type;
+		cout <<"1st type "<< type << endl;
 		if (type == "Triangle") {
-			std::cout << "ll" << endl;
+			std::cout << "mytrii" << endl;
 			Triangle* trig = new Triangle(points, points, points, info);
 			trig->Load(inputfile);
 			shapesList.push_back(trig);
+		}
+		else if (type == "RECT") {
+			std::cout << "myrcki" << endl;
+			Rect* rect = new Rect(points, points, info);
+			rect->Load(inputfile);
+			shapesList.push_back(rect);
+		}
+		else if (type == "Circle") {
+			std::cout << "ll" << endl;
+			Circle* circ = new Circle( points, points, info);
+			circ->Load(inputfile);
+			shapesList.push_back(circ);
+		}
+		/*/else if (type == "Irregular") {
+			std::cout << "ll" << endl;
+			IrregularPolygon* irreg = new IrregularPolygon( points, points, info);
+			irreg->Load(inputfile);
+			shapesList.push_back(irreg);
+		}/**/
+		else if (type == "Line") {
+			std::cout << "ll" << endl;
+			Line* line = new Line(points, points, info);
+			line->Load(inputfile);
+			shapesList.push_back(line);
+		}
+		else if (type == "Oval") {
+			std::cout << "ll" << endl;
+			Oval* ov = new Oval(points, points, info);
+			ov->Load(inputfile);
+			shapesList.push_back(ov);
+		}
+		/*/else if (type == "Regualar") {
+			std::cout << "ll" << endl;
+			regularPolygon* reg = new regularPolygon(points, points, points, info);
+			reg->Load(inputfile);
+			shapesList.push_back(reg);
+		}/**/
+		else if (type == "sQUARE") {
+			std::cout << "mysquaree" << endl;
+			Square* sq = new Square(points, points, info);
+			sq->Load(inputfile);
+			shapesList.push_back(sq);
 		}
 	}
 }

@@ -101,7 +101,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_SELECT: return SELECT;  //Rghda added
 			case ICON_DEL: return DEL;  //Rghda added
 			case ICON_LOAD:return LOAD;
-
+			case ICON_ADDIMG: return ADD_IMG;
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
 		}
@@ -285,6 +285,16 @@ int GUI::getCrntPenWidth() const		//get current pen width
 //======================================================================================//
 //								shapes Drawing Functions								//
 //======================================================================================//
+
+void GUI::AddImg(string s) {
+
+	int MenuIconWidthpallete = 100;
+	int drawheight = 100;
+	int MenuIconW = 80;
+
+	pWind->DrawImage("images\\MenuIcons\\" + s + ".jpg", 10, 30, 100, 900);
+	pWind->SetPen(RED, 3);
+}
 
 void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 {

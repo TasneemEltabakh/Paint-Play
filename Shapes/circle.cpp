@@ -28,7 +28,7 @@ void Circle::Save(ofstream& outfile) {   //Rghda added
 	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
 	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
-	int id = ID;
+	int id = 2;
 
 	outfile << "Circle" << " " << id << " "    //the name and id
 		<< Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " "; //the corners
@@ -49,12 +49,53 @@ void Circle::Save(ofstream& outfile) {   //Rghda added
 
 string Circle::PrintOnTool()
 {
-	string values = "should put circle data";
+	int id = 2;
+	string values = "Circle, ID:"+to_string( id)+ ", the center : (" + to_string(Corner1.x)+ ", " + to_string(Corner1.y )+ ") the radius : " + to_string(radious )+ " .";
 	return values;
 }
 
 
 bool Circle::IsShapeExisting(int x, int y)  //Rghda added
 {
-	return false;
+	float discenterclickedpoint= sqrt(pow((Corner1.x - x), 2) + pow((Corner1.y - y), 2));
+	if (discenterclickedpoint <= radious) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+void Circle::Load(ifstream& inputfile) {
+	//GUI* pUI = ;
+	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
+	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
+	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
+
+	int rf, gf, bf;
+
+	inputfile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >>
+		redcolorlevel >> greencolorlevel >> bluecolorlevel >> ShpGfxInfo.BorderWdth >> rf >> gf >> bf;
+
+	ShpGfxInfo.DrawClr.ucRed = redcolorlevel;
+	ShpGfxInfo.DrawClr.ucGreen = greencolorlevel;
+	ShpGfxInfo.DrawClr.ucBlue = bluecolorlevel;
+
+	if (rf == 0 && gf == 0 && bf == 0)
+	{
+		ShpGfxInfo.FillClr = WHITE;
+		ShpGfxInfo.isFilled = false;
+	}
+	else {
+		ShpGfxInfo.FillClr.ucBlue = bf;
+		ShpGfxInfo.FillClr.ucRed = rf;
+		ShpGfxInfo.FillClr.ucGreen = gf;
+		ShpGfxInfo.isFilled = true;
+	}
+	cout<< ID <<" 1 " <<Corner1.x <<" "<< Corner1.y <<" "<< Corner2.x <<" "<< Corner2.y <<" rd "<<
+		redcolorlevel << " gd " <<greencolorlevel <<" bd " <<bluecolorlevel << " w "<< ShpGfxInfo.BorderWdth <<" r g b "<<rf << gf << bf;
+	cout << "circlooo" << endl;
+
+	radious = sqrt(pow(Corner1.x - Corner2.x, 2) + pow(Corner1.y - Corner2.y, 2));
+
 }

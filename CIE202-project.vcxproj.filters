@@ -207,6 +207,12 @@
     <ClCompile Include="operations\opCahangeSelectedWidth.cpp">
       <Filter>operation</Filter>
     </ClCompile>
+    <ClCompile Include="..\github\operations\Load.cpp">
+      <Filter>operation</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\opAddImg.cpp">
+      <Filter>operation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />

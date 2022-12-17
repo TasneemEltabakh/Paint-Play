@@ -1,5 +1,5 @@
 #include "Line.h"
-//#include <iostream>
+#include <iostream>
 #include <fstream>
 
 
@@ -28,7 +28,7 @@ void Line::Save(ofstream& outfile) {   //Rghda added
 	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
 	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
-	int id = ID;
+	int id = 8;
 
 	outfile << "Line" << " " << id << " "    //the name and id
 		<< Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " "; //the corners
@@ -49,12 +49,47 @@ void Line::Save(ofstream& outfile) {   //Rghda added
 
 string Line::PrintOnTool()
 {
-	string values = "I should put here the data of line";
+	int id = 8;
+	string values = "you selected a Line,ID: " + to_string(id) + "\n . First Point: (" + to_string(Corner1.x) + ", " + to_string(Corner1.y) + "). Second Point: (" + to_string(Corner2.x) + ", " + to_string(Corner2.y) + ").";
 	return values;
 }
 
 
 bool Line::IsShapeExisting(int x, int y)  //Rghda added
 {
+	
+	int slope = (Corner1.y- Corner2.y) / (Corner1.x- Corner2.x);
+	int conctant = Corner1.y -(slope* Corner1.x);
+
+	if (y == slope * x + conctant) {
+		return true;
+	}
+	else {
+		return false;
+	}
+	
+
 	return false;
+}
+
+void Line::Load(ifstream& inputfile) {
+
+	int Draw[3], Fill[3];
+
+	inputfile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >>
+		Draw[0] >> Draw[1] >> Draw[2] >> ShpGfxInfo.BorderWdth >> Fill[0] >> Fill[1] >> Fill[2];
+
+	ShpGfxInfo.DrawClr = color(Draw[0], Draw[1], Draw[2]);
+
+	if (Fill[0] == Fill[1] == Fill[2] == 0)
+	{
+		ShpGfxInfo.FillClr = WHITE;
+		ShpGfxInfo.isFilled = false;
+	}
+	else {
+		ShpGfxInfo.FillClr = color(Fill[0], Fill[1], Fill[2]);
+		ShpGfxInfo.isFilled = true;
+	}
+
+	cout << "l" << Corner1.x << Corner1.y << Corner2.x << Corner2.y << "line loaded" <<endl;
 }

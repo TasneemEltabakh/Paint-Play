@@ -37,9 +37,9 @@ void IrregularPolygon::Save(ofstream& outfile) {  //Rghda added
 	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
 	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
-	int id = ID;
+	int id = 7;
 
-	outfile << "Irr Regular Polygon" << " " << id << " ";
+	outfile << "Irreg" << " " << id << " "<< numberofsides<<" ";
 	for (int i = 0; i < arrayX.size(); i++)
 	{
 		outfile << arrayX[i] << " " << arrayY[i] << " ";
@@ -61,11 +61,13 @@ void IrregularPolygon::Save(ofstream& outfile) {  //Rghda added
 } 
 
 string IrregularPolygon::PrintOnTool() {  //Rghda added
-
-	string values = "you selected a IrregularPolygon,ID: " + to_string(ID);
+	int id = 7;
+	string values = "you selected a IrregularPolygon,ID: " + to_string(id) + to_string(arrayX.size()) + "sides";
+	string onepoint;
 		for (int i = 0; i < arrayX.size(); i++)
 		{
-			values = " Point" + to_string(i + 1) + ": (" + to_string(arrayX[i]) + ", " + to_string(arrayY[i]) + ") ";
+			 onepoint= " Point" + to_string(i + 1) + ": (" + to_string(arrayX[i]) + ", " + to_string(arrayY[i]) + ") ";
+			 values = values + onepoint;
 		}
 	
 	return values;
@@ -74,3 +76,26 @@ bool IrregularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  I should 
 	return false;
 
 }
+
+/*/void IrregularPolygon::Load(ifstream& inputfile) {
+	//GUI* pUI = ;
+	int Draw[3], Fill[3];
+
+	inputfile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >>
+		Draw[0] >> Draw[1] >> Draw[2] >> ShpGfxInfo.BorderWdth >> Fill[0] >> Fill[1] >> Fill[2];
+
+	ShpGfxInfo.DrawClr = color(Draw[0], Draw[1], Draw[2]);
+
+	if (Fill[0] == Fill[1] == Fill[2] == 0)
+	{
+		ShpGfxInfo.FillClr = WHITE;
+		ShpGfxInfo.isFilled = false;
+	}
+	else {
+		ShpGfxInfo.FillClr = color(Fill[0], Fill[1], Fill[2]);
+		ShpGfxInfo.isFilled = true;
+	}
+
+	cout << "x" << Corner1.x << Corner1.y << Corner2.x << Corner2.y << endl;
+	cout << "tyoe is";
+}/**/

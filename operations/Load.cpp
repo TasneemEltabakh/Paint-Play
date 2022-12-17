@@ -27,7 +27,9 @@ void opLoad::Execute() {
 		}
 
 	} while (!inputfile.good());
+	
 	pUI->ClearDrawArea();
+
 	pGraph->Load(inputfile);
 	inputfile.close();
 	pUI->PrintMessage("File is loaded");

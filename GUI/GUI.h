@@ -85,6 +85,7 @@ class GUI
 		ICON_UNHIDE,
 		ICON_START,
 		ICON_REST,
+		ICON_Switch,
 		PLAY_ICON_COUNT,	//no. of menu icons ==> This should be the last line in this enum
 
 	};
@@ -106,7 +107,7 @@ class GUI
 		bool isBorderChanged;
 		color col;
 		
-		
+	
 
 
 
@@ -148,7 +149,6 @@ public:
 
 	void ClearStatusBar() const;	//Clears the status bar
 	void ClearDrawArea() const;	//Clears the drawing area
-
 	// -- shapes Drawing functions
 	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const;  //Draw a rectangle
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo RectGfxInfo) const;
@@ -183,7 +183,8 @@ public:
 	int setselectedWidth(int wchoice);
 	bool checkcol();
 	bool GetIscol();
-
+	int getinterface();
+	int nummi;
 
 	~GUI();
 };

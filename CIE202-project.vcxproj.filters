@@ -210,10 +210,10 @@
     <ClCompile Include="operations\opcahngeselectedborder.cpp">
       <Filter>operation</Filter>
     </ClCompile>
-    <ClCompile Include="..\github\operations\Load.cpp">
+    <ClCompile Include="operations\opAddImg.cpp">
       <Filter>operation</Filter>
     </ClCompile>
-    <ClCompile Include="operations\opAddImg.cpp">
+    <ClCompile Include="operations\Load.cpp">
       <Filter>operation</Filter>
     </ClCompile>
   </ItemGroup>

@@ -124,6 +124,7 @@ void Graph::opChangeSelectedBorder(color a)
 		}
 	}
 }
+
 void Graph::Load(ifstream& inputfile) {
 
 	string num; string type;

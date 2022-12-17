@@ -235,9 +235,9 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\save.jpg";
 	MenuIconImages[ICON_SELECT] = "images\\MenuIcons\\select.jpg";
 	MenuIconImages[ICON_SELECTEDBOL] = "images\\MenuIcons\\line-thickness.jpg";
-	MenuIconImages[ICON_SELECTEDCOL] = "images\\MenuIcons\\pencil.jpg";
-	MenuIconImages[ICON_SELECTEDFILL] = "images\\MenuIcons\\fill.jpg";
-	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\load.jpg";
+	MenuIconImages[ICON_SELECTEDCOL] = "images\\MenuIcons\\pencils.jpg";
+	MenuIconImages[ICON_SELECTEDFILL] = "images\\MenuIcons\\fills.jpg";
+	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\upload.jpg";
 	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\switch.jpg";
 	
 	//TODO: Prepare images for each menu icon and add it to the list

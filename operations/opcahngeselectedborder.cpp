@@ -24,12 +24,12 @@ void 	opChangeBorderSelected::Execute()
 {
 	ReadActionParameters();
 	Graph* pGr = pControl->getGraph();
-	int X, Y;
+	int x, y;
 	GUI* pUI = pControl->GetUI();
 	pUI->CreateColourToolBar();
-	pUI->GetPointClicked(X, Y);
+	pUI->GetPointClicked(x, y);
 	pUI->back();
-	pGr->opChangeSelectedBorder(pUI->GetSelectedColour(X,Y));
+	pGr->opChangeSelectedBorder(pUI->GetSelectedColour(x,y));
 	
 
 

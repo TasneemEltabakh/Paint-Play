@@ -13,6 +13,6 @@ opSwitchToPlay::~opSwitchToPlay()
 void opSwitchToPlay::Execute()
 {
 	GUI* pUI = pControl->GetUI();
-
 	pUI->switchtoplay();
+	
 }

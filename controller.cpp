@@ -91,9 +91,6 @@ operation* controller::createOperation(operationType OpType)
 		case DRAW_SQ:
 			pOp = new opAddSquare(this);
 			break;
-		case BACK :
-			pOp = new opsSwitch(this);
-			break;
 		case selectfill:
 			pOp = new opChangeFillSelected(this);
 			break;
@@ -112,8 +109,11 @@ operation* controller::createOperation(operationType OpType)
 		case bord:
 			pOp = new opChangeWidth(this);
 			break;
-		case SWITCH:
-			pOp = new opSwitchToPlay(this);
+		case TO_PLAY:
+			pOp = new opsSwitch(this);
+			break;
+		case TO_DRAW:
+			pOp = new opsSwitch(this);
 			break;
 		case STATUS:	//a click on the status bar ==> no operation
 			break;

@@ -34,6 +34,7 @@ GUI::GUI()
 	OldDrawColor = RED;
 	OLDFillColor = GREEN;
 	OLdwidth = 3;
+	nummi = 0;
 	//Create the output window
 	pWind = CreateWind(width, height, wx, wy);
 	//Change the title
@@ -117,7 +118,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_LOAD:return LOAD;
 			case ICON_ADDIMG: return ADD_IMG;
 			case ICON_BORD: return bord;
-			case ICON_SWITCH: return SWITCH;
+			case ICON_SWITCH: return TO_PLAY ;
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
 		}
@@ -158,7 +159,7 @@ operationType GUI::GetUseroperation() const
 
 			switch (ClickedIconOrder)
 			{
-			case ICON_BACK: return BACK;
+			case ICON_Switch: return TO_DRAW;
 			default: return EMPTY;
 			}
 		}
@@ -271,7 +272,7 @@ void  GUI::CreateColourToolBar()
 
 }
 void  GUI::switchtoplay() {
-	InterfaceMode = MODE_PLAY;
+	InterfaceMode =  MODE_PLAY;
 	CreatePlayToolBar();
 }
 
@@ -286,12 +287,19 @@ void GUI::CreatePlayToolBar()
 {
 	InterfaceMode = MODE_PLAY;
 	///TODO: write code to create Play mode menu
+	pWind->DrawRectangle(0, 0, 1290, 70);
+	string PlayMenuIcon[PLAY_ICON_COUNT];
+	PlayMenuIcon[ICON_HIDE] = "images\\MenuIcons\\fill.jpg";
+	PlayMenuIcon[ICON_UNHIDE] = "images\\MenuIcons\\fill.jpg";
+	PlayMenuIcon[ICON_START] = "images\\MenuIcons\\fill.jpg";
+	PlayMenuIcon[ICON_REST] = "images\\MenuIcons\\fill.jpg";
+	PlayMenuIcon[ICON_Switch]= "images\\MenuIcons\\fill.jpg";
 
-	string MenuIconImages[PLAY_ICON_COUNT];
-	MenuIconImages[ICON_HIDE] = "images\\MenuIcons\\hide.jpg";
-	MenuIconImages[ICON_UNHIDE] = "images\\MenuIcons\\unhide.jpg";
-	MenuIconImages[ICON_START] = "images\\MenuIcons\\start.jpg";
-	MenuIconImages[ICON_REST] = "images\\MenuIcons\\rest.jpg";
+	for (int i = 0; i < (PLAY_ICON_COUNT ); i++)
+	
+		pWind->DrawImage(PlayMenuIcon[i], i * (MenuIconWidth), 7, MenuIconWidth, ToolBarHeight);
+
+	
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -682,7 +690,14 @@ int GUI::setPenWidth(int wchoice) 		//set current pen width
 	return PenWidth;
 }
 
-
+int GUI:: getinterface()
+{
+	if (InterfaceMode == MODE_COLOURS)
+		nummi = 0;
+	if (InterfaceMode == MODE_PLAY)
+		nummi = 1;
+	return nummi;
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////
 GUI :: ~GUI()

@@ -73,7 +73,7 @@ string IrregularPolygon::PrintOnTool() {  //Rghda added
 	return values;
 }
 bool IrregularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  I should edit this and put its data 
-	/*int slope;
+	int slope;
 	int conctant;
 	for (int i = 0; i < arrayX.size(); i++)
 	{
@@ -94,6 +94,6 @@ bool IrregularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  I should 
 		else {
 			return false;
 		}
-	}*/
-	return false;
+	}
+	//return false;
 }

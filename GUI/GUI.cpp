@@ -382,7 +382,7 @@ void GUI::DrawCircle(Point P1, int radious, GfxInfo CircleGfxInfo) const
 
 }
 // square 
-void GUI:: DrawSquare(const int array1[], const int array2[], GfxInfo SquareGfxInfo) const //Draw a Square 
+void GUI:: DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const //Draw a Square 
 {
 	
 	color DrawingClr;
@@ -402,7 +402,7 @@ void GUI:: DrawSquare(const int array1[], const int array2[], GfxInfo SquareGfxI
 	else
 		style = FRAME;
 
-	pWind->DrawPolygon(array1,array2,4,style);
+	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
 
 }
 

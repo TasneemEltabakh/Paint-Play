@@ -1,19 +1,16 @@
-#pragma once
-#pragma once
 
 #include "..//Shapes/Shape.h"
-#include "..//GUI/GUI.h"
+#include "../GUI/GUI.h"
 
-class Square : public shape
+class Square2 : public shape
 {
 private:
 	Point Corner1;
 	Point Corner2;
-	int side;
-
+	int side; 
 public:
-	Square(Point, int, GfxInfo shapeGfxInfo);
-	virtual ~Square();
+	Square2(Point p1 , Point p2 , GfxInfo shapeGfxInfo);
+	virtual ~Square2();
 	virtual void Draw(GUI* pUI) const;
 
 	void Save(ofstream& outfile); //Rghda added

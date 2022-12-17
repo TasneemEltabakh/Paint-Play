@@ -1,33 +1,42 @@
-#include "Square.h"
+#include "../Shapes/Square2.h"
 #include <fstream>
 #include <iostream>
+#include<string>
+using namespace std;
 
-Square::Square(Point P1, int s , GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
+Square2::Square2(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
-	
+	int side;
 	Corner1 = P1;
-	side = s; 
-	Corner2.x = (P1.x + s*50);
-	Corner2.y = (P1.y + s*50);
+	Corner2 = P2;
 
-	
-
-
-
-
-	}
-
-
-Square::~Square()
+	int distance = sqrt(pow((P1.x - P2.x), 2) + pow((P1.y - P2.y), 2));
+}
+Square2::~Square2()
 {}
 
-void Square::Draw(GUI* pUI) const
+void Square2::Draw(GUI* pUI) const
 {
 	//Call Output::DrawSquare to draw a r on the screen	
-	pUI->DrawSquare(Corner1, Corner2, ShpGfxInfo);   
-
+	pUI->DrawSquare(Corner1,Corner2, ShpGfxInfo);
 }
-void Square:: Save(ofstream& outfile) {  //Rghda added
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// raghda part 
+void Square2::Save(ofstream& outfile) {  //Rghda added
 	//I tried to put the coordinate in a single line
 		//and the colors in another one, but it will make it hard for load function
 		  ////////////////////////////////////////////////////
@@ -53,16 +62,17 @@ void Square:: Save(ofstream& outfile) {  //Rghda added
 		<< (int)ShpGfxInfo.FillClr.ucBlue << " ";
 
 	outfile << endl;
-} 
+}
 
-string Square::PrintOnTool()
+string Square2::PrintOnTool()
 {
 	string values = "I should put here the data of square";
 	return values;
 }
 
 
-bool Square::IsShapeExisting(int x, int y)  //Rghda added
+bool Square2::IsShapeExisting(int x, int y)  //Rghda added
 {
 	return false;
 }
+

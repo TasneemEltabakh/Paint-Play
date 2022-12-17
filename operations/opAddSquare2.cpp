@@ -1,19 +1,22 @@
-#include "opAddSquare.h"
+#include "opAddSquare2.h"
 #include  "..//Shapes/Shape.h"
-#include "..//Shapes/Square.h"
-#include "..//controller.h"
+#include "..//Shapes/Square2.h"
+#include "..//controller.h"	
 #include "..//GUI/GUI.h"
 
-opAddSquare::opAddSquare(controller* pCont) :operation(pCont)
+
+opAddSquare2::opAddSquare2(controller* pCont) :operation(pCont)
 {}
-opAddSquare::~opAddSquare()
+opAddSquare2::~opAddSquare2()
 {}
 
+
+
 //Execute the operation
-void opAddSquare::Execute()
+void opAddSquare2::Execute()
 {
 	Point P1, P2;
-	int i;
+
 	//Get a Pointer to the Input / Output Interfaces
 	GUI* pUI = pControl->GetUI();
 
@@ -22,15 +25,11 @@ void opAddSquare::Execute()
 	pUI->GetPointClicked(P1.x, P1.y);
 
 	string msg = "First corner is at (" + to_string(P1.x) + ", " + to_string(P1.y) + " )";
-	msg += " ... Enter the side ";
+	msg += " ... Click at second corner";
 	pUI->PrintMessage(msg);
-	////Read 2nd corner and store in point P2
-	//pUI->GetPointClicked(P2.x, P2.y);
-	//pUI->ClearStatusBar();
-	////// me to get the side  
-	string theside = pUI->GetSrting();
-	int NUM = stoi(theside);
-	i = NUM;
+	//Read 2nd corner and store in point P2
+	pUI->GetPointClicked(P2.x, P2.y);
+	pUI->ClearStatusBar();
 
 	//Preapre all Square parameters
 	GfxInfo SquareGfxInfo;
@@ -55,8 +54,7 @@ void opAddSquare::Execute()
 
 
 	//Create a Square with the above parameters
-	Square* S = new Square(P1, i, SquareGfxInfo);
-	
+	Square2* S = new Square2(P1, P2, SquareGfxInfo);
 
 	//Get a pointer to the graph
 	Graph* pGr = pControl->getGraph();

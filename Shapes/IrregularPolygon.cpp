@@ -17,7 +17,7 @@ IrregularPolygon::IrregularPolygon(vector<Point> arrayv, GfxInfo shapeGfxInfo) :
     arrayX.push_back(arrayX.front());
 	a = &arrayX[0];
 	b = &arrayY[0];
-	
+	numberofsides = arrayX.size();
   
 }
 IrregularPolygon :: ~IrregularPolygon()
@@ -39,13 +39,13 @@ void IrregularPolygon::Save(ofstream& outfile) {  //Rghda added
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
 	int id = 7;
 
-	outfile << "Irreg" << " " << id << " "<< numberofsides<<" ";
+	outfile << "Irreg"<< " "<< numberofsides<<" ";
 	for (int i = 0; i < arrayX.size(); i++)
 	{
 		outfile << arrayX[i] << " " << arrayY[i] << " ";
 	}
 	
-	outfile << redcolorlevel << " " << greencolorlevel << " " << bluecolorlevel << " ";
+	outfile << " " << id <<" "<< redcolorlevel << " " << greencolorlevel << " " << bluecolorlevel << " ";
 
 	outfile << ShpGfxInfo.BorderWdth << " ";
 
@@ -73,7 +73,7 @@ string IrregularPolygon::PrintOnTool() {  //Rghda added
 	return values;
 }
 bool IrregularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  I should edit this and put its data 
-	int c1 = 0;
+	/*/int c1 = 0;
 	int c2 = 0;
 	int slope;
 	int constant;
@@ -91,19 +91,19 @@ bool IrregularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  I should 
 		else {  //if the number of intersection is even  so it is inside the shape
 			return true;
 		}
-	}
-	//return false;
+	}/**/
+	return false;
 
 }
 
-/*/void IrregularPolygon::Load(ifstream& inputfile) {
-	//GUI* pUI = ;
+void IrregularPolygon::Load(ifstream& inputfile) {
+
 	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
 	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
 	int rf, gf, bf;
 
-	inputfile >> ID >> Corner1.x >> Corner1.y >> Corner2.x >> Corner2.y >>
+	inputfile >> ID>>
 		redcolorlevel >> greencolorlevel >> bluecolorlevel >> ShpGfxInfo.BorderWdth >> rf >> gf >> bf;
 
 	ShpGfxInfo.DrawClr.ucRed = redcolorlevel;
@@ -120,9 +120,6 @@ bool IrregularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  I should 
 		ShpGfxInfo.FillClr.ucRed = rf;
 		ShpGfxInfo.FillClr.ucGreen = gf;
 		ShpGfxInfo.isFilled = true;
-		cout << bf << rf << gf << "green??" << endl;
 	}
 
-	cout << "x" << Corner1.x << Corner1.y << Corner2.x << Corner2.y << endl;
-	cout << "tyoe is";
-}/**/
+}

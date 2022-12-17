@@ -92,8 +92,6 @@ void Oval::Load(ifstream& inputfile) {
 		ShpGfxInfo.FillClr.ucRed = rf;
 		ShpGfxInfo.FillClr.ucGreen = gf;
 		ShpGfxInfo.isFilled = true;
-		//cout << bf << rf << gf << "green??" << endl;
 	}
 
-	//cout << "o" << Corner1.x << Corner1.y << Corner2.x << Corner2.y << "oval loaded" <<endl;
 }

@@ -34,6 +34,7 @@ GUI::GUI()
 	OldDrawColor = RED;
 	OLDFillColor = GREEN;
 	OLdwidth = 3;
+	nummi = 0;
 	//Create the output window
 	pWind = CreateWind(width, height, wx, wy);
 	//Change the title
@@ -117,7 +118,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_LOAD:return LOAD;
 			case ICON_ADDIMG: return ADD_IMG;
 			case ICON_BORD: return bord;
-			case ICON_SWITCH: return SWITCH;
+			case ICON_SWITCH: return TO_PLAY ;
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
 		}
@@ -148,7 +149,7 @@ operationType GUI::GetUseroperation() const
 		//[3] User clicks on the status bar
 		return STATUS;
 	}
-	else	//GUI is in PLAY mode
+	if (InterfaceMode == MODE_PLAY)	//GUI is in PLAY mode
 	{
 		if (y >= 0 && y < ToolBarHeight)
 		{
@@ -158,7 +159,7 @@ operationType GUI::GetUseroperation() const
 
 			switch (ClickedIconOrder)
 			{
-			case ICON_BACK: return BACK;
+			case ICON_Switch: return TO_DRAW;
 			default: return EMPTY;
 			}
 		}
@@ -226,17 +227,17 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_CUT] = "images\\MenuIcons\\cut.jpg";
 	MenuIconImages[ICON_COPY] = "images\\MenuIcons\\copy.jpg";
 	MenuIconImages[ICON_DRAG] = "images\\MenuIcons\\drag.jpg";
-	MenuIconImages[ICON_BORD] = "images\\MenuIcons\\line-thickness.jpg";
+	MenuIconImages[ICON_BORD] = "images\\MenuIcons\\width.jpg";
 	MenuIconImages[ICON_ADDIMG] = "images\\MenuIcons\\image.jpg";
 	MenuIconImages[ICON_DEL] = "images\\MenuIcons\\delete.jpg";
 	MenuIconImages[ICON_FILL] = "images\\MenuIcons\\fill.jpg";
 	MenuIconImages[ICON_COLORS] = "images\\MenuIcons\\pencil.jpg";
 	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\save.jpg";
 	MenuIconImages[ICON_SELECT] = "images\\MenuIcons\\select.jpg";
-	MenuIconImages[ICON_SELECTEDBOL] = "images\\MenuIcons\\line-thickness.jpg";
-	MenuIconImages[ICON_SELECTEDCOL] = "images\\MenuIcons\\pencil.jpg";
-	MenuIconImages[ICON_SELECTEDFILL] = "images\\MenuIcons\\fill.jpg";
-	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\load.jpg";
+	MenuIconImages[ICON_SELECTEDBOL] = "images\\MenuIcons\\widths.jpg";
+	MenuIconImages[ICON_SELECTEDCOL] = "images\\MenuIcons\\pencils.jpg";
+	MenuIconImages[ICON_SELECTEDFILL] = "images\\MenuIcons\\fills.jpg";
+	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\upload.jpg";
 	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\switch.jpg";
 	
 	//TODO: Prepare images for each menu icon and add it to the list
@@ -271,7 +272,7 @@ void  GUI::CreateColourToolBar()
 
 }
 void  GUI::switchtoplay() {
-	InterfaceMode = MODE_PLAY;
+	InterfaceMode =  MODE_PLAY;
 	CreatePlayToolBar();
 }
 
@@ -286,12 +287,19 @@ void GUI::CreatePlayToolBar()
 {
 	InterfaceMode = MODE_PLAY;
 	///TODO: write code to create Play mode menu
+	pWind->DrawRectangle(0, 0, 1290, 70);
+	string PlayMenuIcon[PLAY_ICON_COUNT];
+	PlayMenuIcon[ICON_HIDE] = "images\\MenuIcons\\hide.jpg";
+	PlayMenuIcon[ICON_UNHIDE] = "images\\MenuIcons\\unhideariam.jpg";
+	PlayMenuIcon[ICON_START] = "images\\MenuIcons\\start.jpg";
+	PlayMenuIcon[ICON_REST] = "images\\MenuIcons\\restartariam.jpg";
+	PlayMenuIcon[ICON_Switch]= "images\\MenuIcons\\switch.jpg";
 
-	string MenuIconImages[PLAY_ICON_COUNT];
-	MenuIconImages[ICON_HIDE] = "images\\MenuIcons\\hide.jpg";
-	MenuIconImages[ICON_UNHIDE] = "images\\MenuIcons\\unhide.jpg";
-	MenuIconImages[ICON_START] = "images\\MenuIcons\\start.jpg";
-	MenuIconImages[ICON_REST] = "images\\MenuIcons\\rest.jpg";
+	for (int i = 0; i < (PLAY_ICON_COUNT ); i++)
+	
+		pWind->DrawImage(PlayMenuIcon[i], i * (MenuIconWidth), 7, MenuIconWidth, ToolBarHeight);
+
+	
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -682,7 +690,14 @@ int GUI::setPenWidth(int wchoice) 		//set current pen width
 	return PenWidth;
 }
 
-
+int GUI:: getinterface()
+{
+	if (InterfaceMode == MODE_COLOURS)
+		nummi = 0;
+	if (InterfaceMode == MODE_PLAY)
+		nummi = 1;
+	return nummi;
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////
 GUI :: ~GUI()

@@ -45,7 +45,6 @@ class GUI
 		ICON_SQU,
 		ICON_OVAL,
 		ICON_REG,
-		ICON_SAVE, //Rghda added
 		// nada wed 
 		ICON_IRREG,
 		ICON_LINE,
@@ -54,17 +53,17 @@ class GUI
 		ICON_FILL,
 		//TODO: Add more icons names here
 		ICON_COLORS,
+		ICON_BORD,
 		ICON_CUT,
 		ICON_COPY,
 		ICON_DRAG,
-		ICON_BORD,
 		ICON_ADDIMG,
 		ICON_DEL,  //Rghda
 		ICON_SELECT,  //Rghda
 		ICON_SELECTEDCOL,
 		ICON_SELECTEDBOL,
 		ICON_SELECTEDFILL,
-
+		ICON_SAVE,
 		ICON_LOAD,
 		ICON_SWITCH,
 		ICON_EXIT,		//Exit icon
@@ -85,6 +84,7 @@ class GUI
 		ICON_UNHIDE,
 		ICON_START,
 		ICON_REST,
+		ICON_Switch,
 		PLAY_ICON_COUNT,	//no. of menu icons ==> This should be the last line in this enum
 
 	};
@@ -106,7 +106,7 @@ class GUI
 		bool isBorderChanged;
 		color col;
 		
-		
+	
 
 
 
@@ -148,7 +148,6 @@ public:
 
 	void ClearStatusBar() const;	//Clears the status bar
 	void ClearDrawArea() const;	//Clears the drawing area
-
 	// -- shapes Drawing functions
 	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const;  //Draw a rectangle
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo RectGfxInfo) const;
@@ -183,7 +182,8 @@ public:
 	int setselectedWidth(int wchoice);
 	bool checkcol();
 	bool GetIscol();
-
+	int getinterface();
+	int nummi;
 
 	~GUI();
 };

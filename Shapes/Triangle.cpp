@@ -115,10 +115,7 @@ void Triangle::Load(ifstream& inputfile) {
 		ShpGfxInfo.FillClr.ucRed = rf;
 		ShpGfxInfo.FillClr.ucGreen= gf;
 		ShpGfxInfo.isFilled = true;
-		cout << bf << rf << gf << "green??" << endl;
+
 	}
 
-	cout << "t" << "x is" << Corner1.x << " " << Corner1.y << " 2 is " << Corner2.x << " " << Corner2.y << " 3 is" << Corner3.x << Corner3.y << endl;
-	cout << "red is " << rf << " blue is " << bf << " g is" << gf << endl;
-	cout << "triangle loaded"<<endl;
 }

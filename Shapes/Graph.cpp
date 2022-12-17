@@ -126,7 +126,7 @@ void Graph::Load(ifstream& inputfile) {
 
 
 	for (int i = 0; i <  number; i++) {
-		GfxInfo info = GfxInfo(); Point points = Point(); int size =0
+		GfxInfo info = GfxInfo(); Point points = Point(); int size = 0;
 		type = "";
 		inputfile >> type;
 
@@ -176,8 +176,9 @@ void Graph::Load(ifstream& inputfile) {
 		}
 
 		else if (type == "Reg") {
-			std::cout << "ll" << endl;
-			regularPolygon* reg = new regularPolygon(points, points,size, points, info);
+			inputfile >> size;
+			cout << size;
+			regularPolygon* reg = new regularPolygon(points, points,size, info);
 			reg->Load(inputfile);
 			shapesList.push_back(reg);
 		}

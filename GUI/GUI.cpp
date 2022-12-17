@@ -149,7 +149,7 @@ operationType GUI::GetUseroperation() const
 		//[3] User clicks on the status bar
 		return STATUS;
 	}
-	else	//GUI is in PLAY mode
+	if (InterfaceMode == MODE_PLAY)	//GUI is in PLAY mode
 	{
 		if (y >= 0 && y < ToolBarHeight)
 		{
@@ -293,7 +293,7 @@ void GUI::CreatePlayToolBar()
 	PlayMenuIcon[ICON_UNHIDE] = "images\\MenuIcons\\fill.jpg";
 	PlayMenuIcon[ICON_START] = "images\\MenuIcons\\fill.jpg";
 	PlayMenuIcon[ICON_REST] = "images\\MenuIcons\\fill.jpg";
-	PlayMenuIcon[ICON_Switch]= "images\\MenuIcons\\fill.jpg";
+	PlayMenuIcon[ICON_Switch]= "images\\MenuIcons\\switch.jpg";
 
 	for (int i = 0; i < (PLAY_ICON_COUNT ); i++)
 	

@@ -113,7 +113,7 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opsSwitch(this);
 			break;
 		case TO_DRAW:
-			pOp = new opsSwitch(this);
+			pOp = new opSwitchToPlay(this);
 			break;
 		case STATUS:	//a click on the status bar ==> no operation
 			break;

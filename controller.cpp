@@ -98,7 +98,7 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opChangeFillSelected(this);
 			break;
 		case selectwid:
-			pOp= new opChangeWidth(this);
+			pOp= new opChangeSelectedWidth(this);
 			break;
 		case selsectcol:
 			pOp= new opChangeBorderSelected(this);
@@ -108,6 +108,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case ADD_IMG:
 			pOp = new opAddImg(this);
+			break;
+		case bord:
+			pOp = new opChangeWidth(this);
 			break;
 		case STATUS:	//a click on the status bar ==> no operation
 			break;

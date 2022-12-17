@@ -116,6 +116,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_SELECTEDFILL: return selectfill;
 			case ICON_LOAD:return LOAD;
 			case ICON_ADDIMG: return ADD_IMG;
+			case ICON_BORD: return bord;
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
 		}
@@ -244,9 +245,7 @@ void GUI::CreateDrawToolBar()
 	{
 		
 		pWind->DrawImage(MenuIconImages[i], i * (MenuIconWidth), 7, MenuIconWidth, ToolBarHeight);
-	
-
-			
+		
 	
 	}
 	

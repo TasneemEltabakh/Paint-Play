@@ -34,6 +34,7 @@ enum operationType //The operations supported (you can add more if needed)
 	EMPTY,			//A click on empty place in the toolbar
 	DRAW_SQ,
 	DRAWOV,
+	bord,
 	TO_DRAW,		//Switch interface to Draw mode
 	TO_PLAY,
 	TO_Pallete, //Switch interface to Play mode

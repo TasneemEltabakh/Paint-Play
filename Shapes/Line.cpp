@@ -1,9 +1,9 @@
 #include "Line.h"
 #include <iostream>
 #include <fstream>
+#include "Shape.h"
 
-
-Line::Line(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
+Line::Line(Point P1, Point P2, GfxInfo shapeGfxInfo) : shape(shapeGfxInfo)
 {
 	Corner1 = P1;
 	Corner2 = P2;

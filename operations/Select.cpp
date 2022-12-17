@@ -24,7 +24,7 @@ void Select::Execute() {
 	//I couldn't use the selectedshape from graph file as it is a praivet data
 
 
-	if (P1.x > 963 && P1.x < 1009 && P1.y>9 && P1.y < 52) {
+	if (P1.x > 766 && P1.x < 812 && P1.y>11 && P1.y < 50) {
 		pGUI->ClearStatusBar();
 		pControl->UpdateInterface();
 	}

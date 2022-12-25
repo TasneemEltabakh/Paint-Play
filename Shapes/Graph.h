@@ -36,8 +36,8 @@ public:
 	void SaveGraph(ofstream& outfile);	//Save all shapes to a file  //Rghda edideted its name
 
 	void DeleteGraph();  //Rghda added
-
-	void Load(ifstream& inputfile);
+	void EmptyGraph();    //Ariam added
+	void Load(ifstream& inputfile); 
 	int getvectorsize();
 	shape* getselectedShape();  //Rghda added
 

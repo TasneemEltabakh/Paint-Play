@@ -90,7 +90,14 @@ void Graph::DeleteGraph() {
 	//pGUI->ClearDrawArea(); 
 	//UpdateInterface();
 }
-
+void Graph::EmptyGraph() {
+	for (int k = 0; k < shapesList.size(); k++) {
+		{
+			shapesList.erase(shapesList.begin() + k);
+			k--;
+		}
+	}
+}
 void Graph::changeFillSelection(color r) {
 	
 	//int size=shapesList.size(); //it will not work as //I sould put here the size by this form< as its sive changed 

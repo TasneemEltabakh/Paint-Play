@@ -226,6 +226,8 @@
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="GUI\GUI.h" />
     <ClInclude Include="operations\Delete.h" />
+    <ClInclude Include="operations\exit.h" />
+    <ClInclude Include="operations\Load.h" />
     <ClInclude Include="operations\opAddCircle.h" />
     <ClInclude Include="operations\opAddImg.h" />
     <ClInclude Include="operations\opAddirrPol.h" />

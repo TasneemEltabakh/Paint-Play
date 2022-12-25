@@ -83,7 +83,7 @@ string IrregularPolygon::PrintOnTool() {  //Rghda added
 	return values;
 }
 bool IrregularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  I should edit this and put its data 
-	int c1 = 0;
+	/*/int c1 = 0;
 	int c2 = 0;
 	int slope;
 	int constant;
@@ -101,8 +101,8 @@ bool IrregularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  I should 
 		else {  //if the number of intersection is even  so it is inside the shape
 			return true;
 		}
-	}
-	//return false;
+	}/**/
+	return false;
 
 }
 

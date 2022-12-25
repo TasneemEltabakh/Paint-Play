@@ -9,6 +9,7 @@ class Line : public shape
 private:
 	Point Corner1;
 	Point Corner2;
+	double dist;
 
 public:
 
@@ -19,4 +20,5 @@ public:
 	string PrintOnTool();  //Rghda added
 	bool IsShapeExisting(int x, int y);  //Rghda added
 	void Load(ifstream& inputfile);
+	void Resize(double n);
 };

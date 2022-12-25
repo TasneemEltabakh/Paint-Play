@@ -187,6 +187,7 @@
     <ClCompile Include="operations\opSetPen.cpp" />
     <ClCompile Include="operations\opsSwitch.cpp" />
     <ClCompile Include="operations\opSwitchToPlay.cpp" />
+    <ClCompile Include="operations\Resize.cpp" />
     <ClCompile Include="operations\Save.cpp" />
     <ClCompile Include="operations\Select.cpp" />
     <ClCompile Include="Shapes\circle.cpp" />
@@ -201,7 +202,6 @@
     <ClCompile Include="Shapes\Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\github\operations\Load.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
     <ClInclude Include="CMUgraphicsLib\CMUgraphics.h" />
     <ClInclude Include="CMUgraphicsLib\colors.h" />
@@ -226,7 +226,6 @@
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="GUI\GUI.h" />
     <ClInclude Include="operations\Delete.h" />
-    <ClInclude Include="operations\exit.h" />
     <ClInclude Include="operations\opAddCircle.h" />
     <ClInclude Include="operations\opAddImg.h" />
     <ClInclude Include="operations\opAddirrPol.h" />
@@ -247,6 +246,7 @@
     <ClInclude Include="operations\opSetPen.h" />
     <ClInclude Include="operations\opsSwitch.h" />
     <ClInclude Include="operations\opSwitchToPlay.h" />
+    <ClInclude Include="operations\Resize.h" />
     <ClInclude Include="operations\Save.h" />
     <ClInclude Include="operations\Select.h" />
     <ClInclude Include="Shapes\ciecle.h" />

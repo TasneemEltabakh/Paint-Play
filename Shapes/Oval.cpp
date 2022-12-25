@@ -17,6 +17,11 @@ void Oval::Draw(GUI* pUI) const
 	//Call Output::DrawTriangle to draw a Triangle on the screen	
 	pUI->DrawEllipse(Corner1,Corner2, ShpGfxInfo);
 }
+void Oval::Resize(double n)
+{
+
+
+}
 
 void Oval::Save(ofstream& outfile) {   //Rghda added
 	//I tried to put the coordinate in a single line

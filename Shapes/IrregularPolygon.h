@@ -19,12 +19,12 @@ public:
     IrregularPolygon(vector<Point>, GfxInfo);
     virtual ~IrregularPolygon();
     virtual void Draw(GUI* pUI) const;
-
-
+    void generatingPoints();
     void Save(ofstream& outfile); //Rghda added
     string PrintOnTool();  //Rghda added
     bool IsShapeExisting(int x, int y);  //Rghda added
     void Load(ifstream& inputfile);
+    void Resize(double n);
 
 };
 

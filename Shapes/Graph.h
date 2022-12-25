@@ -43,10 +43,10 @@ public:
 
 	void setselectedShape(shape* selectedshape);  //Rghda added
 
-	void Graph::changeFillSelection(color);
-	void Graph::opChangeSelectedWidth(int );
-	void Graph::opChangeSelectedBorder(color);
-	
+	void changeFillSelection(color);
+	void opChangeSelectedWidth(int );
+	void opChangeSelectedBorder(color);
+	void  resize(double);
 
 
 };

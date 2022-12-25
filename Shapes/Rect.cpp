@@ -2,12 +2,17 @@
 #include <fstream>
 #include <iostream>
 #include<string>
+#include "..//controller.h"
 using namespace std;
 
 Rect::Rect(Point P1, Point P2, GfxInfo shapeGfxInfo):shape(shapeGfxInfo)
 {
+	check = 0;
 	Corner1 = P1;
+	v.push_back(Corner1);
 	Corner2 = P2;
+	v.push_back(Corner2);
+
 }
 
 Rect::~Rect()
@@ -15,9 +20,25 @@ Rect::~Rect()
 
 void Rect::Draw(GUI* pUI) const
 {
-	//Call Output::DrawRect to draw a rectangle on the screen	
-	pUI->DrawRect(Corner1, Corner2, ShpGfxInfo);
+	pUI->DrawRect(v[0], v[1], ShpGfxInfo);
 }
+
+void Rect::Resize(double n)
+{ 
+	center.x = (Corner1.x + Corner2.x) / 2;
+	center.y = (Corner1.y + Corner2.y) / 2;
+	check = 1;
+	v.clear();
+	P.x = Corner1.x * n;
+	P.y = Corner1.y * n;
+	R.x = Corner2.x * n;
+	R.y = Corner2.y * n;
+	
+	v.push_back(P);
+	v.push_back(R);
+
+}
+
 
 void Rect::Save(ofstream& outfile){   //Rghda added
 	//I tried to put the coordinate in a single line

@@ -17,9 +17,18 @@ Triangle :: ~Triangle()
 void Triangle::Draw(GUI* pUI) const
 {
 	//Call Output::DrawTriangle to draw a Triangle on the screen	
-	pUI->DrawTriangle(Corner1, Corner2, Corner3 ,  ShpGfxInfo);
+	pUI->DrawTriangle(Corner1, Corner2, Corner3 , ShpGfxInfo);
 }
 
+void Triangle::Resize(double n)
+{
+
+	Corner2.x = Corner2.x * n;
+	Corner2.y = Corner2.y * n;
+	Corner3.x = Corner3.x * n;
+	Corner3.y = Corner3.y * n;
+
+}
 
 
 float Triangle::trianglearea(int x1, int y1, int x2, int y2, int x3, int y3)

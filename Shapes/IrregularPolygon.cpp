@@ -23,6 +23,16 @@ IrregularPolygon::IrregularPolygon(vector<Point> arrayv, GfxInfo shapeGfxInfo) :
 IrregularPolygon :: ~IrregularPolygon()
 {
 }
+
+void IrregularPolygon::Resize(double n)
+{
+	for (int i = 0; i < arrayX.size(); i++)
+	{
+		arrayX[i] = arrayX[i] * n;
+		arrayY[i] = arrayY[i] * n;
+	}
+
+}
 void IrregularPolygon::Draw(GUI* pUI) const
 {
 	int size = arrayX.size();

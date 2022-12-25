@@ -71,6 +71,7 @@ void opAddTriangle::Execute()
 	//Create a Triangle with the above parameters
 	Triangle* T = new Triangle(P1, P2, P3,  TriangleGfxInfo);
 
+
 	//Get a pointer to the graph
 	Graph* TR = pControl->getGraph();
 

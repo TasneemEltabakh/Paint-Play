@@ -15,10 +15,11 @@ public:
 	Square(Point, int, GfxInfo shapeGfxInfo);
 	virtual ~Square();
 	virtual void Draw(GUI* pUI) const;
-
+	void generatingCorners();
 	void Save(ofstream& outfile); //Rghda added
 	string PrintOnTool();  //Rghda added
 	bool IsShapeExisting(int x, int y);  //Rghda added
 	void Load(ifstream& inputfile);
+	void Resize(double n);
 };
 

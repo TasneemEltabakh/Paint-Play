@@ -16,5 +16,6 @@ class Triangle : public shape
 		bool IsShapeExisting(int x, int y);  //Rghda added
 		string PrintOnTool();  //Rghda added
 		void Load(ifstream& inputfile);
+		void Resize(double n);
 };
 

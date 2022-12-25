@@ -23,6 +23,7 @@ public:
 	void ChngDrawClr(color Dclr);	//changes the shape's drawing color
 	void ChngFillClr(color Fclr);	//changes the shape's filling color
 	void setCrntPenWidth(int);
+	Point ChangeSize(Point);
 	///The following functions should be supported by the shape class
 	///It should be overridden by each inherited shape
 
@@ -30,7 +31,7 @@ public:
 
 
 	//virtual void Rotate() = 0;	//Rotate the shape
-	//virtual void Resize() = 0;	//Resize the shape
+	virtual void Resize(double n) = 0;	//Resize the shape
 	//virtual void Move() = 0;		//Move the shape
 
 	

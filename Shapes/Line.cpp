@@ -12,6 +12,8 @@ Line::Line(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
 	Corner1 = P1;
 	Corner2 = P2;
+	dist = sqrt(pow(Corner1.x - Corner2.x, 2) + pow(Corner1.y - Corner2.y, 2));
+		
 }
 
 Line :: ~Line()
@@ -20,6 +22,12 @@ void Line::Draw(GUI* pUI) const
 {
 	//Call Output::DrawLine  to draw a Line on the screen	
 	pUI->DrawLine(Corner1, Corner2, ShpGfxInfo);
+}
+void Line::Resize(double n)
+{
+	dist = n * dist;
+	Corner2.x = Corner1.x + dist;
+	Corner2.y = Corner1.y + dist;
 }
 
 void Line::Save(ofstream& outfile) {   //Rghda added

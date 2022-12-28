@@ -9,6 +9,8 @@ Triangle :: Triangle (Point P1, Point P2, Point P3 , GfxInfo shapeGfxInfo) :shap
 	Corner1 = P1;
 	Corner2 = P2;
 	Corner3 = P3;
+	Center.x = (Corner1.x + Corner2.x + Corner3.x) / 3;
+	Center.y= (Corner1.y + Corner1.y + Corner1.y) / 3 ;
 }
 
 Triangle :: ~Triangle()
@@ -22,11 +24,17 @@ void Triangle::Draw(GUI* pUI) const
 
 void Triangle::Resize(double n)
 {
+	Corner1.x = Corner1.x * n - (n * Center.x) + Center.x;
+	Corner1.y = Corner1.y * n - (n * Center.y) + Center.y;
+	Corner2.x = Corner2.x * n - (n * Center.x) + Center.x;
+	Corner2.y = Corner2.y * n - (n * Center.y) + Center.y;
+	Corner3.x = Corner3.x * n - (n * Center.x) + Center.x;
+	Corner3.y = Corner3.y * n - (n * Center.y) + Center.y;
+	
 
-	Corner2.x = Corner2.x * n;
-	Corner2.y = Corner2.y * n;
-	Corner3.x = Corner3.x * n;
-	Corner3.y = Corner3.y * n;
+}
+void Triangle::Rotate()
+{
 
 }
 

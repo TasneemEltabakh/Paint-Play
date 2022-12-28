@@ -6,6 +6,7 @@ class Triangle : public shape
 		Point Corner1;
 		Point Corner2;
 		Point Corner3;
+		Point Center;
 	public:
 		Triangle(Point P1, Point P2, Point P3 , GfxInfo shapeGfxInfo);
 		virtual ~Triangle();
@@ -17,5 +18,6 @@ class Triangle : public shape
 		string PrintOnTool();  //Rghda added
 		void Load(ifstream& inputfile);
 		void Resize(double n);
+	    void Rotate();
 };
 

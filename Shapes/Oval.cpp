@@ -6,6 +6,9 @@ Oval::Oval(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
 	Corner1 = P1;
 	Corner2 = P2;
+	center.x = Corner2.x;
+	center.y = Corner1.y;
+	
 
 }
 Oval :: ~Oval()
@@ -19,10 +22,20 @@ void Oval::Draw(GUI* pUI) const
 }
 void Oval::Resize(double n)
 {
+	
+	Corner1.x =( Corner1.x * n) - (n * center.x) + center.x;
+	Corner1.y = (Corner1.y * n) - (n * center.y) + center.y;
+	Corner2.x = (Corner2.x * n) - (n * center.x) + center.x;
+	Corner2.x = (Corner2.x * n) - (n * center.y) + center.y;
 
+	center.x = Corner2.x;
+	center.y = Corner1.y;
 
 }
+void Oval ::Rotate()
+{
 
+}
 void Oval::Save(ofstream& outfile) {   //Rghda added
 	//I tried to put the coordinate in a single line
 	//and the colors in another one, but it will make it hard for load function

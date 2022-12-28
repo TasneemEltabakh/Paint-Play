@@ -48,6 +48,11 @@ void regularPolygon::Resize(double n)
 	generatingPoints();
 ;
 }
+void regularPolygon::Rotate()
+{
+	
+}
+
 
 void  regularPolygon::Draw(GUI* pUI) const
 {

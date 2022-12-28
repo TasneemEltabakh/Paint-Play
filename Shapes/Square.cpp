@@ -26,7 +26,10 @@ void Square::Resize(double n)
 	generatingCorners();
 
 }
+void Square::Rotate()
+{
 
+}
 Square::~Square()
 {}
 

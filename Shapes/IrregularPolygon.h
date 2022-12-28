@@ -12,7 +12,7 @@ private:
     int* a = nullptr;
     int* b = nullptr;
     int numberofsides;
-
+    Point Center;
 
 
 public:
@@ -25,6 +25,7 @@ public:
     bool IsShapeExisting(int x, int y);  //Rghda added
     void Load(ifstream& inputfile);
     void Resize(double n);
+    void Rotate();
 
 };
 

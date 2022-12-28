@@ -16,6 +16,7 @@ private:
     double iteratedangle;
     vector<int> arrayX;
     vector<int> arrayY;
+   int temp[100];
     int* a = nullptr;
     int* b = nullptr;
     const double pi = 3.14159;
@@ -34,5 +35,6 @@ public :
     void Save(ofstream& outfile); //Rghda added
     void Load(ifstream& inputfile);
     void Resize(double n);
+    void Rotate();
 };
 

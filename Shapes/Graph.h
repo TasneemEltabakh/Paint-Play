@@ -47,6 +47,7 @@ public:
 	void opChangeSelectedWidth(int );
 	void opChangeSelectedBorder(color);
 	void  resize(double);
+	void  rotate();
 
 
 };

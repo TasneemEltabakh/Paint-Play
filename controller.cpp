@@ -22,6 +22,7 @@
 #include "operations/opChangeWidth.h"
 #include "operations/opSwitchToPlay.h"
 #include "operations/Resize.h"
+#include "operations/rotatOp.h"
 
 
 using namespace std;

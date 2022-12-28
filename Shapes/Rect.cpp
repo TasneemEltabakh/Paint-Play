@@ -12,7 +12,8 @@ Rect::Rect(Point P1, Point P2, GfxInfo shapeGfxInfo):shape(shapeGfxInfo)
 	v.push_back(Corner1);
 	Corner2 = P2;
 	v.push_back(Corner2);
-
+	center.x = (Corner1.x + Corner2.x) / 2;
+	center.y = (Corner1.y + Corner2.y) / 2;
 }
 
 Rect::~Rect()
@@ -25,20 +26,26 @@ void Rect::Draw(GUI* pUI) const
 
 void Rect::Resize(double n)
 { 
+	v.clear();
+
 	center.x = (Corner1.x + Corner2.x) / 2;
 	center.y = (Corner1.y + Corner2.y) / 2;
-	check = 1;
-	v.clear();
-	P.x = Corner1.x * n;
-	P.y = Corner1.y * n;
-	R.x = Corner2.x * n;
-	R.y = Corner2.y * n;
-	
+
+	P.x = (Corner1.x * n) - ( n * center.x) + center.x;
+	P.y = (Corner1.y * n) - (n * center.y) + center.y;
+	R.x = (Corner2.x * n) - (n * center.x) + center.x;
+	R.y = (Corner2.y * n) - (n * center.y) + center.y;
+
 	v.push_back(P);
 	v.push_back(R);
 
-}
 
+
+}
+void Rect::Rotate()
+{
+
+}
 
 void Rect::Save(ofstream& outfile){   //Rghda added
 	//I tried to put the coordinate in a single line

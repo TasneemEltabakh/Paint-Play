@@ -188,6 +188,7 @@
     <ClCompile Include="operations\opsSwitch.cpp" />
     <ClCompile Include="operations\opSwitchToPlay.cpp" />
     <ClCompile Include="operations\Resize.cpp" />
+    <ClCompile Include="operations\rotatOP.cpp" />
     <ClCompile Include="operations\Save.cpp" />
     <ClCompile Include="operations\Select.cpp" />
     <ClCompile Include="Shapes\circle.cpp" />
@@ -229,7 +230,6 @@
     <ClInclude Include="operations\exit.h" />
     <ClInclude Include="operations\Load.h" />
     <ClInclude Include="operations\opAddCircle.h" />
-    <ClInclude Include="operations\opAddImg.h" />
     <ClInclude Include="operations\opAddirrPol.h" />
     <ClInclude Include="operations\opAddLine.h" />
     <ClInclude Include="operations\opAddOval.h" />
@@ -249,6 +249,7 @@
     <ClInclude Include="operations\opsSwitch.h" />
     <ClInclude Include="operations\opSwitchToPlay.h" />
     <ClInclude Include="operations\Resize.h" />
+    <ClInclude Include="operations\rotatOp.h" />
     <ClInclude Include="operations\Save.h" />
     <ClInclude Include="operations\Select.h" />
     <ClInclude Include="Shapes\ciecle.h" />

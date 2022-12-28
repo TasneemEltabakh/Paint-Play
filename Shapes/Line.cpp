@@ -29,6 +29,10 @@ void Line::Resize(double n)
 	Corner2.x = Corner1.x + dist;
 	Corner2.y = Corner1.y + dist;
 }
+void Line::Rotate()
+{
+
+}
 
 //RAGHDA'S PARTT 
 void Line::Save(ofstream& outfile) {   //Rghda added

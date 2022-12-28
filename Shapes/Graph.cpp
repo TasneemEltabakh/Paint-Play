@@ -48,9 +48,21 @@ shape* Graph::Getshape(int x, int y) //Rghda remove const from here
 		}
 	}
 
-	return nullptr;  //here I want to put unselect option important
+	return nullptr; 
 }
 
+void Graph::unselectmulti() {
+	for (int k = shapesList.size()-1 ; k >=0; k--) {
+		shapesList[k]->SetSelected(false);
+	}
+}
+void Graph::unselectselectedshape(shape* selectedmultishape2) {
+	for (int k = shapesList.size() - 1; k >= 0; k--) {
+		if (selectedmultishape2 == shapesList[k]) {
+			shapesList[k]->SetSelected(false);
+		}
+	}
+}
 
 
 int Graph::getvectorsize() {  //Rghda added

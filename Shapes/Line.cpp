@@ -60,10 +60,16 @@ string Line::PrintOnTool()
 }
 
 
-bool Line::IsShapeExisting(int x, int y)  //Rghda added
+bool Line::IsShapeExisting(int x, int y)  //Rghda added  //It didn't work from first tims< so I have to put many if condition to test where is the error
 {
-	
-	int slope = (Corner1.y- Corner2.y) / (Corner1.x- Corner2.x);
+	int slope;
+	if ((Corner1.y> Corner2.y  && Corner2.x> Corner1.x )|| (Corner2.y > Corner1.y) && Corner1.x > Corner2.x){
+		slope = abs((Corner1.y - Corner2.y) / (Corner1.x - Corner2.x));
+	}
+	else if(((Corner1.y > Corner2.y && Corner1.x > Corner2.x) ) ||( Corner2.y > Corner1.y && Corner2.x > Corner1.x)) {
+		slope = -1*abs((Corner2.y - Corner1.y) / (Corner2.x - Corner1.x));
+	}
+
 	int conctant = Corner1.y -(slope* Corner1.x);
 
 	if (y == slope * x + conctant) {

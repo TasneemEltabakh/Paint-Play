@@ -16,26 +16,44 @@ regularPolygon ::regularPolygon(Point P1, Point P2, int Sides,  GfxInfo shapeGfx
 	
 	r = sqrt(pow((P1.x - P2.x),2) + pow((P1.y - P2.y),2));
     NumberOfsides = Sides;
-	
+	generatingPoints();
 
 
-	for (int i = 0; i < NumberOfsides; i++)
-	{
-		angle = i* (2 * pi) / NumberOfsides;
-		double xOfvertix =  r * cos(angle)  + Center.x;
-		arrayX.push_back(xOfvertix);
-		double yOfvertix =  r * sin(angle) + Center.y ;
-		arrayY.push_back(yOfvertix);
-		
-		
-	}
-	//arrayY.push_back(arrayY.front());
-	//arrayX.push_back(arrayX.front());
-	a = &arrayX[0];
-	b = &arrayY[0];
 }
 regularPolygon:: ~regularPolygon()
 {}
+void regularPolygon::generatingPoints()
+{
+
+	for (int i = 0; i < NumberOfsides; i++)
+	{
+		angle = i * (2 * pi) / NumberOfsides;
+		double xOfvertix = r * cos(angle) + Center.x;
+		arrayX.push_back(xOfvertix);
+		double yOfvertix = r * sin(angle) + Center.y;
+		arrayY.push_back(yOfvertix);
+
+
+	}
+
+	a = &arrayX[0];
+	b = &arrayY[0];
+
+}
+void regularPolygon::Resize(double n)
+{
+	r = (r*n);
+	arrayX.clear();
+	arrayY.clear();
+	generatingPoints();
+;
+}
+void regularPolygon::Rotate()
+{
+	
+}
+
+
 void  regularPolygon::Draw(GUI* pUI) const
 {
 	int numberofv = arrayY.size();

@@ -104,6 +104,7 @@ class GUI
     	bool IsFilled;
 		bool isChanged;
 		bool isBorderChanged;
+		bool isResized;
 		color col;
 		
 	
@@ -162,6 +163,8 @@ public:
 	bool checkborder();
 	bool GetIsFilled() ;
 	bool GetIsChanged();
+	bool Checkresize();
+	bool CheckIsResized();
 	void AddImg(string name);
 	bool GetIsFilled() const;
 	///Make similar functions for drawing all other shapes.

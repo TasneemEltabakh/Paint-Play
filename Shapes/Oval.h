@@ -9,8 +9,8 @@ class Oval : public shape
 private:
 	Point Corner1;
 	Point Corner2;
-	//int Hight ;
-	//int Width;
+	Point center;
+
 public:
 	Oval(Point P1, Point P2, GfxInfo shapeGfxInfo);
 	virtual ~Oval();
@@ -19,6 +19,8 @@ public:
 	string PrintOnTool();  //Rghda added
 	bool IsShapeExisting(int x, int y);  //Rghda added
 	void Load(ifstream& inputfile);
+	void Resize(double n);
+	void Rotate();
 };
 
 

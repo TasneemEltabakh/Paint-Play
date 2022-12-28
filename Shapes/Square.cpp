@@ -7,17 +7,29 @@ Square::Square(Point P1, int s , GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	
 	Corner1 = P1;
 	side = s; 
-	Corner2.x = (P1.x + s*50);
-	Corner2.y = (P1.y + s*50);
-
 	
+	generatingCorners();
 
 
 
+}
+void Square:: generatingCorners()
+{
+	Corner2.x = (Corner1.x + side * 50);
+	Corner2.y = (Corner1.y + side * 50);
 
-	}
 
+}
+void Square::Resize(double n)
+{
+	side = side * n;
+	generatingCorners();
 
+}
+void Square::Rotate()
+{
+
+}
 Square::~Square()
 {}
 

@@ -31,6 +31,7 @@ GUI::GUI()
 	*count2 = 0;
 	count3= new int;
 	*count3 = 0;
+	isResized = false;
 	OldDrawColor = RED;
 	OLDFillColor = GREEN;
 	OLdwidth = 3;
@@ -561,6 +562,10 @@ bool GUI::GetIscol()
 	isBorderChanged = true;
 	return isBorderChanged;
 }
+bool  GUI::Checkresize()
+{
+	return isResized;
+}
 bool GUI::GetIsFilled() 
 {
 
@@ -571,6 +576,11 @@ bool GUI::GetIsChanged()
 {
 	isChanged = true;
 	return isChanged;
+}
+bool GUI::CheckIsResized()
+{
+	isResized = true;
+	return isResized;
 }
 
 color GUI::FillColour(const int X, const int Y)
@@ -648,6 +658,7 @@ int GUI:: setselectedWidth(int wchoice) 		//set current pen width
 	}
 	return PenWidth;
 }
+
 
 int GUI::setPenWidth(int wchoice) 		//set current pen width
 {

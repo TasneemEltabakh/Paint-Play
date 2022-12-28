@@ -7,21 +7,47 @@ using namespace std;
 
 IrregularPolygon::IrregularPolygon(vector<Point> arrayv, GfxInfo shapeGfxInfo) : shape(shapeGfxInfo)
 {
+	double sumX = 0 , sumY = 0;
+
 	for (int i = 0; i < arrayv.size(); i++)
 	{
 		arrayX.push_back(arrayv[i].x);
 		arrayY.push_back(arrayv[i].y);
+		sumX = sumX + arrayv[i].x;
+		sumY = sumY + arrayv[i].y;
 	}
 	
 	arrayY.push_back(arrayY.front());
     arrayX.push_back(arrayX.front());
+
 	a = &arrayX[0];
 	b = &arrayY[0];
+
 	numberofsides = arrayX.size();
+	Center.x = sumX / numberofsides;
+	Center.y = sumY / numberofsides;
   
 }
 IrregularPolygon :: ~IrregularPolygon()
 {
+}
+
+void IrregularPolygon::Resize(double n)
+{
+	for (int i = 0; i < numberofsides; i++)
+	{
+		arrayX.at(i) = (arrayX[i] * n) - (n * Center.x) + Center.x;
+		arrayY.at(i) = (arrayY[i] * n) - (n * Center.y) + Center.y;
+	}
+	arrayY.push_back(arrayY.front());
+	arrayX.push_back(arrayX.front());
+	a = &arrayX[0];
+	b = &arrayY[0];
+
+}
+void IrregularPolygon::Rotate()
+{
+
 }
 void IrregularPolygon::Draw(GUI* pUI) const
 {

@@ -17,7 +17,16 @@ void Circle::Draw(GUI* pUI) const
 	//Call Output::DrawCircle to draw a circle on the screen	
 	pUI->DrawCircle(Corner1,radious, ShpGfxInfo);
 }
+void Circle::Resize(double n)
+{
+	radious = radious * n;
 
+
+}
+void Circle::Rotate()
+{
+
+}
 void Circle::Save(ofstream& outfile) {   //Rghda added
 	//I tried to put the coordinate in a single line
 	//and the colors in another one, but it will make it hard for load function

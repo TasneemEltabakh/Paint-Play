@@ -219,6 +219,12 @@
     <ClCompile Include="operations\opSwitchToPlay.cpp">
       <Filter>operation</Filter>
     </ClCompile>
+    <ClCompile Include="operations\Resize.cpp">
+      <Filter>operation</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\rotatOP.cpp">
+      <Filter>operation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -319,9 +325,6 @@
     <ClInclude Include="operations\Delete.h">
       <Filter>operation</Filter>
     </ClInclude>
-    <ClInclude Include="operations\exit.h">
-      <Filter>operation</Filter>
-    </ClInclude>
     <ClInclude Include="operations\opAddCircle.h">
       <Filter>operation</Filter>
     </ClInclude>
@@ -391,9 +394,15 @@
     <ClInclude Include="operations\opCahngeSelectedBorder.h">
       <Filter>operation</Filter>
     </ClInclude>
-    <ClInclude Include="..\github\operations\Load.h" />
-    <ClInclude Include="operations\opAddImg.h" />
     <ClInclude Include="operations\opSwitchToPlay.h">
+      <Filter>operation</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\Resize.h">
+      <Filter>operation</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\exit.h" />
+    <ClInclude Include="operations\Load.h" />
+    <ClInclude Include="operations\rotatOp.h">
       <Filter>operation</Filter>
     </ClInclude>
   </ItemGroup>

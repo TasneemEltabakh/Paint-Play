@@ -26,7 +26,12 @@ void shape::setCrntPenWidth(int a)
 {
 	ShpGfxInfo.BorderWdth = a;
 }
-
+Point shape::ChangeSize(Point p)
+{
+	p.x = p.x * 0.25;
+	p.y = p.y * .25;
+	return p;
+}
 // my func to get aim of selection 
 
 void SelectedShapeAim()

@@ -15,8 +15,6 @@ opsSwitch::~opsSwitch()
 void opsSwitch::Execute()
 {
 	GUI* pUI = pControl->GetUI();
-	if (pUI->nummi == 0)
 		pUI->switchtoplay();
-	if (pUI->nummi==1)
-		pUI->back();
+	
 }

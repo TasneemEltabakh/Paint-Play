@@ -31,6 +31,11 @@ void Line::Resize(double n)
 	Corner2.x = Corner1.x + dist;
 	Corner2.y = Corner1.y + dist;
 }
+void Line::zoomin(GUI* pUI)
+{
+
+
+}
 void Line::Rotate()
 {
 	int sparx1 = Corner1.x;

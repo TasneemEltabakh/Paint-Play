@@ -25,7 +25,7 @@ public :
     regularPolygon(Point, Point, int , GfxInfo shapeGfxInfo);
     virtual ~regularPolygon();
     virtual void Draw(GUI* pUI) const;
-
+    void zoomin(GUI* pUI);
 
     string PrintOnTool();  //Rghda added
     bool IsShapeExisting(int x, int y);  //Rghda added

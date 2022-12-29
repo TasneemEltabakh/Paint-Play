@@ -32,6 +32,16 @@ void Square::Resize(double n)
 }
 void Square::Rotate()
 {}
+void Square::zoomin(GUI* pUI)
+{
+
+
+	Corner1.x = (Corner1.x * 2) - (2 * pUI->GetOrigin().x) + pUI->GetOrigin().x;
+	Corner1.y = (Corner1.y * 2) - (2 * pUI->GetOrigin().y) + pUI->GetOrigin().y;
+	Corner2.x = (Corner2.x * 2) - (2 * pUI->GetOrigin().x) + pUI->GetOrigin().x;
+	Corner2.y = (Corner2.y * 2) - (2 * pUI->GetOrigin().y) + pUI->GetOrigin().y;
+
+}
 Square::~Square()
 {}
 

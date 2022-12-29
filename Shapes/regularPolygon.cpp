@@ -40,6 +40,11 @@ void regularPolygon::generatingPoints()
 	b = &arrayY[0];
 
 }
+void regularPolygon::zoomin(GUI* pUI)
+{
+
+
+}
 void regularPolygon::Resize(double n)
 {
 	r = (r*n);

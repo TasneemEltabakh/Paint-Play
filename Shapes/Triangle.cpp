@@ -17,8 +17,7 @@ Triangle :: ~Triangle()
 {}
 
 void Triangle::Draw(GUI* pUI) const
-{
-	//Call Output::DrawTriangle to draw a Triangle on the screen	
+{	
 	pUI->DrawTriangle(Corner1, Corner2, Corner3 , ShpGfxInfo);
 }
 
@@ -51,7 +50,17 @@ void Triangle::Rotate()
 	Corner3.y = sparx3 - Center.x + Center.y;
 
 }
+void Triangle::zoomin(GUI* pUI)
+{
+	
+	Corner1.x = (Corner1.x * 2) - (2 * pUI->GetOrigin().x) + pUI->GetOrigin().x;
+	Corner1.y = (Corner1.y * 2) - (2 * pUI->GetOrigin().y) + pUI->GetOrigin().y;
+	Corner2.x = (Corner2.x * 2) - (2 * pUI->GetOrigin().x) + pUI->GetOrigin().x;
+	Corner2.y = (Corner2.y * 2) - (2 * pUI->GetOrigin().y) + pUI->GetOrigin().y;
+	Corner3.x = (Corner3.x * 2) - (2 * pUI->GetOrigin().x) + pUI->GetOrigin().x;
+	Corner3.y = (Corner3.y * 2) - (2 * pUI->GetOrigin().y) + pUI->GetOrigin().y;
 
+}
 
 float Triangle::trianglearea(int x1, int y1, int x2, int y2, int x3, int y3)
 {

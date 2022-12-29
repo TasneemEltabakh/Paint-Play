@@ -21,7 +21,8 @@
 #include "operations/opCahngeSelectedBorder.h"
 #include "operations/opChangeWidth.h"
 #include "operations/opSwitchToPlay.h"
-
+#include "operations/ZoomIn.h"
+#include "operations/Resize.h"
 
 using namespace std;
 //Constructor
@@ -56,7 +57,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddTriangle(this);
 		break;
 	case DRAW_LINE:
-		pOp = new opAddLine(this);
+		pOp = new ZooomIn(this);
 		break;
 	case DRAW_regularPOLY:
 		pOp = new opAddRegPol(this);

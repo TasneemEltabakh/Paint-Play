@@ -34,6 +34,16 @@ void Oval::Resize(double n)
 	center.x = Corner2.x;
 	center.y = Corner1.y;
 }
+void Oval ::zoomin(GUI* pUI)
+{
+
+	Corner1.x = (Corner1.x * 2) - (2 * pUI->GetOrigin().x) + pUI->GetOrigin().x;
+	Corner1.y = (Corner1.y * 2) - (2 * pUI->GetOrigin().y) + pUI->GetOrigin().y;
+	Corner2.x = (Corner2.x * 2) - (2 * pUI->GetOrigin().x) + pUI->GetOrigin().x;
+	Corner2.y = (Corner2.y * 2) - (2 * pUI->GetOrigin().y) + pUI->GetOrigin().y;
+	
+
+}
 void Oval ::Rotate()
 {
 

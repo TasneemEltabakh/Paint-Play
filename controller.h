@@ -28,32 +28,32 @@ class operation; //forward declaration
 //Main class that manages everything in the application.
 class controller
 {
-	
-	int ShapeCount=0;		//Actual number of figures //Rghda added
+
+	int ShapeCount = 0;		//Actual number of figures //Rghda added
 	enum { MaxShapeCount = 200 };	//Max no of figures  //Rghda added
 	shape* ShapeList[MaxShapeCount];	//List of all figures (Array of pointers)  //Rghda added
 
 
 	Graph* pGraph;	//pointe to the grapg
 	GUI* pGUI;		//Pointer to UI class
-	
 
-	
 
-public:	
-	controller(); 
+
+
+public:
+	controller();
 	~controller();
-	
+
 	// -- operation-Related Functions
 	//Reads the input command from the user and returns the corresponding operation type
 	operationType GetUseroperation() const;
-	operation* createOperation(operationType) ; //Creates an operation
+	operation* createOperation(operationType); //Creates an operation
 	void Run();
-	
+
 	Graph* getGraph() const;
-	
+
 	// -- Interface Management Functions
-	GUI *GetUI() const; //Return pointer to the UI
+	GUI* GetUI() const; //Return pointer to the UI
 	void UpdateInterface() const;	//Redraws all the drawing window	
 
 

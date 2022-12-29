@@ -13,10 +13,21 @@ Delete::Delete(controller* pCont) :operation(pCont)
 
 
 void Delete::ReadActionParameters() {
+	int sizeint;
 	GUI* pGUI = pControl->GetUI();
 	Graph* pGraph = pControl->getGraph();
-	pGraph->DeleteGraph();
-	pGUI->PrintMessage("Selected shape is removed");
+	string sizestring = pGraph->numberofselectedshapes();
+	sizeint = stoi(sizestring);
+
+	if (sizeint == 0) {
+		pGraph->DeleteGraph();
+		pGUI->PrintMessage("Selected shape is removed");
+	}
+	else {
+		pGraph->DeleteMultiShapesGraph();
+		pGUI->PrintMessage("Selected Multi shapes are removed");
+
+	}
 }
 
 //Execute the action

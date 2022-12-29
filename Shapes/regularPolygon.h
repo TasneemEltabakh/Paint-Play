@@ -16,7 +16,7 @@ private:
     double iteratedangle;
     vector<int> arrayX;
     vector<int> arrayY;
-   int temp[100];
+    int temp[100];
     int* a = nullptr;
     int* b = nullptr;
     const double pi = 3.14159;

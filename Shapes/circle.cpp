@@ -24,9 +24,7 @@ void Circle::Resize(double n)
 
 }
 void Circle::Rotate()
-{
-
-}
+{}
 void Circle::Save(ofstream& outfile) {   //Rghda added
 	//I tried to put the coordinate in a single line
 	//and the colors in another one, but it will make it hard for load function

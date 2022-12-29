@@ -47,7 +47,16 @@ void IrregularPolygon::Resize(double n)
 }
 void IrregularPolygon::Rotate()
 {
+	for (int i = 0; i < numberofsides; i++)
+	{
+		double TempX = arrayX[i];
+		double TempY = arrayY[i];
+		double xOfvertix = -TempY + Center.y + Center.x;
+		arrayX.at(i) = xOfvertix;
+		double yOfvertix = TempX - Center.x + Center.y;
+		arrayY.at(i) = yOfvertix;
 
+	}
 }
 void IrregularPolygon::Draw(GUI* pUI) const
 {

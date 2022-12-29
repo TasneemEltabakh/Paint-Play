@@ -35,6 +35,20 @@ void Triangle::Resize(double n)
 }
 void Triangle::Rotate()
 {
+	int sparx1 = Corner1.x;
+	int spary1 = Corner1.y;
+	int sparx2 = Corner2.x;
+	int spary2 = Corner2.y;
+	int sparx3 = Corner3.x;
+	int spary3 = Corner3.y;
+	
+
+	Corner1.x =  -spary1 + Center.y + Center.x;
+	Corner1.y = sparx1 - Center.x + Center.y;
+	Corner2.x =  -spary2 + Center.y + Center.x;
+	Corner2.y = sparx2 - Center.x + Center.y;
+	Corner3.x =  -spary3 + Center.y + Center.x;
+	Corner3.y = sparx3 - Center.x + Center.y;
 
 }
 

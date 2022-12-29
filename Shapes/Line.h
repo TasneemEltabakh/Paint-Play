@@ -10,6 +10,7 @@ private:
 	Point Corner1;
 	Point Corner2;
 	double dist;
+	Point midPoint;
 
 public:
 

@@ -58,7 +58,7 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opAddTriangle(this);
 			break;
 		case DRAW_LINE:
-			pOp = new Resize(this);
+			pOp = new Rotate(this);
 			break;
 		case DRAW_regularPOLY:
 			pOp = new opAddRegPol(this);

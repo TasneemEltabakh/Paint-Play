@@ -23,18 +23,31 @@ void Oval::Draw(GUI* pUI) const
 void Oval::Resize(double n)
 {
 	
+	
+
 	Corner1.x =( Corner1.x * n) - (n * center.x) + center.x;
 	Corner1.y = (Corner1.y * n) - (n * center.y) + center.y;
 	Corner2.x = (Corner2.x * n) - (n * center.x) + center.x;
 	Corner2.x = (Corner2.x * n) - (n * center.y) + center.y;
 
+
 	center.x = Corner2.x;
 	center.y = Corner1.y;
-
 }
 void Oval ::Rotate()
 {
 
+	int sparx1 = Corner1.x;
+	int spary1 = Corner1.y;
+	int sparx2 = Corner2.x;
+	int spary2 = Corner2.y;
+
+
+
+	Corner1.x = -spary1 + center.y + center.x;
+	Corner1.y = sparx1 - center.x + center.y;
+	Corner2.x = -spary2 + center.y + center.x;
+	Corner2.y = sparx2 - center.x + center.y;
 }
 void Oval::Save(ofstream& outfile) {   //Rghda added
 	//I tried to put the coordinate in a single line

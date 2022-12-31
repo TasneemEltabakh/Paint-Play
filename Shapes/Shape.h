@@ -33,8 +33,7 @@ public:
 	virtual void Rotate() = 0;	//Rotate the shape
 	virtual void Resize(double n) = 0;	//Resize the shape
 	//virtual void Move() = 0;		//Move the shape
-	virtual void zoomin(GUI* pUI) = 0;
-	
+	virtual void zoom(GUI* pUI) = 0;
 	virtual void Save(ofstream & outfile) = 0;	//Save the shape parameters to the file //Rghda edit (I remove the comment here)(GUIFile instead of OutFile)
 
 

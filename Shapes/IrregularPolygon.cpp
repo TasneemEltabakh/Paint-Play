@@ -31,10 +31,8 @@ IrregularPolygon::IrregularPolygon(vector<Point> arrayv, GfxInfo shapeGfxInfo) :
 IrregularPolygon :: ~IrregularPolygon()
 {
 }
-void IrregularPolygon::zoomin(GUI* pUI)
+void  IrregularPolygon::zoom(GUI* pUI)
 {
-
-
 }
 void IrregularPolygon::Resize(double n)
 {

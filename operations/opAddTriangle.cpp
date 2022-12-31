@@ -16,7 +16,7 @@ void opAddTriangle::Execute()
 
 	//Get a Pointer to the Input / Output Interfaces
 	GUI* pUI = pControl->GetUI();
-
+	pUI->isThisShapezoomed();
 	pUI->PrintMessage("New Triangle: Click at first corner");
 	//Read 1st corner and store in point P1
 	pUI->GetPointClicked(P1.x, P1.y);
@@ -67,11 +67,11 @@ void opAddTriangle::Execute()
 		else
 			TriangleGfxInfo.DrawClr = pUI->getoldDrawColor();
 	
-
+	
 	//Create a Triangle with the above parameters
-	Triangle* T = new Triangle(P1, P2, P3,  TriangleGfxInfo);
 
-
+	Triangle* T = new Triangle( P1 , P2, P3,  TriangleGfxInfo);
+	pUI->isThisShapezoomed();
 	//Get a pointer to the graph
 	Graph* TR = pControl->getGraph();
 

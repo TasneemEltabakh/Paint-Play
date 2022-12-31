@@ -21,7 +21,7 @@
 #include "operations/opCahngeSelectedBorder.h"
 #include "operations/opChangeWidth.h"
 #include "operations/opSwitchToPlay.h"
-#include "operations/ZoomIn.h"
+#include "operations/Zoom.h"
 #include "operations/Resize.h"
 #include "operations/rotatOp.h"
 
@@ -58,7 +58,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddTriangle(this);
 		break;
 	case DRAW_LINE:
-		pOp = new Rotate(this);
+		pOp = new Zoom(this);
 		break;
 	case DRAW_regularPOLY:
 		pOp = new opAddRegPol(this);

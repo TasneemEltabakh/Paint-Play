@@ -107,6 +107,8 @@ class GUI
 		bool isResized;
 		bool isZoomedin;
 		bool isZoomedOut;
+		bool isshapezoom;
+		
 		color col;
 		
 	
@@ -124,7 +126,9 @@ class GUI
 	color BkGrndColor;		//Background color
 	color StatusBarColor;	//Status bar color
 	int PenWidth;	
+	
 	Point Origin;
+	double scale;
 	int* count;//width of the pen that draws shapes
 	int* count2;
 	int* count3;
@@ -155,7 +159,7 @@ public:
 	// -- shapes Drawing functions
 	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const;  //Draw a rectangle
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo RectGfxInfo) const;
-	void DrawPol(const int PointertoarryOFX[], const int PointertoarryOFy[], const int Numberofsides, GfxInfo shapeGfxInfo) const;
+	void DrawPol( int PointertoarryOFX[],  int PointertoarryOFy[], const int Numberofsides, GfxInfo shapeGfxInfo) const;
 	void DrawCircle(Point P1, int radious, GfxInfo CircleGfxInfo) const;  //Draw a Circle
 	void DrawSquare(Point P1, Point P2,GfxInfo SquareGfxInfo) const;  //Draw a Square 
 	void DrawEllipse(Point P1, Point P2, GfxInfo OvalGfxInfo) const;  //Draw an Oval
@@ -171,21 +175,21 @@ public:
 	void AddImg(string name);
 	bool DoZoomin();
 	bool DoZoomOut();
-	void Zoomin(int,int);
-	void ZoomOut(int,int);
-	void UnZoom(int, int);
+	bool UnZoomi();
+	bool UnZoomo();
+	void Zoom(int, int);
+	double getLastScale();
 	bool checkZoomin();
 	bool checkZoomOut();
 	bool GetIsFilled() const;
 	Point GetOrigin() const;
 	///Make similar functions for drawing all other shapes.
     void PrintMessage(string msg) const;	//Print a message on Status bar
-
 	color getCrntDrawColor() const;	//get current drwawing color
 	color getCrntFillColor() const;	//get current filling color
 	int getCrntPenWidth() const;		//get current pen width
 	color GetColour(const int X, const int Y); //choose colour from colour pallete
-	// nada edit wed 
+	
 	color getoldDrawColor() const;
 	color GetSelectedColour(const int X, const int Y);	//get current drwawing color
 	color getoldFillColor() const;	//get current filling color
@@ -196,7 +200,7 @@ public:
 	int setselectedWidth(int wchoice);
 	bool checkcol();
 	bool GetIscol();
-	int getinterface();
+	bool isThisShapezoomed();
 	~GUI();
 };
 

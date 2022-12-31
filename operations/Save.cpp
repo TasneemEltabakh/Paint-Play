@@ -24,7 +24,6 @@ void  Save::Execute()
 {
 	GUI* pGUI = pControl->GetUI();
 	Graph* pGraph = pControl->getGraph();
-
 	pGUI->PrintMessage("name your file please");
 	Name = pGUI->GetSrting() + ".txt";
 

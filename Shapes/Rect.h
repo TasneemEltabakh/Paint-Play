@@ -21,6 +21,6 @@ public:
 	void Load(ifstream& inputfile);
 	void Resize(double n);	//Resize the shape
 	void Rotate();
-	void zoomin(GUI* pUI);
+	void zoom(GUI* pUI) override;
 };
 

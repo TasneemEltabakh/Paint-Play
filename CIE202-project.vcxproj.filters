@@ -144,9 +144,6 @@
     <ClCompile Include="Shapes\Square.cpp">
       <Filter>Shapes&amp;Graph</Filter>
     </ClCompile>
-    <ClCompile Include="operations\Save.cpp">
-      <Filter>operation</Filter>
-    </ClCompile>
     <ClCompile Include="operations\Delete.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
@@ -231,10 +228,8 @@
     <ClCompile Include="operations\Select.cpp">
       <Filter>operations</Filter>
     </ClCompile>
-    <ClCompile Include="operations\ZooomOut.cpp">
-      <Filter>operations</Filter>
-    </ClCompile>
-    <ClCompile Include="operations\ZooomIn.cpp">
+    <ClCompile Include="operations\Save.cpp" />
+    <ClCompile Include="operations\Zooom.cpp">
       <Filter>operations</Filter>
     </ClCompile>
   </ItemGroup>
@@ -334,12 +329,6 @@
     <ClInclude Include="Shapes\Square.h">
       <Filter>Shapes&amp;Graph</Filter>
     </ClInclude>
-    <ClInclude Include="operations\opAddirrPol.h">
-      <Filter>operation</Filter>
-    </ClInclude>
-    <ClInclude Include="operations\Save.h">
-      <Filter>operation</Filter>
-    </ClInclude>
     <ClInclude Include="operations\Delete.h">
       <Filter>Operations</Filter>
     </ClInclude>
@@ -426,10 +415,9 @@
     <ClInclude Include="operations\Select.h">
       <Filter>operations</Filter>
     </ClInclude>
-    <ClInclude Include="operations\ZooomOut.h">
-      <Filter>operations</Filter>
-    </ClInclude>
-    <ClInclude Include="operations\ZoomIn.h">
+    <ClInclude Include="operations\opAddirrPol.h" />
+    <ClInclude Include="operations\Save.h" />
+    <ClInclude Include="operations\Zoom.h">
       <Filter>operations</Filter>
     </ClInclude>
   </ItemGroup>

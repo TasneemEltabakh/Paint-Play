@@ -18,6 +18,7 @@ class Triangle : public shape
 		void Load(ifstream& inputfile);
 		void Resize(double n);
 	    void Rotate();
-		void zoomin(GUI* pUI);
+		void zoom(GUI* pUI) override;
+		
 };
 

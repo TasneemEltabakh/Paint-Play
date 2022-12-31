@@ -9,7 +9,7 @@ GUI::GUI()
 	height = 700;
 	wx = 5;
 	wy = 5;
-
+	scale = 1;
 
 	StatusBarHeight = 50;
 	ToolBarHeight = 55;
@@ -39,6 +39,8 @@ GUI::GUI()
 	isZoomedOut = false;
 	Origin.x = 0;
 	Origin.y = 0;
+	scale = 1;
+	
 
 	//Create the output window
 	pWind = CreateWind(width, height, wx, wy);
@@ -350,18 +352,32 @@ Point GUI::GetOrigin() const
 //======================================================================================//
 //								shapes Drawing Functions								//
 //======================================================================================//
-void GUI:: Zoomin(int X, int Y)
+
+void GUI:: Zoom(int X, int Y)
 {
 
 	Origin.x = X ;
 	Origin.y = Y ;
+	
+
 
 }
-void  GUI::UnZoom(int X, int Y)
+bool  GUI::UnZoomi()
 {
-	Origin.x = -X;
-	Origin.y = -Y;
+	scale = getLastScale();
+	isZoomedin = false;
+	return isZoomedin;
 
+}
+bool  GUI::UnZoomo()
+{
+	scale = getLastScale();
+	isZoomedOut = false;
+	return isZoomedOut;
+}
+double GUI::getLastScale()
+{
+	return scale;
 }
 void GUI::AddImg(string s) {
 
@@ -375,6 +391,7 @@ void GUI::AddImg(string s) {
 
 void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 {
+	
 	color DrawingClr;
 	if (RectGfxInfo.isSelected)	//shape is selected
 		DrawingClr = HighlightColor; //shape should be drawn highlighted
@@ -395,10 +412,11 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 		pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
 	else
 	{
-		P1.x = (P1.x * 2) - (2 * Origin.x) + Origin.x;
-		P1.y = (P1.y * 2) - (2 * Origin.y) + Origin.y;
-		P2.x = (P2.x * 2) - (2 * Origin.x) + Origin.x;
-		P2.y = (P2.y * 2) - (2 * Origin.y) + Origin.y;
+		P1.x = (P1.x * scale) - (scale * Origin.x) + Origin.x;
+		P1.y = (P1.y * scale) - (scale * Origin.y) + Origin.y;
+		P2.x = (P2.x * scale) - (scale * Origin.x) + Origin.x;
+		P2.y = (P2.y * scale) - (scale * Origin.y) + Origin.y;
+	
 		pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
 	}
 	
@@ -406,6 +424,7 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 
 void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriangleGfxInfo) const
 {
+
 	color DrawingClr;
 	if (TriangleGfxInfo.isSelected)	//shape is selected
 		DrawingClr = HighlightColor; //shape should be drawn highlighted
@@ -423,27 +442,33 @@ void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriangleGfxInfo) co
 	else
 		style = FRAME;
 
-	if (isZoomedin== false)
-		pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y, style);
-	else
-	{
-
-		P1.x = (P1.x * 2) - (2 * Origin.x) + Origin.x;
-		P1.y = (P1.y * 2) - (2 * Origin.y) + Origin.y;
-		P2.x = (P2.x * 2) - (2 * Origin.x) + Origin.x;
-		P2.y = (P2.y * 2) - (2 * Origin.y) + Origin.y;
-		P3.x = (P3.x * 2) - (2 * Origin.x) + Origin.x;
-		P3.y = (P3.y * 2) - (2 * Origin.y) + Origin.y;
-		pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y, style);
+	
 		
-	}
+		if (isZoomedin == true || isZoomedOut == true)
+		{
+
+			P1.x = (P1.x * scale) - (scale * Origin.x) + Origin.x;
+			P1.y = (P1.y * scale) - (scale * Origin.y) + Origin.y;
+			P2.x = (P2.x * scale) - (scale * Origin.x) + Origin.x;
+			P2.y = (P2.y * scale) - (scale * Origin.y) + Origin.y;
+			P3.x = (P3.x * scale) - (scale * Origin.x) + Origin.x;
+			P3.y = (P3.y * scale) - (scale * Origin.y) + Origin.y;
+			pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y, style);
+		}
+	
+		if (isshapezoom == false)
+		{
+			pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y, style);
+		}
+		
+}
 
 	
-} 
-void GUI:: DrawPol(const int PointertoarryOFX[], const int PointertoarryOFy[], const int Numberofsides, GfxInfo shapeGfxInfo) const
+
+void GUI:: DrawPol( int PointertoarryOFX[],  int PointertoarryOFy[], const int Numberofsides, GfxInfo shapeGfxInfo) const
 {
 	
-	color DrawingClr;
+	color DrawingClr;;
 	if (shapeGfxInfo.isSelected)	//shape is selected
 		DrawingClr = HighlightColor; //shape should be drawn highlighted
 	else
@@ -460,7 +485,21 @@ void GUI:: DrawPol(const int PointertoarryOFX[], const int PointertoarryOFy[], c
 	else
 
 		style = FRAME;
-	pWind->DrawPolygon(PointertoarryOFX,PointertoarryOFy, Numberofsides ,style);
+	if (isZoomedin == false)
+		pWind->DrawPolygon(PointertoarryOFX, PointertoarryOFy, Numberofsides, style);
+
+	else
+	{
+		for (int i = 0; i < Numberofsides; i++)
+		{
+
+			PointertoarryOFX [i] = (PointertoarryOFX[i] * scale) - (scale * Origin.x) + Origin.x;
+			PointertoarryOFy [i] = (PointertoarryOFy[i] * scale) - (scale * Origin.y) + Origin.y;
+		}
+		pWind->DrawPolygon(PointertoarryOFX, PointertoarryOFy, Numberofsides, style);
+
+	}
+	
 
 }
 // Circle //
@@ -487,9 +526,9 @@ void GUI::DrawCircle(Point P1, int radious, GfxInfo CircleGfxInfo) const
 		pWind->DrawCircle(P1.x, P1.y, radious, style);
 	else
 	{
-		P1.x = (P1.x * 2) - (2 * Origin.x) + Origin.x;
-		P1.y = (P1.y * 2) - (2 * Origin.y) + Origin.y;
-		pWind->DrawCircle(P1.x, P1.y, radious, style);
+		P1.x = (P1.x * scale) - (scale * Origin.x) + Origin.x;
+		P1.y = (P1.y * scale) - (scale * Origin.y) + Origin.y;
+		pWind->DrawCircle(P1.x, P1.y, scale*radious, style);
 	}
 
 
@@ -519,10 +558,11 @@ void GUI:: DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const //Draw a 
 		pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
 	else
 	{
-		P1.x = (P1.x * 2) - (2 * Origin.x) + Origin.x;
-		P1.y = (P1.y * 2) - (2 * Origin.y) + Origin.y;
-		P2.x = (P2.x * 2) - (2 * Origin.x) + Origin.x;
-		P2.y = (P2.y * 2) - (2 * Origin.y) + Origin.y;
+		P1.x = (P1.x * scale) - (scale * Origin.x) + Origin.x;
+		P1.y = (P1.y * scale) - (scale * Origin.y) + Origin.y;
+		P2.x = (P2.x * scale) - (scale * Origin.x) + Origin.x;
+		P2.y = (P2.y * scale) - (scale * Origin.y) + Origin.y;
+	
 		pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
 	}
 
@@ -553,10 +593,12 @@ void GUI::DrawEllipse(Point P1, Point	P2, GfxInfo OvalGfxInfo) const
 		pWind->DrawEllipse(P1.x, P1.y, P2.x, P2.y, style);
 	else
 	{
-		P1.x = (P1.x * 2) - (2 * Origin.x) + Origin.x;
-		P1.y = (P1.y * 2) - (2 * Origin.y) + Origin.y;
-		P2.x = (P2.x * 2) - (2 * Origin.x) + Origin.x;
-		P2.y = (P2.y * 2) - (2 * Origin.y) + Origin.y;
+		P1.x = (P1.x * scale) - (scale * Origin.x) + Origin.x;
+		P1.y = (P1.y * scale) - (scale * Origin.y) + Origin.y;
+		P2.x = (P2.x * scale) - (scale * Origin.x) + Origin.x;
+		P2.y = (P2.y * scale) - (scale * Origin.y) + Origin.y;
+	
+
 		pWind->DrawEllipse(P1.x, P1.y, P2.x, P2.y, style);
 	}
 
@@ -587,10 +629,11 @@ void GUI::DrawLine(Point P1, Point P2, GfxInfo OvalGfxInfo) const
 		pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style);
 	else
 	{
-		P1.x = (P1.x * 2) - (2 * Origin.x) + Origin.x;
-		P1.y = (P1.y * 2) - (2 * Origin.y) + Origin.y;
-		P2.x = (P2.x * 2) - (2 * Origin.x) + Origin.x;
-		P2.y = (P2.y * 2) - (2 * Origin.y) + Origin.y;
+		P1.x = (P1.x * scale) - (scale * Origin.x) + Origin.x;
+		P1.y = (P1.y * scale) - (scale * Origin.y) + Origin.y;
+		P2.x = (P2.x * scale) - (scale * Origin.x) + Origin.x;
+		P2.y = (P2.y * scale) - (scale * Origin.y) + Origin.y;
+	
 		pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style);
 	}
 	
@@ -643,13 +686,18 @@ bool GUI::checkZoomin()
 }
 bool GUI::DoZoomOut()
 {
-
+	scale *= 0.5;
 	isZoomedOut = true;
 	return isZoomedOut;
 }
+bool GUI::isThisShapezoomed()
+{
+	isshapezoom = false;
+	return isshapezoom;
+}
 bool GUI::DoZoomin()
 {
-
+	scale = 1.5 * scale;
 	isZoomedin = true;
 	return isZoomedin;
 

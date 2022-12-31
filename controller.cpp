@@ -25,6 +25,7 @@
 #include "operations/ZoomOut.h"
 #include "operations/Resize.h"
 #include "operations/rotatOp.h"
+#include "operations/ResizeDrag.h"
 
 using namespace std;
 //Constructor
@@ -59,7 +60,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddTriangle(this);
 		break;
 	case DRAW_LINE:
-		pOp = new opAddLine(this);
+		pOp = new ResizeDrag(this);
 		break;
 	case DRAW_regularPOLY:
 		pOp = new opAddRegPol(this);

@@ -190,6 +190,7 @@
     <ClCompile Include="operations\opStick.cpp" />
     <ClCompile Include="operations\opSwitchToPlay.cpp" />
     <ClCompile Include="operations\Resize.cpp" />
+    <ClCompile Include="operations\ResizeDrag.cpp" />
     <ClCompile Include="operations\rotatOP.cpp" />
     <ClCompile Include="operations\Save.cpp" />
     <ClCompile Include="operations\Select.cpp" />
@@ -255,6 +256,7 @@
     <ClInclude Include="operations\opStick.h" />
     <ClInclude Include="operations\opSwitchToPlay.h" />
     <ClInclude Include="operations\Resize.h" />
+    <ClInclude Include="operations\ResizeDrag.h" />
     <ClInclude Include="operations\rotatOp.h" />
     <ClInclude Include="operations\Save.h" />
     <ClInclude Include="operations\Select.h" />

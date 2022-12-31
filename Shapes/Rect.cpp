@@ -39,7 +39,12 @@ void Rect::Resize(double n)
 
 
 }
-
+void Rect:: ResizeThisbydrag(int  xto , int yto) 
+{
+	Corner1.x += xto - center.x;
+	Corner1.y += yto - center.y;
+	
+}
 void Rect::Rotate()
 {
 

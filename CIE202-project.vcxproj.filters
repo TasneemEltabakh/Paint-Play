@@ -144,6 +144,10 @@
     <ClCompile Include="Shapes\Square.cpp">
       <Filter>Shapes&amp;Graph</Filter>
     </ClCompile>
+    <ClCompile Include="operations\Save.cpp" />
+    <ClCompile Include="operations\Delete.cpp">
+      <Filter>operations</Filter>
+    </ClCompile>
     <ClCompile Include="operations\Load.cpp">
       <Filter>operations</Filter>
     </ClCompile>
@@ -213,6 +217,9 @@
     <ClCompile Include="operations\Resize.cpp">
       <Filter>operations</Filter>
     </ClCompile>
+    <ClCompile Include="operations\ResizeDrag.cpp">
+      <Filter>operations</Filter>
+    </ClCompile>
     <ClCompile Include="operations\rotatOP.cpp">
       <Filter>operations</Filter>
     </ClCompile>
@@ -222,14 +229,10 @@
     <ClCompile Include="operations\Select.cpp">
       <Filter>operations</Filter>
     </ClCompile>
-    <ClCompile Include="operations\Save.cpp" />
     <ClCompile Include="operations\ZoomIn.cpp">
       <Filter>operations</Filter>
     </ClCompile>
     <ClCompile Include="operations\ZoomOut.cpp">
-      <Filter>operations</Filter>
-    </ClCompile>
-    <ClCompile Include="operations\Delete.cpp">
       <Filter>operations</Filter>
     </ClCompile>
   </ItemGroup>
@@ -329,10 +332,12 @@
     <ClInclude Include="Shapes\Square.h">
       <Filter>Shapes&amp;Graph</Filter>
     </ClInclude>
-    <ClInclude Include="operations\Delete.h">
-      <Filter>Operations</Filter>
-    </ClInclude>
     <ClInclude Include="operations\Load.h" />
+    <ClInclude Include="operations\Delete.h">
+      <Filter>operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opAddirrPol.h" />
+    <ClInclude Include="operations\Save.h" />
     <ClInclude Include="operations\Delete.h">
       <Filter>operations</Filter>
     </ClInclude>
@@ -405,6 +410,9 @@
     <ClInclude Include="operations\Resize.h">
       <Filter>operations</Filter>
     </ClInclude>
+    <ClInclude Include="operations\ResizeDrag.h">
+      <Filter>operations</Filter>
+    </ClInclude>
     <ClInclude Include="operations\rotatOp.h">
       <Filter>operations</Filter>
     </ClInclude>
@@ -414,8 +422,6 @@
     <ClInclude Include="operations\Select.h">
       <Filter>operations</Filter>
     </ClInclude>
-    <ClInclude Include="operations\opAddirrPol.h" />
-    <ClInclude Include="operations\Save.h" />
     <ClInclude Include="operations\ZoomIn.h">
       <Filter>operations</Filter>
     </ClInclude>
@@ -434,7 +440,7 @@
       <UniqueIdentifier>{5e150dff-8a89-44f3-b58a-731df9cea925}</UniqueIdentifier>
     </Filter>
     <Filter Include="operations">
-      <UniqueIdentifier>{4aea89fd-cc67-4cae-a2c3-1a5d970e9164}</UniqueIdentifier>
+      <UniqueIdentifier>{38f714f2-d696-4663-b7a0-ccbb7243d09f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

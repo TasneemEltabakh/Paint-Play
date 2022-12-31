@@ -35,6 +35,6 @@ public :
     void Load(ifstream& inputfile);
     void Resize(double n);
     void Rotate();
-
+    void ResizeThisbydrag(int  xto, int yto) override;
 };
 

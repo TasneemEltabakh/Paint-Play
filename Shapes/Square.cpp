@@ -40,7 +40,11 @@ void Square::zoom(double s, int x, int y)
 	Corner2.y = (Corner2.y * s) - (s * y) + y;
 
 }
+void Square::ResizeThisbydrag(int  xto, int yto)
+{
 	
+
+}
 Square::~Square()
 {}
 

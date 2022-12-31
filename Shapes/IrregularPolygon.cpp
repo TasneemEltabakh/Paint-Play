@@ -57,6 +57,11 @@ void IrregularPolygon::Resize(double n)
 	b = &arrayY[0];
 
 }
+void IrregularPolygon::ResizeThisbydrag(int  xto, int yto)
+{
+
+
+}
 void IrregularPolygon::Rotate()
 {
 	for (int i = 0; i < numberofsides; i++)

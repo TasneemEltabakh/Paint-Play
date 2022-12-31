@@ -289,7 +289,11 @@ void  GUI::back()
 	CreateDrawToolBar();
 
 }
+window* GUI::pointertowind()
+{
+	return pWind;
 
+}
 void GUI::CreatePlayToolBar() 
 {
 	InterfaceMode = MODE_PLAY;
@@ -634,11 +638,7 @@ bool GUI::DoZoomOut()
 	isZoomedOut = true;
 	return isZoomedOut;
 }
-bool GUI::isThisShapezoomed()
-{
-	isshapezoom = false;
-	return isshapezoom;
-}
+
 bool GUI::DoZoomin()
 {
 	scale = 1.5 * scale;

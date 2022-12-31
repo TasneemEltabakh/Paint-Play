@@ -21,6 +21,11 @@ void Oval::Draw(GUI* pUI) const
 	//Call Output::DrawTriangle to draw a Triangle on the screen	
 	pUI->DrawEllipse(Corner1,Corner2, ShpGfxInfo);
 }
+void Oval::ResizeThisbydrag(int  xto, int yto)
+{
+
+
+}
 void Oval::Resize(double n)
 {
 

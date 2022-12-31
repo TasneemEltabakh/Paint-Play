@@ -292,3 +292,13 @@ void Graph::ZOOM(double scale, int X, int Y)
 		
 	}
 }
+void  Graph::resizebydrag (int xto, int  yto)
+{
+
+	for (int k = 0; k < shapesList.size(); k++) {
+		if (selectedShape == shapesList[k]) {
+			shapesList[k]->ResizeThisbydrag(xto, yto);
+		}
+	}
+
+}

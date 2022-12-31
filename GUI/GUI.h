@@ -200,7 +200,7 @@ public:
 	int setselectedWidth(int wchoice);
 	bool checkcol();
 	bool GetIscol();
-	bool isThisShapezoomed();
+	window* pointertowind();
 	~GUI();
 };
 

@@ -16,7 +16,7 @@ void opAddTriangle::Execute()
 
 	//Get a Pointer to the Input / Output Interfaces
 	GUI* pUI = pControl->GetUI();
-	pUI->isThisShapezoomed();
+
 	pUI->PrintMessage("New Triangle: Click at first corner");
 	//Read 1st corner and store in point P1
 	pUI->GetPointClicked(P1.x, P1.y);

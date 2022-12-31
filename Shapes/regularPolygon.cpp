@@ -77,7 +77,11 @@ void regularPolygon::Rotate()
 
 	}
 }
+void regularPolygon::ResizeThisbydrag(int  xto, int yto)
+{
 
+
+}
 
 void  regularPolygon::Draw(GUI* pUI) const
 {

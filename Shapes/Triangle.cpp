@@ -34,6 +34,10 @@ void Triangle::Resize(double n)
 	
 
 }
+void Triangle::ResizeThisbydrag(int  xto, int yt)
+{
+
+}
 void Triangle::Rotate()
 {
 	

@@ -16,7 +16,7 @@ private:
     double iteratedangle;
     vector<int> arrayX;
     vector<int> arrayY;
-   int temp[100];
+    int temp[100];
     int* a = nullptr;
     int* b = nullptr;
     const double pi = 3.14159;
@@ -25,7 +25,7 @@ public :
     regularPolygon(Point, Point, int , GfxInfo shapeGfxInfo);
     virtual ~regularPolygon();
     virtual void Draw(GUI* pUI) const;
-
+    void zoomin(GUI* pUI);
 
     string PrintOnTool();  //Rghda added
     bool IsShapeExisting(int x, int y);  //Rghda added

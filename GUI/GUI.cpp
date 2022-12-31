@@ -35,7 +35,11 @@ GUI::GUI()
 	OldDrawColor = RED;
 	OLDFillColor = GREEN;
 	OLdwidth = 3;
-	nummi = 0;
+	isZoomedin = false;
+	isZoomedOut = false;
+	Origin.x = 0;
+	Origin.y = 0;
+
 	//Create the output window
 	pWind = CreateWind(width, height, wx, wy);
 	//Change the title
@@ -253,8 +257,6 @@ void GUI::CreateDrawToolBar()
 	}
 	
 
-
-
 	//Draw a line under the toolbar
 	pWind->SetPen(PLUM, 2);
 	pWind->DrawLine(0, ToolBarHeight + 14, width, ToolBarHeight + 14);
@@ -339,11 +341,26 @@ int GUI::getCrntPenWidth() const		//get current pen width
 {
 	return PenWidth;
 }
-
+Point GUI::GetOrigin() const
+{
+	return Origin;
+}
 //======================================================================================//
 //								shapes Drawing Functions								//
 //======================================================================================//
+void GUI:: Zoomin(int X, int Y)
+{
 
+	Origin.x = X ;
+	Origin.y = Y ;
+
+}
+void  GUI::UnZoom()
+{
+	Origin.x = 0;
+	Origin.y = 0;
+
+}
 void GUI::AddImg(string s) {
 
 	int MenuIconWidthpallete = 100;
@@ -372,9 +389,17 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 	}
 	else
 		style = FRAME;
-
-	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
-
+	if (isZoomedin == false)
+		pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
+	else
+	{
+		P1.x = (P1.x * 2) - (2 * Origin.x) + Origin.x;
+		P1.y = (P1.y * 2) - (2 * Origin.y) + Origin.y;
+		P2.x = (P2.x * 2) - (2 * Origin.x) + Origin.x;
+		P2.y = (P2.y * 2) - (2 * Origin.y) + Origin.y;
+		pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
+	}
+	
 }
 
 void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriangleGfxInfo) const
@@ -395,9 +420,21 @@ void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriangleGfxInfo) co
 	}
 	else
 		style = FRAME;
+	if (isZoomedin== false)
+		pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y, style);
+	else
+	{
+		P1.x = (P1.x * 2) - (2 * Origin.x) + Origin.x;
+		P1.y = (P1.y * 2) - (2 * Origin.y) +Origin.y;
+		P2.x = (P2.x * 2) - (2 * Origin.x) + Origin.x;
+		P2.y = (P2.y * 2) - (2 * Origin.y) + Origin.y;
+		P3.x = (P3.x * 2) - (2 * Origin.x) + Origin.x;
+		P3.y = (P3.y * 2) - (2 * Origin.y) + Origin.y;
+		pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y, style);
+		
+	}
 
-	pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y, style);
-
+	
 } 
 void GUI:: DrawPol(const int PointertoarryOFX[], const int PointertoarryOFy[], const int Numberofsides, GfxInfo shapeGfxInfo) const
 {
@@ -442,8 +479,15 @@ void GUI::DrawCircle(Point P1, int radious, GfxInfo CircleGfxInfo) const
 	}
 	else
 		style = FRAME;
+	if (isZoomedin == false)
+		pWind->DrawCircle(P1.x, P1.y, radious, style);
+	else
+	{
+		P1.x = (P1.x * 2) - (2 * Origin.x) + Origin.x;
+		P1.y = (P1.y * 2) - (2 * Origin.y) + Origin.y;
+		pWind->DrawCircle(P1.x, P1.y, radious, style);
+	}
 
-	pWind->DrawCircle(P1.x, P1.y, radious, style);
 
 
 }
@@ -467,8 +511,18 @@ void GUI:: DrawSquare(Point P1, Point P2, GfxInfo SquareGfxInfo) const //Draw a 
 	}
 	else
 		style = FRAME;
+	if (isZoomedin == false)
+		pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
+	else
+	{
+		P1.x = (P1.x * 2) - (2 * Origin.x) + Origin.x;
+		P1.y = (P1.y * 2) - (2 * Origin.y) + Origin.y;
+		P2.x = (P2.x * 2) - (2 * Origin.x) + Origin.x;
+		P2.y = (P2.y * 2) - (2 * Origin.y) + Origin.y;
+		pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
+	}
 
-	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
+	
 
 }
 
@@ -491,8 +545,18 @@ void GUI::DrawEllipse(Point P1, Point	P2, GfxInfo OvalGfxInfo) const
 	}
 	else
 		style = FRAME;
+	if (isZoomedin == false)
+		pWind->DrawEllipse(P1.x, P1.y, P2.x, P2.y, style);
+	else
+	{
+		P1.x = (P1.x * 2) - (2 * Origin.x) + Origin.x;
+		P1.y = (P1.y * 2) - (2 * Origin.y) + Origin.y;
+		P2.x = (P2.x * 2) - (2 * Origin.x) + Origin.x;
+		P2.y = (P2.y * 2) - (2 * Origin.y) + Origin.y;
+		pWind->DrawEllipse(P1.x, P1.y, P2.x, P2.y, style);
+	}
 
-	pWind->DrawEllipse(P1.x, P1.y, P2.x,P2.y, style);
+	
 
 
 }
@@ -515,8 +579,17 @@ void GUI::DrawLine(Point P1, Point P2, GfxInfo OvalGfxInfo) const
 	}
 	else
 		style = FRAME;
-
-	pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style);
+	if (isZoomedin == false)
+		pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style);
+	else
+	{
+		P1.x = (P1.x * 2) - (2 * Origin.x) + Origin.x;
+		P1.y = (P1.y * 2) - (2 * Origin.y) + Origin.y;
+		P2.x = (P2.x * 2) - (2 * Origin.x) + Origin.x;
+		P2.y = (P2.y * 2) - (2 * Origin.y) + Origin.y;
+		pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style);
+	}
+	
 
 
 }
@@ -555,6 +628,27 @@ bool GUI::checkborder()
 bool GUI::checkcol()
 {
 	return isBorderChanged;
+}
+bool GUI::checkZoomOut()
+{
+	return isZoomedOut ;
+}
+bool GUI::checkZoomin()
+{
+	return isZoomedin;
+}
+bool GUI::DoZoomOut()
+{
+
+	isZoomedOut = true;
+	return isZoomedOut;
+}
+bool GUI::DoZoomin()
+{
+
+	isZoomedin = true;
+	return isZoomedin;
+
 }
 bool GUI::GetIscol()
 {
@@ -701,14 +795,7 @@ int GUI::setPenWidth(int wchoice) 		//set current pen width
 	return PenWidth;
 }
 
-int GUI:: getinterface()
-{
-	if (InterfaceMode == MODE_COLOURS)
-		nummi = 0;
-	if (InterfaceMode == MODE_PLAY)
-		nummi = 1;
-	return nummi;
-}
+
 
 //////////////////////////////////////////////////////////////////////////////////////////
 GUI :: ~GUI()

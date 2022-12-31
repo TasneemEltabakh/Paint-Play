@@ -7,13 +7,14 @@ using namespace std;
 
 Rect::Rect(Point P1, Point P2, GfxInfo shapeGfxInfo):shape(shapeGfxInfo)
 {
-	check = 0;
+	
 	Corner1 = P1;
-	v.push_back(Corner1);
+
 	Corner2 = P2;
-	v.push_back(Corner2);
+
 	center.x = (Corner1.x + Corner2.x) / 2;
 	center.y = (Corner1.y + Corner2.y) / 2;
+
 }
 
 Rect::~Rect()
@@ -21,29 +22,46 @@ Rect::~Rect()
 
 void Rect::Draw(GUI* pUI) const
 {
-	pUI->DrawRect(v[0], v[1], ShpGfxInfo);
+	pUI->DrawRect(Corner1,Corner2, ShpGfxInfo);
 }
 
 void Rect::Resize(double n)
 { 
-	v.clear();
-
 	center.x = (Corner1.x + Corner2.x) / 2;
 	center.y = (Corner1.y + Corner2.y) / 2;
+	
+	Corner1.x = (Corner1.x * n) - ( n * center.x) + center.x;
+	Corner1.y = (Corner1.y * n) - (n * center.y) + center.y;
+	Corner2.x = (Corner2.x * n) - (n * center.x) + center.x;
+	Corner2.y = (Corner2.y * n) - (n * center.y) + center.y;
 
-	P.x = (Corner1.x * n) - ( n * center.x) + center.x;
-	P.y = (Corner1.y * n) - (n * center.y) + center.y;
-	R.x = (Corner2.x * n) - (n * center.x) + center.x;
-	R.y = (Corner2.y * n) - (n * center.y) + center.y;
-
-	v.push_back(P);
-	v.push_back(R);
 
 
 
 }
+
 void Rect::Rotate()
 {
+
+	int sparx1 = Corner1.x;
+	int spary1 = Corner1.y;
+	int sparx2 = Corner2.x;
+	int spary2 = Corner2.y;
+
+	Corner1.x = -spary1 + center.y + center.x;
+	Corner1.y = sparx1 - center.x + center.y;
+	Corner2.x = -spary2 + center.y + center.x;
+	Corner2.y = sparx2 - center.x + center.y;
+
+}
+void Rect::zoomin(GUI* pUI)
+{
+
+
+	Corner1.x = (Corner1.x * 2) - (2 * pUI->GetOrigin().x) + pUI->GetOrigin().x;
+	Corner1.y = (Corner1.y * 2) - (2 * pUI->GetOrigin().y) + pUI->GetOrigin().y;
+	Corner2.x = (Corner2.x * 2) - (2 * pUI->GetOrigin().x) + pUI->GetOrigin().x;
+	Corner2.y = (Corner2.y * 2) - (2 * pUI->GetOrigin().y) + pUI->GetOrigin().y;
 
 }
 

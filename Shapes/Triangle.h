@@ -11,7 +11,6 @@ class Triangle : public shape
 		Triangle(Point P1, Point P2, Point P3 , GfxInfo shapeGfxInfo);
 		virtual ~Triangle();
 		virtual void Draw(GUI* pUI) const;
-
 		void Save(ofstream& outfile); //Rghda added
 		float trianglearea(int x1, int y1, int x2, int y2, int x3, int y3);  //Rghda added
 		bool IsShapeExisting(int x, int y);  //Rghda added
@@ -19,5 +18,6 @@ class Triangle : public shape
 		void Load(ifstream& inputfile);
 		void Resize(double n);
 	    void Rotate();
+		void zoomin(GUI* pUI);
 };
 

@@ -10,6 +10,7 @@ private:
 	Point Corner1;
 	Point Corner2;
 	double dist;
+	Point midPoint;
 
 public:
 
@@ -22,4 +23,5 @@ public:
 	void Load(ifstream& inputfile);
 	void Resize(double n);
 	void Rotate();
+	void zoomin(GUI* pUI);
 };

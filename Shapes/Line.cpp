@@ -13,8 +13,9 @@ Line::Line(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
 	Corner1 = P1;
 	Corner2 = P2;
-	dist = sqrt(pow(Corner1.x - Corner2.x, 2) + pow(Corner1.y - Corner2.y, 2));
-		
+	dist = sqrt(pow(Corner1.x - Corner2.x, 2) + pow(Corner1.y - Corner2.y, 2));	
+	midPoint.x = (Corner1.x + Corner2.x) / 2;
+	midPoint.y= (Corner1.y + Corner2.y) / 2;
 }
 
 Line :: ~Line()
@@ -30,9 +31,22 @@ void Line::Resize(double n)
 	Corner2.x = Corner1.x + dist;
 	Corner2.y = Corner1.y + dist;
 }
-void Line::Rotate()
+void Line::zoomin(GUI* pUI)
 {
 
+
+}
+void Line::Rotate()
+{
+	int sparx1 = Corner1.x;
+	int spary1 = Corner1.y;
+	int sparx2 = Corner2.x;
+	int spary2 = Corner2.y;
+
+	Corner1.x = -spary1 + midPoint.y + midPoint.x;
+	Corner1.y = sparx1 - midPoint.x + midPoint.y;
+	Corner2.x = -spary2 + midPoint.y + midPoint.x;
+	Corner2.y = sparx2 - midPoint.x + midPoint.y;
 }
 
 //RAGHDA'S PARTT 

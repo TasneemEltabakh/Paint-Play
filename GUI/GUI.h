@@ -105,6 +105,8 @@ class GUI
 		bool isChanged;
 		bool isBorderChanged;
 		bool isResized;
+		bool isZoomedin;
+		bool isZoomedOut;
 		color col;
 		
 	
@@ -122,6 +124,7 @@ class GUI
 	color BkGrndColor;		//Background color
 	color StatusBarColor;	//Status bar color
 	int PenWidth;	
+	Point Origin;
 	int* count;//width of the pen that draws shapes
 	int* count2;
 	int* count3;
@@ -166,7 +169,15 @@ public:
 	bool Checkresize();
 	bool CheckIsResized();
 	void AddImg(string name);
+	bool DoZoomin();
+	bool DoZoomOut();
+	void Zoomin(int,int);
+	void ZoomOut(int,int);
+	void UnZoom();
+	bool checkZoomin();
+	bool checkZoomOut();
 	bool GetIsFilled() const;
+	Point GetOrigin() const;
 	///Make similar functions for drawing all other shapes.
     void PrintMessage(string msg) const;	//Print a message on Status bar
 
@@ -186,8 +197,6 @@ public:
 	bool checkcol();
 	bool GetIscol();
 	int getinterface();
-	int nummi;
-
 	~GUI();
 };
 

@@ -54,8 +54,12 @@ void Rect::Rotate()
 	Corner2.y = sparx2 - center.x + center.y;
 
 }
-void  Rect::zoom(GUI* pUI)
+void  Rect::zoom(double s, int x, int y)
 {
+	Corner1.x = (Corner1.x * s) - (s * x) + x;
+	Corner1.y = (Corner1.y * s) - (s * y) + y;
+	Corner2.x = (Corner2.x * s) - (s * x) + x;
+	Corner2.y = (Corner2.y * s) - (s * y) + y;
 }
 
 

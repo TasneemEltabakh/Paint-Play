@@ -166,7 +166,6 @@
     <ClCompile Include="GUI\GUI.cpp" />
     <ClCompile Include="controller.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="operations\Delete.cpp" />
     <ClCompile Include="operations\Load.cpp" />
     <ClCompile Include="operations\opAddCircle.cpp" />
     <ClCompile Include="operations\opAddImg.cpp" />
@@ -193,7 +192,8 @@
     <ClCompile Include="operations\rotatOP.cpp" />
     <ClCompile Include="operations\Save.cpp" />
     <ClCompile Include="operations\Select.cpp" />
-    <ClCompile Include="operations\Zooom.cpp" />
+    <ClCompile Include="operations\ZoomIn.cpp" />
+    <ClCompile Include="operations\ZoomOut.cpp" />
     <ClCompile Include="Shapes\circle.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
     <ClCompile Include="Shapes\IrregularPolygon.cpp" />
@@ -230,7 +230,6 @@
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="GUI\GUI.h" />
     <ClInclude Include="operations\Delete.h" />
-    <ClInclude Include="operations\exit.h" />
     <ClInclude Include="operations\Load.h" />
     <ClInclude Include="operations\opAddCircle.h" />
     <ClInclude Include="operations\opAddImg.h" />
@@ -258,7 +257,8 @@
     <ClInclude Include="operations\rotatOp.h" />
     <ClInclude Include="operations\Save.h" />
     <ClInclude Include="operations\Select.h" />
-    <ClInclude Include="operations\Zoom.h" />
+    <ClInclude Include="operations\ZoomIn.h" />
+    <ClInclude Include="operations\ZoomOut.h" />
     <ClInclude Include="Shapes\ciecle.h" />
     <ClInclude Include="Shapes\Graph.h" />
     <ClInclude Include="Shapes\IrregularPolygon.h" />

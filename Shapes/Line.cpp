@@ -31,8 +31,12 @@ void Line::Resize(double n)
 	Corner2.x = Corner1.x + dist;
 	Corner2.y = Corner1.y + dist;
 }
-void  Line::zoom(GUI* pUI)
+void  Line::zoom(double s, int x, int y)
 {
+	Corner1.x = (Corner1.x * s) - (s * x) + x;
+	Corner1.y = (Corner1.y * s) - (s * y) + y;
+	Corner2.x = (Corner2.x * s) - (s * x) + x;
+	Corner2.y = (Corner2.y * s) - (s * y) + y;
 }
 
 void Line::Rotate()

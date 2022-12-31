@@ -23,5 +23,5 @@ public:
 	void Load(ifstream& inputfile);
 	void Resize(double n);
 	void Rotate();
-	void zoom(GUI* pUI) override;
+	void zoom(double s, int, int) override;
 };

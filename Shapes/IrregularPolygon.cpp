@@ -31,8 +31,20 @@ IrregularPolygon::IrregularPolygon(vector<Point> arrayv, GfxInfo shapeGfxInfo) :
 IrregularPolygon :: ~IrregularPolygon()
 {
 }
-void  IrregularPolygon::zoom(GUI* pUI)
+void  IrregularPolygon::zoom(double s, int x, int y)
 {
+	for (int i = 0; i < numberofsides; i++)
+	{
+		double TempX = arrayX[i];
+		double TempY = arrayY[i];
+
+		double xOfvertix = (TempX * s) - (s * x) + x;
+		arrayX.at(i) = xOfvertix;
+		double yOfvertix = (TempY * s) - (s * y) + y;
+		arrayY.at(i) = yOfvertix;
+
+
+	}
 }
 void IrregularPolygon::Resize(double n)
 {

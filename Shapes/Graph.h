@@ -60,6 +60,7 @@ public:
 	void Graph::opChangeSelectedBorder(color);
 	void  resize(double);
 	void  rotate();
+	void  ZOOM(double,int , int);
 
 
 };

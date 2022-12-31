@@ -52,10 +52,15 @@ void Triangle::Rotate()
 	Corner3.y = sparx3 - Center.x + Center.y;
 
 }
-void Triangle::zoom(GUI* pUI)
+void Triangle::zoom(double s, int x, int y)
 {
-
-	pUI->isThisShapezoomed();
+	
+	Corner1.x = (Corner1.x * s) - (s * x) + x;
+	Corner1.y = (Corner1.y * s) - (s * y) + y;
+	Corner2.x = (Corner2.x * s) - (s * x) + x;
+	Corner2.y = (Corner2.y * s) - (s *y) + y;
+	Corner3.x = (Corner3.x * s) - (s * x) + x;
+	Corner3.y = (Corner3.y * s) - (s * y) + y;
 
 }
 

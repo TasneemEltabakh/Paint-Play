@@ -284,3 +284,11 @@ void Graph::rotate()
 		}
 	}
 }
+void Graph::ZOOM(double scale, int X, int Y)
+{
+	for (int k = 0; k < shapesList.size(); k++) {
+		 
+			shapesList[k]->zoom(scale,X,Y);
+		
+	}
+}

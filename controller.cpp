@@ -21,7 +21,8 @@
 #include "operations/opCahngeSelectedBorder.h"
 #include "operations/opChangeWidth.h"
 #include "operations/opSwitchToPlay.h"
-#include "operations/Zoom.h"
+#include "operations/ZoomIn.h"
+#include "operations/ZoomOut.h"
 #include "operations/Resize.h"
 #include "operations/rotatOp.h"
 
@@ -58,7 +59,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddTriangle(this);
 		break;
 	case DRAW_LINE:
-		pOp = new Zoom(this);
+		pOp = new ZoomIn(this);
 		break;
 	case DRAW_regularPOLY:
 		pOp = new opAddRegPol(this);
@@ -76,7 +77,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new Select(this);
 		break;
 	case DEL:  //Rghda added
-		pOp = new Delete(this);
+		pOp = new ZoomOut(this);
 		break;
 	case EXIT:
 		pOp = new opExit(this);

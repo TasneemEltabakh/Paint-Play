@@ -25,8 +25,13 @@ void Circle::Resize(double n)
 }
 void Circle::Rotate()
 {}
-void  Circle::zoom(GUI* pUI)
+void  Circle::zoom(double s, int x, int y)
 {
+	Corner1.x = (Corner1.x * s) - (s * x) + x;
+	Corner1.y = (Corner1.y * s) - (s * y) + y;
+	Corner2.x = (Corner2.x * s) - (s * x) + x;
+	Corner2.y = (Corner2.y * s) - (s * y) + y;
+	radious = s * radious;
 }
 void Circle::Save(ofstream& outfile) {   //Rghda added
 	//I tried to put the coordinate in a single line

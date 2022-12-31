@@ -25,7 +25,7 @@ public :
     regularPolygon(Point, Point, int , GfxInfo shapeGfxInfo);
     virtual ~regularPolygon();
     virtual void Draw(GUI* pUI) const;
-    void zoom(GUI* pUI) override;
+    void zoom(double s, int, int) override;
     string PrintOnTool();  //Rghda added
     bool IsShapeExisting(int x, int y);  //Rghda added
     float trianglearea(int x1, int y1, int x2, int y2, int x3, int y3);  //Rghda added

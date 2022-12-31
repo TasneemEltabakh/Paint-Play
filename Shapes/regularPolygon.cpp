@@ -40,8 +40,22 @@ void regularPolygon::generatingPoints()
 	b = &arrayY[0];
 
 }
-void  regularPolygon::zoom(GUI* pUI)
+void  regularPolygon::zoom(double s, int x, int y)
 {
+
+	for(int i = 0; i < NumberOfsides; i++)
+	{
+		double TempX = arrayX[i];
+		double TempY = arrayY[i];
+		
+		double xOfvertix = (TempX * s) - (s * x) + x;
+		arrayX.at(i) = xOfvertix;
+		double yOfvertix = (TempY * s) - (s * y) + y;
+		arrayY.at(i) = yOfvertix;
+
+
+	}
+	
 }
 
 

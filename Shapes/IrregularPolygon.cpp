@@ -125,13 +125,6 @@ bool IrregularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  I should 
 	}
 	return c1 % 2 == 0 ? false : true;
 
-		/*if (c1 % 2 != 0) {   //if it is odd  it is outside the shape
-			return false;
-		}
-		else {  //if the number of intersection is even  so it is inside the shape
-			return true;
-		}*/
-	
 
 }
 

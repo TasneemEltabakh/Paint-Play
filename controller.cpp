@@ -77,7 +77,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new Select(this);
 		break;
 	case DEL:  //Rghda added
-		pOp = new Resize(this); // trial
+		pOp = new Delete(this); // trial
 		break;
 	case EXIT:
 		pOp = new opExit(this);

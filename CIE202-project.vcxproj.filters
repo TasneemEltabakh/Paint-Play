@@ -144,9 +144,6 @@
     <ClCompile Include="Shapes\Square.cpp">
       <Filter>Shapes&amp;Graph</Filter>
     </ClCompile>
-    <ClCompile Include="operations\Delete.cpp">
-      <Filter>operations</Filter>
-    </ClCompile>
     <ClCompile Include="operations\Load.cpp">
       <Filter>operations</Filter>
     </ClCompile>
@@ -230,6 +227,9 @@
       <Filter>operations</Filter>
     </ClCompile>
     <ClCompile Include="operations\ZoomOut.cpp">
+      <Filter>operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\Delete.cpp">
       <Filter>operations</Filter>
     </ClCompile>
   </ItemGroup>

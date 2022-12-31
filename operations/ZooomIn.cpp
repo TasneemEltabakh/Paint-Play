@@ -12,11 +12,15 @@ ZooomIn :: ~ZooomIn()
 
 void ZooomIn::Execute()
 {
-
+	
 	GUI* pUI = pControl->GetUI();
 	int X, Y;
+	
+	pUI->ClearStatusBar();
+	pUI->CreateDrawToolBar();
 
 	pUI->DoZoomin();
+
 	pUI->GetPointClicked(X, Y);
 	pUI->Zoomin(X, Y);
 

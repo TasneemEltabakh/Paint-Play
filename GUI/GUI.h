@@ -173,7 +173,7 @@ public:
 	bool DoZoomOut();
 	void Zoomin(int,int);
 	void ZoomOut(int,int);
-	void UnZoom();
+	void UnZoom(int, int);
 	bool checkZoomin();
 	bool checkZoomOut();
 	bool GetIsFilled() const;

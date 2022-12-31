@@ -43,7 +43,18 @@ void regularPolygon::generatingPoints()
 void regularPolygon::zoomin(GUI* pUI)
 {
 
+	for (int i = 0; i < NumberOfsides; i++)
+	{
+		double TempX = arrayX[i];
+		double TempY = arrayY[i];
+		angle = i * (2 * pi) / NumberOfsides;
+		double xOfvertix = (TempX * 2) - (2 * pUI->GetOrigin().x) + pUI->GetOrigin().x;
+		arrayX.at(i) = xOfvertix;
+		double yOfvertix = (TempY * 2) - (2 * pUI->GetOrigin().y) + pUI->GetOrigin().y;
+		arrayY.at(i) = yOfvertix;
 
+
+	}
 }
 void regularPolygon::Resize(double n)
 {

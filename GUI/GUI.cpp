@@ -219,6 +219,7 @@ void GUI::CreateDrawToolBar()
 	//First prepare List of images for each menu icon
 	//To control the order of these images in the menu, 
 	//reoder them in UI_Info.h ==> enum DrawMenuIcon
+
 	string MenuIconImages[DRAW_ICON_COUNT];
 	MenuIconImages[ICON_RECT] = "images\\MenuIcons\\rectangle.jpg";
 	MenuIconImages[ICON_CIRC] = "images\\MenuIcons\\circle.jpg";
@@ -244,6 +245,7 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_SELECTEDFILL] = "images\\MenuIcons\\fills.jpg";
 	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\upload.jpg";
 	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\switch.jpg";
+
 	
 	//TODO: Prepare images for each menu icon and add it to the list
 
@@ -355,10 +357,10 @@ void GUI:: Zoomin(int X, int Y)
 	Origin.y = Y ;
 
 }
-void  GUI::UnZoom()
+void  GUI::UnZoom(int X, int Y)
 {
-	Origin.x = 0;
-	Origin.y = 0;
+	Origin.x = -X;
+	Origin.y = -Y;
 
 }
 void GUI::AddImg(string s) {
@@ -420,12 +422,14 @@ void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriangleGfxInfo) co
 	}
 	else
 		style = FRAME;
+
 	if (isZoomedin== false)
 		pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y, style);
 	else
 	{
+
 		P1.x = (P1.x * 2) - (2 * Origin.x) + Origin.x;
-		P1.y = (P1.y * 2) - (2 * Origin.y) +Origin.y;
+		P1.y = (P1.y * 2) - (2 * Origin.y) + Origin.y;
 		P2.x = (P2.x * 2) - (2 * Origin.x) + Origin.x;
 		P2.y = (P2.y * 2) - (2 * Origin.y) + Origin.y;
 		P3.x = (P3.x * 2) - (2 * Origin.x) + Origin.x;

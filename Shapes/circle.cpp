@@ -33,7 +33,7 @@ void Circle::zoomin(GUI* pUI)
 	Corner1.y = (Corner1.y * 2) - (2 * pUI->GetOrigin().y) + pUI->GetOrigin().y;
 	Corner2.x = (Corner2.x * 2) - (2 * pUI->GetOrigin().x) + pUI->GetOrigin().x;
 	Corner2.y = (Corner2.y * 2) - (2 * pUI->GetOrigin().y) + pUI->GetOrigin().y;
-
+	radious = sqrt(pow(Corner1.x - Corner2.x, 2) + pow(Corner1.y - Corner2.y, 2));
 }
 void Circle::Save(ofstream& outfile) {   //Rghda added
 	//I tried to put the coordinate in a single line

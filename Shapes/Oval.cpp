@@ -6,9 +6,10 @@ Oval::Oval(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
 	Corner1 = P1;
 	Corner2 = P2;
-	center.x = Corner2.x;
-	center.y = Corner1.y;
-	
+	center.x = (Corner1.x + Corner2.x) / 2;
+	center.y = (Corner1.y + Corner2.y) / 2;
+	red1= sqrt(pow(Corner1.x - center.x, 2) + pow(Corner1.y - center.y, 2));
+	red2= sqrt(pow(Corner2.x - center.x, 2) + pow(Corner2.y - center.y, 2));
 
 }
 Oval :: ~Oval()
@@ -22,17 +23,12 @@ void Oval::Draw(GUI* pUI) const
 }
 void Oval::Resize(double n)
 {
-	
-	
 
-	Corner1.x =( Corner1.x * n) - (n * center.x) + center.x;
+	Corner1.x = (Corner1.x * n) - (n * center.x) + center.x;
 	Corner1.y = (Corner1.y * n) - (n * center.y) + center.y;
 	Corner2.x = (Corner2.x * n) - (n * center.x) + center.x;
-	Corner2.x = (Corner2.x * n) - (n * center.y) + center.y;
-
-
-	center.x = Corner2.x;
-	center.y = Corner1.y;
+	Corner2.y = (Corner2.y * n) - (n * center.y) + center.y;
+	
 }
 void  Oval::zoom(double s, int x, int y)
 {

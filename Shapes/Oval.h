@@ -10,6 +10,8 @@ private:
 	Point Corner1;
 	Point Corner2;
 	Point center;
+	double red1;
+	double red2;
 
 public:
 	Oval(Point P1, Point P2, GfxInfo shapeGfxInfo);

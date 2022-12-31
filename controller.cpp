@@ -59,7 +59,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddTriangle(this);
 		break;
 	case DRAW_LINE:
-		pOp = new ZoomIn(this);
+		pOp = new opAddLine(this);
 		break;
 	case DRAW_regularPOLY:
 		pOp = new opAddRegPol(this);
@@ -77,7 +77,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new Select(this);
 		break;
 	case DEL:  //Rghda added
-		pOp = new ZoomOut(this);
+		pOp = new Resize(this); // trial
 		break;
 	case EXIT:
 		pOp = new opExit(this);

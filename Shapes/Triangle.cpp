@@ -11,7 +11,7 @@ Triangle :: Triangle (Point P1, Point P2, Point P3 , GfxInfo shapeGfxInfo) :shap
 	Corner2 = P2;
 	Corner3 = P3;
 	Center.x = (Corner1.x + Corner2.x + Corner3.x) / 3;
-	Center.y= (Corner1.y + Corner1.y + Corner1.y) / 3 ;
+	Center.y= (Corner1.y + Corner2.y + Corner3.y) / 3 ;
 }
 
 Triangle :: ~Triangle()
@@ -36,6 +36,8 @@ void Triangle::Resize(double n)
 }
 void Triangle::Rotate()
 {
+	
+
 	int sparx1 = Corner1.x;
 	int spary1 = Corner1.y;
 	int sparx2 = Corner2.x;

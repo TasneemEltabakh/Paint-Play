@@ -53,8 +53,6 @@ void IrregularPolygon::Resize(double n)
 		arrayX.at(i) = (arrayX[i] * n) - (n * Center.x) + Center.x;
 		arrayY.at(i) = (arrayY[i] * n) - (n * Center.y) + Center.y;
 	}
-	arrayY.push_back(arrayY.front());
-	arrayX.push_back(arrayX.front());
 	a = &arrayX[0];
 	b = &arrayY[0];
 

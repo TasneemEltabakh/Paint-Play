@@ -17,14 +17,15 @@ regularPolygon ::regularPolygon(Point P1, Point P2, int Sides,  GfxInfo shapeGfx
 	r = sqrt(pow((P1.x - P2.x),2) + pow((P1.y - P2.y),2));
     NumberOfsides = Sides;
 	generatingPoints();
-
+	a = &arrayX[0];
+	b = &arrayY[0];
 
 }
 regularPolygon:: ~regularPolygon()
 {}
 void regularPolygon::generatingPoints()
 {
-
+	
 	for (int i = 0; i < NumberOfsides; i++)
 	{
 		angle = i * (2 * pi) / NumberOfsides;
@@ -33,12 +34,7 @@ void regularPolygon::generatingPoints()
 		double yOfvertix = r * sin(angle) + Center.y;
 		arrayY.push_back(yOfvertix);
 
-
 	}
-
-	a = &arrayX[0];
-	b = &arrayY[0];
-
 }
 void  regularPolygon::zoom(double s, int x, int y)
 {
@@ -69,23 +65,17 @@ void regularPolygon::Resize(double n)
 }
 void regularPolygon::Rotate()
 {
-
-	
 	for (int i = 0; i < NumberOfsides; i++)
 	{
 		double TempX = arrayX[i];
 		double TempY = arrayY[i];
-		angle = i * (2 * pi) / NumberOfsides;
-		double xOfvertix = -TempY + Center.y + Center.x;
-		arrayX.at(i)= xOfvertix;
+		
+		double xOfvertix =  - TempY + Center.y + Center.x;
+		arrayX.at(i) = xOfvertix;
 		double yOfvertix = TempX - Center.x + Center.y;
-		arrayY.at(i)= yOfvertix;
-
+		arrayY.at(i) = yOfvertix;
 
 	}
-
-	
-	
 }
 
 

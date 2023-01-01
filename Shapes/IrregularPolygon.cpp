@@ -57,7 +57,7 @@ void IrregularPolygon::Resize(double n)
 	b = &arrayY[0];
 
 }
-void IrregularPolygon::ResizeThisbydrag(int  xto, int yto)
+void IrregularPolygon::ResizeThisbydrag(Point corner, int  xto, int yto)
 {
 
 

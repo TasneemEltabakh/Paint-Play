@@ -61,6 +61,6 @@ public:
 	void  resize(double);
 	void  rotate();
 	void  ZOOM(double,int , int);
-	void resizebydrag(int, int);
+	void resizebydrag(Point, int, int);
 
 };

@@ -24,7 +24,7 @@ public:
 	void Resize(double n);
 	void Rotate();
 	void zoom(double s, int, int) override;
-	void ResizeThisbydrag(int  xto, int yto) override;
+	void ResizeThisbydrag(Point corner, int  xto, int yto) override;
 };
 
 

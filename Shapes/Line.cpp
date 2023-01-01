@@ -51,7 +51,7 @@ void Line::Rotate()
 	Corner2.x = -spary2 + midPoint.y + midPoint.x;
 	Corner2.y = sparx2 - midPoint.x + midPoint.y;
 }
-void Line::ResizeThisbydrag(int  xto, int yto)
+void Line::ResizeThisbydrag(Point corner, int  xto, int yto)
 {
 
 

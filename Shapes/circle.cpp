@@ -25,7 +25,7 @@ void Circle::Resize(double n)
 }
 void Circle::Rotate()
 {}
-void Circle::ResizeThisbydrag(int  xto, int yto)
+void Circle::ResizeThisbydrag(Point corner, int  xto, int yto)
 {
 
 

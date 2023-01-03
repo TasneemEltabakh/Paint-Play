@@ -71,19 +71,19 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddCircle(this);
 		break;
 	case DRAW_IRREPoly:
-		pOp = new ZoomIn(this);
+		pOp = new opAddirrPol(this);
 		break;
 	case SAVE:  //Rghda added
-		pOp = new Rotate(this);
+		pOp = new Save(this);
 		break;
 	case SELECT:  //Rghda added
 		pOp = new Select(this);
 		break;
 	case DEL:  //Rghda added
-		pOp = new Resize(this); // trial
+		pOp = new Delete(this); // trial
 		break;
 	case EXIT:
-		pOp = new ResizeDrag(this);
+		pOp = new opExit(this);
 		break;
 	case TO_Pallete:
 		pOp = new opChooseColour(this);
@@ -126,6 +126,21 @@ operation* controller::createOperation(operationType OpType)
 		break;
 	case BACK:
 		pOp = new opSwitchTodraw2(this);
+		break;
+	case ROTATE:
+		pOp= new Rotate(this);
+		break;
+	case RESIZE:
+		pOp = new Resize(this);
+		break;
+	case RESIZEBYDRAG:
+		pOp = new ResizeDrag(this);
+		break;
+	case ZOOMOUT:
+		pOp = new ZoomOut(this);
+		break;
+	case ZOOMIN:
+		pOp = new ZoomIn(this);
 		break;
 	case STATUS:	//a click on the status bar ==> no operation
 		break;

@@ -57,10 +57,12 @@ void  regularPolygon::zoom(double s, int x, int y)
 
 void regularPolygon::Resize(double n)
 {
-	r = (r*n);
-	arrayX.clear();
-	arrayY.clear();
-	generatingPoints();
+	for (int i = 0; i < NumberOfsides; i++)
+	{
+		arrayX.at(i) = (arrayX[i] * n) - (n * Center.x) + Center.x;
+		arrayY.at(i) = (arrayY[i] * n) - (n * Center.y) + Center.y;
+	}
+	
 ;
 }
 void regularPolygon::Rotate()
@@ -80,7 +82,10 @@ void regularPolygon::Rotate()
 void regularPolygon::ResizeThisbydrag(Point corner, int  xto, int yto)
 {
 
-	
+	double d1 = sqrt(pow(start.x - Center.x, 2) + pow(start.y - Center.y, 2));
+	double d2 = sqrt(pow(xto - Center.x, 2) + pow(yto - Center.y, 2));
+	double s = d2 / d1;
+	Resize(s);
 
 }
 

@@ -24,9 +24,10 @@ void Oval::Draw(GUI* pUI) const
 void Oval::ResizeThisbydrag(Point corner, int  xto, int yto)
 {
 
-	Corner1.x = xto;
-	Corner1.y = yto;
-
+	double d1 = sqrt(pow(Corner1.x - center.x, 2) + pow(Corner1.y - center.y, 2));
+	double d2 = sqrt(pow(xto - center.x, 2) + pow(yto - center.y, 2));
+	double s = d2 / d1;
+	Resize(s);
 }
 void Oval::Resize(double n)
 {

@@ -53,13 +53,15 @@ void IrregularPolygon::Resize(double n)
 		arrayX.at(i) = (arrayX[i] * n) - (n * Center.x) + Center.x;
 		arrayY.at(i) = (arrayY[i] * n) - (n * Center.y) + Center.y;
 	}
-	arrayY.push_back(arrayY.front());
-	arrayX.push_back(arrayX.front());
+	
 }
 void IrregularPolygon::ResizeThisbydrag(Point corner, int  xto, int yto)
 {
 
-
+	double d1 = sqrt(pow(arrayX[0] - Center.x, 2) + pow(arrayY[0] - Center.y, 2));
+	double d2 = sqrt(pow(xto - Center.x, 2) + pow(yto - Center.y, 2));
+	double s = d2 / d1;
+	Resize(s);
 }
 void IrregularPolygon::Rotate()
 {

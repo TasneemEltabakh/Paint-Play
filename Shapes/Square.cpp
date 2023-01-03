@@ -42,9 +42,10 @@ void Square::zoom(double s, int x, int y)
 }
 void Square::ResizeThisbydrag(Point corner, int  xto, int yto)
 {
-	double diff;
-	Corner1.x = xto;
-	Corner1.y = yto;
+	/*double d1 = sqrt(pow(Corner1.x - Center.x, 2) + pow(Corner1.y - Center.y, 2));
+	double d2 = sqrt(pow(xto - Center.x, 2) + pow(yto - Center.y, 2));
+	double s = d2 / d1;
+	Resize(s);*/
 	
 	
 }

@@ -9,24 +9,24 @@ ResizeDrag :: ~ResizeDrag()
 
 void ResizeDrag::Execute()
 {
-	int  X, Y,x,y;
-	x = 0;
-	y = 0;
 	GUI* pUI = pControl->GetUI();
 	window* wind = pUI->pointertowind();
 	Graph* pGraph = pControl->getGraph();
+	wind->WaitMouseClick(c.x, c.y);
+	while (wind->GetButtonState(LEFT_BUTTON, c.x, c.y) != BUTTON_DOWN) {
 
-	while (wind->GetButtonState(LEFT_BUTTON, X, Y) != BUTTON_DOWN)
-	{
-		pGraph->resizebydrag(c, x, y);
+
+		pGraph->resizebydrag(c, c.x, c.y);
 		pUI->ClearStatusBar();
-		pUI->CreateDrawToolBar();
 		pControl->UpdateInterface();
-		
 		Sleep(20);
-		
+		if (wind->GetButtonState(LEFT_BUTTON, c.x, c.y) == BUTTON_DOWN) {
 
+			break;
+		}
 	}
+	
+
 
 	
 

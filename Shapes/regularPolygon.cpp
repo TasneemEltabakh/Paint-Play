@@ -80,6 +80,7 @@ void regularPolygon::Rotate()
 void regularPolygon::ResizeThisbydrag(Point corner, int  xto, int yto)
 {
 
+	
 
 }
 

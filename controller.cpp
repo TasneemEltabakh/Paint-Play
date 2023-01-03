@@ -26,6 +26,7 @@
 #include "operations/Resize.h"
 #include "operations/rotatOp.h"
 #include "operations/ResizeDrag.h"
+#include "operations/opSwitchTodraw2.h"
 
 using namespace std;
 //Constructor
@@ -60,7 +61,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddTriangle(this);
 		break;
 	case DRAW_LINE:
-		pOp = new ResizeDrag(this);
+		pOp = new opAddLine(this);
 		break;
 	case DRAW_regularPOLY:
 		pOp = new opAddRegPol(this);
@@ -69,19 +70,19 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddCircle(this);
 		break;
 	case DRAW_IRREPoly:
-		pOp = new opAddirrPol(this);
+		pOp = new ZoomIn(this);
 		break;
 	case SAVE:  //Rghda added
-		pOp = new Save(this);
+		pOp = new Rotate(this);
 		break;
 	case SELECT:  //Rghda added
 		pOp = new Select(this);
 		break;
 	case DEL:  //Rghda added
-		pOp = new Delete(this); // trial
+		pOp = new Resize(this); // trial
 		break;
 	case EXIT:
-		pOp = new opExit(this);
+		pOp = new ResizeDrag(this);
 		break;
 	case TO_Pallete:
 		pOp = new opChooseColour(this);
@@ -118,6 +119,9 @@ operation* controller::createOperation(operationType OpType)
 		break;
 	case TO_DRAW:
 		pOp = new opSwitchToPlay(this);
+		break;
+	case BACK:
+		pOp = new opSwitchTodraw2(this);
 		break;
 	case STATUS:	//a click on the status bar ==> no operation
 		break;

@@ -27,8 +27,9 @@ void Circle::Rotate()
 {}
 void Circle::ResizeThisbydrag(Point corner, int  xto, int yto)
 {
-
-
+	Corner2.x = xto;
+	Corner2.y = yto;
+	radious = sqrt(pow(Corner1.x - Corner2.x, 2) + pow(Corner1.y - Corner2.y, 2)); 
 }
 void  Circle::zoom(double s, int x, int y)
 {

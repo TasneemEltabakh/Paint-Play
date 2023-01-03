@@ -39,18 +39,14 @@ void Rect::Resize(double n)
 
 
 }
-void Rect:: ResizeThisbydrag(Point corner, int  xto , int yto)
+void Rect::ResizeThisbydrag(Point corner, int  xto, int yto)
 {
-	if (Corner1.x == corner.x && Corner1.y == corner.y) {
-		Corner1.x = xto;
-		Corner1.y = yto;
-	}
-	if (Corner2.x == corner.x && Corner2.y == corner.y)
-	{
-		Corner2.x = xto;
-		Corner2.y = yto;
-	}
+
+	Corner1.x = xto;
+	Corner1.y = yto;
+
 }
+
 void Rect::Rotate()
 {
 

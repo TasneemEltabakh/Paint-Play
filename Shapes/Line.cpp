@@ -54,6 +54,8 @@ void Line::Rotate()
 void Line::ResizeThisbydrag(Point corner, int  xto, int yto)
 {
 
+	Corner1.x = xto;
+	Corner1.y = yto;
 
 }
 

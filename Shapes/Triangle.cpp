@@ -25,6 +25,7 @@ void Triangle::Draw(GUI* pUI) const
 
 void Triangle::Resize(double n)
 {
+
 	Corner1.x = Corner1.x * n - (n * Center.x) + Center.x;
 	Corner1.y = Corner1.y * n - (n * Center.y) + Center.y;
 	Corner2.x = Corner2.x * n - (n * Center.x) + Center.x;
@@ -34,8 +35,12 @@ void Triangle::Resize(double n)
 	
 
 }
-void Triangle::ResizeThisbydrag(Point corner, int  xto, int yt)
+void Triangle::ResizeThisbydrag(Point corner, int  xto, int yto)
 {
+	double d1 = sqrt(pow(Corner1.x - Center.x, 2) + pow(Corner1.y - Center.y, 2));
+	double d2 = sqrt(pow(xto- Center.x, 2) + pow(yto - Center.y, 2));
+	double s = d2 / d1;
+	Resize(s);
 
 }
 void Triangle::Rotate()
@@ -61,10 +66,11 @@ void Triangle::Rotate()
 void Triangle::zoom(double s, int x, int y)
 {
 	
+	
 	Corner1.x = (Corner1.x * s) - (s * x) + x;
 	Corner1.y = (Corner1.y * s) - (s * y) + y;
 	Corner2.x = (Corner2.x * s) - (s * x) + x;
-	Corner2.y = (Corner2.y * s) - (s *y) + y;
+	Corner2.y = (Corner2.y * s) - (s *y)  + y;
 	Corner3.x = (Corner3.x * s) - (s * x) + x;
 	Corner3.y = (Corner3.y * s) - (s * y) + y;
 

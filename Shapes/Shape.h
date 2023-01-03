@@ -35,6 +35,7 @@ public:
 	//virtual void Move() = 0;		//Move the shape
 	virtual void zoom(double , int, int) = 0;
 	virtual void Save(ofstream & outfile) = 0;	//Save the shape parameters to the file //Rghda edit (I remove the comment here)(GUIFile instead of OutFile)
+	virtual void Move(int x, int y)=0;  //Rghda added
 	virtual void ResizeThisbydrag(Point corner, int  xto,int yto) = 0;
 
 	//virtual void Load(ifstream &Infile) = 0;	//Load the shape parameters to the file

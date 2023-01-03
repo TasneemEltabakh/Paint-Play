@@ -235,6 +235,9 @@
     <ClCompile Include="operations\ZoomOut.cpp">
       <Filter>operations</Filter>
     </ClCompile>
+    <ClCompile Include="operations\Move.cpp">
+      <Filter>operations</Filter>
+    </ClCompile>
     <ClCompile Include="operations\opSwitchTodraw2.cpp">
       <Filter>operations</Filter>
     </ClCompile>
@@ -432,6 +435,9 @@
       <Filter>operations</Filter>
     </ClInclude>
     <ClInclude Include="operations\opSwitchTodraw2.h">
+      <Filter>operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\Move.h">
       <Filter>operations</Filter>
     </ClInclude>
   </ItemGroup>

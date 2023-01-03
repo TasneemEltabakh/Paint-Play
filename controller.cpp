@@ -26,6 +26,7 @@
 #include "operations/Resize.h"
 #include "operations/rotatOp.h"
 #include "operations/ResizeDrag.h"
+#include "operations/Move.h"
 #include "operations/opSwitchTodraw2.h"
 
 using namespace std;
@@ -120,12 +121,16 @@ operation* controller::createOperation(operationType OpType)
 	case TO_DRAW:
 		pOp = new opSwitchToPlay(this);
 		break;
+	case MOVE:  //Rghda added
+		pOp = new Move(this);
+		break;
 	case BACK:
 		pOp = new opSwitchTodraw2(this);
 		break;
 	case STATUS:	//a click on the status bar ==> no operation
 		break;
 	}
+	
 
 	return pOp;
 

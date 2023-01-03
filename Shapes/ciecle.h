@@ -17,6 +17,7 @@ public:
 	void Save(ofstream& GUIFile); //Rghda added
 	string PrintOnTool();  //Rghda added
 	bool IsShapeExisting(int x, int y);  //Rghda added
+	void Move(int x, int y); //Rghda Salah
 	void Load(ifstream& inputfile);
 	void Resize(double n);
 	void Rotate();

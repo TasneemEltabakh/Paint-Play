@@ -108,6 +108,9 @@ bool Oval::IsShapeExisting(int x, int y)  //Rghda added
 	}
 	return false;
 }
+void Oval::Move(int x, int y) {   //Rghda Salah
+
+}
 
 void Oval::Load(ifstream& inputfile) {
 	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;

@@ -172,6 +172,10 @@ bool regularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  //I should 
 	return false;
 } 
 
+void regularPolygon::Move(int x, int y) {   //Rghda Salah
+
+}
+
 void regularPolygon::Load(ifstream& inputfile) {
 
 	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;

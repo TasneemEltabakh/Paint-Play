@@ -121,6 +121,9 @@ bool Line::IsShapeExisting(int x, int y)  //Rghda added  //It didn't work from f
 
 	return false;
 }
+void Line::Move(int x, int y) {   //Rghda Salah
+
+}
 
 void Line::Load(ifstream& inputfile) {
 

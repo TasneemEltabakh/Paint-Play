@@ -147,6 +147,17 @@ void Graph::DeleteMultiShapesGraph() {
 
 }
 
+void  Graph::MoveGraph(int x, int  y)
+{
+
+	for (int k = 0; k < shapesList.size(); k++) {
+		if (selectedShape == shapesList[k]) {
+			shapesList[k]->Move(x, y);
+		}
+	}
+
+}
+
 void Graph::EmptyGraph() {
 	for (int k = 0; k < shapesList.size(); k++) {
 		{

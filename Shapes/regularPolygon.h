@@ -28,6 +28,7 @@ public :
     void zoom(double s, int, int) override;
     string PrintOnTool();  //Rghda added
     bool IsShapeExisting(int x, int y);  //Rghda added
+    void Move(int x, int y); //Rghda Salah
     float trianglearea(int x1, int y1, int x2, int y2, int x3, int y3);  //Rghda added
     void generatingPoints();
 

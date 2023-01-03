@@ -6,7 +6,6 @@
 #include "../controller.h"
 #include "../GUI/GUI.h"
 #include "operation.h"
-
 #include "..\Shapes\Graph.h"
 Delete::Delete(controller* pCont) :operation(pCont)
 {}

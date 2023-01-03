@@ -44,7 +44,7 @@ public:
 	string numberofselectedshapes();  //Rghda added
 
 	void SaveGraph(ofstream& outfile);	//Save all shapes to a file  //Rghda edideted its name
-
+	void MoveGraph(int xto, int  yto); //Rghda added
 	void DeleteGraph();  //Rghda added
 	void DeleteMultiShapesGraph();  //Rghda added
 

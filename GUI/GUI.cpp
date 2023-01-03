@@ -12,7 +12,7 @@ GUI::GUI()
 	scale = 1;
 
 	StatusBarHeight = 50;
-	ToolBarHeight = 55;
+	ToolBarHeight = 50;
 	MenuIconWidth = 45;
 
 	DrawColor = BLUE;	//default Drawing color
@@ -121,6 +121,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_DEL: return DEL;  //Rghda added
 			case ICON_SELECTEDBOL: return selectwid;  //Rghda added
 			case ICON_SELECTEDCOL: return selsectcol;  //Rghda added
+			case ICON_DRAG:return MOVE;
 			case ICON_SELECTEDFILL: return selectfill;
 			case ICON_LOAD:return LOAD;
 			case ICON_ADDIMG: return ADD_IMG;
@@ -255,15 +256,15 @@ void GUI::CreateDrawToolBar()
 	for (int i = 0; i < (DRAW_ICON_COUNT); i++)
 	{
 		
-		pWind->DrawImage(MenuIconImages[i], i * (MenuIconWidth), 7, MenuIconWidth, ToolBarHeight);
+		pWind->DrawImage(MenuIconImages[i], i * (MenuIconWidth), 0, MenuIconWidth, ToolBarHeight);
 		
 	
 	}
 	
 
-	//Draw a line under the toolbar
-	pWind->SetPen(PLUM, 2);
-	pWind->DrawLine(0, ToolBarHeight + 14, width, ToolBarHeight + 14);
+	////Draw a line under the toolbar
+	//pWind->SetPen(PLUM, 2);
+	//pWind->DrawLine(0, ToolBarHeight , width, ToolBarHeight );
 	
 }
 //////////////////////////////////////////////////////////////////////////////////////////

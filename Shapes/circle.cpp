@@ -85,6 +85,9 @@ bool Circle::IsShapeExisting(int x, int y)  //Rghda added
 		return false;
 	}
 }
+void Circle::Move(int x, int y) {   //Rghda Salah
+
+}
 
 void Circle::Load(ifstream& inputfile) {
 

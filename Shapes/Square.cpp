@@ -142,6 +142,10 @@ bool Square::IsShapeExisting(int x, int y)  //Rghda added
 		}
 	}*/
 }
+void Square::Move(int x, int y) {   //Rghda Salah
+
+}
+
 
 void Square::Load(ifstream& inputfile) {
 	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;

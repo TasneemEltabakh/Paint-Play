@@ -140,6 +140,9 @@ void Triangle::Save(ofstream& outfile) {   //Rghda added
 	outfile << endl;
 }
 
+void Triangle::Move(int x, int y) {   //Rghda Salah
+
+}
 void Triangle::Load(ifstream& inputfile) {
 	
 	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;

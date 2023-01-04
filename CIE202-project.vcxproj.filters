@@ -144,7 +144,6 @@
     <ClCompile Include="Shapes\Square.cpp">
       <Filter>Shapes&amp;Graph</Filter>
     </ClCompile>
-    <ClCompile Include="operations\Save.cpp" />
     <ClCompile Include="operations\Delete.cpp">
       <Filter>operations</Filter>
     </ClCompile>
@@ -240,6 +239,15 @@
     </ClCompile>
     <ClCompile Include="operations\opSwitchTodraw2.cpp">
       <Filter>operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\Save.cpp">
+      <Filter>operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\opGroup.cpp">
+      <Filter>operations</Filter>
+    </ClCompile>
+    <ClCompile Include="Shapes\Groupshape.cpp">
+      <Filter>Shapes&amp;Graph</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -342,8 +350,6 @@
     <ClInclude Include="operations\Delete.h">
       <Filter>operations</Filter>
     </ClInclude>
-    <ClInclude Include="operations\opAddirrPol.h" />
-    <ClInclude Include="operations\Save.h" />
     <ClInclude Include="operations\Delete.h">
       <Filter>operations</Filter>
     </ClInclude>
@@ -439,6 +445,18 @@
     </ClInclude>
     <ClInclude Include="operations\Move.h">
       <Filter>operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\Save.h">
+      <Filter>operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opAddirrPol.h">
+      <Filter>operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opGroup.h">
+      <Filter>operations</Filter>
+    </ClInclude>
+    <ClInclude Include="Shapes\Groupshape.h">
+      <Filter>Shapes&amp;Graph</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

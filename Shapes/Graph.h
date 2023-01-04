@@ -47,7 +47,6 @@ public:
 	void MoveGraph(int xto, int  yto); //Rghda added
 	void DeleteGraph();  //Rghda added
 	void DeleteMultiShapesGraph();  //Rghda added
-
 	void EmptyGraph();    //Ariam added
 	void Load(ifstream& inputfile);
 	int getvectorsize();

@@ -78,6 +78,7 @@ void Graph::pushbackselectvector(shape* selectedmultishape2) {
 	multiselectedvector.push_back(selectedmultishape2);
 
 }
+
 string Graph::numberofselectedshapes()
 {
 	string cnt;
@@ -282,15 +283,16 @@ void Graph::Load(ifstream& inputfile) {
 void Graph::resize(double n)
 {
 	for (int k = 0; k < shapesList.size(); k++) {
-		if (selectedShape == shapesList[k]) {
+		if (shapesList[k]->IsSelected()) {
 			shapesList[k]->Resize(n);
 		}
+		
 	}
 }
 void Graph::rotate()
 {
 	for (int k = 0; k < shapesList.size(); k++) {
-		if (selectedShape == shapesList[k]) {
+		if (shapesList[k]->IsSelected()) {
 			shapesList[k]->Rotate();
 		}
 	}

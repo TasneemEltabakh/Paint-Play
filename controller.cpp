@@ -28,6 +28,8 @@
 #include "operations/ResizeDrag.h"
 #include "operations/Move.h"
 #include "operations/opSwitchTodraw2.h"
+#include "Shapes/Groupshape.h"
+#include "operations/opGroup.h"
 
 using namespace std;
 //Constructor
@@ -80,7 +82,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new Select(this);
 		break;
 	case DEL:  //Rghda added
-		pOp = new Delete(this); // trial
+		pOp = new opGroup(this); // trial
 		break;
 	case EXIT:
 		pOp = new opExit(this);
@@ -110,7 +112,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opLoad(this);
 		break;
 	case ADD_IMG:
-		pOp = new opAddImg(this);
+		pOp = new Resize(this);
 		break;
 	case bord:
 		pOp = new opChangeWidth(this);

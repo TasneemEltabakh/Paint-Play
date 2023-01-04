@@ -188,6 +188,7 @@ public:
 	bool DoZoomOut();
 	bool UnZoomi();
 	bool UnZoomo();
+	void GroupShapes(int, int, int, int, string);
 	void Zoom(int, int);
 	double getLastScale();
 	bool checkZoomin();

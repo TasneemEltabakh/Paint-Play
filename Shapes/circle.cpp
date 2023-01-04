@@ -19,8 +19,8 @@ void Circle::Draw(GUI* pUI) const
 }
 void Circle::Resize(double n)
 {
-	radious = radious * n;
 
+	radious = radious * n;
 
 }
 void Circle::Rotate()

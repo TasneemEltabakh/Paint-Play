@@ -20,10 +20,7 @@ void ResizeDrag::Execute()
 		pUI->ClearStatusBar();
 		pControl->UpdateInterface();
 		Sleep(20);
-		if (wind->GetButtonState(LEFT_BUTTON, c.x, c.y) == BUTTON_DOWN) {
 
-			break;
-		}
 	}
 	
 

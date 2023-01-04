@@ -347,7 +347,7 @@ void GUI::CreatePlayToolBar()
 	
 		pWind->DrawImage(PlayMenuIcon[i], i * (MenuIconWidth), 7, MenuIconWidth, ToolBarHeight);
 
-	
+
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -675,7 +675,12 @@ bool GUI::DoZoomOut()
 	isZoomedOut = true;
 	return isZoomedOut;
 }
-
+void GUI::GroupShapes(int x,int y, int x1, int y1,string s)
+{
+	image groupimg = s;
+	image* p = &groupimg;
+	pWind->StoreImage(p, x, y, x1, y1);
+}
 bool GUI::DoZoomin()
 {
 	scale = 1.5 * scale;

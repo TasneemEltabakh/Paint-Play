@@ -167,6 +167,7 @@
     <ClCompile Include="controller.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="operations\Delete.cpp" />
+    <ClCompile Include="operations\opGroup.cpp" />
     <ClCompile Include="operations\Load.cpp" />
     <ClCompile Include="operations\Move.cpp" />
     <ClCompile Include="operations\opAddCircle.cpp" />
@@ -200,6 +201,7 @@
     <ClCompile Include="operations\ZoomOut.cpp" />
     <ClCompile Include="Shapes\circle.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
+    <ClCompile Include="Shapes\Groupshape.cpp" />
     <ClCompile Include="Shapes\IrregularPolygon.cpp" />
     <ClCompile Include="Shapes\Line.cpp" />
     <ClCompile Include="Shapes\Oval.cpp" />
@@ -234,6 +236,7 @@
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="GUI\GUI.h" />
     <ClInclude Include="operations\Delete.h" />
+    <ClInclude Include="operations\opGroup.h" />
     <ClInclude Include="operations\Load.h" />
     <ClInclude Include="operations\Move.h" />
     <ClInclude Include="operations\opAddCircle.h" />
@@ -268,6 +271,7 @@
     <ClInclude Include="operations\ZoomOut.h" />
     <ClInclude Include="Shapes\ciecle.h" />
     <ClInclude Include="Shapes\Graph.h" />
+    <ClInclude Include="Shapes\Groupshape.h" />
     <ClInclude Include="Shapes\IrregularPolygon.h" />
     <ClInclude Include="Shapes\Line.h" />
     <ClInclude Include="Shapes\Oval.h" />

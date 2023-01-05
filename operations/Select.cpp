@@ -18,10 +18,10 @@ void Select::Execute() {
 	GUI* pGUI = pControl->GetUI();
 	Graph* pGraph = pControl->getGraph();
 
-	int num;
+	
 	string cnt;
 
-
+	int num;
 	pGUI->PrintMessage("press 1 for singl select and any thing for multi select");
 	string whichoperationsinglemulti = pGUI->GetSrting();
 	num = stoi(whichoperationsinglemulti);

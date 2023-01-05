@@ -10,7 +10,7 @@ Square::Square(Point P1, int s , GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	diagonl = sqrt(pow(side, 2) + pow(side, 2));
 	generatingCorners();
 
-
+	id = nullptr;
 
 }
 void Square:: generatingCorners()
@@ -93,7 +93,22 @@ string Square::PrintOnTool()
 	return values;
 }
 
-
+void Square::SetgroupCenter(Point p)
+{
+	
+}
+Point Square::getCenter()
+{
+	return center;
+}
+void Square::setID(int* id)
+{
+	this->id = id;
+}
+int* Square::GetID()
+{
+	return id;
+}
 bool Square::IsShapeExisting(int x, int y)  //Rghda added
 {
 	if ((x > Corner1.x && x < Corner2.x && y > Corner1.y && y < Corner2.y))

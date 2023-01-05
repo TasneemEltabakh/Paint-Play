@@ -26,8 +26,7 @@ class Graph
 private:
 	vector <shape*> shapesList; //a container to hold all shapes							   
 	shape* selectedShape;	//pointer to the currently selected shape
-
-	//shape* selectedmultishape;
+	vector <vector <shape*>> groupedshapes;
 	vector <shape*> multiselectedvector; //a container to hold all shapes which multi selected
 
 
@@ -36,7 +35,6 @@ public:
 	~Graph();
 	void Addshape(shape* pFig); //Adds a new shape to the shapesList
 	void Draw(GUI* pUI) const;			//Draw the graph (draw all shapes)
-
 	shape* Getshape(int x, int y); //Search for a shape given a point inside the shape
 	void unselectmulti(); //Rghda added
 	void unselectselectedshape(shape* selectedmultishape2);  //Rghda added
@@ -49,17 +47,17 @@ public:
 	void DeleteMultiShapesGraph();  //Rghda added
 	void EmptyGraph();    //Ariam added
 	void Load(ifstream& inputfile);
-	int getvectorsize();
+	int  getvectorsize();
 	shape* getselectedShape();  //Rghda added
-
 	void setselectedShape(shape* selectedshape);  //Rghda added
-
-	void Graph::changeFillSelection(color);
-	void Graph::opChangeSelectedWidth(int);
-	void Graph::opChangeSelectedBorder(color);
+	void  changeFillSelection(color);
+	void  opChangeSelectedWidth(int);
+	void  opChangeSelectedBorder(color);
 	void  resize(double);
 	void  rotate();
 	void  ZOOM(double,int , int);
-	void resizebydrag(Point, int, int);
-
+	void  resizebydrag(Point, int, int);
+	void  groupthisShapes(int*);
+	void  Ungroup(int n);
+	
 };

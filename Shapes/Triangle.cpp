@@ -12,6 +12,7 @@ Triangle :: Triangle (Point P1, Point P2, Point P3 , GfxInfo shapeGfxInfo) :shap
 	Corner3 = P3;
 	Center.x = (Corner1.x + Corner2.x + Corner3.x) / 3;
 	Center.y= (Corner1.y + Corner2.y + Corner3.y) / 3 ;
+	id = nullptr;
 }
 
 Triangle :: ~Triangle()
@@ -76,7 +77,25 @@ void Triangle::zoom(double s, int x, int y)
 
 }
 
+void Triangle::SetgroupCenter(Point p)
 
+{
+	Center.x = p.x;
+	Center.y = p.y;
+
+}
+Point Triangle:: getCenter()
+{
+	return Center;
+}
+void Triangle:: setID(int* id)
+{
+	this->id = id;
+}
+int* Triangle::GetID()
+{
+	return this->id;
+}
 float Triangle::trianglearea(int x1, int y1, int x2, int y2, int x3, int y3)
 {
 	return abs((x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) / 2.0);

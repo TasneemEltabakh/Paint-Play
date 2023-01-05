@@ -13,6 +13,7 @@ private:
     int* b = nullptr;
     int numberofsides;
     Point Center;
+    int* id;
 
 
 public:
@@ -20,6 +21,7 @@ public:
     virtual ~IrregularPolygon();
     virtual void Draw(GUI* pUI) const;
     void generatingPoints();
+    int* GetID() override;
     void Save(ofstream& outfile); //Rghda added
     string PrintOnTool();  //Rghda added
     bool IsShapeExisting(int x, int y);  //Rghda added
@@ -29,5 +31,9 @@ public:
     void Rotate();
     void zoom(double s, int, int) override;
     void ResizeThisbydrag(Point corner, int  xto, int yto) override;
+    void SetgroupCenter(Point) override;
+    Point getCenter() override;
+    void setID(int*) override;
+
 };
 

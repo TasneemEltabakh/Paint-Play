@@ -16,6 +16,7 @@ Line::Line(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	dist = sqrt(pow(Corner1.x - Corner2.x, 2) + pow(Corner1.y - Corner2.y, 2));	
 	midPoint.x = (Corner1.x + Corner2.x) / 2;
 	midPoint.y= (Corner1.y + Corner2.y) / 2;
+	this->id = nullptr;
 }
 
 Line :: ~Line()
@@ -56,9 +57,25 @@ void Line::ResizeThisbydrag(Point corner, int  xto, int yto)
 
 	Corner1.x = xto;
 	Corner1.y = yto;
+	this->id = nullptr;
+}
+int* Line::GetID()
+{
+	return this->id;
+}
+void Line::SetgroupCenter(Point p)
+
+{
 
 }
-
+Point Line::getCenter()
+{
+	return midPoint;
+}
+void  Line::setID(int* id)
+{
+	this->id = id;
+}
 //RAGHDA'S PARTT 
 void Line::Save(ofstream& outfile) {   //Rghda added
 	//I tried to put the coordinate in a single line

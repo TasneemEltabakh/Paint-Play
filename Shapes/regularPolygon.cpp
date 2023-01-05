@@ -13,7 +13,7 @@ regularPolygon ::regularPolygon(Point P1, Point P2, int Sides,  GfxInfo shapeGfx
 	Center.y = P1.y;
 	start.x = P2.x;
 	start.y = P2.y;
-	
+	this->id = nullptr;
 	r = sqrt(pow((P1.x - P2.x),2) + pow((P1.y - P2.y),2));
     NumberOfsides = Sides;
 	generatingPoints();
@@ -54,7 +54,10 @@ void  regularPolygon::zoom(double s, int x, int y)
 	
 }
 
-
+int* regularPolygon::GetID()
+{
+	return this->id;
+}
 void regularPolygon::Resize(double n)
 {
 	for (int i = 0; i < NumberOfsides; i++)
@@ -87,6 +90,19 @@ void regularPolygon::ResizeThisbydrag(Point corner, int  xto, int yto)
 	double s = d2 / d1;
 	Resize(s);
 
+}
+void regularPolygon::SetgroupCenter(Point p)
+
+{
+	
+}
+Point regularPolygon::getCenter()
+{
+	return Center;
+}
+void  regularPolygon::setID(int* id)
+{
+	this->id = id;
 }
 
 void  regularPolygon::Draw(GUI* pUI) const

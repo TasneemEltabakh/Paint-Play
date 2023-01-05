@@ -14,7 +14,7 @@ Rect::Rect(Point P1, Point P2, GfxInfo shapeGfxInfo):shape(shapeGfxInfo)
 
 	center.x = (Corner1.x + Corner2.x) / 2;
 	center.y = (Corner1.y + Corner2.y) / 2;
-
+	this->id = nullptr;
 }
 
 Rect::~Rect()
@@ -97,8 +97,23 @@ void Rect::Save(ofstream& outfile){   //Rghda added
 
 	outfile << endl;
 }
+void Rect::SetgroupCenter(Point p)
 
+{
 
+}
+Point Rect::getCenter()
+{
+	return center;
+}
+void  Rect::setID(int* id)
+{
+	this->id = id;
+}
+int* Rect::GetID()
+{
+	return this->id;
+}
 string Rect::PrintOnTool()
 {
 	int id = 1;

@@ -246,9 +246,6 @@
     <ClCompile Include="operations\opGroup.cpp">
       <Filter>operations</Filter>
     </ClCompile>
-    <ClCompile Include="Shapes\Groupshape.cpp">
-      <Filter>Shapes&amp;Graph</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -454,9 +451,6 @@
     </ClInclude>
     <ClInclude Include="operations\opGroup.h">
       <Filter>operations</Filter>
-    </ClInclude>
-    <ClInclude Include="Shapes\Groupshape.h">
-      <Filter>Shapes&amp;Graph</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

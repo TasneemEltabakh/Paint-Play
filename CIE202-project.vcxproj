@@ -201,7 +201,6 @@
     <ClCompile Include="operations\ZoomOut.cpp" />
     <ClCompile Include="Shapes\circle.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
-    <ClCompile Include="Shapes\Groupshape.cpp" />
     <ClCompile Include="Shapes\IrregularPolygon.cpp" />
     <ClCompile Include="Shapes\Line.cpp" />
     <ClCompile Include="Shapes\Oval.cpp" />
@@ -271,7 +270,6 @@
     <ClInclude Include="operations\ZoomOut.h" />
     <ClInclude Include="Shapes\ciecle.h" />
     <ClInclude Include="Shapes\Graph.h" />
-    <ClInclude Include="Shapes\Groupshape.h" />
     <ClInclude Include="Shapes\IrregularPolygon.h" />
     <ClInclude Include="Shapes\Line.h" />
     <ClInclude Include="Shapes\Oval.h" />

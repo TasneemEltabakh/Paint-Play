@@ -13,28 +13,23 @@ opGroup :: ~opGroup()
 
 void opGroup::Execute()
 {
-	vector <shape*> mygroup;
 
 	GUI* pUI = pControl->GetUI();
+
 	Graph* pGraph = pControl->getGraph();
-	string nameOfgroup;
-	pUI->PrintMessage("Enter The name of this group ");
-	nameOfgroup = pUI->GetSrting();
-	pUI->PrintMessage("start selection of your group ");
-	int num =3;
-	for (int i = 0; i < 3; i++)
-	{
-		mygroup.push_back(pGraph->getselectedShape());
-	}
-	GfxInfo groupShape;
-	groupShape.isFilled = false;	//default is not filled
 
-	groupshape* groupi = new groupshape(mygroup, groupShape, num);
+	int IDOfgroup;
 
-	//Get a pointer to the graph
-	Graph* groupgraph = pControl->getGraph();
+	pUI->PrintMessage("Enter an Id for this group ");
 
-	//Add the Triangle to the list of shapes
-	groupgraph->Addshape(groupi);
+	IDOfgroup = stoi(pUI->GetSrting());
+	int* p = &IDOfgroup;
+
+	pGraph->groupthisShapes(p);
+
+	pUI->PrintMessage("You created a group with Id number "+ IDOfgroup);
+
+	pUI->ClearStatusBar();
+
 
 }

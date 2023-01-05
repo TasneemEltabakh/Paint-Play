@@ -7,6 +7,7 @@ using namespace std;
 
 IrregularPolygon::IrregularPolygon(vector<Point> arrayv, GfxInfo shapeGfxInfo) : shape(shapeGfxInfo)
 {
+	this->id = nullptr;
 	double sumX = 0 , sumY = 0;
 
 	for (int i = 0; i < arrayv.size(); i++)
@@ -76,6 +77,23 @@ void IrregularPolygon::Rotate()
 
 	}
 	
+}
+int* IrregularPolygon::GetID()
+{
+	return this->id;
+}
+void IrregularPolygon::SetgroupCenter(Point p)
+
+{
+
+}
+Point IrregularPolygon::getCenter()
+{
+	return Center;
+}
+void  IrregularPolygon::setID(int* id)
+{
+	this->id = id;
 }
 void IrregularPolygon::Draw(GUI* pUI) const
 {

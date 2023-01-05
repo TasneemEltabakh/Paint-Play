@@ -20,6 +20,7 @@ private:
     int* a = new int;
     int* b = new int;
     const double pi = 3.14159;
+    int* id;
 
 public :
     regularPolygon(Point, Point, int , GfxInfo shapeGfxInfo);
@@ -31,11 +32,15 @@ public :
     void Move(int x, int y); //Rghda Salah
     float trianglearea(int x1, int y1, int x2, int y2, int x3, int y3);  //Rghda added
     void generatingPoints();
-
+    int* GetID() override;
     void Save(ofstream& outfile); //Rghda added
     void Load(ifstream& inputfile);
     void Resize(double n);
     void Rotate();
     void ResizeThisbydrag(Point corner, int  xto, int yto) override;
+    void SetgroupCenter(Point) override;
+    Point getCenter() override;
+    void setID(int*) override;
+
 };
 

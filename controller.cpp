@@ -76,7 +76,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddirrPol(this);
 		break;
 	case SAVE:  //Rghda added
-		pOp = new Save(this);
+		pOp = new Resize(this);
 		break;
 	case SELECT:  //Rghda added
 		pOp = new Select(this);

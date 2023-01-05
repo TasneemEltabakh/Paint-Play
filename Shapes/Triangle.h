@@ -7,6 +7,7 @@ class Triangle : public shape
 		Point Corner2;
 		Point Corner3;
 		Point Center;
+		int* id;
 	public:
 		Triangle(Point P1, Point P2, Point P3 , GfxInfo shapeGfxInfo);
 		virtual ~Triangle();
@@ -20,7 +21,13 @@ class Triangle : public shape
 		void Resize(double n);
 	    void Rotate();
 		void zoom(double s, int, int) override;
+		Point GetCoordinates() const;
+		int* GetID() override;
+	
 		void ResizeThisbydrag(Point corner, int  xto, int yto) override;
+		void SetgroupCenter(Point) override;
+		Point getCenter() override;
+		void setID(int*) override;
 		
 };
 

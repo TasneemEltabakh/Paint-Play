@@ -10,7 +10,7 @@ Oval::Oval(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	center.y = (Corner1.y + Corner2.y) / 2;
 	red1= sqrt(pow(Corner1.x - center.x, 2) + pow(Corner1.y - center.y, 2));
 	red2= sqrt(pow(Corner2.x - center.x, 2) + pow(Corner2.y - center.y, 2));
-
+	this->id = nullptr;
 }
 Oval :: ~Oval()
 {}
@@ -59,6 +59,23 @@ void Oval ::Rotate()
 	Corner1.y = sparx1 - center.x + center.y;
 	Corner2.x = -spary2 + center.y + center.x;
 	Corner2.y = sparx2 - center.x + center.y;
+}
+void Oval::SetgroupCenter(Point p)
+
+{
+
+}
+int* Oval::GetID()
+{
+	return this->id;
+}
+Point Oval::getCenter()
+{
+	return center;
+}
+void  Oval::setID(int* id)
+{
+	this->id = id;
 }
 void Oval::Save(ofstream& outfile) {   //Rghda added
 	//I tried to put the coordinate in a single line

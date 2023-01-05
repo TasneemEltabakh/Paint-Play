@@ -11,7 +11,7 @@ private:
 	Point Corner2;
 	double dist;
 	Point midPoint;
-
+	int* id;
 public:
 
 	Line(Point P1, Point P2, GfxInfo shapeGfxInfo);
@@ -26,4 +26,9 @@ public:
 	void Rotate();
 	void zoom(double s, int, int) override;
 	void ResizeThisbydrag(Point corner, int  xto, int yto) override;
+	void SetgroupCenter(Point) override;
+	Point getCenter() override;
+	void setID(int*) override;
+	int* GetID() override;
+
 };

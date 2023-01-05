@@ -2,6 +2,7 @@
 #include "operation.h"
 #include "..//Shapes/Shape.h"
 #include <vector> 
+
 class opGroup : public operation
 {
 public:

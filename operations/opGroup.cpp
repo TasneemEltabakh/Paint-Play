@@ -36,6 +36,7 @@ void opGroup::Execute()
 		p = &IDOfgroup;
 		pGraph->isInIds(p);
 	}
+
 	if (choice == "g" || choice == "G")
 	{
 		pGraph->groupthisShapes(p);

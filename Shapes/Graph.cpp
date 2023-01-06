@@ -119,19 +119,41 @@ void Graph::SaveGraph(ofstream& outfile) {  //Rghda added*******
 
 void Graph::DeleteGraph() {
 
-	//int size=shapesList.size(); //it will not work as //I sould put here the size by this form< as its sive changed 
+	/*for (int k = 0; k < shapesList.size(); k++) {  //this for delete groub of shapes but has error
+		if (selectedShape == shapesList[k]) {
+			if (shapesList[k]->GetID() != nullptr)
+			{
+				for (int i = 0; i < groupedshapes.size(); i++)
+				{
+					for (int j = 0; j < groupedshapes[i].size(); j++)
+					{
+						if (*shapesList[k]->GetID() == *groupedshapes[i][j]->GetID())
+						{
+							groupedshapes[i][j]->SetSelected(false); //new addition
+							delete groupedshapes[i][j];
+							shapesList.erase(shapesList.begin() + j);
+							j--;
+						}
+					}
+				}
+			}
+			else
+			{
+				shapesList[k]->SetSelected(false); //new addition
+				delete shapesList[k];
+				shapesList.erase(shapesList.begin() + k);
+				k--;
+			}
+		}
+	}*/
 	for (int k = 0; k < shapesList.size(); k++) {
 		if (selectedShape == shapesList[k]) {
-			//if (shapesList[k]->IsSelected()) {
 			shapesList[k]->SetSelected(false); //new addition
 			delete shapesList[k];
-			//shapesList.erase(shapesList[i]);  //it didn't work as erase didn't accept
 			shapesList.erase(shapesList.begin() + k);
 			k--;
 		}
 	}
-
-
 }
 void Graph::DeleteMultiShapesGraph() {
 
@@ -440,4 +462,15 @@ bool Graph::isInIds(int* n)
 }
 
 
+/////////////
+////Play////
+///////////
+void Graph::GDuplicate() {
+	int n = shapesList.size();
+	//cout << "OLD SIZE" << n << endl;
+	for (int k = 0; k < shapesList.size(); k++) {
+		shapesList.push_back(shapesList[k]);
+	};
+	//cout << "NEW SIZE" << shapesList.size() << endl;
+};
 

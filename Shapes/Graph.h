@@ -62,4 +62,8 @@ public:
 	void  groupthisShapes(int*);
 	void  Ungroup(int* n);
 	bool isInIds(int* n);
+
+
+	//Play mode
+	void GDuplicate();
 };

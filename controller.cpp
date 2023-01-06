@@ -66,7 +66,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddTriangle(this);
 		break;
 	case DRAW_LINE:
-		pOp = new opAddLine(this);
+		pOp = new opGroup(this);
 		break;
 	case DRAW_regularPOLY:
 		pOp = new opAddRegPol(this);
@@ -84,10 +84,10 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new Select(this);
 		break;
 	case DEL:  //Rghda added
-		pOp = new opGroup(this); // trial
+		pOp = new Delete(this);
 		break;
 	case EXIT:
-		pOp = new opExit(this);
+		pOp = new opGroup(this);  //trial
 		break;
 	case TO_Pallete:
 		pOp = new opChooseColour(this);

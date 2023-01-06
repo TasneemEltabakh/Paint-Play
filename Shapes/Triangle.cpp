@@ -182,7 +182,7 @@ void Triangle::Save(ofstream& outfile) {   //Rghda added
 }
 
 void Triangle::Move(int x, int y) {   //Rghda Salah
-	Point crepn = {Corner2.x,Corner1.y};
+	/*Point crepn = {Corner2.x,Corner1.y};
 	int l = sqrt(pow(crepn.x - Corner2.x, 2) + pow(crepn.y - Corner2.y, 2));
 	int w = sqrt(pow(crepn.x - Corner1.x, 2) + pow(crepn.y - Corner1.y, 2));
 	Point ctepn2 = { Corner3.x,Corner1.y };
@@ -193,30 +193,21 @@ void Triangle::Move(int x, int y) {   //Rghda Salah
 	Corner2.x = (x + w);
 	Corner2.y = (y + l);
 	Corner3.x = (x - w2);
-	Corner3.y = (y + l2);
+	Corner3.y = (y + l2);*/
+	Point p2, p3;
+	p2.x = -(Corner1.x - Corner2.x) + x;
+	p2.y = -(Corner1.y - Corner2.y) + y;
+	p3.x = -(Corner1.x - Corner3.x) + x;
+	p3.y = -(Corner1.y - Corner3.y) + y;
+	Corner1.x = x;
+	Corner1.y = y;
+	Corner2.x = p2.x;
+	Corner2.y = p2.y;
+	Corner3.x = p3.x;
+	Corner3.y = p3.y;
+
 	
 	
-	//trail 2
-	/*Point ctpn = {Corner1.x,Corner2.y};
-	int l = sqrt(pow(ctpn.x - Corner2.x, 2) + pow(ctpn.y - Corner2.y, 2));
-	int w = sqrt(pow(ctpn.x - Corner1.x, 2) + pow(ctpn.y - Corner1.y, 2));
-	Corner1.x = (x);
-	Corner1.y = (y);
-	Corner2.x = (x + l);
-	Corner2.y = (y + w);
-	int AB= sqrt(pow(Corner1.x - Corner2.x, 2) + pow(Corner1.y - Corner2.y, 2));
-	int BC = sqrt(pow(Corner2.x - Corner3.x, 2) + pow(Corner2.y - Corner3.y, 2));
-	int AC = sqrt(pow(Corner1.x - Corner3.x, 2) + pow(Corner1.y - Corner3.y, 2));
-	Corner3.x = (pow(AB,2)-pow(BC,2)+pow(AC,2)) / (2 * AB);
-	Corner3.y = sqrt(pow(BC,2)-pow((Corner2.x- Corner3.x), 2)) - Corner2.y;*/
-	//trail 3
-	/*Point ctpn = {Corner1.x,Corner2.y};
-	int l = sqrt(pow(ctpn.x - Corner2.x, 2) + pow(ctpn.y - Corner2.y, 2));
-	int w = sqrt(pow(ctpn.x - Corner1.x, 2) + pow(ctpn.y - Corner1.y, 2));
-	Corner1.x = (x);
-	Corner1.y = (y);
-	Corner2.x = (x + l);
-	Corner2.y = (y + w);*/
 }
 Point Triangle::firstxofshape() {
 	return Corner1;

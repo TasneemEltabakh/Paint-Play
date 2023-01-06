@@ -141,13 +141,20 @@ bool Line::IsShapeExisting(int x, int y)  //Rghda added  //It didn't work from f
 	return false;
 }
 void Line::Move(int x, int y) {   //Rghda Salah
-	Point corner3 = { Corner1.x,Corner2.y };
+	/*Point corner3 = {Corner1.x,Corner2.y};
 	int l = sqrt(pow(corner3.x - Corner2.x, 2) + pow(corner3.y - Corner2.y, 2));
 	int w = sqrt(pow(corner3.x - Corner1.x, 2) + pow(corner3.y - Corner1.y, 2));
 	Corner1.x = (x);
 	Corner1.y = (y);
 	Corner2.x = (x + l);
-	Corner2.y = (y + w);
+	Corner2.y = (y + w);*/
+	Point p2;
+	p2.x = -(Corner1.x - Corner2.x) + x;
+	p2.y = -(Corner1.y - Corner2.y) + y;
+	Corner1.x = (x);
+	Corner1.y = (y);
+	Corner2.x = p2.x;
+	Corner2.y = p2.y;
 }
 Point Line::firstxofshape() {
 	return Corner1;

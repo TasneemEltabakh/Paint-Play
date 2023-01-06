@@ -198,6 +198,7 @@
     <ClCompile Include="operations\Save.cpp" />
     <ClCompile Include="operations\Scramble.cpp" />
     <ClCompile Include="operations\Select.cpp" />
+    <ClCompile Include="operations\Play.cpp" />
     <ClCompile Include="operations\ZoomIn.cpp" />
     <ClCompile Include="operations\ZoomOut.cpp" />
     <ClCompile Include="Shapes\circle.cpp" />
@@ -262,6 +263,7 @@
     <ClInclude Include="operations\opStick.h" />
     <ClInclude Include="operations\opSwitchTodraw2.h" />
     <ClInclude Include="operations\opSwitchToPlay.h" />
+    <ClInclude Include="operations\Play.h" />
     <ClInclude Include="operations\Resize.h" />
     <ClInclude Include="operations\ResizeDrag.h" />
     <ClInclude Include="operations\rotatOp.h" />

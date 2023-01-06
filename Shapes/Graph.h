@@ -65,4 +65,8 @@ public:
 	void Scramble();
 	void Hide();
 	void Unhide();
+
+
+	//Play mode
+	void GDuplicate();
 };

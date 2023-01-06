@@ -249,6 +249,9 @@
     <ClCompile Include="operations\Scramble.cpp">
       <Filter>operations</Filter>
     </ClCompile>
+    <ClCompile Include="operations\Play.cpp">
+      <Filter>operations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -453,6 +456,9 @@
       <Filter>operations</Filter>
     </ClInclude>
     <ClInclude Include="operations\opGroup.h">
+      <Filter>operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\Play.h">
       <Filter>operations</Filter>
     </ClInclude>
     <ClInclude Include="operations\Scramble.h">

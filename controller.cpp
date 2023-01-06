@@ -83,10 +83,10 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new Select(this);
 		break;
 	case DEL:  //Rghda added
-		pOp = new Delete(this); // trial
+		pOp = new Delete(this);
 		break;
 	case EXIT:
-		pOp = new opExit(this);
+		pOp = new opGroup(this);  //trial
 		break;
 	case TO_Pallete:
 		pOp = new opChooseColour(this);

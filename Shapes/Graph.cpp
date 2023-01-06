@@ -456,12 +456,12 @@ void Graph::Hide()
 
 	}
 }
-/*void Graph::Unhide()
+void Graph::Unhide()
 {
 	for (int k = 0; k < shapesList.size(); k++) {
 
-		shapesList[k]->unhide();
+		//shapesList[k]->unhide();
 
 	}
-}*/
+}
 

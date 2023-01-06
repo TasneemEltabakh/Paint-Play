@@ -25,8 +25,8 @@ void Circle::Resize(double n)
 }
 void Circle::scramble()
 {
-	Corner1.x = rand() % 800;
-	Corner2.y =  rand() % 300;
+	Corner1.x =  rand() % 800;
+	Corner1.y =  rand() % 300;
 }
 void Circle::hide()
 {

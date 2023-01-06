@@ -25,7 +25,16 @@ regularPolygon:: ~regularPolygon()
 {}
 void regularPolygon :: scramble()
 {
+	Center.x = rand() % 800;
+	Center.y = rand() % 300;
 
+	for (int i = 0; i < NumberOfsides; i++)
+	{
+		arrayX.at(i) = arrayX[i] + Center.x;
+		arrayY.at(i) = arrayY[i]  + Center.y;
+	}
+
+	
 }
 void regularPolygon::hide()
 {
@@ -100,7 +109,6 @@ void regularPolygon::ResizeThisbydrag(Point corner, int  xto, int yto)
 
 }
 void regularPolygon::SetgroupCenter(Point p)
-
 {
 	
 }

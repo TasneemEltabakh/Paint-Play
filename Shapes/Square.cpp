@@ -42,10 +42,11 @@ void Square::zoom(double s, int x, int y)
 }
 void Square::ResizeThisbydrag(Point corner, int  xto, int yto)
 {
-	/*double d1 = sqrt(pow(Corner1.x - Center.x, 2) + pow(Corner1.y - Center.y, 2));
-	double d2 = sqrt(pow(xto - Center.x, 2) + pow(yto - Center.y, 2));
+	double d1 = sqrt(pow(Corner1.x - center.x, 2) + pow(Corner1.y - center.y, 2));
+	double d2 = sqrt(pow(xto - center.x, 2) + pow(yto - center.y, 2));
 	double s = d2 / d1;
-	Resize(s);*/
+	Resize(s);
+
 	
 	
 }
@@ -103,7 +104,10 @@ Point Square::getCenter()
 }
 void  Square:: scramble()
 {
-
+	Corner1.x = rand() % 800;
+	Corner1.y = rand() % 300;
+	Corner2.x = (Corner1.x + side * 50);
+	Corner2.y = (Corner1.y + side * 50);
 }
 void Square::hide()
 {

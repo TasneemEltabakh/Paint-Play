@@ -416,6 +416,10 @@ double GUI::getLastScale()
 {
 	return scale;
 }
+int GUI::getToolbarheight() const
+{
+	return ToolBarHeight;
+}
 void GUI::AddImg(Point center)
 {
 	int width = 700;

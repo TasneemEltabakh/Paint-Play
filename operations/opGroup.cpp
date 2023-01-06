@@ -22,9 +22,8 @@ void opGroup::Execute()
 
 	int IDOfgroup;
 
-	pGraph->Scramble();
-}
-	/*pUI->PrintMessage("do you want to group or ungroup: to group press g ");
+
+	pUI->PrintMessage("do you want to group or ungroup: to group press g ");
 	
 	choice = pUI->GetSrting();
 	int* p = nullptr;
@@ -54,5 +53,5 @@ void opGroup::Execute()
 
 	pUI->ClearStatusBar();
 
-}*/
+}
 	

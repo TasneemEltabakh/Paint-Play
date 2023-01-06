@@ -196,6 +196,7 @@
     <ClCompile Include="operations\ResizeDrag.cpp" />
     <ClCompile Include="operations\rotatOP.cpp" />
     <ClCompile Include="operations\Save.cpp" />
+    <ClCompile Include="operations\Scramble.cpp" />
     <ClCompile Include="operations\Select.cpp" />
     <ClCompile Include="operations\ZoomIn.cpp" />
     <ClCompile Include="operations\ZoomOut.cpp" />
@@ -265,6 +266,7 @@
     <ClInclude Include="operations\ResizeDrag.h" />
     <ClInclude Include="operations\rotatOp.h" />
     <ClInclude Include="operations\Save.h" />
+    <ClInclude Include="operations\Scramble.h" />
     <ClInclude Include="operations\Select.h" />
     <ClInclude Include="operations\ZoomIn.h" />
     <ClInclude Include="operations\ZoomOut.h" />

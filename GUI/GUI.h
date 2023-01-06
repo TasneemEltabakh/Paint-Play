@@ -195,6 +195,7 @@ public:
 	bool checkZoomOut();
 	bool GetIsFilled() const;
 	Point GetOrigin() const;
+	int getToolbarheight() const;
 	///Make similar functions for drawing all other shapes.
     void PrintMessage(string msg) const;	//Print a message on Status bar
 	color getCrntDrawColor() const;	//get current drwawing color

@@ -21,5 +21,5 @@ void ZoomOut::Execute()
 	pUI->ClearStatusBar();
 	Graph* pGraph = pControl->getGraph();
 	pGraph->ZOOM(0.5, X, Y);
-
+		
 }

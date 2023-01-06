@@ -29,6 +29,9 @@
 #include "operations/Move.h"
 #include "operations/opAddLine.h"
 #include "..//github/Shapes/Line.h"
+#include "operations/opSwitchTodraw2.h"
+#include "Shapes/Groupshape.h"
+#include "operations/opGroup.h"
 
 using namespace std;
 //Constructor
@@ -75,13 +78,13 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddirrPol(this);
 		break;
 	case SAVE:  //Rghda added
-		pOp = new ZoomIn(this);
+		pOp = new Resize(this);
 		break;
 	case SELECT:  //Rghda added
 		pOp = new Select(this);
 		break;
 	case DEL:  //Rghda added
-		pOp = new Delete(this); // trial
+		pOp = new opGroup(this); // trial
 		break;
 	case EXIT:
 		pOp = new opExit(this);
@@ -111,7 +114,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opLoad(this);
 		break;
 	case ADD_IMG:
-		pOp = new opAddImg(this);
+		pOp = new Resize(this);
 		break;
 	case bord:
 		pOp = new opChangeWidth(this);
@@ -124,6 +127,24 @@ operation* controller::createOperation(operationType OpType)
 		break;
 	case MOVE:  //Rghda added
 		pOp = new Move(this);
+		break;
+	case BACK:
+		pOp = new opSwitchTodraw2(this);
+		break;
+	case ROTATE:
+		pOp= new Rotate(this);
+		break;
+	case RESIZE:
+		pOp = new Resize(this);
+		break;
+	case RESIZEBYDRAG:
+		pOp = new ResizeDrag(this);
+		break;
+	case ZOOMOUT:
+		pOp = new ZoomOut(this);
+		break;
+	case ZOOMIN:
+		pOp = new ZoomIn(this);
 		break;
 	case STATUS:	//a click on the status bar ==> no operation
 		break;

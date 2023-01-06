@@ -66,13 +66,22 @@ class GUI
 		ICON_SAVE,
 		ICON_LOAD,
 		ICON_SWITCH,
-		ICON_EXIT,		//Exit icon
+		ICON_BACK,
+		ICON_EXIT,	//Exit icon
 		
 		DRAW_ICON_COUNT	,	//no. of menu icons ==> This should be the last line in this enum
 
 	};
+	enum DrawMenuIcon2 //The icons of the Draw menu (you should add more icons)
+	{
+		ICON_ROTATE,
+		ICON_RESIZE,
+		ICON_RESIZEBYDRAG,
+		ICON_ZOOMIN,
+		ICON_ZOOMOUT,
 
-
+		DRAW_ICON_COUNT2
+	};
 	enum PlayMenuIcon //The icons of the Play menu (you should add more icons)
 	{
 
@@ -91,7 +100,7 @@ class GUI
 	enum ColourPalette
 	{
 		ICON_COLOURPallet,
-		ICON_BACK
+	
 	};
 
 	GUI_MODE InterfaceMode;
@@ -152,6 +161,7 @@ public:
 	void CreateDrawToolBar();	//creates Draw mode toolbar & menu
 	void CreatePlayToolBar();	//creates Play mode toolbar & menu
 	void CreateColourToolBar();
+	void CreateDrawToolBar2();
 	void CreateStatusBar() const;	//create the status bar
 
 	void ClearStatusBar() const;	//Clears the status bar
@@ -166,6 +176,7 @@ public:
 	void DrawLine(Point P1, Point P2, GfxInfo OvalGfxInfo) const;  //Draw a line 
 	void back();
 	void switchtoplay ();
+	void switchtodraw2();
 	bool checkfill();
 	bool checkborder();
 	bool GetIsFilled() ;
@@ -177,6 +188,7 @@ public:
 	bool DoZoomOut();
 	bool UnZoomi();
 	bool UnZoomo();
+	void GroupShapes(int, int, int, int, string);
 	void Zoom(int, int);
 	double getLastScale();
 	bool checkZoomin();

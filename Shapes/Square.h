@@ -15,6 +15,8 @@ private:
 	double diagonl;
 	vector<int> arrayX;
 	vector<int> arrayY;
+	Point groupcenter;
+	int* id;
 public:
 	Square(Point, int, GfxInfo shapeGfxInfo);
 	virtual ~Square();
@@ -23,13 +25,19 @@ public:
 	void Save(ofstream& outfile); //Rghda added
 	string PrintOnTool();  //Rghda added
 	bool IsShapeExisting(int x, int y);  //Rghda added
+	int* GetID() override;
 	void Move(int x, int y); //Rghda Salah
 	Point firstxofshape();  //Rghda added for test
 
 	void Load(ifstream& inputfile);
 	void Resize(double n);
 	void Rotate();
+	
 	void zoom(double s, int, int) override;
 	void ResizeThisbydrag(Point corner, int  xto, int yto) override;
+	void SetgroupCenter(Point) override;
+	Point getCenter() override;
+	void setID(int* ) override;
+
 };
 

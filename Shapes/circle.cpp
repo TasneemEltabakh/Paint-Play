@@ -7,7 +7,7 @@ Circle::Circle(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	Corner1 = P1;
 	Corner2 = P2;
 	radious = sqrt(pow(P1.x - P2.x, 2) + pow(P1.y - P2.y, 2));
-
+	this->id = nullptr;
 }
 Circle :: ~Circle()
 {}
@@ -19,16 +19,17 @@ void Circle::Draw(GUI* pUI) const
 }
 void Circle::Resize(double n)
 {
-	radious = radious * n;
 
+	radious = radious * n;
 
 }
 void Circle::Rotate()
 {}
 void Circle::ResizeThisbydrag(Point corner, int  xto, int yto)
 {
-
-
+	Corner2.x = xto;
+	Corner2.y = yto;
+	radious = sqrt(pow(Corner1.x - Corner2.x, 2) + pow(Corner1.y - Corner2.y, 2)); 
 }
 void  Circle::zoom(double s, int x, int y)
 {
@@ -37,6 +38,23 @@ void  Circle::zoom(double s, int x, int y)
 	Corner2.x = (Corner2.x * s) - (s * x) + x;
 	Corner2.y = (Corner2.y * s) - (s * y) + y;
 	radious = s * radious;
+}
+void Circle::SetgroupCenter(Point p)
+
+{
+
+}
+Point Circle::getCenter()
+{
+	return Corner1;
+}
+void  Circle::setID(int* id)
+{
+	this->id = id;
+}
+int* Circle::GetID()
+{
+	return this->id;
 }
 void Circle::Save(ofstream& outfile) {   //Rghda added
 	//I tried to put the coordinate in a single line

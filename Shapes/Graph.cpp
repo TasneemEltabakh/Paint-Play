@@ -6,7 +6,7 @@
 Graph::Graph()
 {
 	selectedShape = nullptr;
-
+	
 	// set the nullptr to a pointer of that shape 
 
 
@@ -78,6 +78,7 @@ void Graph::pushbackselectvector(shape* selectedmultishape2) {
 	multiselectedvector.push_back(selectedmultishape2);
 
 }
+
 string Graph::numberofselectedshapes()
 {
 	string cnt;
@@ -342,16 +343,36 @@ void Graph::Load(ifstream& inputfile) {
 }
 void Graph::resize(double n)
 {
+	
 	for (int k = 0; k < shapesList.size(); k++) {
-		if (selectedShape == shapesList[k]) {
-			shapesList[k]->Resize(n);
+		
+		if (shapesList[k]->IsSelected()) 
+		{
+			if (shapesList[k]->GetID() != nullptr)
+			{
+				for (int i = 0; i < groupedshapes.size(); i++)
+				{
+					for (int j = 0; j < groupedshapes[i].size(); j++)
+					{
+						if (*shapesList[k]->GetID() == *groupedshapes[i][j]->GetID())
+						{
+							groupedshapes[i][j]->Resize(n);
+						}
+					}
+				}
+			}
+			else
+				shapesList[k]->Resize(n);
+
+			
 		}
+		
 	}
 }
 void Graph::rotate()
 {
 	for (int k = 0; k < shapesList.size(); k++) {
-		if (selectedShape == shapesList[k]) {
+		if (shapesList[k]->IsSelected()) {
 			shapesList[k]->Rotate();
 		}
 	}
@@ -367,10 +388,46 @@ void Graph::ZOOM(double scale, int X, int Y)
 void  Graph::resizebydrag (Point corner,int xto, int  yto)
 {
 
-	for (int k = 0; k < shapesList.size(); k++) {
+	for (int k = 0; k < shapesList.size(); k++)
 		if (selectedShape == shapesList[k]) {
 			shapesList[k]->ResizeThisbydrag(corner, xto, yto);
 		}
+	
+
+}
+
+void  Graph::groupthisShapes(int* n)
+{
+
+	vector<shape*> p;
+	for (int i = 0; i < multiselectedvector.size(); i++)
+	{
+		multiselectedvector[i]->setID(n);
+		p.push_back(multiselectedvector.at(i));
+	}
+
+	groupedshapes.push_back(p);
+
+}
+void Graph::Ungroup(int n)
+{
+	int m = 0;
+	for (int i = 0; i < groupedshapes.size(); i++)
+	{
+		for (int j = 0; j < groupedshapes[i].size(); j++)
+		{
+			if (*groupedshapes[i][j]->GetID())
+			{
+				m=i;
+			}
+		}
+	}
+	for (int i = 0; i < groupedshapes[m].size(); i++)
+	{
+		groupedshapes[m][i]->setID(nullptr);
 	}
 
 }
+
+
+

@@ -110,7 +110,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_EXIT: return EXIT;
 			case ICON_TRI: return DRAW_TRI;
 			case ICON_REG: return DRAW_regularPOLY;
-			case ICON_COLORS :return TO_Pallete;
+			case ICON_COLORS:return TO_Pallete;
 			case ICON_FILL: return FILL_COLOUR;
 			case ICON_IRREG: return DRAW_IRREPoly;
 			case ICON_LINE: return DRAW_LINE;
@@ -126,28 +126,35 @@ operationType GUI::GetUseroperation() const
 			case ICON_LOAD:return LOAD;
 			case ICON_ADDIMG: return ADD_IMG;
 			case ICON_BORD: return bord;
-			case ICON_SWITCH: return TO_PLAY ;
+			case ICON_BACK: return BACK;
+			case ICON_SWITCH: return TO_PLAY;
+			default: return EMPTY;	//A click on empty place in desgin toolbar
+			}
+		}
+	}
+	if (InterfaceMode == MODE_DRAW)	//GUI in the colouroallete mode
+		{
+			//[1] If user clicks on the Toolbar
+		if (y >= 0 && y < ToolBarHeight)
+		{
+			//Check whick Menu icon was clicked
+			//==> This assumes that menu icons are lined up horizontally <==
+			int ClickedIconOrder = (x / MenuIconWidth);
+			//Divide x coord of the point clicked by the menu icon width (int division)
+			//if division result is 0 ==> first icon is clicked, if 1 ==> 2nd icon and so on
+
+			switch (ClickedIconOrder)
+			{
+			case ICON_RESIZE: return RESIZE;
+			case ICON_RESIZEBYDRAG: return RESIZEBYDRAG;
+			case ICON_ROTATE: return ROTATE;
+			case ICON_ZOOMIN: return ZOOMIN;
+			case ICON_ZOOMOUT: return ZOOMOUT;
+		
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
 		}
 
-	if (InterfaceMode == MODE_COLOURS)	//GUI in the colouroallete mode
-		{
-			//[1] If user clicks on the Toolbar
-			if (y >= 0 && y < ToolBarHeight)
-			{
-
-				int ClickedIconOrder = (x / MenuIconWidth);
-
-
-				switch (ClickedIconOrder)
-				{
-				case ICON_COLOURPallet: return colours;
-				case ICON_BACK: return BACK;
-				default: return EMPTY;	//A click on empty place in desgin toolbar
-				}
-			}
-		}
 		//[2] User clicks on the drawing area
 		if (y >= 0 && y < ToolBarHeight)
 		{
@@ -247,6 +254,7 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_SELECTEDCOL] = "images\\MenuIcons\\pencils.jpg";
 	MenuIconImages[ICON_SELECTEDFILL] = "images\\MenuIcons\\fills.jpg";
 	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\upload.jpg";
+	MenuIconImages[ICON_BACK] = "images\\MenuIcons\\exit.jpg";
 	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\switch.jpg";
 
 	
@@ -267,6 +275,30 @@ void GUI::CreateDrawToolBar()
 	//pWind->DrawLine(0, ToolBarHeight , width, ToolBarHeight );
 	
 }
+void GUI:: CreateDrawToolBar2()
+{
+	pWind->DrawRectangle(0, 0, 1290, 70);
+	
+	string MenuIconImages2[DRAW_ICON_COUNT2];
+	//MenuIconImages2[ICON_ROTATE] = "images\\MenuIcons\\Menu_Exit.jpg";
+	//MenuIconImages2[ICON_RESIZE] = "images\\MenuIcons\\resize.jpg";
+	//MenuIconImages2[ICON_RESIZEBYDRAG] = "images\\MenuIcons\\resize-expand.jpg";
+	//MenuIconImages2[ICON_ZOOMIN] = "images\\MenuIcons\\z.jpg";
+	//MenuIconImages2[ICON_ZOOMOUT] = "images\\MenuIcons\\ZOOMOUT.jpg";
+
+	
+	
+
+	for (int i = 0; i < (PLAY_ICON_COUNT); i++)
+
+		pWind->DrawImage(MenuIconImages2[i], i * (MenuIconWidth), 7, MenuIconWidth, ToolBarHeight);
+
+	//Draw a line under the toolbar
+	pWind->SetPen(PLUM, 2);
+	pWind->DrawLine(0, ToolBarHeight + 14, width, ToolBarHeight + 14);
+
+
+}
 //////////////////////////////////////////////////////////////////////////////////////////
 void  GUI::CreateColourToolBar()
 {
@@ -282,6 +314,10 @@ void  GUI::CreateColourToolBar()
 void  GUI::switchtoplay() {
 	InterfaceMode =  MODE_PLAY;
 	CreatePlayToolBar();
+}
+void  GUI::switchtodraw2() {
+	InterfaceMode = MODE_DRAW;
+	CreateDrawToolBar2();
 }
 
 void  GUI::back()
@@ -311,7 +347,7 @@ void GUI::CreatePlayToolBar()
 	
 		pWind->DrawImage(PlayMenuIcon[i], i * (MenuIconWidth), 7, MenuIconWidth, ToolBarHeight);
 
-	
+
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
@@ -639,7 +675,12 @@ bool GUI::DoZoomOut()
 	isZoomedOut = true;
 	return isZoomedOut;
 }
-
+void GUI::GroupShapes(int x,int y, int x1, int y1,string s)
+{
+	image groupimg = s;
+	image* p = &groupimg;
+	pWind->StoreImage(p, x, y, x1, y1);
+}
 bool GUI::DoZoomin()
 {
 	scale = 1.5 * scale;

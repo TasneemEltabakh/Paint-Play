@@ -2,6 +2,7 @@
 #include "..//controller.h"
 #include "operation.h"
 #include <string>
+#include <zmouse.h>
 
 
 
@@ -20,6 +21,9 @@ void ZoomIn::Execute()
 	pUI->GetPointClicked(X, Y);
 	pUI->ClearStatusBar();
 	Graph* pGraph = pControl->getGraph();
-	pGraph->ZOOM(1.5,X,Y);
-
+	window* wind = pUI->pointertowind();
+	pGraph->ZOOM(1.5, X, Y);
+	
+	
+	
 }

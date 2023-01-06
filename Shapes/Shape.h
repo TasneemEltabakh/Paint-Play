@@ -9,7 +9,7 @@ class shape
 protected:
 	int ID;		//Each shape has an ID
 	GfxInfo ShpGfxInfo;	//shape graphis info
-	
+	int groupID;
 	/// Add more parameters if needed.
 
 public:
@@ -37,7 +37,11 @@ public:
 	virtual void Save(ofstream & outfile) = 0;	//Save the shape parameters to the file //Rghda edit (I remove the comment here)(GUIFile instead of OutFile)
 	virtual void Move(int x, int y)=0;  //Rghda added
 	virtual void ResizeThisbydrag(Point corner, int  xto,int yto) = 0;
+	virtual Point getCenter()=0;
+	virtual void setID(int* ) = 0;
 
+	virtual int* GetID()= 0;
+	virtual void SetgroupCenter(Point)=0;
 	//virtual void Load(ifstream &Infile) = 0;	//Load the shape parameters to the file
 
 	//virtual void PrintInfo(Output* pOut) = 0;	//print all shape info on the status bar

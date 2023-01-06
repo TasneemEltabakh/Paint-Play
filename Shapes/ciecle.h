@@ -10,6 +10,7 @@ private:
 	Point Corner1;
 	Point Corner2;
 	int radious;
+	int* id;
 public:
 	Circle(Point P1, Point P2, GfxInfo shapeGfxInfo);
 	virtual ~Circle();
@@ -23,8 +24,13 @@ public:
 	void Load(ifstream& inputfile);
 	void Resize(double n);
 	void Rotate();
+	int* GetID() override;
 	void zoom(double s, int, int) override;
 	void ResizeThisbydrag(Point corner, int  xto, int yto) override;
+	void SetgroupCenter(Point) override;
+	Point getCenter() override;
+	void setID(int*) override;
+
 };
 
 

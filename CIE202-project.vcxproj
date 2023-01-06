@@ -167,6 +167,7 @@
     <ClCompile Include="controller.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="operations\Delete.cpp" />
+    <ClCompile Include="operations\opGroup.cpp" />
     <ClCompile Include="operations\Load.cpp" />
     <ClCompile Include="operations\Move.cpp" />
     <ClCompile Include="operations\opAddCircle.cpp" />
@@ -189,6 +190,7 @@
     <ClCompile Include="operations\opSetPen.cpp" />
     <ClCompile Include="operations\opsSwitch.cpp" />
     <ClCompile Include="operations\opStick.cpp" />
+    <ClCompile Include="operations\opSwitchTodraw2.cpp" />
     <ClCompile Include="operations\opSwitchToPlay.cpp" />
     <ClCompile Include="operations\Resize.cpp" />
     <ClCompile Include="operations\ResizeDrag.cpp" />
@@ -233,6 +235,7 @@
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="GUI\GUI.h" />
     <ClInclude Include="operations\Delete.h" />
+    <ClInclude Include="operations\opGroup.h" />
     <ClInclude Include="operations\Load.h" />
     <ClInclude Include="operations\Move.h" />
     <ClInclude Include="operations\opAddCircle.h" />
@@ -256,6 +259,7 @@
     <ClInclude Include="operations\opSetPen.h" />
     <ClInclude Include="operations\opsSwitch.h" />
     <ClInclude Include="operations\opStick.h" />
+    <ClInclude Include="operations\opSwitchTodraw2.h" />
     <ClInclude Include="operations\opSwitchToPlay.h" />
     <ClInclude Include="operations\Resize.h" />
     <ClInclude Include="operations\ResizeDrag.h" />

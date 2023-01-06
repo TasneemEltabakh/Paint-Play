@@ -29,7 +29,8 @@ enum operationType //The operations supported (you can add more if needed)
 	selectwid,
 	selectfill,//Select spacific shape  //Rghda added 
 	LOAD,			//Load a graph from a file
-	EXIT,			//Exit the application
+	EXIT, //Exit the application	
+	GROUP,
 	Colour_Palleteop,
 	colours,
 	DRAWING_AREA,	//A click on the drawing area

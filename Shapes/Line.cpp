@@ -68,6 +68,14 @@ void Line::SetgroupCenter(Point p)
 {
 
 }
+void Line::scramble()
+{
+
+}
+void Line::hide()
+{
+
+}
 Point Line::getCenter()
 {
 	return midPoint;

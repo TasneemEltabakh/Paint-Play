@@ -438,6 +438,30 @@ bool Graph::isInIds(int* n)
 	}
 	return false;
 }
+void Graph::Scramble()
+{
+	srand(time(0));
 
+	for (int k = 0; k < shapesList.size(); k++) {
+	
+		shapesList[k]->scramble();
 
+	}
+}
+void Graph::Hide()
+{
+	for (int k = 0; k < shapesList.size(); k++) {
+
+		shapesList[k]->hide();
+
+	}
+}
+/*void Graph::Unhide()
+{
+	for (int k = 0; k < shapesList.size(); k++) {
+
+		shapesList[k]->unhide();
+
+	}
+}*/
 

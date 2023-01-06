@@ -18,9 +18,13 @@ void opGroup::Execute()
 	string choice;
 	Graph* pGraph = pControl->getGraph();
 
+
+
 	int IDOfgroup;
 
-	pUI->PrintMessage("do you want to group or ungroup: to group press g ");
+	pGraph->Scramble();
+}
+	/*pUI->PrintMessage("do you want to group or ungroup: to group press g ");
 	
 	choice = pUI->GetSrting();
 	int* p = nullptr;
@@ -35,6 +39,7 @@ void opGroup::Execute()
 		IDOfgroup = stoi(pUI->GetSrting());
 		p = &IDOfgroup;
 		pGraph->isInIds(p);
+
 	}
 	if (choice == "g" || choice == "G")
 	{
@@ -49,5 +54,5 @@ void opGroup::Execute()
 
 	pUI->ClearStatusBar();
 
-}
+}*/
 	

@@ -32,6 +32,15 @@ IrregularPolygon::IrregularPolygon(vector<Point> arrayv, GfxInfo shapeGfxInfo) :
 IrregularPolygon :: ~IrregularPolygon()
 {
 }
+void IrregularPolygon::scramble()
+{
+
+}
+void IrregularPolygon::hide()
+{
+
+}
+
 void  IrregularPolygon::zoom(double s, int x, int y)
 {
 	for (int i = 0; i < numberofsides; i++)

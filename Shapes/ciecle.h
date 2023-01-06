@@ -20,7 +20,7 @@ public:
 	bool IsShapeExisting(int x, int y);  //Rghda added
 	void Move(int x, int y); //Rghda Salah
 	Point firstxofshape();  //Rghda added for test
-
+	void scramble() override;
 	void Load(ifstream& inputfile);
 	void Resize(double n);
 	void Rotate();
@@ -30,7 +30,7 @@ public:
 	void SetgroupCenter(Point) override;
 	Point getCenter() override;
 	void setID(int*) override;
-
+	void hide() override;
 };
 
 

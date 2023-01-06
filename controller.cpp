@@ -28,7 +28,6 @@
 #include "operations/ResizeDrag.h"
 #include "operations/Move.h"
 #include "operations/opAddLine.h"
-#include "..//github/Shapes/Line.h"
 #include "operations/opSwitchTodraw2.h"
 #include "Shapes/Groupshape.h"
 #include "operations/opGroup.h"
@@ -66,7 +65,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddTriangle(this);
 		break;
 	case DRAW_LINE:
-		pOp = new opAddLine(this);
+		pOp = new opGroup(this);
 		break;
 	case DRAW_regularPOLY:
 		pOp = new opAddRegPol(this);
@@ -78,13 +77,13 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddirrPol(this);
 		break;
 	case SAVE:  //Rghda added
-		pOp = new Resize(this);
+		pOp = new Save(this);
 		break;
 	case SELECT:  //Rghda added
 		pOp = new Select(this);
 		break;
 	case DEL:  //Rghda added
-		pOp = new opGroup(this); // trial
+		pOp = new Delete(this); // trial
 		break;
 	case EXIT:
 		pOp = new opExit(this);
@@ -114,7 +113,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opLoad(this);
 		break;
 	case ADD_IMG:
-		pOp = new Resize(this);
+		pOp = new opAddImg(this);
 		break;
 	case bord:
 		pOp = new opChangeWidth(this);
@@ -145,6 +144,9 @@ operation* controller::createOperation(operationType OpType)
 		break;
 	case ZOOMIN:
 		pOp = new ZoomIn(this);
+		break;
+	case GROUP:
+		pOp = new opGroup(this);
 		break;
 	case STATUS:	//a click on the status bar ==> no operation
 		break;

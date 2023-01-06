@@ -28,11 +28,11 @@ public:
 	int* GetID() override;
 	void Move(int x, int y); //Rghda Salah
 	Point firstxofshape();  //Rghda added for test
-
+	void hide() override;
 	void Load(ifstream& inputfile);
 	void Resize(double n);
 	void Rotate();
-	
+	void scramble() override;
 	void zoom(double s, int, int) override;
 	void ResizeThisbydrag(Point corner, int  xto, int yto) override;
 	void SetgroupCenter(Point) override;

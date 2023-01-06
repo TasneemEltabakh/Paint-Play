@@ -62,4 +62,7 @@ public:
 	void  groupthisShapes(int*);
 	void  Ungroup(int* n);
 	bool isInIds(int* n);
+	void Scramble();
+	void Hide();
+	void Unhide();
 };

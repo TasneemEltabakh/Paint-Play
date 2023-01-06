@@ -27,6 +27,8 @@ public:
 	bool IsShapeExisting(int x, int y);  //Rghda added
 	int* GetID() override;
 	void Move(int x, int y); //Rghda Salah
+	Point firstxofshape();  //Rghda added for test
+
 	void Load(ifstream& inputfile);
 	void Resize(double n);
 	void Rotate();

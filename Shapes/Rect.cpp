@@ -180,8 +180,9 @@ void Rect::Move(int x, int y) {
 	Corner1.y =  (y );
 	Corner2.x =  (x +l);
 	Corner2.y =  (y +w);
-
-
+}
+Point Rect::firstxofshape() {
+	return Corner1;
 }
 
 void Rect::Load(ifstream& inputfile) {

@@ -27,6 +27,8 @@
 #include "operations/rotatOp.h"
 #include "operations/ResizeDrag.h"
 #include "operations/Move.h"
+#include "operations/opAddLine.h"
+#include "..//github/Shapes/Line.h"
 #include "operations/opSwitchTodraw2.h"
 #include "Shapes/Groupshape.h"
 #include "operations/opGroup.h"

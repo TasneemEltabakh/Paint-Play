@@ -480,6 +480,7 @@ void window::GetMouseCoord(int &iX, int &iY) {
 	iY = iMouseY;
 }
 
+
 buttonstate window::GetButtonState(const button btMouse, int &iX, int &iY) {
 
     ProcessMessage(); // Kludge

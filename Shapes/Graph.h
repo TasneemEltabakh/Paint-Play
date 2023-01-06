@@ -42,12 +42,14 @@ public:
 	string numberofselectedshapes();  //Rghda added
 
 	void SaveGraph(ofstream& outfile);	//Save all shapes to a file  //Rghda edideted its name
-	void MoveGraph(int xto, int  yto); //Rghda added
+	void MoveGraph(int x, int  y); //Rghda added
+	void MoveMultiGraph(int x, int  y);  //Rghda added
 	void DeleteGraph();  //Rghda added
 	void DeleteMultiShapesGraph();  //Rghda added
 	void EmptyGraph();    //Ariam added
 	void Load(ifstream& inputfile);
-	int  getvectorsize();
+	int getselectedvectorsize();  //Rghda added
+	//int getvectorsize();
 	shape* getselectedShape();  //Rghda added
 	void setselectedShape(shape* selectedshape);  //Rghda added
 	void  changeFillSelection(color);

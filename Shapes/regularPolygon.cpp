@@ -195,7 +195,18 @@ bool regularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  //I should 
 } 
 
 void regularPolygon::Move(int x, int y) {   //Rghda Salah
-
+	//cout << Center.x <<endl<< Center.y <<endl<< start.x <<endl<< start.y << endl << endl << endl;
+	Point corner3 = { start.x,Center.y };
+	int l = sqrt(pow(corner3.x - start.x, 2) + pow(corner3.y - start.y, 2));
+	int w = sqrt(pow(corner3.x - Center.x, 2) + pow(corner3.y - Center.y, 2));
+	Center.x = (x);
+	Center.y = (y);
+	start.x = (x - l);
+	start.y = (y - w);
+	//cout << Center.x << endl << Center.y << endl << start.x << endl << start.y << endl << endl << endl;
+}
+Point regularPolygon::firstxofshape() {
+	return Center;
 }
 
 void regularPolygon::Load(ifstream& inputfile) {

@@ -143,6 +143,9 @@ bool IrregularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  I should 
 void IrregularPolygon::Move(int x, int y) {   //Rghda Salah
 
 }
+Point IrregularPolygon::firstxofshape() {
+	return Center;
+}
 
 void IrregularPolygon::Load(ifstream& inputfile) {
 

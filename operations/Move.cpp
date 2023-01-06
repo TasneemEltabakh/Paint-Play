@@ -5,29 +5,57 @@ Move::Move(controller* pCont) :operation(pCont)
 {}
 
 void Move::Execute() {
-	
+	int num;
 	GUI* pUI = pControl->GetUI();
 	Graph* pGraph = pControl->getGraph();
 	window* pwind = pUI->pointertowind();
 
-	if (pGraph->getselectedShape()) {
+	pUI->PrintMessage("press 1 for singl move and any thing for multi move");
+	string whichoperationsinglemulti = pUI->GetSrting();
+	num = stoi(whichoperationsinglemulti);
 
-		pUI->PrintMessage("you can move it now");
+	if (num == 1) {    //the user here choose single shape move
+		if (pGraph->getselectedShape()) {
 
-		while (pwind->GetButtonState(LEFT_BUTTON, pointmove.x, pointmove.y) != BUTTON_DOWN) {
-			if (pointmove.y > 100 && pointmove.y < 740) {
-				
-				pGraph->MoveGraph(pointmove.x, pointmove.y);
-				pUI->ClearStatusBar();
-				pUI->CreateDrawToolBar();
-				pControl->UpdateInterface();
+			pUI->PrintMessage("you can move it now");
 
-				Sleep(40);
+			while (pwind->GetButtonState(LEFT_BUTTON, pointmove.x, pointmove.y) != BUTTON_DOWN) {
+				if (pointmove.y > 100 && pointmove.y < 740) {
+					pGraph->MoveGraph(pointmove.x, pointmove.y);
+					pUI->ClearStatusBar();
+					pUI->CreateDrawToolBar();
+					pControl->UpdateInterface();
+
+					Sleep(40);
+				}
 			}
 		}
+		else {
+			pUI->PrintMessage("You should selected shapes first");
+		}
+	
 	}
 	else {
-		pUI->PrintMessage("You should selected shapes first");
+		if (pGraph->getselectedvectorsize()!=0) {
+
+			pUI->PrintMessage("you can move them now");
+
+			while (pwind->GetButtonState(LEFT_BUTTON, pointmove.x, pointmove.y) != BUTTON_DOWN) {
+				if (pointmove.y > 100 && pointmove.y < 740) {
+					pGraph->MoveMultiGraph(pointmove.x, pointmove.y);
+					pUI->ClearStatusBar();
+					pUI->CreateDrawToolBar();
+					pControl->UpdateInterface();
+
+					Sleep(40);
+				}
+			}
+		}
+		else {
+			pUI->PrintMessage("You should selected multi shapes first");
+		}
 	}
+
+	
 
 }

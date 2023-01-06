@@ -91,11 +91,14 @@ string Graph::numberofselectedshapes()
 }
 
 
-
-
-int Graph::getvectorsize() {  //Rghda added
-	return shapesList.size();
+int Graph::getselectedvectorsize() {  //Rghda added
+	return multiselectedvector.size();
 }
+
+//
+//int Graph::getvectorsize() {  //Rghda added
+//	return shapesList.size();
+//}
 
 shape* Graph::getselectedShape() {  //Rghda added for the vector
 	return selectedShape;
@@ -156,6 +159,63 @@ void  Graph::MoveGraph(int x, int  y)
 		}
 	}
 
+}
+
+void  Graph::MoveMultiGraph(int xx, int  yy)
+{
+	int c = 0;
+	Point fixedp;  //corner 1
+	for (int i = 0; i < shapesList.size(); i++) {
+		if (shapesList[i]->IsSelected()) {
+
+			Point newpoint = shapesList[i]->firstxofshape();  //corner 2
+			if (c == 0) {
+				fixedp.x = shapesList[i]->firstxofshape().x;
+				fixedp.y = shapesList[i]->firstxofshape().y;
+				c = c + 1;
+				shapesList[i]->Move(xx, yy);
+			}
+			else if(fixedp.x< newpoint.x && fixedp.y < newpoint.y){
+				//Point newpoint = shapesList[i]->firstxofshape();  //corner 2
+				Point ctepn = { fixedp.x,newpoint.y };  //corner 3
+				int l = sqrt(pow(ctepn.x - newpoint.x, 2) + pow(ctepn.y - newpoint.y, 2));
+				int w = sqrt(pow(ctepn.x - fixedp.x, 2) + pow(ctepn.y - fixedp.y, 2));
+				
+				newpoint.x = (xx + l);
+				newpoint.y = (yy + w);
+				shapesList[i]->Move(newpoint.x, newpoint.y);	
+			}
+			else if (fixedp.x > newpoint.x && fixedp.y > newpoint.y) {
+				Point ctepn = { newpoint.x,fixedp.y };  //corner 3
+				int l = sqrt(pow(ctepn.x - newpoint.x, 2) + pow(ctepn.y - newpoint.y, 2));
+				int w = sqrt(pow(ctepn.x - fixedp.x, 2) + pow(ctepn.y - fixedp.y, 2));
+
+				newpoint.x = (xx - w);
+				newpoint.y = (yy - l);
+				shapesList[i]->Move(newpoint.x, newpoint.y);
+			}
+			else if (fixedp.x < newpoint.x && fixedp.y > newpoint.y) {
+				//Point newpoint = shapesList[i]->firstxofshape();  //corner 2
+				Point ctepn = { fixedp.x,newpoint.y };  //corner 3
+				int l = sqrt(pow(ctepn.x - newpoint.x, 2) + pow(ctepn.y - newpoint.y, 2));
+				int w = sqrt(pow(ctepn.x - fixedp.x, 2) + pow(ctepn.y - fixedp.y, 2));
+
+				newpoint.x = (xx + l);
+				newpoint.y = (yy - w);
+				shapesList[i]->Move(newpoint.x, newpoint.y);
+			}
+			else if (fixedp.x > newpoint.x && fixedp.y < newpoint.y) {
+				//Point newpoint = shapesList[i]->firstxofshape();  //corner 2
+				Point ctepn = { newpoint.x,fixedp.y };  //corner 3
+				int l = sqrt(pow(ctepn.x - newpoint.x, 2) + pow(ctepn.y - newpoint.y, 2));
+				int w = sqrt(pow(ctepn.x - fixedp.x, 2) + pow(ctepn.y - fixedp.y, 2));
+
+				newpoint.x = (xx -  w);
+				newpoint.y = (yy + l);
+				shapesList[i]->Move(newpoint.x, newpoint.y);
+			}
+		}
+	}
 }
 
 void Graph::EmptyGraph() {

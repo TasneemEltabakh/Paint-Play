@@ -143,7 +143,16 @@ bool Square::IsShapeExisting(int x, int y)  //Rghda added
 	}*/
 }
 void Square::Move(int x, int y) {   //Rghda Salah
-
+	Point corner3 = { Corner1.x,Corner2.y };
+	int l = sqrt(pow(corner3.x - Corner2.x, 2) + pow(corner3.y - Corner2.y, 2));
+	int w = sqrt(pow(corner3.x - Corner1.x, 2) + pow(corner3.y - Corner1.y, 2));
+	Corner1.x = (x);
+	Corner1.y = (y);
+	Corner2.x = (x + l);
+	Corner2.y = (y + w);
+}
+Point Square::firstxofshape() {
+	return Corner1;
 }
 
 

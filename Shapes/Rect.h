@@ -19,6 +19,8 @@ public:
 	string PrintOnTool();  //Rghda added
 	bool IsShapeExisting(int x, int y);  //Rghda added
 	void Move(int x, int y);  //Rghda added
+	Point firstxofshape();  //Rghda added for test
+
 	void Load(ifstream& inputfile);
 	void Resize(double n);	//Resize the shape
 	void Rotate();

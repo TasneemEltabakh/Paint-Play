@@ -27,6 +27,8 @@
 #include "operations/rotatOp.h"
 #include "operations/ResizeDrag.h"
 #include "operations/Move.h"
+#include "operations/opAddLine.h"
+#include "..//github/Shapes/Line.h"
 
 using namespace std;
 //Constructor
@@ -61,7 +63,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddTriangle(this);
 		break;
 	case DRAW_LINE:
-		pOp = new ResizeDrag(this);
+		pOp = new opAddLine(this);
 		break;
 	case DRAW_regularPOLY:
 		pOp = new opAddRegPol(this);
@@ -73,7 +75,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddirrPol(this);
 		break;
 	case SAVE:  //Rghda added
-		pOp = new Save(this);
+		pOp = new ZoomIn(this);
 		break;
 	case SELECT:  //Rghda added
 		pOp = new Select(this);

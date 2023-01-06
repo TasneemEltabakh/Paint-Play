@@ -105,7 +105,14 @@ void Oval::Save(ofstream& outfile) {   //Rghda added
 	outfile << endl;
 }
 
+void  Oval::scramble()
+{
 
+}
+void  Oval::hide()
+{
+
+}
 string Oval::PrintOnTool()  //Rghda added
 {
 	int id = 5;

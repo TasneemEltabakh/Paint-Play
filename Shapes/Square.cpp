@@ -101,6 +101,14 @@ Point Square::getCenter()
 {
 	return center;
 }
+void  Square:: scramble()
+{
+
+}
+void Square::hide()
+{
+
+}
 void Square::setID(int* id)
 {
 	this->id = id;

@@ -23,6 +23,15 @@ void Circle::Resize(double n)
 	radious = radious * n;
 
 }
+void Circle::scramble()
+{
+	Corner1.x = rand() % 800;
+	Corner2.y =  rand() % 300;
+}
+void Circle::hide()
+{
+
+}
 void Circle::Rotate()
 {}
 void Circle::ResizeThisbydrag(Point corner, int  xto, int yto)

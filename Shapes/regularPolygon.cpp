@@ -23,6 +23,14 @@ regularPolygon ::regularPolygon(Point P1, Point P2, int Sides,  GfxInfo shapeGfx
 }
 regularPolygon:: ~regularPolygon()
 {}
+void regularPolygon :: scramble()
+{
+
+}
+void regularPolygon::hide()
+{
+
+}
 void regularPolygon::generatingPoints()
 {
 	

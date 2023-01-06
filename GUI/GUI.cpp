@@ -396,12 +396,8 @@ Point GUI::GetOrigin() const
 
 void GUI:: Zoom(int X, int Y)
 {
-
 	Origin.x = X ;
 	Origin.y = Y ;
-	
-
-
 }
 bool  GUI::UnZoomi()
 {
@@ -420,14 +416,13 @@ double GUI::getLastScale()
 {
 	return scale;
 }
-void GUI::AddImg(string s) {
-
-	int MenuIconWidthpallete = 100;
-	int drawheight = 100;
-	int MenuIconW = 80;
-
-	pWind->DrawImage("images\\MenuIcons\\" + s + ".jpg", 10, 0, 100, 900);
-	pWind->SetPen(RED, 3);
+void GUI::AddImg(Point center)
+{
+	int width = 700;
+	int g = 700;
+	int x = center.x;
+	int y = center.y;
+	pWind->DrawImage("images\\MenuIcons\\card.jpg", x, y, g, width);
 }
 
 void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const

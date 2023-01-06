@@ -1,7 +1,8 @@
 #pragma once
 #include "..\defs.h"
 #include "..\GUI\GUI.h"
-
+#include <time.h>
+#include <cstdlib>
 
 //Base class for all shapes
 class shape
@@ -39,9 +40,11 @@ public:
 	virtual void ResizeThisbydrag(Point corner, int  xto,int yto) = 0;
 	virtual Point getCenter()=0;
 	virtual void setID(int* ) = 0;
-
 	virtual int* GetID()= 0;
 	virtual void SetgroupCenter(Point)=0;
+	virtual void scramble() = 0;
+	virtual void hide() = 0;
+	//virtual void unhide() = 0;
 	//virtual void Load(ifstream &Infile) = 0;	//Load the shape parameters to the file
 
 	//virtual void PrintInfo(Output* pOut) = 0;	//print all shape info on the status bar

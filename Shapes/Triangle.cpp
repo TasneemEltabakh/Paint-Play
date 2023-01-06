@@ -76,12 +76,28 @@ void Triangle::zoom(double s, int x, int y)
 	Corner3.y = (Corner3.y * s) - (s * y) + y;
 
 }
+void Triangle::scramble()
+{
+	Point spar = Center;
+	Center.x =  rand() % 800;
+	Center.y =  rand() % 500;
+	Corner1.x = Corner1.x + (Center.x - spar.x);
+	Corner1.y = Corner1.y + (Center.y - spar.y);
+	Corner2.x = Corner2.x + (Center.x - spar.x);
+	Corner2.y = Corner2.y + (Center.y - spar.y);
+	Corner3.x = Corner3.x + (Center.x - spar.x);
+	Corner3.y = Corner3.y + (Center.y - spar.y);
 
+}
 void Triangle::SetgroupCenter(Point p)
 
 {
 	Center.x = p.x;
 	Center.y = p.y;
+
+}
+void Triangle::hide()
+{
 
 }
 Point Triangle:: getCenter()

@@ -183,7 +183,7 @@ public:
 	bool GetIsChanged();
 	bool Checkresize();
 	bool CheckIsResized();
-	void AddImg(string name);
+	void AddImg(Point);
 	bool DoZoomin();
 	bool DoZoomOut();
 	bool UnZoomi();

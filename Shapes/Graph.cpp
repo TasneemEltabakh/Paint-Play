@@ -218,6 +218,7 @@ void  Graph::MoveMultiGraph(int xx, int  yy)
 	}
 }
 
+
 void Graph::EmptyGraph() {
 	for (int k = 0; k < shapesList.size(); k++) {
 		{

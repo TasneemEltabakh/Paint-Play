@@ -130,8 +130,8 @@ void Graph::DeleteGraph() {
 			k--;
 		}
 	}
-	//pGUI->ClearDrawArea(); 
-	//UpdateInterface();
+
+
 }
 void Graph::DeleteMultiShapesGraph() {
 
@@ -147,7 +147,6 @@ void Graph::DeleteMultiShapesGraph() {
 		multiselectedvector.erase(multiselectedvector.begin() + j);   //delete selected shapes from the vector
 		j--;
 	}
-
 }
 
 void  Graph::MoveGraph(int x, int  y)
@@ -395,7 +394,7 @@ void  Graph::resizebydrag (Point corner,int xto, int  yto)
 
 }
 
-void  Graph::groupthisShapes(int* n)
+void Graph::groupthisShapes(int* n)
 {
 
 	vector<shape*> p;
@@ -406,9 +405,10 @@ void  Graph::groupthisShapes(int* n)
 	}
 
 	groupedshapes.push_back(p);
+	vectorOfIds.push_back(n);
 
 }
-void Graph::Ungroup(int n)
+void Graph::Ungroup(int* n)
 {
 	int m = 0;
 	for (int i = 0; i < groupedshapes.size(); i++)
@@ -426,6 +426,17 @@ void Graph::Ungroup(int n)
 		groupedshapes[m][i]->setID(nullptr);
 	}
 
+	vectorOfIds.erase(vectorOfIds.begin() + m);
+}
+bool Graph::isInIds(int* n)
+{
+	for (int i = 0 ; i < vectorOfIds.size(); i++)
+	{
+		if (*n == *vectorOfIds[i])
+			return true;
+		
+	}
+	return false;
 }
 
 

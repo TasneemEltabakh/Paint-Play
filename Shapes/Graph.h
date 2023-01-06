@@ -28,7 +28,7 @@ private:
 	shape* selectedShape;	//pointer to the currently selected shape
 	vector <vector <shape*>> groupedshapes;
 	vector <shape*> multiselectedvector; //a container to hold all shapes which multi selected
-
+	vector<int* > vectorOfIds;
 
 public:
 	Graph();
@@ -60,6 +60,6 @@ public:
 	void  ZOOM(double,int , int);
 	void  resizebydrag(Point, int, int);
 	void  groupthisShapes(int*);
-	void  Ungroup(int n);
-	
+	void  Ungroup(int* n);
+	bool isInIds(int* n);
 };

@@ -51,19 +51,25 @@ void Play::match() {
 
 
 	pGUI->PrintMessage("get shapes should be ended here");  //Rghda put for test  I works
-	this_thread::sleep_for(chrono::milliseconds(2500));  //this way finally work :D
+	Sleep(1500);  //this way finally work :D
 
 	if (pGraph->matchgraph(shape1, shape2)) {
+		pGraph->DeleteMultiShapesGraph();
+		pControl->UpdateInterface();
 		rightAnswers = rightAnswers + 1;
+
 		pGUI->PrintMessage("Successful, you get:"+ to_string(rightAnswers)+ " right and "+ to_string(wrongAnswers)+"wrong");
-		this_thread::sleep_for(chrono::milliseconds(2500));  //this way finally work :D
+		
+
+		Sleep(1500);  //this way finally work :D
+		
 
 		int size = pGraph->getvectorsize();
 		//if (rightAnswers == (size / 2)) {
 		if (size==0) {
 			pGUI->PrintMessage("Finish, you get:" + to_string(rightAnswers) + " right and " + to_string(wrongAnswers) + "wrong");
-			this_thread::sleep_for(chrono::milliseconds(2500));  //this way finally work :D
-			pGraph->returnallshapesforplay();
+			Sleep(1500);  //this way finally work :D
+			//pGraph->returnallshapesforplay();
 			//return;
 			//exit;
 		}
@@ -78,7 +84,7 @@ void Play::match() {
 		//delay(5000);
 		//cout.flush();  //these ways didn't work
 		//sleep(10);
-		this_thread::sleep_for(chrono::milliseconds(2500));  //this way finally work :D
+		Sleep(1500);  //this way finally work :D
 		match();
 	}
 }

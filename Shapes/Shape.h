@@ -54,7 +54,9 @@ public:
 	virtual bool IsShapeExisting(int x, int y) = 0;  //Rghda added
 
 	virtual Point firstxofshape() = 0;  //Rghda added
-	virtual shape* GDuplicateShape() = 0;
+	virtual shape* GDuplicateShape() = 0;  //Rghda added
+	GfxInfo getGfxInfo(); //Rghda added
+	bool chickinfo(shape*sh1,shape*sh2);  //Rghda added
 	
 };
 

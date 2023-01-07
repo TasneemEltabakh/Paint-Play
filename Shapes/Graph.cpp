@@ -125,9 +125,11 @@ void Graph::SaveGraph(ofstream& outfile) {  //Rghda added*******
 
 
 void Graph::DeleteGraph() {
+	int n=-3;
 
-	/*for (int k = 0; k < shapesList.size(); k++) {  //this for delete groub of shapes but has error
-		if (selectedShape == shapesList[k]) {
+	for (int k = 0; k < shapesList.size(); k++) {
+		if (selectedShape == shapesList[k])
+		{
 			if (shapesList[k]->GetID() != nullptr)
 			{
 				for (int i = 0; i < groupedshapes.size(); i++)
@@ -136,31 +138,37 @@ void Graph::DeleteGraph() {
 					{
 						if (*shapesList[k]->GetID() == *groupedshapes[i][j]->GetID())
 						{
-							groupedshapes[i][j]->SetSelected(false); //new addition
-							delete groupedshapes[i][j];
-							shapesList.erase(shapesList.begin() + j);
-							j--;
+							n = i;
+							shapesList[k]->SetSelected(false);
+							delete shapesList[k];
+							shapesList.erase(shapesList.begin() + k);
+							k--;
+							
 						}
 					}
+					
 				}
+				
 			}
 			else
 			{
-				shapesList[k]->SetSelected(false); //new addition
+
+				shapesList[k]->SetSelected(false);
 				delete shapesList[k];
 				shapesList.erase(shapesList.begin() + k);
 				k--;
+
+
 			}
 		}
-	}*/
-	for (int k = 0; k < shapesList.size(); k++) {
-		if (selectedShape == shapesList[k]) {
-			shapesList[k]->SetSelected(false); //new addition
-			delete shapesList[k];
-			shapesList.erase(shapesList.begin() + k);
-			k--;
-		}
 	}
+	//if (n != -3)
+	//{
+	//	groupedshapes.erase(groupedshapes.begin() + n);   //delete selected shapes from the vector
+	//	n--;
+	//	
+	//}
+	
 }
 void Graph::DeleteMultiShapesGraph() {
 
@@ -475,20 +483,18 @@ void Graph::Scramble()
 	//cout << endl << shapesList.size() << endl;
 	for (unsigned int k = 0; k < shapesList.size(); k++) {
 		Point p;
-		p.x = rand() % (1300 / 2 - 70) + 70;   //note width of the draw windo==1300
-		p.y = rand() % (700 / 2 - 70) + 70;   //note hieght of the draw windo==700
+		p.x = rand() % (2000 / 2 - 70) + 70;   //note width of the draw windo==1300
+		p.y = rand() % (1000 / 2 - 70) + 70;   //note hieght of the draw windo==700
 		//p.x = 70 + rand() % (1300 - 700 + 1);   //note width of the draw windo==1300
 		//p.y = 70 + rand() % (1300 - 700 + 1);   //note hieght of the draw windo==700
 		//p.x += 1300 / 2;
 		shapesList[k]->scramble(p);
 		if (k < shapesList.size() / 2) {
 			shapesList[k]->ChngDrawClr(color(0, 0, 255));
-
 		}
 		else {
 			shapesList[k]->ChngDrawClr(color(173, 255, 47));
 		}
-		//DrawClr
 	}
 }
 void Graph::Hide()
@@ -536,20 +542,23 @@ bool Graph::matchgraph(shape* shape1, shape* shape2) {
 			for (int k = 0; k < shapesList.size(); k++) {
 				if (shape2 == shapesList[k]) {
 
-					if (shapesList[i] == shapesList[k]) {
+					//if (shapesList[i]->getGfxInfo() == shapesList[k]->getGfxInfo()) {
+					if (k=(shapesList.size()/2)+i) {
 						//delete first shape
-						shapesList[i]->SetSelected(false); 
-						delete shapesList[i];
-						shapesList.erase(shapesList.begin() + i);
-						i--;
-						//delete second shape
-						shapesList[k]->SetSelected(false);
-						delete shapesList[k];
-						shapesList.erase(shapesList.begin() + k);
-						k--;
+						//shapesList[i]->SetSelected(false); 
+						//delete shapesList[i];
+						//shapesList.erase(shapesList.begin() + i);
+						//i--;
+						////delete second shape
+						//shapesList[k]->SetSelected(false);
+						//delete shapesList[k];
+						//shapesList.erase(shapesList.begin() + k);
+						//k--;
+						//DeleteMultiShapesGraph();
 						return true;
 					}
-					else {
+					else 
+					{
 						return false;
 					}
 				}
@@ -557,7 +566,7 @@ bool Graph::matchgraph(shape* shape1, shape* shape2) {
 		}
 		
 	}
-	return false;
+
 }
 void Graph::returnallshapesforplay() {
 	for (int k = 0; k < keepshapesList.size(); k++) {

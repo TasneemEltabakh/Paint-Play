@@ -43,3 +43,11 @@ void SelectedShapeAim()
 
 
 }
+
+//Play
+GfxInfo shape::getGfxInfo() {
+	return ShpGfxInfo;
+}
+bool shape::chickinfo(shape* sh1, shape* sh2) {
+	return false;
+}

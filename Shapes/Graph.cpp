@@ -2,6 +2,13 @@
 #include "../GUI/GUI.h"
 #include <iostream>
 #include <string>
+#include <time.h> /* time */
+
+#include <random>
+#include <algorithm>
+#include <iterator>   //These four include for randum
+#include <iostream>
+#include <vector>
 
 Graph::Graph()
 {
@@ -462,12 +469,26 @@ bool Graph::isInIds(int* n)
 }
 void Graph::Scramble()
 {
-	srand(time(0));
-	//cout <<endl<< shapesList.size()<<endl;  this works too
-	for (int k = 0; k < shapesList.size(); k++) {
-	
-		shapesList[k]->scramble();
+	//srand(time(0));
+	random_shuffle(shapesList.begin(), shapesList.end());
+	srand(time(NULL));
+	//cout << endl << shapesList.size() << endl;
+	for (unsigned int k = 0; k < shapesList.size(); k++) {
+		Point p;
+		p.x = rand() % (1300 / 2 - 70) + 70;   //note width of the draw windo==1300
+		p.y = rand() % (700 / 2 - 70) + 70;   //note hieght of the draw windo==700
+		//p.x = 70 + rand() % (1300 - 700 + 1);   //note width of the draw windo==1300
+		//p.y = 70 + rand() % (1300 - 700 + 1);   //note hieght of the draw windo==700
+		p.x += 1300 / 2;
+		shapesList[k]->scramble(p);
+		if (k < shapesList.size() / 2) {
+			shapesList[k]->ChngDrawClr(color(0, 0, 255));
 
+		}
+		else {
+			shapesList[k]->ChngDrawClr(color(173, 255, 47));
+		}
+		//DrawClr
 	}
 }
 void Graph::Hide()
@@ -494,6 +515,8 @@ void Graph::GDuplicate() {
 	for (int k = 0; k < n; k++) {
 		keepshapesList.push_back(shapesList[k]);   //to save all shapes Rghda added
 		shapesList.push_back(shapesList[k]);
+		//shapesList[k]->Draw();
+		shapesList[k]->ChngDrawClr(color(0, 0, 255));
 	}
 	//cout << "NEW SIZE" << shapesList.size() << endl;
 }
@@ -528,6 +551,6 @@ bool Graph::matchgraph(shape* shape1, shape* shape2) {
 void Graph::returnallshapesforplay() {
 	for (int k = 0; k < keepshapesList.size(); k++) {
 		shapesList.push_back(keepshapesList[k]);
-	};
+	}
 }
 	

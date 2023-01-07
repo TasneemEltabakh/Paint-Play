@@ -23,18 +23,20 @@ void Circle::Resize(double n)
 	radious = radious * n;
 
 }
-void Circle::scramble()
+void Circle::scramble(Point p)
 {
-	srand(time(0));
-	if (ff == 0) {  //I traid to test something
-		Corner1.x = rand() % 800;
-		Corner1.y = rand() % 300;
-		ff = ff + 1;
-	}
-	else {
-		Corner1.x = rand() % 850;
-		Corner1.y = rand() % 350;
-	}
+	//srand(time(0));
+	//if (ff == 0) {  //I traid to test something
+	//	Corner1.x = rand() % 800;
+	//	Corner1.y = rand() % 300;
+	//	ff = ff + 1;
+	//}
+	//else {
+	//	Corner1.x = rand() % 850;
+	//	Corner1.y = rand() % 350;
+	//}
+	Corner1.x = p.x;
+	Corner1.y = p.y;
 	
 }
 void Circle::hide()

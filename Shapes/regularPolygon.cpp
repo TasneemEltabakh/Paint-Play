@@ -23,17 +23,16 @@ regularPolygon ::regularPolygon(Point P1, Point P2, int Sides,  GfxInfo shapeGfx
 }
 regularPolygon:: ~regularPolygon()
 {}
-void regularPolygon :: scramble()
+void regularPolygon :: scramble(Point p)
 {
-	Center.x = rand() % 800;
+	/*Center.x = rand() % 800;
 	Center.y = rand() % 300;
 
 	for (int i = 0; i < NumberOfsides; i++)
 	{
 		arrayX.at(i) = arrayX[i] + Center.x;
 		arrayY.at(i) = arrayY[i]  + Center.y;
-	}
-
+	}*/
 	
 }
 void regularPolygon::hide()

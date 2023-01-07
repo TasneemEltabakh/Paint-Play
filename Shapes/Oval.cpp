@@ -105,7 +105,7 @@ void Oval::Save(ofstream& outfile) {   //Rghda added
 	outfile << endl;
 }
 
-void  Oval::scramble()
+void  Oval::scramble(Point p)
 {
 
 }

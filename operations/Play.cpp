@@ -31,8 +31,8 @@ void Play::hide() {
 }
 
 void Play::match() {
-	Point P1;
-	Point P2;
+	Point P1={0,0};
+	Point P2={0,0};
 	shape* shape1;
 	shape* shape2;
 
@@ -55,16 +55,21 @@ void Play::match() {
 
 
 	pGUI->PrintMessage("get shapes should be ended here");  //Rghda put for test  I works
-	
+	this_thread::sleep_for(chrono::milliseconds(2500));  //this way finally work :D
+
 	if (pGraph->matchgraph(shape1, shape2)) {
 		rightAnswers = rightAnswers + 1;
 		pGUI->PrintMessage("Successful, you get:"+ to_string(rightAnswers)+ " right and "+ to_string(wrongAnswers)+"wrong");
+		this_thread::sleep_for(chrono::milliseconds(2500));  //this way finally work :D
+
 		int size = pGraph->getvectorsize();
 		//if (rightAnswers == (size / 2)) {
 		if (size==0) {
 			pGUI->PrintMessage("Finish, you get:" + to_string(rightAnswers) + " right and " + to_string(wrongAnswers) + "wrong");
+			this_thread::sleep_for(chrono::milliseconds(2500));  //this way finally work :D
 			pGraph->returnallshapesforplay();
-			return;
+			//return;
+			//exit;
 		}
 		else {
 			//pGUI->PrintMessage("I test if it comes here");  //Rghda put for test  I undestand what happened
@@ -77,7 +82,7 @@ void Play::match() {
 		//delay(5000);
 		//cout.flush();  //these ways didn't work
 		//sleep(10);
-		this_thread::sleep_for(chrono::milliseconds(2000));  //this way finally work :D
+		this_thread::sleep_for(chrono::milliseconds(2500));  //this way finally work :D
 		match();
 	}
 }
@@ -85,12 +90,15 @@ void Play::StartGame() {
 	
 }
 bool Play::restart(Point p) {
-	int x = p.x;  
-	int y = p.y;
-	/*if (x >= 13 * 50 && x <= 15 * 50 && y >= 0 && y <= 50)   //Ishould here put the coorednates of restart
-		if (x < 14 * 50)
-			return true;*/
+	//int x = p.x;  
+	//int y = p.y;
+	///*if (x >= 13 * 50 && x <= 15 * 50 && y >= 0 && y <= 50)   //Ishould here put the coorednates of restart
+	//	if (x < 14 * 50)
+	//		return true;*/
+	//return false;
+	pGraph->returnallshapesforplay(); 
 	return false;
+
 }
 void Play::Execute() {
 	//pGUI->PrintMessage("did it enter the execute for play?");  //this works
@@ -100,7 +108,7 @@ void Play::Execute() {
 	//Scramble();
 	//pGUI->PrintMessage("after scramble");  //this works now
 
-	match();
+	//match();
 	//hide();
 	//StartGame();
 }

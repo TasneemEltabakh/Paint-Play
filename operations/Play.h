@@ -4,11 +4,11 @@
 
 class Play :public operation
 {
-	GUI* pUI = pControl->GetUI();
+	GUI* pGUI = pControl->GetUI();
 	Graph* pGraph = pControl->getGraph();
 public:
-	int WrongAnswers = 0;
-	int RightAnswers = 0;
+	int wrongAnswers = 0;
+	int rightAnswers = 0;
 	Play(controller* pCont);
 
 	//Get action parameters function
@@ -18,7 +18,10 @@ public:
 	//virtual void Scramble();
 	void dublicate();
 	void Scramble();
+	void hide();
+	void match();
 	void StartGame();
 	bool restart(Point p);
+	void Execute();
 	~Play();
 };

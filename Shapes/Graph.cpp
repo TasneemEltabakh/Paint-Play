@@ -96,10 +96,10 @@ int Graph::getselectedvectorsize() {  //Rghda added
 	return multiselectedvector.size();
 }
 
-//
-//int Graph::getvectorsize() {  //Rghda added
-//	return shapesList.size();
-//}
+
+int Graph::getvectorsize() {  //Rghda added
+	return shapesList.size();
+}
 
 shape* Graph::getselectedShape() {  //Rghda added for the vector
 	return selectedShape;
@@ -483,18 +483,51 @@ void Graph::Unhide()
 	for (int k = 0; k < shapesList.size(); k++) {
 
 		//shapesList[k]->unhide();
-
+	}
+}
 /////////////
 ////Play////
 ///////////
 void Graph::GDuplicate() {
-	int n = shapesList.size();
+	//int n = shapesList.size();
 	//cout << "OLD SIZE" << n << endl;
 	for (int k = 0; k < shapesList.size(); k++) {
+		keepshapesList.push_back(shapesList[k]);   //to save all shapes Rghda added
 		shapesList.push_back(shapesList[k]);
 	};
 	//cout << "NEW SIZE" << shapesList.size() << endl;
-};
-	}
 }
 
+bool Graph::matchgraph(shape* shape1, shape* shape2) {
+	for (int i = 0; i < shapesList.size(); i++) {
+		if (shape1 == shapesList[i]) {
+			for (int k = 0; k < shapesList.size(); k++) {
+				if (shape2 == shapesList[k]) {
+					if (shapesList[i] == shapesList[k]) {
+						//delete first shape
+						shapesList[i]->SetSelected(false); 
+						delete shapesList[i];
+						shapesList.erase(shapesList.begin() + i);
+						i--;
+						//delete second shape
+						shapesList[k]->SetSelected(false);
+						delete shapesList[k];
+						shapesList.erase(shapesList.begin() + k);
+						k--;
+						return true;
+					}
+					else {
+						return false;
+					}
+				}
+			}
+		}
+		
+	}
+}
+void Graph::returnallshapesforplay() {
+	for (int k = 0; k < keepshapesList.size(); k++) {
+		shapesList.push_back(keepshapesList[k]);
+	};
+}
+	

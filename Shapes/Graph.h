@@ -24,7 +24,9 @@ class GUI;
 class Graph
 {
 private:
-	vector <shape*> shapesList; //a container to hold all shapes							   
+	vector <shape*> shapesList; //a container to hold all shapes
+	vector <shape*> keepshapesList; //for return shapes for play mood  //Rghda added
+
 	shape* selectedShape;	//pointer to the currently selected shape
 	vector <vector <shape*>> groupedshapes;
 	vector <shape*> multiselectedvector; //a container to hold all shapes which multi selected
@@ -49,7 +51,7 @@ public:
 	void EmptyGraph();    //Ariam added
 	void Load(ifstream& inputfile);
 	int getselectedvectorsize();  //Rghda added
-	//int getvectorsize();
+	int getvectorsize();  //Rghda added for match play
 	shape* getselectedShape();  //Rghda added
 	void setselectedShape(shape* selectedshape);  //Rghda added
 	void  changeFillSelection(color);
@@ -69,4 +71,6 @@ public:
 
 	//Play mode
 	void GDuplicate();
+	bool matchgraph(shape* shape1, shape* shape2);
+	void returnallshapesforplay();
 };

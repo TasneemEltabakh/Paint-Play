@@ -31,6 +31,7 @@
 #include "operations/opSwitchTodraw2.h"
 #include "Shapes/Groupshape.h"
 #include "operations/opGroup.h"
+#include "operations/Scramble.h"
 
 using namespace std;
 //Constructor
@@ -65,7 +66,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddTriangle(this);
 		break;
 	case DRAW_LINE:
-		pOp = new ResizeDrag(this);
+		pOp = new Scramble(this);
 		break;
 	case DRAW_regularPOLY:
 		pOp = new opAddRegPol(this);

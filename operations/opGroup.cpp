@@ -32,17 +32,19 @@ void opGroup::Execute()
 	IDOfgroup = stoi(pUI->GetSrting());
 	p = &IDOfgroup;
 
-	while (pGraph->isInIds(p))
-	{
-		pUI->PrintMessage("you have already another group with the same Id, enter another one please ");
-		IDOfgroup = stoi(pUI->GetSrting());
-		p = &IDOfgroup;
-		pGraph->isInIds(p);
-
-	}
+	
 
 	if (choice == "g" || choice == "G")
 	{
+		while (pGraph->isInIds(p))
+		{
+			pUI->PrintMessage("you have already another group with the same Id, enter another one please ");
+			IDOfgroup = stoi(pUI->GetSrting());
+			p = &IDOfgroup;
+			pGraph->isInIds(p);
+
+		}
+	
 		pGraph->groupthisShapes(p);
 
 		pUI->PrintMessage("You created a group with Id number " + IDOfgroup);

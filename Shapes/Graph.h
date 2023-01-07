@@ -66,7 +66,6 @@ public:
 	void Hide();
 	void Unhide();
 
-
 	//Play mode
 	void GDuplicate();
 };

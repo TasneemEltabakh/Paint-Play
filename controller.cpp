@@ -113,7 +113,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opLoad(this);
 		break;
 	case ADD_IMG:
-		pOp = new opAddImg(this);
+		pOp = new opGroup(this);
 		break;
 	case bord:
 		pOp = new opChangeWidth(this);

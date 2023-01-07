@@ -483,18 +483,19 @@ void Graph::Unhide()
 	for (int k = 0; k < shapesList.size(); k++) {
 
 		//shapesList[k]->unhide();
+	}
+}
 
 /////////////
 ////Play////
 ///////////
+
 void Graph::GDuplicate() {
 	int n = shapesList.size();
 	//cout << "OLD SIZE" << n << endl;
 	for (int k = 0; k < shapesList.size(); k++) {
 		shapesList.push_back(shapesList[k]);
-	};
-	//cout << "NEW SIZE" << shapesList.size() << endl;
-};
 	}
+	//cout << "NEW SIZE" << shapesList.size() << endl;
 }
 

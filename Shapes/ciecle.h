@@ -11,6 +11,8 @@ private:
 	Point Corner2;
 	int radious;
 	int* id;
+
+	int ff=0; //Rghda wll test something
 public:
 	Circle(Point P1, Point P2, GfxInfo shapeGfxInfo);
 	virtual ~Circle();

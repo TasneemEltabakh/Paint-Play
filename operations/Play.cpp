@@ -1,7 +1,12 @@
 #include "Play.h"
-
 //#include <Windows.h>
 //#include <Mmsystem.h>
+//#include <unistd.h>
+
+#include <iostream>
+#include <chrono>  //These three for sleep line
+#include <thread>
+
 
 Play::Play(controller* pCont) : operation(pCont)
 {
@@ -32,21 +37,24 @@ void Play::match() {
 	shape* shape2;
 
 
-	do{
+	do{  //this handle if user click on free space
 		pGUI->PrintMessage("Click at first shape");
 		pGUI->GetPointClicked(P1.x, P1.y);
-		shape1 = pGraph->Getshape(P1.x, P1.y);
-		shape1->SetSelected(true);  //I put this instead of unhide function
-		//shape1->unhide(); 
 	} while (!pGraph->Getshape(P1.x, P1.y));
+	shape1 = pGraph->Getshape(P1.x, P1.y);
+	shape1->SetSelected(true);  //I put this instead of unhide function
+	//shape1->unhide(); 
 	
-	do {
+	do {  //this handle if user click on free space
 		pGUI->PrintMessage("Click at second shape");
 		pGUI->GetPointClicked(P2.x, P2.y);
-		shape2 = pGraph->Getshape(P2.x, P2.y);
-		shape2->SetSelected(true);  //I put this instead of unhide function
-		//shape1->unhide(); 
 	} while (!pGraph->Getshape(P2.x, P2.y));
+	shape2 = pGraph->Getshape(P2.x, P2.y);
+	shape2->SetSelected(true);  //I put this instead of unhide function
+	//shape1->unhide(); 
+
+
+	pGUI->PrintMessage("get shapes should be ended here");  //Rghda put for test  I works
 	
 	if (pGraph->matchgraph(shape1, shape2)) {
 		rightAnswers = rightAnswers + 1;
@@ -59,12 +67,17 @@ void Play::match() {
 			return;
 		}
 		else {
+			//pGUI->PrintMessage("I test if it comes here");  //Rghda put for test  I undestand what happened
 			match();
 		}
 	}
 	else {
 		wrongAnswers = wrongAnswers + 1;
 		pGUI->PrintMessage("Wrong one, try again, you get:" + to_string(rightAnswers) + " right and " + to_string(wrongAnswers) + "wrong");
+		//delay(5000);
+		//cout.flush();  //these ways didn't work
+		//sleep(10);
+		this_thread::sleep_for(chrono::milliseconds(2000));  //this way finally work :D
 		match();
 	}
 }
@@ -80,12 +93,14 @@ bool Play::restart(Point p) {
 	return false;
 }
 void Play::Execute() {
-	dublicate();
-	Scramble();
+	//pGUI->PrintMessage("did it enter the execute for play?");  //this works
+	//dublicate();
+	//pGUI->PrintMessage("after dublicate");  //this works now
+
+	//Scramble();
+	//pGUI->PrintMessage("after scramble");  //this works now
+
 	match();
 	//hide();
 	//StartGame();
-}
-Play::~Play()
-{
 }

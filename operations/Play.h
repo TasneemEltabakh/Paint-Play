@@ -23,5 +23,4 @@ public:
 	void StartGame();
 	bool restart(Point p);
 	void Execute();
-	~Play();
 };

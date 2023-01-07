@@ -463,7 +463,7 @@ bool Graph::isInIds(int* n)
 void Graph::Scramble()
 {
 	srand(time(0));
-
+	//cout <<endl<< shapesList.size()<<endl;  this works too
 	for (int k = 0; k < shapesList.size(); k++) {
 	
 		shapesList[k]->scramble();
@@ -489,12 +489,12 @@ void Graph::Unhide()
 ////Play////
 ///////////
 void Graph::GDuplicate() {
-	//int n = shapesList.size();
+	const int n = shapesList.size();  //Rghda edit this fantastic :D I proud of me that I could find the error
 	//cout << "OLD SIZE" << n << endl;
-	for (int k = 0; k < shapesList.size(); k++) {
+	for (int k = 0; k < n; k++) {
 		keepshapesList.push_back(shapesList[k]);   //to save all shapes Rghda added
 		shapesList.push_back(shapesList[k]);
-	};
+	}
 	//cout << "NEW SIZE" << shapesList.size() << endl;
 }
 

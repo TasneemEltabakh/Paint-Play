@@ -13,6 +13,7 @@ private:
 	double red1;
 	double red2;
 	int* id;
+	bool ishidden;
 
 public:
 	Oval(Point P1, Point P2, GfxInfo shapeGfxInfo);
@@ -34,7 +35,7 @@ public:
 	Point getCenter() override;
 	void setID(int*) override;
 	void hide() override;
-
+	bool isHidden();
 	//Play
 	shape* GDuplicateShape();
 };

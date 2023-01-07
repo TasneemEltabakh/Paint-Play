@@ -27,7 +27,16 @@ IrregularPolygon::IrregularPolygon(vector<Point> arrayv, GfxInfo shapeGfxInfo) :
 	numberofsides = arrayX.size();
 	Center.x = sumX / numberofsides;
 	Center.y = sumY / numberofsides;
-  
+	ishidden == false;
+}
+void IrregularPolygon::hide()
+{
+	ishidden = true;
+
+}
+bool  IrregularPolygon::isHidden()
+{
+	return ishidden;
 }
 IrregularPolygon :: ~IrregularPolygon()
 {
@@ -41,10 +50,7 @@ void IrregularPolygon::scramble(Point p)
 {
 
 }
-void IrregularPolygon::hide()
-{
 
-}
 
 void  IrregularPolygon::zoom(double s, int x, int y)
 {

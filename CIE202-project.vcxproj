@@ -167,6 +167,7 @@
     <ClCompile Include="controller.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="operations\Delete.cpp" />
+    <ClCompile Include="operations\hide.cpp" />
     <ClCompile Include="operations\opGroup.cpp" />
     <ClCompile Include="operations\Load.cpp" />
     <ClCompile Include="operations\Move.cpp" />
@@ -237,6 +238,7 @@
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="GUI\GUI.h" />
     <ClInclude Include="operations\Delete.h" />
+    <ClInclude Include="operations\hide.h" />
     <ClInclude Include="operations\opGroup.h" />
     <ClInclude Include="operations\Load.h" />
     <ClInclude Include="operations\Move.h" />

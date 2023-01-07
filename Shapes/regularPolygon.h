@@ -21,6 +21,7 @@ private:
     int* b = new int;
     const double pi = 3.14159;
     int* id;
+    bool ishidden;
 
 public :
     regularPolygon(Point, Point, int , GfxInfo shapeGfxInfo);
@@ -44,7 +45,7 @@ public :
     Point getCenter() override;
     void setID(int*) override;
     void hide() override;
-
+    bool isHidden();
     //Play
     shape* GDuplicateShape();
 

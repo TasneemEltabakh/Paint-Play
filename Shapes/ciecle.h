@@ -11,7 +11,7 @@ private:
 	Point Corner2;
 	int radious;
 	int* id;
-
+	bool ishidden;
 	int ff=0; //Rghda wll test something
 public:
 	Circle(Point P1, Point P2, GfxInfo shapeGfxInfo);
@@ -33,7 +33,7 @@ public:
 	Point getCenter() override;
 	void setID(int*) override;
 	void hide() override;
-
+	bool isHidden();
 	//Play
 	shape* GDuplicateShape();
 };

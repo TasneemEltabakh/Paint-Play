@@ -8,6 +8,7 @@ Circle::Circle(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	Corner2 = P2;
 	radious = sqrt(pow(P1.x - P2.x, 2) + pow(P1.y - P2.y, 2));
 	this->id = nullptr;
+	ishidden = false;
 }
 Circle :: ~Circle()
 {}
@@ -43,10 +44,7 @@ void Circle::scramble(Point p)
 	Corner1.y = p.y;
 	
 }
-void Circle::hide()
-{
 
-}
 void Circle::Rotate()
 {}
 void Circle::ResizeThisbydrag(Point corner, int  xto, int yto)
@@ -67,6 +65,14 @@ void Circle::SetgroupCenter(Point p)
 
 {
 
+}
+void Circle::hide()
+{
+	ishidden = true;
+}
+bool  Circle::isHidden()
+{
+	return ishidden;
 }
 Point Circle::getCenter()
 {

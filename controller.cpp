@@ -33,7 +33,7 @@
 #include "operations/opGroup.h"
 #include "operations/Scramble.h"
 #include "operations/Play.h"
-
+#include "operations/hide.h"
 using namespace std;
 //Constructor
 controller::controller()
@@ -91,10 +91,10 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opExit(this);  //trial
 		break;
 	case TO_Pallete:
-		pOp = new Rotate(this);
+		pOp = new ZoomIn(this);
 		break;
 	case FILL_COLOUR:
-		pOp = new ZoomIn(this);
+		pOp = new Hide(this);
 		break;
 	case DRAWOV:
 		pOp = new opAddOval(this);

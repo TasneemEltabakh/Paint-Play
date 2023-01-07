@@ -14,7 +14,7 @@ private:
     int numberofsides;
     Point Center;
     int* id;
-
+    bool ishidden;
 
 public:
     IrregularPolygon(vector<Point>, GfxInfo);
@@ -37,7 +37,7 @@ public:
     Point getCenter() override;
     void setID(int*) override;
     void hide() override;
-
+    bool isHidden();
     //Play
     shape* GDuplicateShape();
 };

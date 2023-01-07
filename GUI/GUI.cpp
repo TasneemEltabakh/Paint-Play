@@ -1,5 +1,5 @@
 #include "GUI.h"
-
+#include "..//Shapes/Graph.h"
 GUI::GUI()
 {
 	//Initialize user interface parameters
@@ -24,6 +24,7 @@ GUI::GUI()
 	PenWidth = 3;	//default width of the shapes frames
 	IsFilled=false;
 	isChanged = false;
+    ishidden = false;
 	isBorderChanged = false;
 	count= new int;
 	*count = 0;
@@ -418,13 +419,16 @@ int GUI::getToolbarheight() const
 {
 	return ToolBarHeight;
 }
-void GUI::AddImg(Point center)
+void GUI::hide(Point center, int sizes)
 {
-	int width = 700;
-	int g = 700;
-	int x = center.x;
-	int y = center.y;
-	pWind->DrawImage("images\\MenuIcons\\card.jpg", x, y, g, width);
+
+	int size = sizes * 2;
+	int mywidth = width / size;
+	int myheight = (height - ToolBarHeight - StatusBarHeight) / size;
+	pWind->SetPen(BLACK, 5);
+	pWind->SetBrush(BLACK);
+	pWind->DrawRectangle(center.x, center.y, mywidth, myheight);
+	
 }
 
 void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
@@ -451,6 +455,21 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 		pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
 	
 	
+}
+void GUI::DrawRectForCard(Point P1, Point P2) const
+{
+
+	color DrawingClr;
+
+	   pWind->SetPen(RED, 5);	
+
+	    drawstyle style;
+		style = FILLED;
+	   pWind->SetBrush(BLACK);
+
+	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
+
+
 }
 
 void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriangleGfxInfo) const

@@ -116,7 +116,7 @@ class GUI
 		bool isZoomedin;
 		bool isZoomedOut;
 		bool isshapezoom;
-		
+		bool ishidden;
 		color col;
 		
 	
@@ -166,7 +166,8 @@ public:
 	void ClearStatusBar() const;	//Clears the status bar
 	void ClearDrawArea() const;	//Clears the drawing area
 	// -- shapes Drawing functions
-	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const;  //Draw a rectangle
+	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const;//Draw a rectangle
+	void DrawRectForCard(Point P1, Point P2) const;
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo RectGfxInfo) const;
 	void DrawPol( int PointertoarryOFX[],  int PointertoarryOFy[], const int Numberofsides, GfxInfo shapeGfxInfo) const;
 	void DrawCircle(Point P1, int radious, GfxInfo CircleGfxInfo) const;  //Draw a Circle
@@ -182,11 +183,12 @@ public:
 	bool GetIsChanged();
 	bool Checkresize();
 	bool CheckIsResized();
-	void AddImg(Point);
+	void hide(Point, int);
 	bool DoZoomin();
 	bool DoZoomOut();
 	bool UnZoomi();
 	bool UnZoomo();
+
 	void GroupShapes(int, int, int, int, string);
 	void Zoom(int, int);
 	double getLastScale();

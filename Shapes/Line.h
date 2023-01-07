@@ -12,6 +12,7 @@ private:
 	double dist;
 	Point midPoint;
 	int* id;
+	bool ishidden;
 public:
 
 	Line(Point P1, Point P2, GfxInfo shapeGfxInfo);
@@ -33,6 +34,7 @@ public:
 	void setID(int*) override;
 	int* GetID() override;
 	void hide() override;
+	bool isHidden();
 	//Play
 	shape* GDuplicateShape();
 };

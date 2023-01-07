@@ -22,7 +22,8 @@ void Play::Scramble()  //Here the scrample function will put
 	pGraph->Scramble();
 }
 
-void Play::hide() {
+void Play::hide()
+{
 
 }
 

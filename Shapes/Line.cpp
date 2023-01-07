@@ -17,8 +17,18 @@ Line::Line(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	midPoint.x = (Corner1.x + Corner2.x) / 2;
 	midPoint.y= (Corner1.y + Corner2.y) / 2;
 	this->id = nullptr;
-}
+	ishidden == true;
 
+}
+void Line::hide()
+{
+	ishidden = true;
+
+}
+bool  Line::isHidden()
+{
+	return ishidden;
+}
 Line :: ~Line()
 {}
 void Line::Draw(GUI* pUI) const
@@ -80,10 +90,7 @@ void Line::scramble(Point p)
 	Corner2.x -= difX; 
 	Corner2.y -= difY;
 }
-void Line::hide()
-{
 
-}
 Point Line::getCenter()
 {
 	return midPoint;

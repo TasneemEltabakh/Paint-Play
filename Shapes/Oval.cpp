@@ -11,6 +11,7 @@ Oval::Oval(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	red1= sqrt(pow(Corner1.x - center.x, 2) + pow(Corner1.y - center.y, 2));
 	red2= sqrt(pow(Corner2.x - center.x, 2) + pow(Corner2.y - center.y, 2));
 	this->id = nullptr;
+	ishidden = false;
 }
 Oval :: ~Oval()
 {}
@@ -65,6 +66,15 @@ void Oval::SetgroupCenter(Point p)
 {
 
 }
+void Oval::hide()
+{
+	ishidden = true;
+
+}
+bool	Oval::isHidden()
+{
+	return ishidden;
+}
 int* Oval::GetID()
 {
 	return this->id;
@@ -112,10 +122,7 @@ void  Oval::scramble(Point p)
 {
 
 }
-void  Oval::hide()
-{
 
-}
 string Oval::PrintOnTool()  //Rghda added
 {
 	int id = 5;

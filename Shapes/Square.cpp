@@ -9,9 +9,9 @@ Square::Square(Point P1, int s , GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	side = s; 
 	diagonl = sqrt(pow(side, 2) + pow(side, 2));
 	generatingCorners();
-
+	ishidden == false;
 	id = nullptr;
-
+	ishidden = false;
 }
 void Square:: generatingCorners()
 {
@@ -52,7 +52,15 @@ void Square::ResizeThisbydrag(Point corner, int  xto, int yto)
 }
 Square::~Square()
 {}
+void Square::hide()
+{
+	ishidden = true;
 
+}
+bool  Square::isHidden()
+{
+	return ishidden;
+}
 void Square::Draw(GUI* pUI) const
 {
 	//Call Output::DrawSquare to draw a r on the screen	
@@ -113,10 +121,7 @@ void  Square:: scramble(Point p)
 	Corner2.x = (Corner1.x + side * 50);
 	Corner2.y = (Corner1.y + side * 50);*/
 }
-void Square::hide()
-{
 
-}
 void Square::setID(int* id)
 {
 	this->id = id;

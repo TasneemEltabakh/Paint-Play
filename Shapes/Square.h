@@ -17,6 +17,7 @@ private:
 	vector<int> arrayY;
 	Point groupcenter;
 	int* id;
+	bool ishidden;
 public:
 	Square(Point, int, GfxInfo shapeGfxInfo);
 	virtual ~Square();
@@ -38,7 +39,7 @@ public:
 	void SetgroupCenter(Point) override;
 	Point getCenter() override;
 	void setID(int* ) override;
-
+	bool isHidden();
 	//Play
 	shape* GDuplicateShape();
 };

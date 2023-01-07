@@ -19,6 +19,7 @@ regularPolygon ::regularPolygon(Point P1, Point P2, int Sides,  GfxInfo shapeGfx
 	generatingPoints();
 	a = &arrayX[0];
 	b = &arrayY[0];
+	ishidden == false;
 
 }
 regularPolygon:: ~regularPolygon()
@@ -39,10 +40,7 @@ void regularPolygon :: scramble(Point p)
 	}*/
 	
 }
-void regularPolygon::hide()
-{
 
-}
 void regularPolygon::generatingPoints()
 {
 	
@@ -129,6 +127,15 @@ void  regularPolygon::Draw(GUI* pUI) const
 {
 	int numberofv = arrayY.size();
 	pUI->DrawPol(a, b, numberofv, ShpGfxInfo);
+}
+void regularPolygon::hide()
+{
+	ishidden = true;
+
+}
+bool  regularPolygon::isHidden()
+{
+	return ishidden;
 }
 
 void regularPolygon::Save(ofstream& outfile) {  //Rghda added

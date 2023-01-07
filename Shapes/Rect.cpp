@@ -13,6 +13,7 @@ Rect::Rect(Point P1, Point P2, GfxInfo shapeGfxInfo):shape(shapeGfxInfo)
 	center.x = (Corner1.x + Corner2.x) / 2;
 	center.y = (Corner1.y + Corner2.y) / 2;
 	this->id = nullptr;
+	ishidden = false;
 }
 
 Rect::~Rect()
@@ -20,7 +21,9 @@ Rect::~Rect()
 
 void Rect::Draw(GUI* pUI) const
 {
-	pUI->DrawRect(Corner1,Corner2, ShpGfxInfo);
+	
+	pUI->DrawRect(Corner1, Corner2, ShpGfxInfo);
+
 }
 
 void Rect::Resize(double n)
@@ -67,7 +70,15 @@ void  Rect::zoom(double s, int x, int y)
 	Corner2.y = (Corner2.y * s) - (s * y) + y;
 }
 
+void Rect::hide()
+{
+	ishidden = true;
 
+}
+bool  Rect::isHidden()
+{
+	return ishidden;
+}
 void Rect::Save(ofstream& outfile){   //Rghda added
 	//I tried to put the coordinate in a single line
 	//and the colors in another one, but it will make it hard for load function
@@ -110,15 +121,13 @@ void  Rect::scramble(Point p)
 	Corner1 = p;
 	Corner2.x -= disx; 
 	Corner2.y -= disy;
+	Resize(0.6);
 
 }
-void  Rect::hide()
-{
 
-}
 Point Rect::getCenter()
 {
-	return Corner1;
+	return center;
 }
 void  Rect::setID(int* id)
 {

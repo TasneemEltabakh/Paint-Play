@@ -13,6 +13,7 @@ Triangle :: Triangle (Point P1, Point P2, Point P3 , GfxInfo shapeGfxInfo) :shap
 	Center.x = (Corner1.x + Corner2.x + Corner3.x) / 3;
 	Center.y= (Corner1.y + Corner2.y + Corner3.y) / 3 ;
 	id = nullptr;
+	ishidden = false;
 }
 
 Triangle :: ~Triangle()
@@ -21,7 +22,9 @@ Triangle :: ~Triangle()
 void Triangle::Draw(GUI* pUI) const
 {	
 	
-	pUI->DrawTriangle(Corner1, Corner2, Corner3 , ShpGfxInfo);
+		pUI->DrawTriangle(Corner1, Corner2, Corner3, ShpGfxInfo);
+	
+	
 }
 
 void Triangle::Resize(double n)
@@ -110,8 +113,14 @@ void Triangle::SetgroupCenter(Point p)
 }
 void Triangle::hide()
 {
-
+	ishidden = true;
+	
 }
+bool  Triangle::isHidden()
+{
+	return ishidden;
+}
+
 Point Triangle:: getCenter()
 {
 	return Center;

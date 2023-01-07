@@ -37,9 +37,23 @@ void Graph::Addshape(shape* pShp)
 //Draw all shapes on the user interface
 void Graph::Draw(GUI* pUI) const
 {
+	
+
 	pUI->ClearDrawArea();
 	for (auto shapePointer : shapesList)
-		shapePointer->Draw(pUI);
+	{
+		if (shapePointer->isHidden() == false)
+			shapePointer->Draw(pUI);
+		else
+		{
+			Point corner1, corner2;
+			corner1.x = shapePointer->getCenter().x - 50;
+			corner1.y = shapePointer->getCenter().y - 100;
+			corner2.x = shapePointer->getCenter().x + 50;
+			corner2.y = shapePointer->getCenter().y + 100;
+			pUI->DrawRectForCard(corner1, corner2);
+		}
+	}
 }
 
 
@@ -485,9 +499,7 @@ void Graph::Scramble()
 		Point p;
 		p.x = rand() % (2000 / 2 - 70) + 70;   //note width of the draw windo==1300
 		p.y = rand() % (1000 / 2 - 70) + 70;   //note hieght of the draw windo==700
-		//p.x = 70 + rand() % (1300 - 700 + 1);   //note width of the draw windo==1300
-		//p.y = 70 + rand() % (1300 - 700 + 1);   //note hieght of the draw windo==700
-		//p.x += 1300 / 2;
+	
 		shapesList[k]->scramble(p);
 		if (k < shapesList.size() / 2) {
 			shapesList[k]->ChngDrawClr(color(0, 0, 255));
@@ -499,11 +511,12 @@ void Graph::Scramble()
 }
 void Graph::Hide()
 {
+	
 	for (int k = 0; k < shapesList.size(); k++) {
 
 		shapesList[k]->hide();
-
 	}
+	
 }
 void Graph::Unhide()
 {

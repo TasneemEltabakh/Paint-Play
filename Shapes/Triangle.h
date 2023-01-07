@@ -8,6 +8,7 @@ class Triangle : public shape
 		Point Corner3;
 		Point Center;
 		int* id;
+		bool ishidden;
 	public:
 		Triangle(Point P1, Point P2, Point P3 , GfxInfo shapeGfxInfo);
 		virtual ~Triangle();
@@ -30,7 +31,7 @@ class Triangle : public shape
 		void SetgroupCenter(Point) override;
 		Point getCenter() override;
 		void setID(int*) override;
-
+		bool isHidden();
 		//Play
 		shape* GDuplicateShape();
 		

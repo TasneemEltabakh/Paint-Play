@@ -10,7 +10,8 @@ private:
 	Point center;
 	double dist;
 	int* id;
-
+	Point scrambled;
+	bool ishidden;
 	int ff = 0;  //Rghda added for test something
 public:
 	Rect(Point , Point, GfxInfo shapeGfxInfo );
@@ -32,6 +33,7 @@ public:
 	Point getCenter() override;
 	void setID(int*) override;
 	void hide() override;
+	bool isHidden();
 	//Play
 	shape* GDuplicateShape();
 };

@@ -194,6 +194,7 @@
     <ClCompile Include="operations\opSwitchToPlay.cpp" />
     <ClCompile Include="operations\Resize.cpp" />
     <ClCompile Include="operations\ResizeDrag.cpp" />
+    <ClCompile Include="operations\Restart.cpp" />
     <ClCompile Include="operations\rotatOP.cpp" />
     <ClCompile Include="operations\Save.cpp" />
     <ClCompile Include="operations\Scramble.cpp" />
@@ -236,6 +237,7 @@
     <ClInclude Include="controller.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="GUI\GUI.h" />
+    <ClInclude Include="operations\Restart.h" />
     <ClInclude Include="operations\Delete.h" />
     <ClInclude Include="operations\opGroup.h" />
     <ClInclude Include="operations\Load.h" />

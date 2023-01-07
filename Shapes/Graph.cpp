@@ -485,9 +485,7 @@ void Graph::Scramble()
 		Point p;
 		p.x = rand() % (2000 / 2 - 70) + 70;   //note width of the draw windo==1300
 		p.y = rand() % (1000 / 2 - 70) + 70;   //note hieght of the draw windo==700
-		//p.x = 70 + rand() % (1300 - 700 + 1);   //note width of the draw windo==1300
-		//p.y = 70 + rand() % (1300 - 700 + 1);   //note hieght of the draw windo==700
-		//p.x += 1300 / 2;
+		
 		shapesList[k]->scramble(p);
 		if (k < shapesList.size() / 2) {
 			shapesList[k]->ChngDrawClr(color(0, 0, 255));
@@ -526,14 +524,6 @@ void Graph::GDuplicate(GUI* pGUI) {
 		//shapesList[k]->ChngDrawClr(color(0, 0, 255));
 	}
 
-	//for (int j = 0;j< shapesList.size()/2;j++) {
-	//	shapesList[j]->Draw(pGUI);
-	//	shapesList[j]->Resize(2);
-	//	pGUI->ClearStatusBar();
-	//	pGUI->CreateDrawToolBar();
-	//	//pControl->UpdateInterface();
-	//}
-	//cout << "NEW SIZE" << shapesList.size() << endl;
 }
 
 bool Graph::matchgraph(shape* shape1, shape* shape2) {
@@ -570,7 +560,23 @@ bool Graph::matchgraph(shape* shape1, shape* shape2) {
 }
 void Graph::returnallshapesforplay() {
 	for (int k = 0; k < keepshapesList.size(); k++) {
-		shapesList.push_back(keepshapesList[k]);
+		//shapesList.push_back(keepshapesList[k]);
+		shape* creatnewshape;
+		creatnewshape = keepshapesList[k]->GDuplicateShape();
+		shapesList.push_back(creatnewshape);
+	}
+}
+void Graph::DeleteMatchedShapesGraph(bool flag) {  //for play mood
+
+	for (int i = 0; i < shapesList.size(); i++) {
+		if (shapesList[i]->IsSelected()) {
+			shapesList[i]->SetSelected(false);
+			if (flag) {
+				delete shapesList[i];  //Not nessecary
+			}
+			shapesList.erase(shapesList.begin() + i);
+			i--;
+		}
 	}
 }
 	

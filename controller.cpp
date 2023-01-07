@@ -33,6 +33,8 @@
 #include "operations/opGroup.h"
 #include "operations/Scramble.h"
 #include "operations/Play.h"
+#include "operations/Restart.h"
+
 
 using namespace std;
 //Constructor
@@ -73,7 +75,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddRegPol(this);
 		break;
 	case DRAW_CIRC:
-		pOp = new opAddCircle(this);
+		pOp = new Restart(this);
 		break;
 	case DRAW_IRREPoly:
 		pOp = new opAddirrPol(this);

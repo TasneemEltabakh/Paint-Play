@@ -32,12 +32,14 @@ public:
 	void Load(ifstream& inputfile);
 	void Resize(double n);
 	void Rotate();
-	void scramble() override;
+	void scramble(Point p) ;
 	void zoom(double s, int, int) override;
 	void ResizeThisbydrag(Point corner, int  xto, int yto) override;
 	void SetgroupCenter(Point) override;
 	Point getCenter() override;
 	void setID(int* ) override;
 
+	//Play
+	shape* GDuplicateShape();
 };
 

@@ -1,38 +1,119 @@
 #include "Play.h"
+//#include <Windows.h>
+//#include <Mmsystem.h>
+//#include <unistd.h>
 
-#include <Windows.h>
-#include <Mmsystem.h>
+#include <iostream>
+#include <chrono>  //These three for sleep line
+#include <thread>
+
 
 Play::Play(controller* pCont) : operation(pCont)
 {
 }
 
-bool Play::ReadActionParameters()
-{
-	return false;
-}
 void Play::dublicate() {
 	
-	pGraph->GDuplicate();
+	pGraph->GDuplicate(pGUI);
 }
 
 void Play::Scramble()  //Here the scrample function will put
 {
-	//the function of scramble should put here
-	StartGame();
+	pGraph->Scramble();
+}
+
+void Play::hide() {
+
+}
+
+void Play::match() {
+	Point P1={0,0};
+	Point P2={0,0};
+	shape* shape1;
+	shape* shape2;
+
+
+	do{  //this handle if user click on free space
+		pGUI->PrintMessage("Click at first shape");
+		pGUI->GetPointClicked(P1.x, P1.y);
+	} while (!pGraph->Getshape(P1.x, P1.y));
+	shape1 = pGraph->Getshape(P1.x, P1.y);
+	shape1->SetSelected(true);  //I put this instead of unhide function
+	//shape1->unhide(); 
+	
+	do {  //this handle if user click on free space
+		pGUI->PrintMessage("Click at second shape");
+		pGUI->GetPointClicked(P2.x, P2.y);
+	} while (!pGraph->Getshape(P2.x, P2.y));
+	shape2 = pGraph->Getshape(P2.x, P2.y);
+	shape2->SetSelected(true);  //I put this instead of unhide function
+	//shape1->unhide(); 
+
+
+	pGUI->PrintMessage("get shapes should be ended here");  //Rghda put for test  I works
+	Sleep(1500);  //this way finally work :D
+
+	if (pGraph->matchgraph(shape1, shape2)) {
+		pGraph->DeleteMultiShapesGraph();
+		pControl->UpdateInterface();
+		rightAnswers = rightAnswers + 1;
+
+		pGUI->PrintMessage("Successful, you get:"+ to_string(rightAnswers)+ " right and "+ to_string(wrongAnswers)+"wrong");
+		
+
+		Sleep(1500);  //this way finally work :D
+		
+
+		int size = pGraph->getvectorsize();
+		//if (rightAnswers == (size / 2)) {
+		if (size==0) {
+			pGUI->PrintMessage("Finish, you get:" + to_string(rightAnswers) + " right and " + to_string(wrongAnswers) + "wrong");
+			Sleep(1500);  //this way finally work :D
+			//pGraph->returnallshapesforplay();
+			//return;
+			//exit;
+		}
+		else {
+			//pGUI->PrintMessage("I test if it comes here");  //Rghda put for test  I undestand what happened
+			match();
+		}
+	}
+	else {
+		wrongAnswers = wrongAnswers + 1;
+		pGUI->PrintMessage("Wrong one, try again, you get:" + to_string(rightAnswers) + " right and " + to_string(wrongAnswers) + "wrong");
+		//delay(5000);
+		//cout.flush();  //these ways didn't work
+		//sleep(10);
+		Sleep(1500);  //this way finally work :D
+		match();
+	}
 }
 void Play::StartGame() {
+	
+}
+void Play::restart() {
+	//Point p;
+	//int x = p.x;  
+	//int y = p.y;
+	///*if (x >= 13 * 50 && x <= 15 * 50 && y >= 0 && y <= 50)   //Ishould here put the coorednates of restart
+	//	if (x < 14 * 50)
+	//		return true;*/
+	//return false;
+	pGraph->returnallshapesforplay(); 
+	Execute();
+	
+}
+void Play::Execute() {
+	//pGUI->PrintMessage("did it enter the execute for play?");  //this works
+	//dublicate();
+	//pGUI->PrintMessage("after dublicate");  //this works now
+	//pGraph->GDuplicate(pGUI);
+	//Scramble();
+	//pGUI->PrintMessage("after scramble");  //this works now
+	//pGraph->Scramble();
 
-}
-bool Play::restart(Point p) {
-	int x = p.x;  
-	int y = p.y;
-	/*if (x >= 13 * 50 && x <= 15 * 50 && y >= 0 && y <= 50)   //Ishould here put the coorednates of restart
-		if (x < 14 * 50)
-			return true;*/
-	return false;
+	match();
+	//hide();
+	//StartGame();
 }
 
-Play::~Play()
-{
-}

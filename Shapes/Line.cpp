@@ -68,9 +68,17 @@ void Line::SetgroupCenter(Point p)
 {
 
 }
-void Line::scramble()
+shape* Line::GDuplicateShape() {
+	shape* creatnewshape = new Line(Corner1, Corner2, ShpGfxInfo);
+	return creatnewshape;
+}
+void Line::scramble(Point p)
 {
-
+	int difX = Corner1.x - p.x;
+	int difY = Corner1.y - p.y;
+	Corner1 = p;
+	Corner2.x -= difX; 
+	Corner2.y -= difY;
 }
 void Line::hide()
 {

@@ -76,17 +76,29 @@ void Triangle::zoom(double s, int x, int y)
 	Corner3.y = (Corner3.y * s) - (s * y) + y;
 
 }
-void Triangle::scramble()
+shape* Triangle::GDuplicateShape() {
+	shape* creatnewshape = new Triangle(Corner1, Corner2, Corner3, ShpGfxInfo);
+	return creatnewshape;
+}
+void Triangle::scramble(Point p)
 {
 	
-	Center.x =  rand() % 800;
+	/*Center.x = rand() % 800;
 	Center.y =  rand() % 500;
 	Corner1.x = Corner1.x + Center.x;
 	Corner1.y = Corner1.y + Center.y ;
 	Corner2.x = Corner2.x + Center.x;
 	Corner2.y = Corner2.y + Center.y;
 	Corner3.x = Corner3.x +Center.x;
-	Corner3.y = Corner3.y + Center.y;
+	Corner3.y = Corner3.y + Center.y;*/
+
+	int difX = Corner1.x - p.x;
+	int difY = Corner1.y - p.y;
+	Corner1 = p;
+	Corner2.x -= difX; 
+	Corner2.y -= difY;
+	Corner3.x -= difX; 
+	Corner3.y -= difY;
 
 }
 void Triangle::SetgroupCenter(Point p)

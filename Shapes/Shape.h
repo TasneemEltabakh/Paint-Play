@@ -42,7 +42,7 @@ public:
 	virtual void setID(int* ) = 0;
 	virtual int* GetID()= 0;
 	virtual void SetgroupCenter(Point)=0;
-	virtual void scramble() = 0;
+	virtual void scramble(Point p) = 0;
 	virtual void hide() = 0;
 	//virtual void unhide() = 0;
 	//virtual void Load(ifstream &Infile) = 0;	//Load the shape parameters to the file
@@ -54,6 +54,9 @@ public:
 	virtual bool IsShapeExisting(int x, int y) = 0;  //Rghda added
 
 	virtual Point firstxofshape() = 0;  //Rghda added
+	virtual shape* GDuplicateShape() = 0;  //Rghda added
+	GfxInfo getGfxInfo(); //Rghda added
+	bool chickinfo(shape*sh1,shape*sh2);  //Rghda added
 	
 };
 

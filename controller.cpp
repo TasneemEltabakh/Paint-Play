@@ -31,6 +31,8 @@
 #include "operations/opSwitchTodraw2.h"
 #include "Shapes/Groupshape.h"
 #include "operations/opGroup.h"
+#include "operations/Scramble.h"
+#include "operations/Play.h"
 
 using namespace std;
 //Constructor
@@ -65,7 +67,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddTriangle(this);
 		break;
 	case DRAW_LINE:
-		pOp = new ResizeDrag(this);
+		pOp = new opAddLine(this);
 		break;
 	case DRAW_regularPOLY:
 		pOp = new opAddRegPol(this);
@@ -77,22 +79,22 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddirrPol(this);
 		break;
 	case SAVE:  //Rghda added
-		pOp = new Save(this);
+		pOp = new Play(this);
 		break;
 	case SELECT:  //Rghda added
 		pOp = new Select(this);
 		break;
 	case DEL:  //Rghda added
-		pOp = new Delete(this);
+		pOp = new Scramble(this);
 		break;
 	case EXIT:
-		pOp = new opGroup(this);  //trial
+		pOp = new opExit(this);  //trial
 		break;
 	case TO_Pallete:
-		pOp = new opChooseColour(this);
+		pOp = new Rotate(this);
 		break;
 	case FILL_COLOUR:
-		pOp = new opFillColour(this);
+		pOp = new ZoomIn(this);
 		break;
 	case DRAWOV:
 		pOp = new opAddOval(this);
@@ -101,7 +103,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddSquare(this);
 		break;
 	case selectfill:
-		pOp = new opChangeFillSelected(this);
+		pOp = new ZoomOut(this);
 		break;
 	case selectwid:
 		pOp = new opChangeSelectedWidth(this);

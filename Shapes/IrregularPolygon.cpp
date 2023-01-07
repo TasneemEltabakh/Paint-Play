@@ -32,7 +32,12 @@ IrregularPolygon::IrregularPolygon(vector<Point> arrayv, GfxInfo shapeGfxInfo) :
 IrregularPolygon :: ~IrregularPolygon()
 {
 }
-void IrregularPolygon::scramble()
+shape* IrregularPolygon::GDuplicateShape() {
+	vector<Point>arrayv;  //I didn't sure from this
+	shape* creatnewshape = new IrregularPolygon(arrayv, ShpGfxInfo);
+	return creatnewshape;
+}
+void IrregularPolygon::scramble(Point p)
 {
 
 }

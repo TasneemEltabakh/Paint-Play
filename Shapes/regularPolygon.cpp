@@ -23,17 +23,20 @@ regularPolygon ::regularPolygon(Point P1, Point P2, int Sides,  GfxInfo shapeGfx
 }
 regularPolygon:: ~regularPolygon()
 {}
-void regularPolygon :: scramble()
+shape* regularPolygon::GDuplicateShape() {
+	shape* creatnewshape = new regularPolygon(Center, start,r, ShpGfxInfo);
+	return creatnewshape;
+}
+void regularPolygon :: scramble(Point p)
 {
-	Center.x = rand() % 800;
+	/*Center.x = rand() % 800;
 	Center.y = rand() % 300;
 
 	for (int i = 0; i < NumberOfsides; i++)
 	{
 		arrayX.at(i) = arrayX[i] + Center.x;
 		arrayY.at(i) = arrayY[i]  + Center.y;
-	}
-
+	}*/
 	
 }
 void regularPolygon::hide()
@@ -77,6 +80,7 @@ int* regularPolygon::GetID()
 }
 void regularPolygon::Resize(double n)
 {
+
 	for (int i = 0; i < NumberOfsides; i++)
 	{
 		arrayX.at(i) = (arrayX[i] * n) - (n * Center.x) + Center.x;
@@ -102,7 +106,7 @@ void regularPolygon::Rotate()
 void regularPolygon::ResizeThisbydrag(Point corner, int  xto, int yto)
 {
 
-	double d1 = sqrt(pow(start.x - Center.x, 2) + pow(start.y - Center.y, 2));
+	double d1 = sqrt(pow(arrayX[0] - Center.x, 2) + pow(arrayY[0] - Center.y, 2));
 	double d2 = sqrt(pow(xto - Center.x, 2) + pow(yto - Center.y, 2));
 	double s = d2 / d1;
 	Resize(s);

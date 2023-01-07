@@ -2,6 +2,13 @@
 #include "../GUI/GUI.h"
 #include <iostream>
 #include <string>
+#include <time.h> /* time */
+
+#include <random>
+#include <algorithm>
+#include <iterator>   //These four include for randum
+#include <iostream>
+#include <vector>
 
 Graph::Graph()
 {
@@ -96,10 +103,10 @@ int Graph::getselectedvectorsize() {  //Rghda added
 	return multiselectedvector.size();
 }
 
-//
-//int Graph::getvectorsize() {  //Rghda added
-//	return shapesList.size();
-//}
+
+int Graph::getvectorsize() {  //Rghda added
+	return shapesList.size();
+}
 
 shape* Graph::getselectedShape() {  //Rghda added for the vector
 	return selectedShape;
@@ -118,9 +125,11 @@ void Graph::SaveGraph(ofstream& outfile) {  //Rghda added*******
 
 
 void Graph::DeleteGraph() {
+	int n=-3;
 
-	/*for (int k = 0; k < shapesList.size(); k++) {  //this for delete groub of shapes but has error
-		if (selectedShape == shapesList[k]) {
+	for (int k = 0; k < shapesList.size(); k++) {
+		if (selectedShape == shapesList[k])
+		{
 			if (shapesList[k]->GetID() != nullptr)
 			{
 				for (int i = 0; i < groupedshapes.size(); i++)
@@ -129,31 +138,37 @@ void Graph::DeleteGraph() {
 					{
 						if (*shapesList[k]->GetID() == *groupedshapes[i][j]->GetID())
 						{
-							groupedshapes[i][j]->SetSelected(false); //new addition
-							delete groupedshapes[i][j];
-							shapesList.erase(shapesList.begin() + j);
-							j--;
+							n = i;
+							shapesList[k]->SetSelected(false);
+							delete shapesList[k];
+							shapesList.erase(shapesList.begin() + k);
+							k--;
+							
 						}
 					}
+					
 				}
+				
 			}
 			else
 			{
-				shapesList[k]->SetSelected(false); //new addition
+
+				shapesList[k]->SetSelected(false);
 				delete shapesList[k];
 				shapesList.erase(shapesList.begin() + k);
 				k--;
+
+
 			}
 		}
-	}*/
-	for (int k = 0; k < shapesList.size(); k++) {
-		if (selectedShape == shapesList[k]) {
-			shapesList[k]->SetSelected(false); //new addition
-			delete shapesList[k];
-			shapesList.erase(shapesList.begin() + k);
-			k--;
-		}
 	}
+	//if (n != -3)
+	//{
+	//	groupedshapes.erase(groupedshapes.begin() + n);   //delete selected shapes from the vector
+	//	n--;
+	//	
+	//}
+	
 }
 void Graph::DeleteMultiShapesGraph() {
 
@@ -462,12 +477,24 @@ bool Graph::isInIds(int* n)
 }
 void Graph::Scramble()
 {
-	srand(time(0));
-
-	for (int k = 0; k < shapesList.size(); k++) {
-	
-		shapesList[k]->scramble();
-
+	//srand(time(0));
+	random_shuffle(shapesList.begin(), shapesList.end());
+	srand(time(NULL));
+	//cout << endl << shapesList.size() << endl;
+	for (unsigned int k = 0; k < shapesList.size(); k++) {
+		Point p;
+		p.x = rand() % (2000 / 2 - 70) + 70;   //note width of the draw windo==1300
+		p.y = rand() % (1000 / 2 - 70) + 70;   //note hieght of the draw windo==700
+		//p.x = 70 + rand() % (1300 - 700 + 1);   //note width of the draw windo==1300
+		//p.y = 70 + rand() % (1300 - 700 + 1);   //note hieght of the draw windo==700
+		//p.x += 1300 / 2;
+		shapesList[k]->scramble(p);
+		if (k < shapesList.size() / 2) {
+			shapesList[k]->ChngDrawClr(color(0, 0, 255));
+		}
+		else {
+			shapesList[k]->ChngDrawClr(color(173, 255, 47));
+		}
 	}
 }
 void Graph::Hide()
@@ -489,13 +516,62 @@ void Graph::Unhide()
 /////////////
 ////Play////
 ///////////
-
-void Graph::GDuplicate() {
-	int n = shapesList.size();
+void Graph::GDuplicate(GUI* pGUI) {
+	const int n = shapesList.size();  //Rghda edit this fantastic :D I proud of me that I could find the error
 	//cout << "OLD SIZE" << n << endl;
-	for (int k = 0; k < shapesList.size(); k++) {
-		shapesList.push_back(shapesList[k]);
+	for (int k = 0; k < n; k++) {
+		keepshapesList.push_back(shapesList[k]);   //to save all shapes Rghda added
+		shape* creatnewshape;
+		creatnewshape = shapesList[k]->GDuplicateShape();
+		shapesList.push_back(creatnewshape);
+		//shapesList[k]->ChngDrawClr(color(0, 0, 255));
 	}
+
+	//for (int j = 0;j< shapesList.size()/2;j++) {
+	//	shapesList[j]->Draw(pGUI);
+	//	shapesList[j]->Resize(2);
+	//	pGUI->ClearStatusBar();
+	//	pGUI->CreateDrawToolBar();
+	//	//pControl->UpdateInterface();
+	//}
 	//cout << "NEW SIZE" << shapesList.size() << endl;
 }
 
+bool Graph::matchgraph(shape* shape1, shape* shape2) {
+	for (int i = 0; i < shapesList.size(); i++) {
+		if (shape1 == shapesList[i]) {
+			for (int k = 0; k < shapesList.size(); k++) {
+				if (shape2 == shapesList[k]) {
+
+					//if (shapesList[i]->getGfxInfo() == shapesList[k]->getGfxInfo()) {
+					if (k=(shapesList.size()/2)+i) {
+						//delete first shape
+						//shapesList[i]->SetSelected(false); 
+						//delete shapesList[i];
+						//shapesList.erase(shapesList.begin() + i);
+						//i--;
+						////delete second shape
+						//shapesList[k]->SetSelected(false);
+						//delete shapesList[k];
+						//shapesList.erase(shapesList.begin() + k);
+						//k--;
+						//DeleteMultiShapesGraph();
+						return true;
+					}
+					else 
+					{
+						return false;
+					}
+				}
+			}
+		}
+		
+	}
+
+}
+void Graph::returnallshapesforplay() {
+	for (int k = 0; k < keepshapesList.size(); k++) {
+		shapesList.push_back(keepshapesList[k]);
+	}
+}
+	

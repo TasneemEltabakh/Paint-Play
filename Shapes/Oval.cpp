@@ -104,8 +104,11 @@ void Oval::Save(ofstream& outfile) {   //Rghda added
 
 	outfile << endl;
 }
-
-void  Oval::scramble()
+shape* Oval::GDuplicateShape() {
+	shape* creatnewshape = new Oval(Corner1, Corner2, ShpGfxInfo);
+	return creatnewshape;
+}
+void  Oval::scramble(Point p)
 {
 
 }

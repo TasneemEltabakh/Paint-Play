@@ -17,7 +17,7 @@ class Triangle : public shape
 		bool IsShapeExisting(int x, int y);  //Rghda added
 		void Move(int x, int y); //Rghda Salah
 		Point firstxofshape();  //Rghda added for test
-		void scramble() override;
+		void scramble(Point p);
 		string PrintOnTool();  //Rghda added
 		void Load(ifstream& inputfile);
 		void Resize(double n);
@@ -30,6 +30,9 @@ class Triangle : public shape
 		void SetgroupCenter(Point) override;
 		Point getCenter() override;
 		void setID(int*) override;
+
+		//Play
+		shape* GDuplicateShape();
 		
 };
 

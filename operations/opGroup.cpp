@@ -46,9 +46,7 @@ void opGroup::Execute()
 		}
 	
 		pGraph->groupthisShapes(p);
-
 		pUI->PrintMessage("You created a group with Id number " + IDOfgroup);
-
 		pUI->ClearStatusBar();
 	}
 	else

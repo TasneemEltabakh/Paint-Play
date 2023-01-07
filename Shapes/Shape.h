@@ -55,8 +55,7 @@ public:
 
 	virtual Point firstxofshape() = 0;  //Rghda added
 	virtual shape* GDuplicateShape() = 0;  //Rghda added
-	GfxInfo getGfxInfo(); //Rghda added
-	bool chickinfo(shape*sh1,shape*sh2);  //Rghda added
+
 	
 };
 

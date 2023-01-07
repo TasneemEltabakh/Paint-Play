@@ -120,6 +120,12 @@ void  Square:: scramble(Point p)
 	Corner1.y = rand() % 300;
 	Corner2.x = (Corner1.x + side * 50);
 	Corner2.y = (Corner1.y + side * 50);*/
+
+	int disx = Corner1.x - p.x;
+	int disy = Corner1.y - p.y;
+	Corner1 = p;
+	Corner2.x -= disx;
+	Corner2.y -= disy;
 }
 
 void Square::setID(int* id)

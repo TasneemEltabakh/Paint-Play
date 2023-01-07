@@ -12,11 +12,6 @@ public:
 	Play(controller* pCont);
 
 	//Execute the action
-	void dublicate();
-	void Scramble();
-	void hide();
 	void match();
-	void StartGame();
-	void restart();
 	void Execute();
 };

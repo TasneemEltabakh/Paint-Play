@@ -72,4 +72,5 @@ public:
 	void GDuplicate(GUI* pGUI);
 	bool matchgraph(shape* shape1, shape* shape2);
 	void returnallshapesforplay();
+	void DeleteMatchedShapesGraph(bool flag);
 };

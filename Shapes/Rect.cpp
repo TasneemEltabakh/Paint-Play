@@ -99,6 +99,10 @@ void Rect::SetgroupCenter(Point p)
 {
 
 }
+shape* Rect::GDuplicateShape() {
+	shape* creatnewshape = new Rect(Corner1, Corner2, ShpGfxInfo);
+	return creatnewshape;
+}
 void  Rect::scramble(Point p)
 {
 	int disx = Corner1.x - p.x; 

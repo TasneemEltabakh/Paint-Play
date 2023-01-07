@@ -30,6 +30,9 @@ class Triangle : public shape
 		void SetgroupCenter(Point) override;
 		Point getCenter() override;
 		void setID(int*) override;
+
+		//Play
+		shape* GDuplicateShape();
 		
 };
 

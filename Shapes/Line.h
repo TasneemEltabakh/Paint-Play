@@ -33,4 +33,6 @@ public:
 	void setID(int*) override;
 	int* GetID() override;
 	void hide() override;
+	//Play
+	shape* GDuplicateShape();
 };

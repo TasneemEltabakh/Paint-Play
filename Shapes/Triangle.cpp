@@ -76,6 +76,10 @@ void Triangle::zoom(double s, int x, int y)
 	Corner3.y = (Corner3.y * s) - (s * y) + y;
 
 }
+shape* Triangle::GDuplicateShape() {
+	shape* creatnewshape = new Triangle(Corner1, Corner2, Corner3, ShpGfxInfo);
+	return creatnewshape;
+}
 void Triangle::scramble(Point p)
 {
 	

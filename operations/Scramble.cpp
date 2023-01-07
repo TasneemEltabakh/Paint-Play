@@ -13,9 +13,11 @@ Scramble :: ~Scramble()
 
 void Scramble::Execute()
 {
-
-	GUI* pUI = pControl->GetUI();
-	string choice;
+	GUI* pGUI = pControl->GetUI();
+	//string choice;
 	Graph* pGraph = pControl->getGraph();
+	//pGraph->Scramble();
+
+	pGraph->GDuplicate(pGUI);
 	pGraph->Scramble();
 }

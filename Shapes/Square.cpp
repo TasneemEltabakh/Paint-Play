@@ -102,6 +102,10 @@ Point Square::getCenter()
 {
 	return center;
 }
+shape* Square::GDuplicateShape() {
+	shape* creatnewshape = new Square(Corner1, side, ShpGfxInfo);
+	return creatnewshape;
+}
 void  Square:: scramble(Point p)
 {
 	/*Corner1.x = rand() % 800;

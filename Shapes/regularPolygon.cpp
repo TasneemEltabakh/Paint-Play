@@ -23,6 +23,10 @@ regularPolygon ::regularPolygon(Point P1, Point P2, int Sides,  GfxInfo shapeGfx
 }
 regularPolygon:: ~regularPolygon()
 {}
+shape* regularPolygon::GDuplicateShape() {
+	shape* creatnewshape = new regularPolygon(Center, start,r, ShpGfxInfo);
+	return creatnewshape;
+}
 void regularPolygon :: scramble(Point p)
 {
 	/*Center.x = rand() % 800;

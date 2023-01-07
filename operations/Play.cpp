@@ -12,13 +12,9 @@ Play::Play(controller* pCont) : operation(pCont)
 {
 }
 
-bool Play::ReadActionParameters()
-{
-	return false;
-}
 void Play::dublicate() {
 	
-	pGraph->GDuplicate();
+	pGraph->GDuplicate(pGUI);
 }
 
 void Play::Scramble()  //Here the scrample function will put
@@ -89,7 +85,8 @@ void Play::match() {
 void Play::StartGame() {
 	
 }
-bool Play::restart(Point p) {
+void Play::restart() {
+	//Point p;
 	//int x = p.x;  
 	//int y = p.y;
 	///*if (x >= 13 * 50 && x <= 15 * 50 && y >= 0 && y <= 50)   //Ishould here put the coorednates of restart
@@ -97,18 +94,19 @@ bool Play::restart(Point p) {
 	//		return true;*/
 	//return false;
 	pGraph->returnallshapesforplay(); 
-	return false;
-
+	Execute();
+	
 }
 void Play::Execute() {
 	//pGUI->PrintMessage("did it enter the execute for play?");  //this works
 	//dublicate();
 	//pGUI->PrintMessage("after dublicate");  //this works now
-
+	//pGraph->GDuplicate(pGUI);
 	//Scramble();
 	//pGUI->PrintMessage("after scramble");  //this works now
+	//pGraph->Scramble();
 
-	//match();
+	match();
 	//hide();
 	//StartGame();
 }

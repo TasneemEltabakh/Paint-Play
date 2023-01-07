@@ -34,6 +34,9 @@ public:
 	Point getCenter() override;
 	void setID(int*) override;
 	void hide() override;
+
+	//Play
+	shape* GDuplicateShape();
 };
 
 

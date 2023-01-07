@@ -479,7 +479,7 @@ void Graph::Scramble()
 		p.y = rand() % (700 / 2 - 70) + 70;   //note hieght of the draw windo==700
 		//p.x = 70 + rand() % (1300 - 700 + 1);   //note width of the draw windo==1300
 		//p.y = 70 + rand() % (1300 - 700 + 1);   //note hieght of the draw windo==700
-		p.x += 1300 / 2;
+		//p.x += 1300 / 2;
 		shapesList[k]->scramble(p);
 		if (k < shapesList.size() / 2) {
 			shapesList[k]->ChngDrawClr(color(0, 0, 255));
@@ -509,15 +509,24 @@ void Graph::Unhide()
 /////////////
 ////Play////
 ///////////
-void Graph::GDuplicate() {
+void Graph::GDuplicate(GUI* pGUI) {
 	const int n = shapesList.size();  //Rghda edit this fantastic :D I proud of me that I could find the error
 	//cout << "OLD SIZE" << n << endl;
 	for (int k = 0; k < n; k++) {
 		keepshapesList.push_back(shapesList[k]);   //to save all shapes Rghda added
-		shapesList.push_back(shapesList[k]);
-		//shapesList[k]->Draw();
-		shapesList[k]->ChngDrawClr(color(0, 0, 255));
+		shape* creatnewshape;
+		creatnewshape = shapesList[k]->GDuplicateShape();
+		shapesList.push_back(creatnewshape);
+		//shapesList[k]->ChngDrawClr(color(0, 0, 255));
 	}
+
+	//for (int j = 0;j< shapesList.size()/2;j++) {
+	//	shapesList[j]->Draw(pGUI);
+	//	shapesList[j]->Resize(2);
+	//	pGUI->ClearStatusBar();
+	//	pGUI->CreateDrawToolBar();
+	//	//pControl->UpdateInterface();
+	//}
 	//cout << "NEW SIZE" << shapesList.size() << endl;
 }
 
@@ -526,6 +535,7 @@ bool Graph::matchgraph(shape* shape1, shape* shape2) {
 		if (shape1 == shapesList[i]) {
 			for (int k = 0; k < shapesList.size(); k++) {
 				if (shape2 == shapesList[k]) {
+
 					if (shapesList[i] == shapesList[k]) {
 						//delete first shape
 						shapesList[i]->SetSelected(false); 
@@ -547,6 +557,7 @@ bool Graph::matchgraph(shape* shape1, shape* shape2) {
 		}
 		
 	}
+	return false;
 }
 void Graph::returnallshapesforplay() {
 	for (int k = 0; k < keepshapesList.size(); k++) {

@@ -85,7 +85,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new Select(this);
 		break;
 	case DEL:  //Rghda added
-		pOp = new Delete(this);
+		pOp = new Scramble(this);
 		break;
 	case EXIT:
 		pOp = new opGroup(this);  //trial

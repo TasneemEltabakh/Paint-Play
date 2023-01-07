@@ -11,16 +11,12 @@ public:
 	int rightAnswers = 0;
 	Play(controller* pCont);
 
-	//Get action parameters function
-	virtual bool ReadActionParameters();
-
 	//Execute the action
-	//virtual void Scramble();
 	void dublicate();
 	void Scramble();
 	void hide();
 	void match();
 	void StartGame();
-	bool restart(Point p);
+	void restart();
 	void Execute();
 };

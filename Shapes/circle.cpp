@@ -23,6 +23,10 @@ void Circle::Resize(double n)
 	radious = radious * n;
 
 }
+shape* Circle::GDuplicateShape() {
+	shape* creatnewshape = new Circle(Corner1, Corner2, ShpGfxInfo);
+	return creatnewshape;
+}
 void Circle::scramble(Point p)
 {
 	//srand(time(0));

@@ -39,5 +39,7 @@ public:
 	Point getCenter() override;
 	void setID(int* ) override;
 
+	//Play
+	shape* GDuplicateShape();
 };
 

@@ -39,7 +39,14 @@ shape* IrregularPolygon::GDuplicateShape() {
 }
 void IrregularPolygon::scramble(Point p)
 {
-
+	/*int disx = Center.x - p.x;
+	int disy = Center.y - p.y;
+	Center = p;
+	for (int i = 0; i < numberofsides; i++)
+	{
+		arrayX[i] -= disx;
+		arrayY[i] -= disy;
+	}*/
 }
 void IrregularPolygon::hide()
 {

@@ -110,7 +110,11 @@ shape* Oval::GDuplicateShape() {
 }
 void  Oval::scramble(Point p)
 {
-
+	int disx = Corner1.x - p.x;
+	int disy = Corner1.y - p.y;
+	Corner1 = p;
+	Corner2.x -= disx;
+	Corner2.y -= disy;
 }
 void  Oval::hide()
 {

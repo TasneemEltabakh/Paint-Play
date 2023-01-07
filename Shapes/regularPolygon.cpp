@@ -37,7 +37,7 @@ void regularPolygon :: scramble(Point p)
 		arrayX.at(i) = arrayX[i] + Center.x;
 		arrayY.at(i) = arrayY[i]  + Center.y;
 	}*/
-	
+
 }
 void regularPolygon::hide()
 {
@@ -181,26 +181,6 @@ float regularPolygon::trianglearea(int x1, int y1, int x2, int y2, int x3, int y
 	return abs((x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) / 2.0);
 }
 bool regularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  //I should put the function here
-	/*float shapearea = (pow((SideLength), 2) * NumberOfsides) / (4 * tan(3.14 / NumberOfsides));
-	float sumareaoftriangles = 0;
-	for (int i = 0; i < arrayX.size(); i++)
-	{
-		if (i = NumberOfsides - 1) {
-			float try1 = trianglearea(x, y, arrayX[i], arrayY[i], arrayX[0], arrayY[0]);
-			sumareaoftriangles = sumareaoftriangles + try1;
-		}
-		else {
-			float try1 = trianglearea(x, y, arrayX[i], arrayY[i], arrayX[i + 1], arrayY[i + 1]);
-			sumareaoftriangles = sumareaoftriangles + try1;
-		}
-	}
-
-	if (shapearea = sumareaoftriangles) {
-		return true;
-	}
-	else {
-		return false;
-	}*/
 
 	float discenterclickedpoint = sqrt(pow((Center.x - x), 2) + pow((Center.y - y), 2));
 	float radious = sqrt(pow((Center.x - start.x), 2) + pow((Center.y - start.y), 2));

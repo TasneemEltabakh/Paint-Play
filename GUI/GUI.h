@@ -66,7 +66,6 @@ class GUI
 		ICON_SAVE,
 		ICON_LOAD,
 		ICON_SWITCH,
-		ICON_BACK,
 		ICON_EXIT,	//Exit icon
 		
 		DRAW_ICON_COUNT	,	//no. of menu icons ==> This should be the last line in this enum

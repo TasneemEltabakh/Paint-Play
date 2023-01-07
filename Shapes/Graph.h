@@ -68,7 +68,6 @@ public:
 	void Hide();
 	void Unhide();
 
-
 	//Play mode
 	void GDuplicate(GUI* pGUI);
 	bool matchgraph(shape* shape1, shape* shape2);

@@ -126,7 +126,6 @@ operationType GUI::GetUseroperation() const
 			case ICON_LOAD:return LOAD;
 			case ICON_ADDIMG: return ADD_IMG;
 			case ICON_BORD: return bord;
-			case ICON_BACK: return BACK;
 			case ICON_SWITCH: return TO_PLAY;
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
@@ -254,7 +253,6 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_SELECTEDCOL] = "images\\MenuIcons\\pencils.jpg";
 	MenuIconImages[ICON_SELECTEDFILL] = "images\\MenuIcons\\fills.jpg";
 	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\upload.jpg";
-	MenuIconImages[ICON_BACK] = "images\\MenuIcons\\exit.jpg";
 	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\switch.jpg";
 
 	

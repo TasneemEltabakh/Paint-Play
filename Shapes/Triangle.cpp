@@ -6,7 +6,8 @@ using namespace std;
 
 Triangle :: Triangle (Point P1, Point P2, Point P3 , GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
-	
+	srand(time(0));
+	ID = rand() % 100;
 	Corner1 = P1;
 	Corner2 = P2;
 	Corner3 = P3;
@@ -81,6 +82,7 @@ void Triangle::zoom(double s, int x, int y)
 shape* Triangle::GDuplicateShape() {
 
 	shape* creatnewshape = new Triangle(Corner1, Corner2, Corner3, ShpGfxInfo);
+	creatnewshape->setId(ID);
 	return creatnewshape;
 }
 void Triangle::scramble(Point p)
@@ -145,6 +147,10 @@ float Triangle::trianglearea(int x1, int y1, int x2, int y2, int x3, int y3)
 int Triangle::returnId()
 {
 	return ID;
+}
+void Triangle::setId(int newid)
+{
+	ID = newid;
 }
 
 bool Triangle::IsShapeExisting(int x, int y)

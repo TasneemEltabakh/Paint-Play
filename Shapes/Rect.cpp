@@ -7,7 +7,8 @@ using namespace std;
 
 Rect::Rect(Point P1, Point P2, GfxInfo shapeGfxInfo):shape(shapeGfxInfo)
 {
-	
+	srand(time(0));
+	ID = rand() % 100;
 	Corner1 = P1;
 	Corner2 = P2;
 	center.x = (Corner1.x + Corner2.x) / 2;
@@ -84,6 +85,10 @@ int Rect::returnId()
 {
 	return ID;
 }
+void Rect::setId(int newid)
+{
+	ID = newid;
+}
 bool  Rect::isHidden()
 {
 	return ishidden;
@@ -121,6 +126,7 @@ void Rect::SetgroupCenter(Point p)
 }
 shape* Rect::GDuplicateShape() {
 	shape* creatnewshape = new Rect(Corner1, Corner2, ShpGfxInfo);
+	creatnewshape->setId(ID);
 	return creatnewshape;
 }
 void  Rect::scramble(Point p)

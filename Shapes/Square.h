@@ -43,5 +43,6 @@ public:
 	void unhide();
 	shape* GDuplicateShape();
 	int returnId();
+	void setId(int newid);
 };
 

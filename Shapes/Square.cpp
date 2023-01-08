@@ -4,7 +4,8 @@
 
 Square::Square(Point P1, int s , GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
-	
+	srand(time(0));
+	ID = rand() % 100;
 	Corner1 = P1;
 	side = s; 
 	diagonl = sqrt(pow(side, 2) + pow(side, 2));
@@ -27,6 +28,10 @@ void Square:: generatingCorners()
 int Square::returnId()
 {
 	return ID;
+}
+void Square::setId(int newid)
+{
+	ID = newid;
 }
 void Square::unhide()
 {
@@ -120,6 +125,7 @@ Point Square::getCenter()
 }
 shape* Square::GDuplicateShape() {
 	shape* creatnewshape = new Square(Corner1, side, ShpGfxInfo);
+	creatnewshape->setId(ID);
 	return creatnewshape;
 }
 void  Square:: scramble(Point p)

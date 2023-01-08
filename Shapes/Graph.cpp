@@ -550,20 +550,10 @@ bool Graph::matchgraph(shape* shape1, shape* shape2) {
 				if (shape2 == shapesList[k]) {
 
 					//if (shapesList[i]->getGfxInfo() == shapesList[k]->getGfxInfo()) {
-					if (k = (shapesList.size() / 2) + i) {
-						//delete first shape
-						//shapesList[i]->SetSelected(false); 
-						//delete shapesList[i];
-						//shapesList.erase(shapesList.begin() + i);
-						//i--;
-						////delete second shape
-						//shapesList[k]->SetSelected(false);
-						//delete shapesList[k];
-						//shapesList.erase(shapesList.begin() + k);
-						//k--;
-						//DeleteMultiShapesGraph();
+					if (shape1->returnId()==shape2->returnId()) {
+						
 						return true;
-					}	//}
+					}	
 					else
 					{
 						return false;

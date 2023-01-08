@@ -8,7 +8,8 @@
 regularPolygon ::regularPolygon(Point P1, Point P2, int Sides,  GfxInfo shapeGfxInfo) : shape(shapeGfxInfo)
 {
 	
-	
+	srand(time(0));
+	ID = rand() % 100;
 	Center.x = P1.x;
 	Center.y = P1.y;
 	start.x = P2.x;
@@ -26,6 +27,7 @@ regularPolygon:: ~regularPolygon()
 {}
 shape* regularPolygon::GDuplicateShape() {
 	shape* creatnewshape = new regularPolygon(Center, start,r, ShpGfxInfo);
+	creatnewshape->setId(ID);
 	return creatnewshape;
 }
 void regularPolygon :: scramble(Point p)
@@ -61,6 +63,10 @@ void regularPolygon::generatingPoints()
 int regularPolygon::returnId()
 {
 	return ID;
+}
+void regularPolygon::setId(int newid)
+{
+	ID = newid;
 }
 void  regularPolygon::zoom(double s, int x, int y)
 {

@@ -4,6 +4,8 @@
 
 Oval::Oval(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
+	srand(time(0));
+	ID = rand() % 100;
 	Corner1 = P1;
 	Corner2 = P2;
 	center.x = (Corner1.x + Corner2.x) / 2;
@@ -97,6 +99,10 @@ void  Oval::setID(int* id)
 {
 	this->id = id;
 }
+void Oval::setId(int newid)
+{
+	ID = newid;
+}
 void Oval::Save(ofstream& outfile) {   //Rghda added
 	//I tried to put the coordinate in a single line
 	//and the colors in another one, but it will make it hard for load function
@@ -126,6 +132,7 @@ void Oval::Save(ofstream& outfile) {   //Rghda added
 }
 shape* Oval::GDuplicateShape() {
 	shape* creatnewshape = new Oval(Corner1, Corner2, ShpGfxInfo);
+	creatnewshape->setId(ID);
 	return creatnewshape;
 }
 void  Oval::scramble(Point p)

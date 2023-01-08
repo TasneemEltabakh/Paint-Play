@@ -11,6 +11,8 @@
 
 Line::Line(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
+	srand(time(0));
+	ID = rand() % 100;
 	Corner1 = P1;
 	Corner2 = P2;
 	dist = sqrt(pow(Corner1.x - Corner2.x, 2) + pow(Corner1.y - Corner2.y, 2));	
@@ -28,6 +30,10 @@ void Line::hide()
 int Line::returnId()
 {
 	return ID;
+}
+void Line::setId(int newid)
+{
+	ID = newid;
 }
 void Line::unhide()
 {
@@ -89,6 +95,7 @@ void Line::SetgroupCenter(Point p)
 }
 shape* Line::GDuplicateShape() {
 	shape* creatnewshape = new Line(Corner1, Corner2, ShpGfxInfo);
+	creatnewshape->setId(ID);
 	return creatnewshape;
 }
 void Line::scramble(Point p)

@@ -4,6 +4,8 @@
 
 Circle::Circle(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
+	srand(time(0));
+	ID = rand() % 100;
 	Corner1 = P1;
 	Corner2 = P2;
 	radious = sqrt(pow(P1.x - P2.x, 2) + pow(P1.y - P2.y, 2));
@@ -21,6 +23,10 @@ int Circle::returnId()
 {
 	return ID;
 }
+void Circle::setId(int newid)
+{
+	ID = newid;
+}
 void Circle::Draw(GUI* pUI) const
 {
 	//Call Output::DrawCircle to draw a circle on the screen	
@@ -34,6 +40,7 @@ void Circle::Resize(double n)
 }
 shape* Circle::GDuplicateShape() {
 	shape* creatnewshape = new Circle(Corner1, Corner2, ShpGfxInfo);
+	creatnewshape->setId(ID);
 	return creatnewshape;
 }
 void Circle::scramble(Point p)

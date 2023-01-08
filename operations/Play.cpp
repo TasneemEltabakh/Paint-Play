@@ -29,20 +29,24 @@ void Play::match() {
 	} while (!pGraph->Getshape(P1.x, P1.y));
 	shape1 = pGraph->Getshape(P1.x, P1.y);
 	shape1->SetSelected(true); 
-	//shape1->unhide(); 
-	
+	pGraph->Unhide();
+	pControl->UpdateInterface();
+	Sleep(1000);
+
 	do {  //this handle if user click on free space
 		pGUI->PrintMessage("Click at second shape");
 		pGUI->GetPointClicked(P2.x, P2.y);
 	} while (!pGraph->Getshape(P2.x, P2.y));
 	shape2 = pGraph->Getshape(P2.x, P2.y);
 	shape2->SetSelected(true);  
-	
-	
+	pGraph->Unhide();
+	pControl->UpdateInterface();
+	Sleep(1000);
+
 	if (pGraph->matchgraph(shape1, shape2)) {
-		pGraph->Unhide();
-		pControl->UpdateInterface();
-		Sleep(1000);
+		//pGraph->Unhide();
+		//pControl->UpdateInterface();
+		//Sleep(1000);
 		pGraph->DeleteMatchedShapesGraph(false);
 		pControl->UpdateInterface();   //Very very very important
 		rightAnswers = rightAnswers + 1;
@@ -65,13 +69,17 @@ void Play::match() {
 		}
 	}
 	else {
-		
+		pGraph->Hide();
+		pControl->UpdateInterface();
+		Sleep(1000);
+		shape1->SetSelected(false);
+		shape2->SetSelected(false);
 		wrongAnswers = wrongAnswers + 1;
 		pGUI->PrintMessage("Wrong one, try again, you get:" + to_string(rightAnswers) + " right and " + to_string(wrongAnswers) + "wrong");
 		Sleep(1500);
-		pGraph->Scramble();
-		Hide h(pControl);
-		h.Execute();
+		//pGraph->Scramble();
+		//Hide h(pControl);
+		//h.Execute();
 		match();
 	}
 }

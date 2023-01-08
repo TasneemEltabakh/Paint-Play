@@ -7,6 +7,8 @@ using namespace std;
 
 IrregularPolygon::IrregularPolygon(vector<Point> arrayv, GfxInfo shapeGfxInfo) : shape(shapeGfxInfo)
 {
+	srand(time(0));
+	ID = rand() % 100;
 	this->id = nullptr;
 	double sumX = 0 , sumY = 0;
 
@@ -50,9 +52,14 @@ int IrregularPolygon::returnId()
 {
 	return ID;
 }
+void IrregularPolygon::setId(int newid)
+{
+	ID = newid;
+}
 shape* IrregularPolygon::GDuplicateShape() {
 	vector<Point>arrayv;  //I didn't sure from this
 	shape* creatnewshape = new IrregularPolygon(arrayv, ShpGfxInfo);
+	creatnewshape->setId(ID);
 	return creatnewshape;
 }
 void IrregularPolygon::scramble(Point p)

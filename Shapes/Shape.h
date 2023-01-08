@@ -45,7 +45,8 @@ public:
 	virtual void scramble(Point p) = 0;
 	virtual void hide() = 0;
 	virtual void unhide() = 0;
-	virtual int returnId() = 0;
+	virtual int returnId() = 0;  //for match
+	virtual void setId(int newid)=0;  //for match
 	//virtual void unhide() = 0;
 	//virtual void Load(ifstream &Infile) = 0;	//Load the shape parameters to the file
 

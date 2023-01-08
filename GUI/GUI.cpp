@@ -5,7 +5,7 @@ GUI::GUI()
 	//Initialize user interface parameters
 	InterfaceMode = MODE_DRAW;
 
-	width = 1300;
+	width = 1470;
 	height = 700;
 	wx = 5;
 	wy = 5;
@@ -131,11 +131,16 @@ operationType GUI::GetUseroperation() const
 			case ICON_COPY: return COP;
 			case ICON_PASTE: return PASTE;
 			case ICON_CUT:return CUT;
+			case ICON_RESIZE: return RESIZE;
+			case ICON_RESIZEBYDRAG: return RESIZEBYDRAG;
+			case ICON_ROTATE: return ROTATE;
+			case ICON_ZOOMIN: return ZOOMIN;
+			case ICON_ZOOMOUT: return ZOOMOUT;
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
 		}
 	}
-	if (InterfaceMode == MODE_DRAW)	//GUI in the colouroallete mode
+	/*/if (InterfaceMode == MODE_DRAW)	//GUI in the colouroallete mode
 		{
 			//[1] If user clicks on the Toolbar
 		if (y >= 0 && y < ToolBarHeight)
@@ -166,7 +171,7 @@ operationType GUI::GetUseroperation() const
 
 		//[3] User clicks on the status bar
 		return STATUS;
-	}
+	}/*/
 	if (InterfaceMode == MODE_PLAY)	//GUI is in PLAY mode
 	{
 		if (y >= 0 && y < ToolBarHeight)
@@ -261,10 +266,11 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_PASTE] = "images\\MenuIcons\\paste.jpg";
 	MenuIconImages[ICON_UNDO] = "images\\MenuIcons\\undo.jpg";
 	MenuIconImages[ICON_REDO] = "images\\MenuIcons\\redo.jpg";
-
-	//MenuIconImages[ICON_ZOOMIN] = "images\\MenuIcons\\ZOOMIN.jpg";
-	//MenuIconImages[ICON_ZOOMOUT] = "images\\MenuIcons\\ZOOMOUT.jpg";
-	//MenuIconImages[ICON_RESIZE] = "images\\MenuIcons\\resize.jpg";
+	MenuIconImages[ICON_ROTATE] = "images\\MenuIcons\\rotate.jpg";
+	MenuIconImages[ICON_ZOOMIN] = "images\\MenuIcons\\ZOOMIN.jpg";
+	MenuIconImages[ICON_ZOOMOUT] = "images\\MenuIcons\\ZOOMOUT.jpg";
+	MenuIconImages[ICON_RESIZE] = "images\\MenuIcons\\resizee.jpg";
+	MenuIconImages[ICON_RESIZEBYDRAG] = "images\\MenuIcons\\resized.jpg";
 	//TODO: Prepare images for each menu icon and add it to the list
 
 	//Draw menu icon one image at a time
@@ -286,7 +292,7 @@ void GUI:: CreateDrawToolBar2()
 {
 	pWind->DrawRectangle(0, 0, 1290, 70);
 	
-	string MenuIconImages2[DRAW_ICON_COUNT2];
+	//string MenuIconImages2[DRAW_ICON_COUNT2];
 	//MenuIconImages2[ICON_ROTATE] = "images\\MenuIcons\\Menu_Exit.jpg";
 	//MenuIconImages2[ICON_RESIZE] = "images\\MenuIcons\\resize.jpg";
 	//MenuIconImages2[ICON_RESIZEBYDRAG] = "images\\MenuIcons\\resize-expand.jpg";
@@ -298,7 +304,7 @@ void GUI:: CreateDrawToolBar2()
 
 	for (int i = 0; i < (PLAY_ICON_COUNT); i++)
 
-		pWind->DrawImage(MenuIconImages2[i], i * (MenuIconWidth), 7, MenuIconWidth, ToolBarHeight);
+		//pWind->DrawImage(MenuIconImages2[i], i * (MenuIconWidth), 7, MenuIconWidth, ToolBarHeight);
 
 	//Draw a line under the toolbar
 	pWind->SetPen(PLUM, 2);

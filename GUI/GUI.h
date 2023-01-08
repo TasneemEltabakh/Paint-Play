@@ -60,9 +60,11 @@ class GUI
 		ICON_DRAG,
 		ICON_ADDIMG,
 		ICON_DEL,  //Rghda
-		//ICON_ZOOMIN,
-		//ICON_ZOOMOUT,
-		//IZON_RESIZE,
+		ICON_ZOOMIN,
+		ICON_ZOOMOUT,
+		ICON_RESIZE,
+		ICON_RESIZEBYDRAG,
+		ICON_ROTATE,
 		ICON_SELECT,  //Rghda
 		ICON_SELECTEDCOL,
 		ICON_SELECTEDBOL,
@@ -73,10 +75,9 @@ class GUI
 		ICON_LOAD,
 		ICON_SWITCH,
 		ICON_EXIT,	//Exit icon
-		DRAW_ICON_COUNT	,	//no. of menu icons ==> This should be the last line in this enum
-
+		DRAW_ICON_COUNT,	//no. of menu icons ==> This should be the last line in this enum
 	};
-	enum DrawMenuIcon2 //The icons of the Draw menu (you should add more icons)
+	/*/enum DrawMenuIcon2 //The icons of the Draw menu (you should add more icons)
 	{
 		ICON_ROTATE,
 		ICON_RESIZE,
@@ -85,7 +86,7 @@ class GUI
 		ICON_ZOOMOUT,
 
 		DRAW_ICON_COUNT2
-	};
+	};/**/
 	enum PlayMenuIcon //The icons of the Play menu (you should add more icons)
 	{
 

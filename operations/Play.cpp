@@ -31,17 +31,25 @@ void Play::match() {
 	shape1->SetSelected(true); 
 	pGraph->Unhide();
 	pControl->UpdateInterface();
-	Sleep(1000);
+	Sleep(800);
 
 	do {  //this handle if user click on free space
 		pGUI->PrintMessage("Click at second shape");
 		pGUI->GetPointClicked(P2.x, P2.y);
 	} while (!pGraph->Getshape(P2.x, P2.y));
 	shape2 = pGraph->Getshape(P2.x, P2.y);
+	if (shape1 == shape2) {
+		pGUI->PrintMessage("you pressed twoic on same shape, rechoose two  shapes again");
+		Sleep(1500);
+		pGraph->Hide();
+		pControl->UpdateInterface();
+		shape1->SetSelected(false);
+		match();
+	}
 	shape2->SetSelected(true);  
 	pGraph->Unhide();
 	pControl->UpdateInterface();
-	Sleep(1000);
+	Sleep(800);
 
 	if (pGraph->matchgraph(shape1, shape2)) {
 		//pGraph->Unhide();
@@ -54,14 +62,14 @@ void Play::match() {
 		pGUI->PrintMessage("Successful, you get:"+ to_string(rightAnswers)+ " right and "+ to_string(wrongAnswers)+"wrong");
 		
 
-		Sleep(1500);  //this way finally work :D
+		Sleep(1000);  //this way finally work :D
 		
 
 		int size = pGraph->getvectorsize();
 
 		if (size==0) {
 			pGUI->PrintMessage("Finish, you get:" + to_string(rightAnswers) + " right and " + to_string(wrongAnswers) + "wrong");
-			Sleep(1500);  //this way finally work :D
+			Sleep(1000);  //this way finally work :D
 			
 		}
 		else {
@@ -76,7 +84,7 @@ void Play::match() {
 		shape2->SetSelected(false);
 		wrongAnswers = wrongAnswers + 1;
 		pGUI->PrintMessage("Wrong one, try again, you get:" + to_string(rightAnswers) + " right and " + to_string(wrongAnswers) + "wrong");
-		Sleep(1500);
+		Sleep(800);
 		//pGraph->Scramble();
 		//Hide h(pControl);
 		//h.Execute();

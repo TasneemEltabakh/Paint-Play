@@ -76,7 +76,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddRegPol(this);
 		break;
 	case DRAW_CIRC:
-		pOp = new Restart(this);
+		pOp = new opAddCircle(this);
 		break;
 	case DRAW_IRREPoly:
 		pOp = new opAddirrPol(this);

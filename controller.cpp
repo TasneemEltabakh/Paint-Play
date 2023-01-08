@@ -28,10 +28,14 @@
 #include "operations/ResizeDrag.h"
 #include "operations/Move.h"
 #include "operations/opAddLine.h"
-#include "..//github/Shapes/Line.h"
+#include "Shapes/Line.h"
 #include "operations/opSwitchTodraw2.h"
 #include "Shapes/Groupshape.h"
 #include "operations/opGroup.h"
+#include "operations/Duplicate.h"
+#include "operations/Copy.h"
+#include "operations/Cut.h"
+#include"operations/Paste.h"
 
 using namespace std;
 //Constructor
@@ -147,6 +151,15 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new ZoomIn(this);
 		break;
 	case STATUS:	//a click on the status bar ==> no operation
+		break;
+	case COP:
+		pOp = new Copy(this);
+		break;
+	case PASTE:
+		pOp = new Paste(this);
+		break;
+	case CUT:
+		pOp = new Cut(this);
 		break;
 	}
 	

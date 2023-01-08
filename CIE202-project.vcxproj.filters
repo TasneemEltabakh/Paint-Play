@@ -246,6 +246,18 @@
     <ClCompile Include="operations\opGroup.cpp">
       <Filter>operations</Filter>
     </ClCompile>
+    <ClCompile Include="operations\Copy.cpp">
+      <Filter>operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\Duplicate.cpp">
+      <Filter>operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\Paste.cpp">
+      <Filter>operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\Cut.cpp">
+      <Filter>operations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -450,6 +462,18 @@
       <Filter>operations</Filter>
     </ClInclude>
     <ClInclude Include="operations\opGroup.h">
+      <Filter>operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\Copy.h">
+      <Filter>operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\Duplicate.h">
+      <Filter>operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\Paste.h">
+      <Filter>operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\Cut.h">
       <Filter>operations</Filter>
     </ClInclude>
   </ItemGroup>

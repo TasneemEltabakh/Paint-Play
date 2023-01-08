@@ -29,7 +29,7 @@ public:
 
 	///Decide the parameters that you should pass to each function	
 
-
+	
 	virtual void Rotate() = 0;	//Rotate the shape
 	virtual void Resize(double n) = 0;	//Resize the shape
 	//virtual void Move() = 0;		//Move the shape
@@ -39,7 +39,7 @@ public:
 	virtual void ResizeThisbydrag(Point corner, int  xto,int yto) = 0;
 	virtual Point getCenter()=0;
 	virtual void setID(int* ) = 0;
-
+	virtual shape* Copy() = 0;
 	virtual int* GetID()= 0;
 	virtual void SetgroupCenter(Point)=0;
 	//virtual void Load(ifstream &Infile) = 0;	//Load the shape parameters to the file

@@ -45,6 +45,10 @@ enum operationType //The operations supported (you can add more if needed)
 	BACK,
 	SWITCH,
 	ADD_IMG,
+	DUPL,
+	COP,
+	PASTE,
+	CUT,
 	///TODO: Add more operation types (if needed)
 };
 

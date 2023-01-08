@@ -9,7 +9,7 @@ IrregularPolygon::IrregularPolygon(vector<Point> arrayv, GfxInfo shapeGfxInfo) :
 {
 	this->id = nullptr;
 	double sumX = 0 , sumY = 0;
-
+	arrayofpoints = arrayv;
 	for (int i = 0; i < arrayv.size(); i++)
 	{
 		arrayX.push_back(arrayv[i].x);
@@ -174,7 +174,7 @@ void IrregularPolygon::Load(ifstream& inputfile) {
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
 	int rf, gf, bf;
 
-	inputfile >> ID>>
+	inputfile >> ID >>
 		redcolorlevel >> greencolorlevel >> bluecolorlevel >> ShpGfxInfo.BorderWdth >> rf >> gf >> bf;
 
 	ShpGfxInfo.DrawClr.ucRed = redcolorlevel;
@@ -193,4 +193,9 @@ void IrregularPolygon::Load(ifstream& inputfile) {
 		ShpGfxInfo.isFilled = true;
 	}
 
+};
+
+shape* IrregularPolygon::Copy() {
+	shape* copiedshape = new IrregularPolygon(arrayofpoints, ShpGfxInfo);
+	return copiedshape;
 }

@@ -28,7 +28,7 @@ private:
 	shape* selectedShape;	//pointer to the currently selected shape
 	vector <vector <shape*>> groupedshapes;
 	vector <shape*> multiselectedvector; //a container to hold all shapes which multi selected
-
+	vector <shape*> clipboard;
 
 public:
 	Graph();
@@ -40,7 +40,6 @@ public:
 	void unselectselectedshape(shape* selectedmultishape2);  //Rghda added
 	void pushbackselectvector(shape* selectedmultishape2);  //Rghda added
 	string numberofselectedshapes();  //Rghda added
-
 	void SaveGraph(ofstream& outfile);	//Save all shapes to a file  //Rghda edideted its name
 	void MoveGraph(int x, int  y); //Rghda added
 	void MoveMultiGraph(int x, int  y);  //Rghda added
@@ -61,5 +60,10 @@ public:
 	void  resizebydrag(Point, int, int);
 	void  groupthisShapes(int*);
 	void  Ungroup(int n);
-	
+	void GDuplicate();
+	void GScramble();
+	void GCopy();
+	void GCut();
+	int getClipboardsize();
+	void GPaste(int x,int y);
 };

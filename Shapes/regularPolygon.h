@@ -43,6 +43,6 @@ public :
     void SetgroupCenter(Point) override;
     Point getCenter() override;
     void setID(int*) override;
-
+    shape* Copy();
 };
 

@@ -206,7 +206,7 @@ Point Triangle::firstxofshape() {
 	return Corner1;
 }
 void Triangle::Load(ifstream& inputfile) {
-	
+
 	int redcolorlevel = (int)ShpGfxInfo.DrawClr.ucRed;
 	int greencolorlevel = (int)ShpGfxInfo.DrawClr.ucGreen;
 	int bluecolorlevel = (int)ShpGfxInfo.DrawClr.ucBlue;
@@ -219,7 +219,7 @@ void Triangle::Load(ifstream& inputfile) {
 	ShpGfxInfo.DrawClr.ucGreen = greencolorlevel;
 	ShpGfxInfo.DrawClr.ucBlue = bluecolorlevel;
 
-	if (rf == 0 && gf ==0 && bf==0)
+	if (rf == 0 && gf == 0 && bf == 0)
 	{
 		ShpGfxInfo.FillClr = WHITE;
 		ShpGfxInfo.isFilled = false;
@@ -227,9 +227,14 @@ void Triangle::Load(ifstream& inputfile) {
 	else {
 		ShpGfxInfo.FillClr.ucBlue = bf;
 		ShpGfxInfo.FillClr.ucRed = rf;
-		ShpGfxInfo.FillClr.ucGreen= gf;
+		ShpGfxInfo.FillClr.ucGreen = gf;
 		ShpGfxInfo.isFilled = true;
 
-	}
+	};
 
+};
+
+shape* Triangle::Copy() {
+	shape* copiedshape = new Triangle(Corner1, Corner2, Corner3, ShpGfxInfo);
+	return copiedshape;
 }

@@ -165,4 +165,9 @@ void Oval::Load(ifstream& inputfile) {
 		ShpGfxInfo.isFilled = true;
 	}
 
+};
+
+shape* Oval::Copy() {
+	shape* copiedshape = new Oval(Corner1, Corner2, ShpGfxInfo);
+	return copiedshape;
 }

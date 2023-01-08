@@ -32,5 +32,5 @@ public:
 	Point getCenter() override;
 	void setID(int*) override;
 	int* GetID() override;
-
+	shape* Copy();
 };

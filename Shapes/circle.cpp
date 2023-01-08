@@ -145,4 +145,9 @@ void Circle::Load(ifstream& inputfile) {
 
 	radious = sqrt(pow(Corner1.x - Corner2.x, 2) + pow(Corner1.y - Corner2.y, 2));
 
+};
+
+shape* Circle::Copy() {
+	shape* copiedshape = new Circle(Corner1, Corner2, ShpGfxInfo);
+	return copiedshape;
 }

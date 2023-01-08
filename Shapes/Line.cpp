@@ -180,5 +180,10 @@ void Line::Load(ifstream& inputfile) {
 		cout << bf << rf << gf << "green??" << endl;
 	}
 
-	cout << "l" << Corner1.x << Corner1.y << Corner2.x << Corner2.y << "line loaded" <<endl;
+	cout << "l" << Corner1.x << Corner1.y << Corner2.x << Corner2.y << "line loaded" << endl;
+};
+
+shape* Line::Copy() {
+	shape* copiedshape = new Line(Corner1, Corner2, ShpGfxInfo);
+	return copiedshape;
 }

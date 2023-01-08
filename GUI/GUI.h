@@ -56,19 +56,24 @@ class GUI
 		ICON_BORD,
 		ICON_CUT,
 		ICON_COPY,
+		ICON_PASTE,
 		ICON_DRAG,
 		ICON_ADDIMG,
 		ICON_DEL,  //Rghda
+		//ICON_ZOOMIN,
+		//ICON_ZOOMOUT,
+		//IZON_RESIZE,
 		ICON_SELECT,  //Rghda
 		ICON_SELECTEDCOL,
 		ICON_SELECTEDBOL,
 		ICON_SELECTEDFILL,
+		ICON_UNDO,
+		ICON_REDO,
 		ICON_SAVE,
 		ICON_LOAD,
 		ICON_SWITCH,
 		ICON_BACK,
 		ICON_EXIT,	//Exit icon
-		
 		DRAW_ICON_COUNT	,	//no. of menu icons ==> This should be the last line in this enum
 
 	};

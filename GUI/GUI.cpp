@@ -128,6 +128,9 @@ operationType GUI::GetUseroperation() const
 			case ICON_BORD: return bord;
 			case ICON_BACK: return BACK;
 			case ICON_SWITCH: return TO_PLAY;
+			case ICON_COPY: return COP;
+			case ICON_PASTE: return PASTE;
+			case ICON_CUT:return CUT;
 			default: return EMPTY;	//A click on empty place in desgin toolbar
 			}
 		}
@@ -256,8 +259,13 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\upload.jpg";
 	MenuIconImages[ICON_BACK] = "images\\MenuIcons\\exit.jpg";
 	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\switch.jpg";
+	MenuIconImages[ICON_PASTE] = "images\\MenuIcons\\paste.jpg";
+	MenuIconImages[ICON_UNDO] = "images\\MenuIcons\\undo.jpg";
+	MenuIconImages[ICON_REDO] = "images\\MenuIcons\\redo.jpg";
 
-	
+	//MenuIconImages[ICON_ZOOMIN] = "images\\MenuIcons\\ZOOMIN.jpg";
+	//MenuIconImages[ICON_ZOOMOUT] = "images\\MenuIcons\\ZOOMOUT.jpg";
+	//MenuIconImages[ICON_RESIZE] = "images\\MenuIcons\\resize.jpg";
 	//TODO: Prepare images for each menu icon and add it to the list
 
 	//Draw menu icon one image at a time

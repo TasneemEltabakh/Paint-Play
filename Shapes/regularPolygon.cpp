@@ -220,11 +220,11 @@ void regularPolygon::Load(ifstream& inputfile) {
 
 	for (int i = 0; i < NumberOfsides; i++)
 	{
-		inputfile >> arrayX[i] >> arrayY[i] ;
+		inputfile >> arrayX[i] >> arrayY[i];
 	}
 
 	inputfile >> redcolorlevel >> greencolorlevel >> bluecolorlevel >> ShpGfxInfo.BorderWdth >> rf >> gf >> bf;
-	
+
 	a = &arrayX[0];
 	b = &arrayY[0];
 
@@ -242,6 +242,11 @@ void regularPolygon::Load(ifstream& inputfile) {
 		ShpGfxInfo.FillClr.ucRed = rf;
 		ShpGfxInfo.FillClr.ucGreen = gf;
 		ShpGfxInfo.isFilled = true;
-	}
+	};
 
+};
+
+shape* regularPolygon::Copy() {
+	shape* copiedshape = new regularPolygon(Center ,start, NumberOfsides, ShpGfxInfo);
+	return copiedshape;
 }

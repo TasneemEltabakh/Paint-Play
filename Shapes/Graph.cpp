@@ -320,7 +320,7 @@ void Graph::Load(ifstream& inputfile) {
 		}
 
 		else if (type == "Oval") {
-			Oval* ov = new Oval(points, points, info);
+			Oval* ov = new Oval(points, points, info);	     
 			ov->Load(inputfile);
 			shapesList.push_back(ov);
 		}
@@ -418,7 +418,7 @@ void Graph::Ungroup(int n)
 		{
 			if (*groupedshapes[i][j]->GetID())
 			{
-				m=i;
+				m = i;
 			}
 		}
 	}
@@ -427,7 +427,77 @@ void Graph::Ungroup(int n)
 		groupedshapes[m][i]->setID(nullptr);
 	}
 
+};
+
+void Graph::GDuplicate() {
+	int n = shapesList.size();
+	cout << "OLD SIZE" << n << endl;
+	for (int k = 0; k < shapesList.size(); k++) {
+		shapesList.push_back(shapesList[k]);
+		cout << "k is " << k;
+	};
+	cout << "NEW SIZE" << shapesList.size() << endl;
+};
+
+int Graph::getClipboardsize() {
+	return clipboard.size();
+}
+void  Graph::GCut()
+{
+	for (int k = 0; k < shapesList.size(); k++)
+
+		if (selectedShape == shapesList[k]) {
+
+			clipboard.push_back(shapesList[k]);
+
+			//CFigure* Temp = new CCircle(Center, Radius, FigGfxInfo);
+			//return Temp;
+			cout << clipboard.size();
+
+		};
+
+};
+
+void  Graph::GPaste(int x, int y) {
+
+	cout << "graph paste called " << endl;
+	clipboard[0]->Move(x, y);
+
+	cout << "shape moved" << endl;
+
+	shapesList.push_back(clipboard[0]);
+	cout << "shape pusched back" << endl;
+
+	cout << clipboard.size() << endl;
+	clipboard.clear();
+
+	cout << clipboard.size() << endl;
 }
 
+void Graph::GCopy() {
+	for (int k = 0; k < shapesList.size(); k++)
 
+		if (selectedShape == shapesList[k]) {
+			shape* myshape = shapesList[k]->Copy();
 
+			clipboard.push_back(myshape);
+
+			cout << clipboard.size();
+
+		};
+	cout << "graph copy called " << endl;
+	/*/cout << "multiple selected vector size is :"<<multiselectedvector.size() << endl;
+
+	for (int k = 0; k < multiselectedvector.size(); k++) {
+		for (int i =0; i<shapesList.size(); i++){
+			if (multiselectedvector[k] == shapesList[k]) {
+				shape* myshape = shapesList[k]->Copy();
+
+				clipboard.push_back(myshape);
+
+				cout << clipboard.size();
+			}
+		};
+	}/**/
+	
+}

@@ -6,7 +6,7 @@ class IrregularPolygon :
 {
 private:
 
-  
+    vector <Point> arrayofpoints;
     vector<int> arrayX;
     vector<int> arrayY;
     int* a = nullptr;
@@ -36,6 +36,6 @@ public:
     void SetgroupCenter(Point) override;
     Point getCenter() override;
     void setID(int*) override;
-
+    shape* Copy();
 };
 

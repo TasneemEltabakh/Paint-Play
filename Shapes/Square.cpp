@@ -10,9 +10,9 @@ Square::Square(Point P1, int s , GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	side = s; 
 	diagonl = sqrt(pow(side, 2) + pow(side, 2));
 	generatingCorners();
-	ishidden == false;
-	id = nullptr;
 	ishidden = false;
+	id = nullptr;
+	
 }
 void Square:: generatingCorners()
 {

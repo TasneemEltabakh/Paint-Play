@@ -29,7 +29,7 @@ IrregularPolygon::IrregularPolygon(vector<Point> arrayv, GfxInfo shapeGfxInfo) :
 	numberofsides = arrayX.size();
 	Center.x = sumX / numberofsides;
 	Center.y = sumY / numberofsides;
-	ishidden == false;
+	ishidden = false;
 }
 void IrregularPolygon::hide()
 {

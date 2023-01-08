@@ -20,7 +20,7 @@ regularPolygon ::regularPolygon(Point P1, Point P2, int Sides,  GfxInfo shapeGfx
 	generatingPoints();
 	a = &arrayX[0];
 	b = &arrayY[0];
-	ishidden == false;
+	ishidden = false;
 
 }
 regularPolygon:: ~regularPolygon()

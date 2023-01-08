@@ -19,7 +19,7 @@ Line::Line(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	midPoint.x = (Corner1.x + Corner2.x) / 2;
 	midPoint.y= (Corner1.y + Corner2.y) / 2;
 	this->id = nullptr;
-	ishidden == true;
+	ishidden = false;
 
 }
 void Line::hide()

@@ -125,7 +125,7 @@ operationType GUI::GetUseroperation() const
 			case ICON_DRAG:return MOVE;
 			case ICON_SELECTEDFILL: return selectfill;
 			case ICON_LOAD:return LOAD;
-			case ICON_ADDIMG: return ADD_IMG;
+			case ICON_ADDIMG: return GROUP;
 			case ICON_BORD: return bord;
 			case ICON_SWITCH: return TO_PLAY;
 			case ICON_COPY: return COP;
@@ -323,7 +323,7 @@ void  GUI::CreateColourToolBar()
 	MenuIconImages[ICON_COLOURPallet] = "images\\MenuIcons\\drawtoolbar.jpg";
 	pWind->SetPen(MsgColor, 50);
 	pWind->SetFont(24, BOLD, BY_NAME, "Arial");
-	pWind->DrawImage(MenuIconImages[ICON_COLOURPallet], 1 , height - (int)(1.25* StatusBarHeight), 1285,100) ;
+	pWind->DrawImage(MenuIconImages[ICON_COLOURPallet], 1 , height - (int)(1.25* StatusBarHeight), 1600,100) ;
 
 }
 void  GUI::switchtoplay() {

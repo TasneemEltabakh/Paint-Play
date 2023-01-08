@@ -497,6 +497,8 @@ bool Graph::GCut()
 {
 	bool cont = true;
 	bool cut = false;
+
+
 	for (int k = 0; k < shapesList.size(); k++) {
 
 		if (selectedShape == shapesList[k]) {
@@ -511,48 +513,34 @@ bool Graph::GCut()
 	}
 
 	if (cont) {
-
+		cout << "multi s size" << multiselectedvector.size() << endl;
 		for (int k = 0; k < multiselectedvector.size(); k++) {
-			for (int i = 0; i < shapesList.size(); i++) {
-				if (multiselectedvector[k] == shapesList[k]) {
-					clipboard.push_back(shapesList[k]);
-					cout << clipboard.size();
-					cut = true;
-				}
-			};
+
+			multiselectedvector[k]->SetSelected(false);
+			clipboard.push_back(multiselectedvector[k]);
+			cout << clipboard.size();
+			cut = true;
+
 		}
-
-		for (int j = 0; j < multiselectedvector.size(); j++) {
-			multiselectedvector.erase(multiselectedvector.begin() + j);   //delete selected shapes from the vector
-			j--;
-		};
 	};
-
 	return cut;
 	
 };
 
 void  Graph::GPaste(int x, int y) {
-
+	cout << clipboard.size() << "paste" << endl;
 	for (int i = 0; i < clipboard.size(); i++) {
-		clipboard[0]->Move(x, y);
-
-		//cout << "shape moved" << endl;
-
-		shapesList.push_back(clipboard[0]);
-		//cout << "shape pusched back" << endl;
-
-		//cout << clipboard.size() << endl;
+		clipboard[i]->Move(x, y);
+		shapesList.push_back(clipboard[i]);
 	}
+	clipboard.empty();
 	clipboard.clear();
-
-	//cout << clipboard.size() << endl;
-	//vectorOfIds.erase(vectorOfIds.begin() + m);
 }
 
 bool Graph::GCopy() {
 	bool cont = true;
 	bool copied = false;
+
 	for (int k = 0; k < shapesList.size(); k++) {
 
 		if (selectedShape == shapesList[k]) {
@@ -567,24 +555,17 @@ bool Graph::GCopy() {
 	};
 
 
-	//cout << "multiple selected vector size is :" << multiselectedvector.size() << endl;
 	if (cont){
 		for (int k = 0; k < multiselectedvector.size(); k++) {
-			for (int i = 0; i < shapesList.size(); i++) {
-				if (multiselectedvector[k] == shapesList[k]) {
-					shape* myshape = shapesList[k]->Copy();
+			multiselectedvector[k]->SetSelected(false);
+			shape* myshape = multiselectedvector[k]->Copy();
 
-					clipboard.push_back(myshape);
-					copied = true;
-					cout << clipboard.size();
-				}
-			};
+			clipboard.push_back(myshape);
+			copied = true;
+			cout << clipboard.size() << endl;
 		}
-
-		for (int j = 0; j < multiselectedvector.size(); j++) {
-			multiselectedvector.erase(multiselectedvector.begin() + j);   //delete selected shapes from the vector
-			j--;
-		}
+		multiselectedvector.empty();
+		multiselectedvector.clear();
 	}
 	return copied;
 }

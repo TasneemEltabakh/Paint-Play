@@ -83,6 +83,16 @@ Point Oval::getCenter()
 {
 	return center;
 }
+void Oval::unhide()
+{
+	ishidden = false;
+
+}
+int Oval::returnId()
+{
+	return ID;
+}
+
 void  Oval::setID(int* id)
 {
 	this->id = id;

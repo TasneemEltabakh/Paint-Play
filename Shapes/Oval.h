@@ -36,8 +36,9 @@ public:
 	void setID(int*) override;
 	void hide() override;
 	bool isHidden();
-	//Play
+	void unhide();
 	shape* GDuplicateShape();
+	int returnId();
 };
 
 

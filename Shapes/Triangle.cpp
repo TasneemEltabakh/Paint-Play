@@ -22,8 +22,7 @@ Triangle :: ~Triangle()
 void Triangle::Draw(GUI* pUI) const
 {	
 	
-		pUI->DrawTriangle(Corner1, Corner2, Corner3, ShpGfxInfo);
-	
+	pUI->DrawTriangle(Corner1, Corner2, Corner3, ShpGfxInfo);
 	
 }
 
@@ -80,6 +79,7 @@ void Triangle::zoom(double s, int x, int y)
 
 }
 shape* Triangle::GDuplicateShape() {
+
 	shape* creatnewshape = new Triangle(Corner1, Corner2, Corner3, ShpGfxInfo);
 	return creatnewshape;
 }
@@ -116,6 +116,11 @@ void Triangle::hide()
 	ishidden = true;
 	
 }
+void Triangle::unhide()
+{
+	ishidden = false;
+
+}
 bool  Triangle::isHidden()
 {
 	return ishidden;
@@ -137,7 +142,10 @@ float Triangle::trianglearea(int x1, int y1, int x2, int y2, int x3, int y3)
 {
 	return abs((x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) / 2.0);
 }
-
+int Triangle::returnId()
+{
+	return ID;
+}
 
 bool Triangle::IsShapeExisting(int x, int y)
 {

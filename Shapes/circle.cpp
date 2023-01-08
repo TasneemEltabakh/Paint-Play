@@ -12,7 +12,15 @@ Circle::Circle(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 }
 Circle :: ~Circle()
 {}
+void Circle::unhide()
+{
+	ishidden = false;
 
+}
+int Circle::returnId()
+{
+	return ID;
+}
 void Circle::Draw(GUI* pUI) const
 {
 	//Call Output::DrawCircle to draw a circle on the screen	

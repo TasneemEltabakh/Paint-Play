@@ -40,7 +40,11 @@ void regularPolygon :: scramble(Point p)
 	}*/
 
 }
+void regularPolygon::unhide()
+{
+	ishidden = false;
 
+}
 void regularPolygon::generatingPoints()
 {
 	
@@ -53,6 +57,10 @@ void regularPolygon::generatingPoints()
 		arrayY.push_back(yOfvertix);
 
 	}
+}
+int regularPolygon::returnId()
+{
+	return ID;
 }
 void  regularPolygon::zoom(double s, int x, int y)
 {

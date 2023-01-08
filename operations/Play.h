@@ -6,9 +6,10 @@ class Play :public operation
 {
 	GUI* pGUI = pControl->GetUI();
 	Graph* pGraph = pControl->getGraph();
-public:
 	int wrongAnswers = 0;
 	int rightAnswers = 0;
+public:
+	
 	Play(controller* pCont);
 
 	//Execute the action

@@ -1,23 +1,21 @@
-#include "hide.h"
+#include "opUnhide.h"
 #include "..//controller.h"
 #include "operation.h"
 #include <string>
 #include "Select.h"
 #include "..//Shapes/Groupshape.h"
 #include <vector>
-Hide::Hide(controller* pCont) :operation(pCont)
+UnHide::UnHide(controller* pCont) :operation(pCont)
 {}
-Hide :: ~Hide()
+UnHide :: ~UnHide()
 {}
 
-void Hide::Execute()
+void UnHide::Execute()
 {
-	
+
 	GUI* pUI = pControl->GetUI();
-	
-	Graph* pGraph = pControl->getGraph();
-	
-	pGraph->Hide();
+	Graph* pgraph = pControl->getGraph();
+	pgraph->Unhide();
 	pControl->UpdateInterface();
 
 }

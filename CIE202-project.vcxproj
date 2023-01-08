@@ -193,6 +193,7 @@
     <ClCompile Include="operations\opStick.cpp" />
     <ClCompile Include="operations\opSwitchTodraw2.cpp" />
     <ClCompile Include="operations\opSwitchToPlay.cpp" />
+    <ClCompile Include="operations\opUnhide.cpp" />
     <ClCompile Include="operations\Resize.cpp" />
     <ClCompile Include="operations\ResizeDrag.cpp" />
     <ClCompile Include="operations\Restart.cpp" />
@@ -238,6 +239,7 @@
     <ClInclude Include="controller.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="GUI\GUI.h" />
+    <ClInclude Include="operations\opUnhide.h" />
     <ClInclude Include="operations\Restart.h" />
     <ClInclude Include="operations\Delete.h" />
     <ClInclude Include="operations\hide.h" />

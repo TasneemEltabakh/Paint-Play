@@ -32,8 +32,9 @@ class Triangle : public shape
 		Point getCenter() override;
 		void setID(int*) override;
 		bool isHidden();
-		//Play
+		void unhide();
 		shape* GDuplicateShape();
+		int returnId();
 		
 };
 

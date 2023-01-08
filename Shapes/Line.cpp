@@ -25,6 +25,15 @@ void Line::hide()
 	ishidden = true;
 
 }
+int Line::returnId()
+{
+	return ID;
+}
+void Line::unhide()
+{
+	ishidden = false;
+
+}
 bool  Line::isHidden()
 {
 	return ishidden;

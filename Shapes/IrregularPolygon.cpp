@@ -38,8 +38,17 @@ bool  IrregularPolygon::isHidden()
 {
 	return ishidden;
 }
+void IrregularPolygon::unhide()
+{
+	ishidden = false;
+
+}
 IrregularPolygon :: ~IrregularPolygon()
 {
+}
+int IrregularPolygon::returnId()
+{
+	return ID;
 }
 shape* IrregularPolygon::GDuplicateShape() {
 	vector<Point>arrayv;  //I didn't sure from this

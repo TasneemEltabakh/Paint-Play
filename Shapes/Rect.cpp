@@ -75,6 +75,15 @@ void Rect::hide()
 	ishidden = true;
 
 }
+void Rect::unhide()
+{
+	ishidden = false;
+
+}
+int Rect::returnId()
+{
+	return ID;
+}
 bool  Rect::isHidden()
 {
 	return ishidden;

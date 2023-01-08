@@ -491,16 +491,16 @@ bool Graph::isInIds(int* n)
 }
 void Graph::Scramble()
 {
-	//srand(time(0));
 	random_shuffle(shapesList.begin(), shapesList.end());
 	srand(time(NULL));
-	//cout << endl << shapesList.size() << endl;
+	
 	for (unsigned int k = 0; k < shapesList.size(); k++) {
 		Point p;
 		p.x = rand() % (2000 / 2 - 70) + 70;   //note width of the draw windo==1300
 		p.y = rand() % (1000 / 2 - 70) + 70;   //note hieght of the draw windo==700
 	
 		shapesList[k]->scramble(p);
+
 		if (k < shapesList.size() / 2) {
 			shapesList[k]->ChngDrawClr(color(0, 0, 255));
 		}
@@ -512,6 +512,7 @@ void Graph::Scramble()
 void Graph::Hide()
 {
 	
+	
 	for (int k = 0; k < shapesList.size(); k++) {
 
 		shapesList[k]->hide();
@@ -521,14 +522,15 @@ void Graph::Hide()
 void Graph::Unhide()
 {
 	for (int k = 0; k < shapesList.size(); k++) {
-
-		//shapesList[k]->unhide();
+		if (shapesList[k]->IsSelected()) 
+			shapesList[k]->unhide();
 	}
 }
 
 /////////////
 ////Play////
 ///////////
+
 void Graph::GDuplicate(GUI* pGUI) {
 	const int n = shapesList.size();  //Rghda edit this fantastic :D I proud of me that I could find the error
 	//cout << "OLD SIZE" << n << endl;
@@ -539,7 +541,6 @@ void Graph::GDuplicate(GUI* pGUI) {
 		shapesList.push_back(creatnewshape);
 		//shapesList[k]->ChngDrawClr(color(0, 0, 255));
 	}
-
 }
 
 bool Graph::matchgraph(shape* shape1, shape* shape2) {
@@ -549,7 +550,7 @@ bool Graph::matchgraph(shape* shape1, shape* shape2) {
 				if (shape2 == shapesList[k]) {
 
 					//if (shapesList[i]->getGfxInfo() == shapesList[k]->getGfxInfo()) {
-					if (k=(shapesList.size()/2)+i) {
+					if (k = (shapesList.size() / 2) + i) {
 						//delete first shape
 						//shapesList[i]->SetSelected(false); 
 						//delete shapesList[i];
@@ -562,18 +563,19 @@ bool Graph::matchgraph(shape* shape1, shape* shape2) {
 						//k--;
 						//DeleteMultiShapesGraph();
 						return true;
-					}
-					else 
+					}	//}
+					else
 					{
 						return false;
 					}
 				}
 			}
 		}
-		
-	}
 
+	}
 }
+
+
 void Graph::returnallshapesforplay() {
 	for (int k = 0; k < keepshapesList.size(); k++) {
 		//shapesList.push_back(keepshapesList[k]);

@@ -6,7 +6,8 @@
 #include <iostream>
 #include <chrono>  //These three for sleep line
 #include <thread>
-
+#include "Scramble.h"
+#include "hide.h"
 
 Play::Play(controller* pCont) : operation(pCont)
 {
@@ -15,11 +16,12 @@ Play::Play(controller* pCont) : operation(pCont)
 
 
 void Play::match() {
+
 	Point P1={0,0};
 	Point P2={0,0};
 	shape* shape1;
 	shape* shape2;
-
+	
 
 	do{  //this handle if user click on free space
 		pGUI->PrintMessage("Click at first shape");
@@ -35,10 +37,12 @@ void Play::match() {
 	} while (!pGraph->Getshape(P2.x, P2.y));
 	shape2 = pGraph->Getshape(P2.x, P2.y);
 	shape2->SetSelected(true);  
-	//shape1->unhide(); 
-
-
+	
+	
 	if (pGraph->matchgraph(shape1, shape2)) {
+		pGraph->Unhide();
+		pControl->UpdateInterface();
+		Sleep(1000);
 		pGraph->DeleteMatchedShapesGraph(false);
 		pControl->UpdateInterface();   //Very very very important
 		rightAnswers = rightAnswers + 1;
@@ -61,14 +65,19 @@ void Play::match() {
 		}
 	}
 	else {
+		
 		wrongAnswers = wrongAnswers + 1;
 		pGUI->PrintMessage("Wrong one, try again, you get:" + to_string(rightAnswers) + " right and " + to_string(wrongAnswers) + "wrong");
-		Sleep(1500);  //this way finally work :D
+		Sleep(1500);
+		pGraph->Scramble();
+		Hide h(pControl);
+		h.Execute();
 		match();
 	}
 }
 void Play::Execute() {
-
+	Hide h(pControl);
+	h.Execute();
 	match();
 }
 

@@ -24,6 +24,15 @@ void Square:: generatingCorners()
 
 
 }
+int Square::returnId()
+{
+	return ID;
+}
+void Square::unhide()
+{
+	ishidden = false;
+
+}
 void Square::Resize(double n)
 {
 	side = side * n;
@@ -55,7 +64,6 @@ Square::~Square()
 void Square::hide()
 {
 	ishidden = true;
-
 }
 bool  Square::isHidden()
 {

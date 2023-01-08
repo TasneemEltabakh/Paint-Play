@@ -497,9 +497,8 @@ void  Graph::GCut()
 	for (int k = 0; k < shapesList.size(); k++)
 
 		if (selectedShape == shapesList[k]) {
-
+			shapesList[k]->SetSelected(false);
 			clipboard.push_back(shapesList[k]);
-
 			//CFigure* Temp = new CCircle(Center, Radius, FigGfxInfo);
 			//return Temp;
 			cout << clipboard.size();
@@ -526,21 +525,25 @@ void  Graph::GPaste(int x, int y) {
 }
 
 void Graph::GCopy() {
-	for (int k = 0; k < shapesList.size(); k++)
+	for (int k = 0; k < shapesList.size(); k++) {
 
 		if (selectedShape == shapesList[k]) {
+			shapesList[k]->SetSelected(false);
 			shape* myshape = shapesList[k]->Copy();
 
 			clipboard.push_back(myshape);
 
 			cout << clipboard.size();
-
+			break;
 		};
+	};
 	cout << "graph copy called " << endl;
-	/*/cout << "multiple selected vector size is :"<<multiselectedvector.size() << endl;
+
+
+	cout << "multiple selected vector size is :" << multiselectedvector.size() << endl;
 
 	for (int k = 0; k < multiselectedvector.size(); k++) {
-		for (int i =0; i<shapesList.size(); i++){
+		for (int i = 0; i < shapesList.size(); i++) {
 			if (multiselectedvector[k] == shapesList[k]) {
 				shape* myshape = shapesList[k]->Copy();
 
@@ -549,9 +552,15 @@ void Graph::GCopy() {
 				cout << clipboard.size();
 			}
 		};
+	}
+	/*/
+
+	for (int j = 0; j < multiselectedvector.size(); j++) {
+		multiselectedvector.erase(multiselectedvector.begin() + j);   //delete selected shapes from the vector
+		j--;
 	}/**/
-	
 }
+	
 bool Graph::isInIds(int* n)
 {
 	for (int i = 0 ; i < vectorOfIds.size(); i++)

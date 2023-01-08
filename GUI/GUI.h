@@ -72,7 +72,6 @@ class GUI
 		ICON_SAVE,
 		ICON_LOAD,
 		ICON_SWITCH,
-		ICON_BACK,
 		ICON_EXIT,	//Exit icon
 		DRAW_ICON_COUNT	,	//no. of menu icons ==> This should be the last line in this enum
 
@@ -122,7 +121,7 @@ class GUI
 		bool isZoomedin;
 		bool isZoomedOut;
 		bool isshapezoom;
-		
+		bool ishidden;
 		color col;
 		
 	
@@ -172,7 +171,8 @@ public:
 	void ClearStatusBar() const;	//Clears the status bar
 	void ClearDrawArea() const;	//Clears the drawing area
 	// -- shapes Drawing functions
-	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const;  //Draw a rectangle
+	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const;//Draw a rectangle
+	void DrawRectForCard(Point P1, Point P2) const;
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo RectGfxInfo) const;
 	void DrawPol( int PointertoarryOFX[],  int PointertoarryOFy[], const int Numberofsides, GfxInfo shapeGfxInfo) const;
 	void DrawCircle(Point P1, int radious, GfxInfo CircleGfxInfo) const;  //Draw a Circle
@@ -188,11 +188,12 @@ public:
 	bool GetIsChanged();
 	bool Checkresize();
 	bool CheckIsResized();
-	void AddImg(string name);
+	void hide(Point, int);
 	bool DoZoomin();
 	bool DoZoomOut();
 	bool UnZoomi();
 	bool UnZoomo();
+
 	void GroupShapes(int, int, int, int, string);
 	void Zoom(int, int);
 	double getLastScale();
@@ -200,6 +201,7 @@ public:
 	bool checkZoomOut();
 	bool GetIsFilled() const;
 	Point GetOrigin() const;
+	int getToolbarheight() const;
 	///Make similar functions for drawing all other shapes.
     void PrintMessage(string msg) const;	//Print a message on Status bar
 	color getCrntDrawColor() const;	//get current drwawing color

@@ -24,11 +24,14 @@ class GUI;
 class Graph
 {
 private:
-	vector <shape*> shapesList; //a container to hold all shapes							   
+	vector <shape*> shapesList; //a container to hold all shapes
+	vector <shape*> keepshapesList; //for return shapes for play mood  //Rghda added
+
 	shape* selectedShape;	//pointer to the currently selected shape
 	vector <vector <shape*>> groupedshapes;
 	vector <shape*> multiselectedvector; //a container to hold all shapes which multi selected
 	vector <shape*> clipboard;
+	vector<int* > vectorOfIds;
 
 public:
 	Graph();
@@ -48,7 +51,7 @@ public:
 	void EmptyGraph();    //Ariam added
 	void Load(ifstream& inputfile);
 	int getselectedvectorsize();  //Rghda added
-	//int getvectorsize();
+	int getvectorsize();  //Rghda added for match play
 	shape* getselectedShape();  //Rghda added
 	void setselectedShape(shape* selectedshape);  //Rghda added
 	void  changeFillSelection(color);
@@ -59,6 +62,17 @@ public:
 	void  ZOOM(double,int , int);
 	void  resizebydrag(Point, int, int);
 	void  groupthisShapes(int*);
+	void  Ungroup(int* n);
+	bool isInIds(int* n);
+	void Scramble();
+	void Hide();
+	void Unhide();
+
+	//Play mode
+	void GDuplicate(GUI* pGUI);
+	bool matchgraph(shape* shape1, shape* shape2);
+	void returnallshapesforplay();
+	void DeleteMatchedShapesGraph(bool flag);
 	void  Ungroup(int n);
 	void GDuplicate();
 	void GScramble();

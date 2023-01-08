@@ -4,6 +4,8 @@
 
 Oval::Oval(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
+	srand(time(0));
+	ID = rand() % 100;
 	Corner1 = P1;
 	Corner2 = P2;
 	center.x = (Corner1.x + Corner2.x) / 2;
@@ -11,6 +13,7 @@ Oval::Oval(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 	red1= sqrt(pow(Corner1.x - center.x, 2) + pow(Corner1.y - center.y, 2));
 	red2= sqrt(pow(Corner2.x - center.x, 2) + pow(Corner2.y - center.y, 2));
 	this->id = nullptr;
+	ishidden = false;
 }
 Oval :: ~Oval()
 {}
@@ -65,6 +68,15 @@ void Oval::SetgroupCenter(Point p)
 {
 
 }
+void Oval::hide()
+{
+	ishidden = true;
+
+}
+bool	Oval::isHidden()
+{
+	return ishidden;
+}
 int* Oval::GetID()
 {
 	return this->id;
@@ -73,9 +85,23 @@ Point Oval::getCenter()
 {
 	return center;
 }
+void Oval::unhide()
+{
+	ishidden = false;
+
+}
+int Oval::returnId()
+{
+	return ID;
+}
+
 void  Oval::setID(int* id)
 {
 	this->id = id;
+}
+void Oval::setId(int newid)
+{
+	ID = newid;
 }
 void Oval::Save(ofstream& outfile) {   //Rghda added
 	//I tried to put the coordinate in a single line
@@ -104,7 +130,19 @@ void Oval::Save(ofstream& outfile) {   //Rghda added
 
 	outfile << endl;
 }
-
+shape* Oval::GDuplicateShape() {
+	shape* creatnewshape = new Oval(Corner1, Corner2, ShpGfxInfo);
+	creatnewshape->setId(ID);
+	return creatnewshape;
+}
+void  Oval::scramble(Point p)
+{
+	int disx = Corner1.x - p.x;
+	int disy = Corner1.y - p.y;
+	Corner1 = p;
+	Corner2.x -= disx;
+	Corner2.y -= disy;
+}
 
 string Oval::PrintOnTool()  //Rghda added
 {

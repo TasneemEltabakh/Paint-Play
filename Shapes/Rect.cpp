@@ -7,14 +7,14 @@ using namespace std;
 
 Rect::Rect(Point P1, Point P2, GfxInfo shapeGfxInfo):shape(shapeGfxInfo)
 {
-	
+	srand(time(0));
+	ID = rand() % 100;
 	Corner1 = P1;
-
 	Corner2 = P2;
-
 	center.x = (Corner1.x + Corner2.x) / 2;
 	center.y = (Corner1.y + Corner2.y) / 2;
 	this->id = nullptr;
+	ishidden = false;
 }
 
 Rect::~Rect()
@@ -22,7 +22,9 @@ Rect::~Rect()
 
 void Rect::Draw(GUI* pUI) const
 {
-	pUI->DrawRect(Corner1,Corner2, ShpGfxInfo);
+	
+	pUI->DrawRect(Corner1, Corner2, ShpGfxInfo);
+
 }
 
 void Rect::Resize(double n)
@@ -69,7 +71,28 @@ void  Rect::zoom(double s, int x, int y)
 	Corner2.y = (Corner2.y * s) - (s * y) + y;
 }
 
+void Rect::hide()
+{
+	ishidden = true;
 
+}
+void Rect::unhide()
+{
+	ishidden = false;
+
+}
+int Rect::returnId()
+{
+	return ID;
+}
+void Rect::setId(int newid)
+{
+	ID = newid;
+}
+bool  Rect::isHidden()
+{
+	return ishidden;
+}
 void Rect::Save(ofstream& outfile){   //Rghda added
 	//I tried to put the coordinate in a single line
 	//and the colors in another one, but it will make it hard for load function
@@ -98,10 +121,25 @@ void Rect::Save(ofstream& outfile){   //Rghda added
 	outfile << endl;
 }
 void Rect::SetgroupCenter(Point p)
-
 {
 
 }
+shape* Rect::GDuplicateShape() {
+	shape* creatnewshape = new Rect(Corner1, Corner2, ShpGfxInfo);
+	creatnewshape->setId(ID);
+	return creatnewshape;
+}
+void  Rect::scramble(Point p)
+{
+	int disx = Corner1.x - p.x; 
+	int disy = Corner1.y - p.y;
+	Corner1 = p;
+	Corner2.x -= disx; 
+	Corner2.y -= disy;
+	Resize(0.6);
+
+}
+
 Point Rect::getCenter()
 {
 	return center;
@@ -167,19 +205,23 @@ bool Rect::IsShapeExisting(int x, int y)  //Rghda added
 	}
 }
 void Rect::Move(int x, int y) {
-	/*Corner1.x = Corner1.x + (x - center.x);
-	Corner1.y = Corner1.y + (y - center.y);
 
-	Corner2.x = Corner2.x + (x - center.x);
-	Corner2.y = Corner2.y + (y - center.y);*/
-
-	Point corner3 = { Corner1.x,Corner2.y };
+	/*Point corner3 = {Corner1.x,Corner2.y};  //it works too
 	int l = sqrt(pow(corner3.x - Corner2.x, 2) + pow(corner3.y - Corner2.y, 2));
 	int w = sqrt(pow(corner3.x - Corner1.x, 2) + pow(corner3.y - Corner1.y, 2));
 	Corner1.x =  (x );
 	Corner1.y =  (y );
 	Corner2.x =  (x +l);
-	Corner2.y =  (y +w);
+	Corner2.y =  (y +w);*/
+
+	Point p2;
+	p2.x = -(Corner1.x - Corner2.x) + x;
+	p2.y = -(Corner1.y - Corner2.y) + y;
+	Corner1.x = (x);
+	Corner1.y = (y);
+	Corner2.x = p2.x;
+	Corner2.y = p2.y;
+	
 }
 Point Rect::firstxofshape() {
 	return Corner1;

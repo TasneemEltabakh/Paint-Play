@@ -7,6 +7,8 @@ using namespace std;
 
 IrregularPolygon::IrregularPolygon(vector<Point> arrayv, GfxInfo shapeGfxInfo) : shape(shapeGfxInfo)
 {
+	srand(time(0));
+	ID = rand() % 100;
 	this->id = nullptr;
 	double sumX = 0 , sumY = 0;
 	arrayofpoints = arrayv;
@@ -27,11 +29,52 @@ IrregularPolygon::IrregularPolygon(vector<Point> arrayv, GfxInfo shapeGfxInfo) :
 	numberofsides = arrayX.size();
 	Center.x = sumX / numberofsides;
 	Center.y = sumY / numberofsides;
-  
+	ishidden == false;
+}
+void IrregularPolygon::hide()
+{
+	ishidden = true;
+
+}
+bool  IrregularPolygon::isHidden()
+{
+	return ishidden;
+}
+void IrregularPolygon::unhide()
+{
+	ishidden = false;
+
 }
 IrregularPolygon :: ~IrregularPolygon()
 {
 }
+int IrregularPolygon::returnId()
+{
+	return ID;
+}
+void IrregularPolygon::setId(int newid)
+{
+	ID = newid;
+}
+shape* IrregularPolygon::GDuplicateShape() {
+	vector<Point>arrayv;  //I didn't sure from this
+	shape* creatnewshape = new IrregularPolygon(arrayv, ShpGfxInfo);
+	creatnewshape->setId(ID);
+	return creatnewshape;
+}
+void IrregularPolygon::scramble(Point p)
+{
+	/*int disx = Center.x - p.x;
+	int disy = Center.y - p.y;
+	Center = p;
+	for (int i = 0; i < numberofsides; i++)
+	{
+		arrayX[i] -= disx;
+		arrayY[i] -= disy;
+	}*/
+}
+
+
 void  IrregularPolygon::zoom(double s, int x, int y)
 {
 	for (int i = 0; i < numberofsides; i++)

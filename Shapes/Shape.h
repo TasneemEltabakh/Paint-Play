@@ -1,7 +1,8 @@
 #pragma once
 #include "..\defs.h"
 #include "..\GUI\GUI.h"
-
+#include <time.h>
+#include <cstdlib>
 
 //Base class for all shapes
 class shape
@@ -17,7 +18,7 @@ public:
 	virtual ~shape() {}
 	void SetSelected(bool s);	//select/unselect the shape
 	bool IsSelected() const;	//check whether fig is selected
-
+	virtual bool isHidden() = 0;
 	virtual void Draw(GUI* pUI) const  = 0 ;		//Draw the shape
 	
 	void ChngDrawClr(color Dclr);	//changes the shape's drawing color
@@ -42,6 +43,12 @@ public:
 	virtual shape* Copy() = 0;
 	virtual int* GetID()= 0;
 	virtual void SetgroupCenter(Point)=0;
+	virtual void scramble(Point p) = 0;
+	virtual void hide() = 0;
+	virtual void unhide() = 0;
+	virtual int returnId() = 0;  //for match
+	virtual void setId(int newid)=0;  //for match
+	//virtual void unhide() = 0;
 	//virtual void Load(ifstream &Infile) = 0;	//Load the shape parameters to the file
 
 	//virtual void PrintInfo(Output* pOut) = 0;	//print all shape info on the status bar
@@ -51,6 +58,8 @@ public:
 	virtual bool IsShapeExisting(int x, int y) = 0;  //Rghda added
 
 	virtual Point firstxofshape() = 0;  //Rghda added
+	virtual shape* GDuplicateShape() = 0;  //Rghda added
+
 	
 };
 

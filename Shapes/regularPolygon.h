@@ -21,6 +21,7 @@ private:
     int* b = new int;
     const double pi = 3.14159;
     int* id;
+    bool ishidden;
 
 public :
     regularPolygon(Point, Point, int , GfxInfo shapeGfxInfo);
@@ -31,7 +32,7 @@ public :
     bool IsShapeExisting(int x, int y);  //Rghda added
     void Move(int x, int y); //Rghda Salah
     Point firstxofshape();  //Rghda added for test
-
+    void scramble(Point p);
     float trianglearea(int x1, int y1, int x2, int y2, int x3, int y3);  //Rghda added
     void generatingPoints();
     int* GetID() override;
@@ -43,6 +44,13 @@ public :
     void SetgroupCenter(Point) override;
     Point getCenter() override;
     void setID(int*) override;
+    void hide() override;
+    bool isHidden();
+    void unhide();
+    shape* GDuplicateShape();
+    int returnId();
+    void setId(int newid);
+
     shape* Copy();
 };
 

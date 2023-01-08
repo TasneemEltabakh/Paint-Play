@@ -13,5 +13,5 @@ void  Cut::Execute() {
 	GUI* pUI = pControl->GetUI();
 	Graph* pGraph = pControl->getGraph();
 	pGraph->GCut();
-	pUI->PrintMessage("Object cut to clipboard choose paste to add it to graph");
+	pUI->PrintMessage("Selected object cut to clipboard choose paste to add it to graph");
 };

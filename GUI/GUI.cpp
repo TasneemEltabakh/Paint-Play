@@ -1,5 +1,5 @@
 #include "GUI.h"
-
+#include "..//Shapes/Graph.h"
 GUI::GUI()
 {
 	//Initialize user interface parameters
@@ -24,6 +24,7 @@ GUI::GUI()
 	PenWidth = 3;	//default width of the shapes frames
 	IsFilled=false;
 	isChanged = false;
+    ishidden = false;
 	isBorderChanged = false;
 	count= new int;
 	*count = 0;
@@ -126,7 +127,6 @@ operationType GUI::GetUseroperation() const
 			case ICON_LOAD:return LOAD;
 			case ICON_ADDIMG: return ADD_IMG;
 			case ICON_BORD: return bord;
-			case ICON_BACK: return BACK;
 			case ICON_SWITCH: return TO_PLAY;
 			case ICON_COPY: return COP;
 			case ICON_PASTE: return PASTE;
@@ -257,7 +257,6 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_SELECTEDCOL] = "images\\MenuIcons\\pencils.jpg";
 	MenuIconImages[ICON_SELECTEDFILL] = "images\\MenuIcons\\fills.jpg";
 	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\upload.jpg";
-	MenuIconImages[ICON_BACK] = "images\\MenuIcons\\exit.jpg";
 	MenuIconImages[ICON_SWITCH] = "images\\MenuIcons\\switch.jpg";
 	MenuIconImages[ICON_PASTE] = "images\\MenuIcons\\paste.jpg";
 	MenuIconImages[ICON_UNDO] = "images\\MenuIcons\\undo.jpg";
@@ -404,12 +403,8 @@ Point GUI::GetOrigin() const
 
 void GUI:: Zoom(int X, int Y)
 {
-
 	Origin.x = X ;
 	Origin.y = Y ;
-	
-
-
 }
 bool  GUI::UnZoomi()
 {
@@ -428,14 +423,20 @@ double GUI::getLastScale()
 {
 	return scale;
 }
-void GUI::AddImg(string s) {
+int GUI::getToolbarheight() const
+{
+	return ToolBarHeight;
+}
+void GUI::hide(Point center, int sizes)
+{
 
-	int MenuIconWidthpallete = 100;
-	int drawheight = 100;
-	int MenuIconW = 80;
-
-	pWind->DrawImage("images\\MenuIcons\\" + s + ".jpg", 10, 0, 100, 900);
-	pWind->SetPen(RED, 3);
+	int size = sizes * 2;
+	int mywidth = width / size;
+	int myheight = (height - ToolBarHeight - StatusBarHeight) / size;
+	pWind->SetPen(BLACK, 5);
+	pWind->SetBrush(BLACK);
+	pWind->DrawRectangle(center.x, center.y, mywidth, myheight);
+	
 }
 
 void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
@@ -462,6 +463,21 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 		pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
 	
 	
+}
+void GUI::DrawRectForCard(Point P1, Point P2) const
+{
+
+	color DrawingClr;
+
+	   pWind->SetPen(RED, 5);	
+
+	    drawstyle style;
+		style = FILLED;
+	   pWind->SetBrush(BLACK);
+
+	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
+
+
 }
 
 void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriangleGfxInfo) const

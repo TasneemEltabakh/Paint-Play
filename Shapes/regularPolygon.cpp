@@ -8,7 +8,8 @@
 regularPolygon ::regularPolygon(Point P1, Point P2, int Sides,  GfxInfo shapeGfxInfo) : shape(shapeGfxInfo)
 {
 	
-	
+	srand(time(0));
+	ID = rand() % 100;
 	Center.x = P1.x;
 	Center.y = P1.y;
 	start.x = P2.x;
@@ -19,10 +20,33 @@ regularPolygon ::regularPolygon(Point P1, Point P2, int Sides,  GfxInfo shapeGfx
 	generatingPoints();
 	a = &arrayX[0];
 	b = &arrayY[0];
+	ishidden == false;
 
 }
 regularPolygon:: ~regularPolygon()
 {}
+shape* regularPolygon::GDuplicateShape() {
+	shape* creatnewshape = new regularPolygon(Center, start,r, ShpGfxInfo);
+	creatnewshape->setId(ID);
+	return creatnewshape;
+}
+void regularPolygon :: scramble(Point p)
+{
+	/*Center.x = rand() % 800;
+	Center.y = rand() % 300;
+
+	for (int i = 0; i < NumberOfsides; i++)
+	{
+		arrayX.at(i) = arrayX[i] + Center.x;
+		arrayY.at(i) = arrayY[i]  + Center.y;
+	}*/
+
+}
+void regularPolygon::unhide()
+{
+	ishidden = false;
+
+}
 void regularPolygon::generatingPoints()
 {
 	
@@ -35,6 +59,14 @@ void regularPolygon::generatingPoints()
 		arrayY.push_back(yOfvertix);
 
 	}
+}
+int regularPolygon::returnId()
+{
+	return ID;
+}
+void regularPolygon::setId(int newid)
+{
+	ID = newid;
 }
 void  regularPolygon::zoom(double s, int x, int y)
 {
@@ -60,6 +92,7 @@ int* regularPolygon::GetID()
 }
 void regularPolygon::Resize(double n)
 {
+
 	for (int i = 0; i < NumberOfsides; i++)
 	{
 		arrayX.at(i) = (arrayX[i] * n) - (n * Center.x) + Center.x;
@@ -85,14 +118,13 @@ void regularPolygon::Rotate()
 void regularPolygon::ResizeThisbydrag(Point corner, int  xto, int yto)
 {
 
-	double d1 = sqrt(pow(start.x - Center.x, 2) + pow(start.y - Center.y, 2));
+	double d1 = sqrt(pow(arrayX[0] - Center.x, 2) + pow(arrayY[0] - Center.y, 2));
 	double d2 = sqrt(pow(xto - Center.x, 2) + pow(yto - Center.y, 2));
 	double s = d2 / d1;
 	Resize(s);
 
 }
 void regularPolygon::SetgroupCenter(Point p)
-
 {
 	
 }
@@ -109,6 +141,15 @@ void  regularPolygon::Draw(GUI* pUI) const
 {
 	int numberofv = arrayY.size();
 	pUI->DrawPol(a, b, numberofv, ShpGfxInfo);
+}
+void regularPolygon::hide()
+{
+	ishidden = true;
+
+}
+bool  regularPolygon::isHidden()
+{
+	return ishidden;
 }
 
 void regularPolygon::Save(ofstream& outfile) {  //Rghda added
@@ -161,26 +202,6 @@ float regularPolygon::trianglearea(int x1, int y1, int x2, int y2, int x3, int y
 	return abs((x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) / 2.0);
 }
 bool regularPolygon::IsShapeExisting(int x, int y) {  //Rghda added  //I should put the function here
-	/*float shapearea = (pow((SideLength), 2) * NumberOfsides) / (4 * tan(3.14 / NumberOfsides));
-	float sumareaoftriangles = 0;
-	for (int i = 0; i < arrayX.size(); i++)
-	{
-		if (i = NumberOfsides - 1) {
-			float try1 = trianglearea(x, y, arrayX[i], arrayY[i], arrayX[0], arrayY[0]);
-			sumareaoftriangles = sumareaoftriangles + try1;
-		}
-		else {
-			float try1 = trianglearea(x, y, arrayX[i], arrayY[i], arrayX[i + 1], arrayY[i + 1]);
-			sumareaoftriangles = sumareaoftriangles + try1;
-		}
-	}
-
-	if (shapearea = sumareaoftriangles) {
-		return true;
-	}
-	else {
-		return false;
-	}*/
 
 	float discenterclickedpoint = sqrt(pow((Center.x - x), 2) + pow((Center.y - y), 2));
 	float radious = sqrt(pow((Center.x - start.x), 2) + pow((Center.y - start.y), 2));

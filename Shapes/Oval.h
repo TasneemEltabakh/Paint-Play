@@ -13,6 +13,7 @@ private:
 	double red1;
 	double red2;
 	int* id;
+	bool ishidden;
 
 public:
 	Oval(Point P1, Point P2, GfxInfo shapeGfxInfo);
@@ -23,7 +24,7 @@ public:
 	bool IsShapeExisting(int x, int y);  //Rghda added
 	void Move(int x, int y); //Rghda Salah
 	Point firstxofshape();  //Rghda added for test
-
+	void scramble(Point p);
 	void Load(ifstream& inputfile);
 	void Resize(double n);
 	void Rotate();
@@ -33,6 +34,12 @@ public:
 	void SetgroupCenter(Point) override;
 	Point getCenter() override;
 	void setID(int*) override;
+	void hide() override;
+	bool isHidden();
+	void unhide();
+	shape* GDuplicateShape();
+	int returnId();
+	void setId(int newid);
 	shape* Copy();
 };
 

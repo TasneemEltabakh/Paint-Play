@@ -32,10 +32,15 @@
 #include "operations/opSwitchTodraw2.h"
 #include "Shapes/Groupshape.h"
 #include "operations/opGroup.h"
+#include "operations/Scramble.h"
+#include "operations/Play.h"
+#include "operations/Restart.h"
 #include "operations/Duplicate.h"
 #include "operations/Copy.h"
 #include "operations/Cut.h"
 #include"operations/Paste.h"
+
+#include "operations/hide.h"
 
 using namespace std;
 //Constructor
@@ -82,22 +87,22 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddirrPol(this);
 		break;
 	case SAVE:  //Rghda added
-		pOp = new Resize(this);
+		pOp = new Play(this);
 		break;
 	case SELECT:  //Rghda added
 		pOp = new Select(this);
 		break;
 	case DEL:  //Rghda added
-		pOp = new opGroup(this); // trial
+		pOp = new Scramble(this);
 		break;
 	case EXIT:
-		pOp = new opExit(this);
+		pOp = new opExit(this);  //trial
 		break;
 	case TO_Pallete:
-		pOp = new opChooseColour(this);
+		pOp = new ZoomIn(this);
 		break;
 	case FILL_COLOUR:
-		pOp = new opFillColour(this);
+		pOp = new Hide(this);
 		break;
 	case DRAWOV:
 		pOp = new opAddOval(this);
@@ -106,7 +111,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddSquare(this);
 		break;
 	case selectfill:
-		pOp = new opChangeFillSelected(this);
+		pOp = new ZoomOut(this);
 		break;
 	case selectwid:
 		pOp = new opChangeSelectedWidth(this);
@@ -118,7 +123,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opLoad(this);
 		break;
 	case ADD_IMG:
-		pOp = new Resize(this);
+		pOp = new opGroup(this);
 		break;
 	case bord:
 		pOp = new opChangeWidth(this);
@@ -149,6 +154,9 @@ operation* controller::createOperation(operationType OpType)
 		break;
 	case ZOOMIN:
 		pOp = new ZoomIn(this);
+		break;
+	case GROUP:
+		pOp = new opGroup(this);
 		break;
 	case STATUS:	//a click on the status bar ==> no operation
 		break;

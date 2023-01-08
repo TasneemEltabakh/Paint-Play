@@ -32,6 +32,7 @@ Point shape::ChangeSize(Point p)
 	p.y = p.y * .25;
 	return p;
 }
+
 // my func to get aim of selection 
 
 void SelectedShapeAim()
@@ -43,3 +44,4 @@ void SelectedShapeAim()
 
 
 }
+

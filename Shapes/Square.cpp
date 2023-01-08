@@ -4,14 +4,15 @@
 
 Square::Square(Point P1, int s , GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
-	
+	srand(time(0));
+	ID = rand() % 100;
 	Corner1 = P1;
 	side = s; 
 	diagonl = sqrt(pow(side, 2) + pow(side, 2));
 	generatingCorners();
-
+	ishidden == false;
 	id = nullptr;
-
+	ishidden = false;
 }
 void Square:: generatingCorners()
 {
@@ -22,6 +23,19 @@ void Square:: generatingCorners()
 	center.y = (Corner1.y + (diagonl / 2));
 
 
+
+}
+int Square::returnId()
+{
+	return ID;
+}
+void Square::setId(int newid)
+{
+	ID = newid;
+}
+void Square::unhide()
+{
+	ishidden = false;
 
 }
 void Square::Resize(double n)
@@ -42,16 +56,24 @@ void Square::zoom(double s, int x, int y)
 }
 void Square::ResizeThisbydrag(Point corner, int  xto, int yto)
 {
-	/*double d1 = sqrt(pow(Corner1.x - Center.x, 2) + pow(Corner1.y - Center.y, 2));
-	double d2 = sqrt(pow(xto - Center.x, 2) + pow(yto - Center.y, 2));
+	double d1 = sqrt(pow(Corner1.x - center.x, 2) + pow(Corner1.y - center.y, 2));
+	double d2 = sqrt(pow(xto - center.x, 2) + pow(yto - center.y, 2));
 	double s = d2 / d1;
-	Resize(s);*/
+	Resize(s);
+
 	
 	
 }
 Square::~Square()
 {}
-
+void Square::hide()
+{
+	ishidden = true;
+}
+bool  Square::isHidden()
+{
+	return ishidden;
+}
 void Square::Draw(GUI* pUI) const
 {
 	//Call Output::DrawSquare to draw a r on the screen	
@@ -101,6 +123,25 @@ Point Square::getCenter()
 {
 	return center;
 }
+shape* Square::GDuplicateShape() {
+	shape* creatnewshape = new Square(Corner1, side, ShpGfxInfo);
+	creatnewshape->setId(ID);
+	return creatnewshape;
+}
+void  Square:: scramble(Point p)
+{
+	/*Corner1.x = rand() % 800;
+	Corner1.y = rand() % 300;
+	Corner2.x = (Corner1.x + side * 50);
+	Corner2.y = (Corner1.y + side * 50);*/
+
+	int disx = Corner1.x - p.x;
+	int disy = Corner1.y - p.y;
+	Corner1 = p;
+	Corner2.x -= disx;
+	Corner2.y -= disy;
+}
+
 void Square::setID(int* id)
 {
 	this->id = id;
@@ -161,7 +202,7 @@ bool Square::IsShapeExisting(int x, int y)  //Rghda added
 		}
 	}*/
 }
-void Square::Move(int x, int y) {   //Rghda Salah
+void Square::Move(int x, int y) {   //Rghda add
 	Point corner3 = { Corner1.x,Corner2.y };
 	int l = sqrt(pow(corner3.x - Corner2.x, 2) + pow(corner3.y - Corner2.y, 2));
 	int w = sqrt(pow(corner3.x - Corner1.x, 2) + pow(corner3.y - Corner1.y, 2));

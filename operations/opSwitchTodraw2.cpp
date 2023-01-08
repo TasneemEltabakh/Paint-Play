@@ -14,5 +14,5 @@ void opSwitchTodraw2::Execute()
 {
 	GUI* pUI = pControl->GetUI();
 	pUI->switchtodraw2();
-
+	
 }

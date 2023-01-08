@@ -15,21 +15,44 @@ void opGroup::Execute()
 {
 
 	GUI* pUI = pControl->GetUI();
-
+	string choice;
 	Graph* pGraph = pControl->getGraph();
+
+
 
 	int IDOfgroup;
 
+
+	pUI->PrintMessage("do you want to group or ungroup: to group press g ");
+	
+	choice = pUI->GetSrting();
+	int* p = nullptr;
+
 	pUI->PrintMessage("Enter an Id for this group ");
-
 	IDOfgroup = stoi(pUI->GetSrting());
-	int* p = &IDOfgroup;
+	p = &IDOfgroup;
 
-	pGraph->groupthisShapes(p);
+	
 
-	pUI->PrintMessage("You created a group with Id number "+ IDOfgroup);
+	if (choice == "g" || choice == "G")
+	{
+		while (pGraph->isInIds(p))
+		{
+			pUI->PrintMessage("you have already another group with the same Id, enter another one please ");
+			IDOfgroup = stoi(pUI->GetSrting());
+			p = &IDOfgroup;
+			pGraph->isInIds(p);
+
+		}
+	
+		pGraph->groupthisShapes(p);
+		pUI->PrintMessage("You created a group with Id number " + IDOfgroup);
+		pUI->ClearStatusBar();
+	}
+	else
+		pGraph->Ungroup(p);
 
 	pUI->ClearStatusBar();
 
-
 }
+	

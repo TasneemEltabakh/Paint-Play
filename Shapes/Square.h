@@ -17,6 +17,7 @@ private:
 	vector<int> arrayY;
 	Point groupcenter;
 	int* id;
+	bool ishidden;
 public:
 	Square(Point, int, GfxInfo shapeGfxInfo);
 	virtual ~Square();
@@ -28,16 +29,21 @@ public:
 	int* GetID() override;
 	void Move(int x, int y); //Rghda Salah
 	Point firstxofshape();  //Rghda added for test
-
+	void hide() override;
 	void Load(ifstream& inputfile);
 	void Resize(double n);
 	void Rotate();
-	
+	void scramble(Point p) ;
 	void zoom(double s, int, int) override;
 	void ResizeThisbydrag(Point corner, int  xto, int yto) override;
 	void SetgroupCenter(Point) override;
 	Point getCenter() override;
 	void setID(int* ) override;
+	bool isHidden();
+	void unhide();
+	shape* GDuplicateShape();
+	int returnId();
+	void setId(int newid);
 	shape* Copy();
 
 };

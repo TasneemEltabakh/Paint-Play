@@ -246,6 +246,21 @@
     <ClCompile Include="operations\opGroup.cpp">
       <Filter>operations</Filter>
     </ClCompile>
+    <ClCompile Include="operations\Scramble.cpp">
+      <Filter>operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\Play.cpp">
+      <Filter>operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\Restart.cpp">
+      <Filter>operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\hide.cpp">
+      <Filter>operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\opUnhide.cpp">
+      <Filter>operations</Filter>
+    </ClCompile>
     <ClCompile Include="operations\Copy.cpp">
       <Filter>operations</Filter>
     </ClCompile>
@@ -462,6 +477,21 @@
       <Filter>operations</Filter>
     </ClInclude>
     <ClInclude Include="operations\opGroup.h">
+      <Filter>operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\Play.h">
+      <Filter>operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\Scramble.h">
+      <Filter>operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\Restart.h">
+      <Filter>operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\hide.h">
+      <Filter>operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opUnhide.h">
       <Filter>operations</Filter>
     </ClInclude>
     <ClInclude Include="operations\Copy.h">

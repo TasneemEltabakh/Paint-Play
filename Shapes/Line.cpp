@@ -11,14 +11,39 @@
 
 Line::Line(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
+	srand(time(0));
+	ID = rand() % 100;
 	Corner1 = P1;
 	Corner2 = P2;
 	dist = sqrt(pow(Corner1.x - Corner2.x, 2) + pow(Corner1.y - Corner2.y, 2));	
 	midPoint.x = (Corner1.x + Corner2.x) / 2;
 	midPoint.y= (Corner1.y + Corner2.y) / 2;
 	this->id = nullptr;
-}
+	ishidden == true;
 
+}
+void Line::hide()
+{
+	ishidden = true;
+
+}
+int Line::returnId()
+{
+	return ID;
+}
+void Line::setId(int newid)
+{
+	ID = newid;
+}
+void Line::unhide()
+{
+	ishidden = false;
+
+}
+bool  Line::isHidden()
+{
+	return ishidden;
+}
 Line :: ~Line()
 {}
 void Line::Draw(GUI* pUI) const
@@ -68,6 +93,20 @@ void Line::SetgroupCenter(Point p)
 {
 
 }
+shape* Line::GDuplicateShape() {
+	shape* creatnewshape = new Line(Corner1, Corner2, ShpGfxInfo);
+	creatnewshape->setId(ID);
+	return creatnewshape;
+}
+void Line::scramble(Point p)
+{
+	int difX = Corner1.x - p.x;
+	int difY = Corner1.y - p.y;
+	Corner1 = p;
+	Corner2.x -= difX; 
+	Corner2.y -= difY;
+}
+
 Point Line::getCenter()
 {
 	return midPoint;
@@ -141,13 +180,20 @@ bool Line::IsShapeExisting(int x, int y)  //Rghda added  //It didn't work from f
 	return false;
 }
 void Line::Move(int x, int y) {   //Rghda Salah
-	Point corner3 = { Corner1.x,Corner2.y };
+	/*Point corner3 = {Corner1.x,Corner2.y};
 	int l = sqrt(pow(corner3.x - Corner2.x, 2) + pow(corner3.y - Corner2.y, 2));
 	int w = sqrt(pow(corner3.x - Corner1.x, 2) + pow(corner3.y - Corner1.y, 2));
 	Corner1.x = (x);
 	Corner1.y = (y);
 	Corner2.x = (x + l);
-	Corner2.y = (y + w);
+	Corner2.y = (y + w);*/
+	Point p2;
+	p2.x = -(Corner1.x - Corner2.x) + x;
+	p2.y = -(Corner1.y - Corner2.y) + y;
+	Corner1.x = (x);
+	Corner1.y = (y);
+	Corner2.x = p2.x;
+	Corner2.y = p2.y;
 }
 Point Line::firstxofshape() {
 	return Corner1;

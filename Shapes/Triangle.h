@@ -8,6 +8,7 @@ class Triangle : public shape
 		Point Corner3;
 		Point Center;
 		int* id;
+		bool ishidden;
 	public:
 		Triangle(Point P1, Point P2, Point P3 , GfxInfo shapeGfxInfo);
 		virtual ~Triangle();
@@ -17,7 +18,7 @@ class Triangle : public shape
 		bool IsShapeExisting(int x, int y);  //Rghda added
 		void Move(int x, int y); //Rghda Salah
 		Point firstxofshape();  //Rghda added for test
-
+		void scramble(Point p);
 		string PrintOnTool();  //Rghda added
 		void Load(ifstream& inputfile);
 		void Resize(double n);
@@ -25,11 +26,17 @@ class Triangle : public shape
 		void zoom(double s, int, int) override;
 		Point GetCoordinates() const;
 		int* GetID() override;
-	
+		void hide() override;
 		void ResizeThisbydrag(Point corner, int  xto, int yto) override;
 		void SetgroupCenter(Point) override;
 		Point getCenter() override;
 		void setID(int*) override;
+		bool isHidden();
+		void unhide();
+		shape* GDuplicateShape();
+		int returnId();
+		void setId(int newid);
+		
 		shape* Copy();
 };
 

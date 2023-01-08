@@ -4,14 +4,29 @@
 
 Circle::Circle(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
+	srand(time(0));
+	ID = rand() % 100;
 	Corner1 = P1;
 	Corner2 = P2;
 	radious = sqrt(pow(P1.x - P2.x, 2) + pow(P1.y - P2.y, 2));
 	this->id = nullptr;
+	ishidden = false;
 }
 Circle :: ~Circle()
 {}
+void Circle::unhide()
+{
+	ishidden = false;
 
+}
+int Circle::returnId()
+{
+	return ID;
+}
+void Circle::setId(int newid)
+{
+	ID = newid;
+}
 void Circle::Draw(GUI* pUI) const
 {
 	//Call Output::DrawCircle to draw a circle on the screen	
@@ -23,6 +38,28 @@ void Circle::Resize(double n)
 	radious = radious * n;
 
 }
+shape* Circle::GDuplicateShape() {
+	shape* creatnewshape = new Circle(Corner1, Corner2, ShpGfxInfo);
+	creatnewshape->setId(ID);
+	return creatnewshape;
+}
+void Circle::scramble(Point p)
+{
+	//srand(time(0));
+	//if (ff == 0) {  //I traid to test something
+	//	Corner1.x = rand() % 800;
+	//	Corner1.y = rand() % 300;
+	//	ff = ff + 1;
+	//}
+	//else {
+	//	Corner1.x = rand() % 850;
+	//	Corner1.y = rand() % 350;
+	//}
+	Corner1.x = p.x;
+	Corner1.y = p.y;
+	
+}
+
 void Circle::Rotate()
 {}
 void Circle::ResizeThisbydrag(Point corner, int  xto, int yto)
@@ -43,6 +80,14 @@ void Circle::SetgroupCenter(Point p)
 
 {
 
+}
+void Circle::hide()
+{
+	ishidden = true;
+}
+bool  Circle::isHidden()
+{
+	return ishidden;
 }
 Point Circle::getCenter()
 {

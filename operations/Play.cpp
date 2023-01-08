@@ -93,6 +93,8 @@ void Play::match() {
 }
 void Play::Execute() {
 	Hide h(pControl);
+	Scramble H(pControl);
+	H.Execute();
 	h.Execute();
 	match();
 }

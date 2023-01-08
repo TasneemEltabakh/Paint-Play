@@ -94,8 +94,7 @@ class GUI
 		//If you want to change the menu icons order, change the order here
 
 		//TODO: Add more icons names here
-		ICON_HIDE,
-		ICON_UNHIDE,
+
 		ICON_START,
 		ICON_REST,
 		ICON_Switch,

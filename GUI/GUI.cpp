@@ -183,6 +183,8 @@ operationType GUI::GetUseroperation() const
 			switch (ClickedIconOrder)
 			{
 			case ICON_Switch: return TO_DRAW;
+			case ICON_START: return START;
+			case ICON_REST: return RESTART;
 			default: return EMPTY;
 			}
 		}
@@ -348,10 +350,8 @@ void GUI::CreatePlayToolBar()
 {
 	InterfaceMode = MODE_PLAY;
 	///TODO: write code to create Play mode menu
-	pWind->DrawRectangle(0, 0, 1290, 70);
+	pWind->DrawRectangle(0, 0, 1600, 70);
 	string PlayMenuIcon[PLAY_ICON_COUNT];
-	PlayMenuIcon[ICON_HIDE] = "images\\MenuIcons\\hide.jpg";
-	PlayMenuIcon[ICON_UNHIDE] = "images\\MenuIcons\\unhideariam.jpg";
 	PlayMenuIcon[ICON_START] = "images\\MenuIcons\\start.jpg";
 	PlayMenuIcon[ICON_REST] = "images\\MenuIcons\\restartariam.jpg";
 	PlayMenuIcon[ICON_Switch]= "images\\MenuIcons\\switch.jpg";

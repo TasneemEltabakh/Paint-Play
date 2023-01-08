@@ -16,6 +16,7 @@
 #include "operations/opsSwitch.h"
 #include "operations/Select.h"
 #include "operations/Delete.h"
+#include "operations/opChangeFill.h"
 #include "operations/opChangeFillSelected.h"
 #include "operations/opCahangeSelectedWidth.h"
 #include "operations/opCahngeSelectedBorder.h"
@@ -39,7 +40,7 @@
 #include "operations/Copy.h"
 #include "operations/Cut.h"
 #include"operations/Paste.h"
-
+#include "operations/opAddImg.h"
 #include "operations/hide.h"
 
 using namespace std;
@@ -87,22 +88,22 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddirrPol(this);
 		break;
 	case SAVE:  //Rghda added
-		pOp = new Play(this);
+		pOp = new Save(this);
 		break;
 	case SELECT:  //Rghda added
 		pOp = new Select(this);
 		break;
 	case DEL:  //Rghda added
-		pOp = new Scramble(this);
+		pOp = new Delete(this);
 		break;
 	case EXIT:
 		pOp = new opExit(this);  //trial
 		break;
 	case TO_Pallete:
-		pOp = new ZoomIn(this);
+		pOp = new opChooseColour(this);
 		break;
 	case FILL_COLOUR:
-		pOp = new Hide(this);
+		pOp = new opChangeFill(this);
 		break;
 	case DRAWOV:
 		pOp = new opAddOval(this);
@@ -111,7 +112,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opAddSquare(this);
 		break;
 	case selectfill:
-		pOp = new ZoomOut(this);
+		pOp = new opChangeFillSelected(this);
 		break;
 	case selectwid:
 		pOp = new opChangeSelectedWidth(this);
@@ -123,7 +124,7 @@ operation* controller::createOperation(operationType OpType)
 		pOp = new opLoad(this);
 		break;
 	case ADD_IMG:
-		pOp = new opGroup(this);
+		pOp = new opAddImg(this);
 		break;
 	case bord:
 		pOp = new opChangeWidth(this);
@@ -136,9 +137,6 @@ operation* controller::createOperation(operationType OpType)
 		break;
 	case MOVE:  //Rghda added
 		pOp = new Move(this);
-		break;
-	case BACK:
-		pOp = new opSwitchTodraw2(this);
 		break;
 	case ROTATE:
 		pOp= new Rotate(this);
@@ -158,8 +156,6 @@ operation* controller::createOperation(operationType OpType)
 	case GROUP:
 		pOp = new opGroup(this);
 		break;
-	case STATUS:	//a click on the status bar ==> no operation
-		break;
 	case COP:
 		pOp = new Copy(this);
 		break;
@@ -168,6 +164,17 @@ operation* controller::createOperation(operationType OpType)
 		break;
 	case CUT:
 		pOp = new Cut(this);
+		break;
+	case START:
+		pOp = new Play(this);
+		break;
+	case RESTART:
+		pOp = new Restart(this);
+		break;
+	case SCRAMBLE:
+		pOp = new Scramble(this);
+		break;
+	case STATUS:	//a click on the status bar ==> no operation
 		break;
 	}
 	

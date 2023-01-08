@@ -50,6 +50,9 @@ enum operationType //The operations supported (you can add more if needed)
 	COP,
 	PASTE,
 	CUT,
+	START,
+	RESTART,
+	SCRAMBLE
 	///TODO: Add more operation types (if needed)
 };
 

@@ -30,7 +30,7 @@ void Select::Execute() {
 		pGUI->PrintMessage("Click at the shape to select.");
 		pGUI->GetPointClicked(P1.x, P1.y);
 		//I couldn't use the selectedshape from graph file as it is a praivet data
-		if (P1.x > 722 && P1.x < 761 && P1.y>9 && P1.y < 52) {
+		if (P1.x > 989 && P1.x < 1033 && P1.y>7 && P1.y < 45) {
 			pGUI->ClearStatusBar();
 			pControl->UpdateInterface();
 		}
@@ -74,7 +74,7 @@ void Select::Execute() {
 
 			shape* selectedmultishape = pGraph->Getshape(P1.x, P1.y);
 
-			if (P1.x > 722 && P1.x < 761 && P1.y>9 && P1.y < 52) {
+			if (P1.x > 989 && P1.x < 1033 && P1.y>7 && P1.y < 45) {
 				pGUI->ClearStatusBar();
 				test = false;
 			}

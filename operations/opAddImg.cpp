@@ -10,9 +10,6 @@ opAddImg::~opAddImg()
 
 void opAddImg::Execute() {
 
-	GUI* pUI = pControl->GetUI();
-	Graph* pGraph = pControl->getGraph();
-	Point p= pGraph->getselectedShape()->getCenter();
 	
 
 	

@@ -492,9 +492,12 @@ void Graph::GDuplicate() {
 int Graph::getClipboardsize() {
 	return clipboard.size();
 }
-void  Graph::GCut()
+
+bool Graph::GCut()
 {
-	for (int k = 0; k < shapesList.size(); k++)
+	bool cont = true;
+	bool cut = false;
+	for (int k = 0; k < shapesList.size(); k++) {
 
 		if (selectedShape == shapesList[k]) {
 			shapesList[k]->SetSelected(false);
@@ -502,29 +505,54 @@ void  Graph::GCut()
 			//CFigure* Temp = new CCircle(Center, Radius, FigGfxInfo);
 			//return Temp;
 			cout << clipboard.size();
-
+			cont = false;
+			cut = true;
 		};
+	}
 
+	if (cont) {
+
+		for (int k = 0; k < multiselectedvector.size(); k++) {
+			for (int i = 0; i < shapesList.size(); i++) {
+				if (multiselectedvector[k] == shapesList[k]) {
+					clipboard.push_back(shapesList[k]);
+					cout << clipboard.size();
+					cut = true;
+				}
+			};
+		}
+
+		for (int j = 0; j < multiselectedvector.size(); j++) {
+			multiselectedvector.erase(multiselectedvector.begin() + j);   //delete selected shapes from the vector
+			j--;
+		};
+	};
+
+	return cut;
+	
 };
 
 void  Graph::GPaste(int x, int y) {
 
-	cout << "graph paste called " << endl;
-	clipboard[0]->Move(x, y);
+	for (int i = 0; i < clipboard.size(); i++) {
+		clipboard[0]->Move(x, y);
 
-	cout << "shape moved" << endl;
+		//cout << "shape moved" << endl;
 
-	shapesList.push_back(clipboard[0]);
-	cout << "shape pusched back" << endl;
+		shapesList.push_back(clipboard[0]);
+		//cout << "shape pusched back" << endl;
 
-	cout << clipboard.size() << endl;
+		//cout << clipboard.size() << endl;
+	}
 	clipboard.clear();
 
-	cout << clipboard.size() << endl;
+	//cout << clipboard.size() << endl;
 	//vectorOfIds.erase(vectorOfIds.begin() + m);
 }
 
-void Graph::GCopy() {
+bool Graph::GCopy() {
+	bool cont = true;
+	bool copied = false;
 	for (int k = 0; k < shapesList.size(); k++) {
 
 		if (selectedShape == shapesList[k]) {
@@ -533,32 +561,32 @@ void Graph::GCopy() {
 
 			clipboard.push_back(myshape);
 
-			cout << clipboard.size();
-			break;
+			cont = false;
+			copied = true;
 		};
 	};
-	cout << "graph copy called " << endl;
 
 
-	cout << "multiple selected vector size is :" << multiselectedvector.size() << endl;
+	//cout << "multiple selected vector size is :" << multiselectedvector.size() << endl;
+	if (cont){
+		for (int k = 0; k < multiselectedvector.size(); k++) {
+			for (int i = 0; i < shapesList.size(); i++) {
+				if (multiselectedvector[k] == shapesList[k]) {
+					shape* myshape = shapesList[k]->Copy();
 
-	for (int k = 0; k < multiselectedvector.size(); k++) {
-		for (int i = 0; i < shapesList.size(); i++) {
-			if (multiselectedvector[k] == shapesList[k]) {
-				shape* myshape = shapesList[k]->Copy();
+					clipboard.push_back(myshape);
+					copied = true;
+					cout << clipboard.size();
+				}
+			};
+		}
 
-				clipboard.push_back(myshape);
-
-				cout << clipboard.size();
-			}
-		};
+		for (int j = 0; j < multiselectedvector.size(); j++) {
+			multiselectedvector.erase(multiselectedvector.begin() + j);   //delete selected shapes from the vector
+			j--;
+		}
 	}
-	/*/
-
-	for (int j = 0; j < multiselectedvector.size(); j++) {
-		multiselectedvector.erase(multiselectedvector.begin() + j);   //delete selected shapes from the vector
-		j--;
-	}/**/
+	return copied;
 }
 	
 bool Graph::isInIds(int* n)

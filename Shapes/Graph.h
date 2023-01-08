@@ -76,8 +76,8 @@ public:
 	void  Ungroup(int n);
 	void GDuplicate();
 	void GScramble();
-	void GCopy();
-	void GCut();
+	bool GCopy();
+	bool GCut();
 	int getClipboardsize();
 	void GPaste(int x,int y);
 };
